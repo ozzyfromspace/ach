@@ -33,7 +33,7 @@ const Nav = () => {
   };
 
   return (
-    <header className="fixed z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-sm">
+    <header className="fixed z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-100 shadow-sm">
       <button>
         <ReactScrollLink
           to="hero"
@@ -43,7 +43,7 @@ const Nav = () => {
           duration={450}
           onClick={updateURL}
         >
-          <p>LOGO</p>
+          <h4>LOGO</h4>
         </ReactScrollLink>
       </button>
       {mobile ? (

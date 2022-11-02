@@ -1,11 +1,15 @@
+import Padding from '../padding';
+
 const Rooms = () => {
   return (
-    <div
-      className="w-full h-screen flex justify-center items-center bg-orange-300"
-      id="rooms"
-    >
-      Rooms
-    </div>
+    <Padding>
+      <div
+        className="w-full h-screen flex justify-center items-center bg-orange-300"
+        id="rooms"
+      >
+        Rooms
+      </div>
+    </Padding>
   );
 };
 

@@ -19,18 +19,21 @@ const DesktopNav = () => {
     <nav>
       <ul className="flex flex-row gap-[7vw] justify-center items-center">
         {navlinks.map((navlink) => (
-          <li key={navlink.route}>
+          <li
+            key={navlink.route}
+            className="hover:scale-[1.05] hover:transition-transform duration-200 ease-out"
+          >
             <button>
               <ReactScrollLink
                 to={navlink.route}
                 activeClass="active-link"
                 spy={true}
                 smooth={true}
-                offset={0}
+                offset={-80}
                 duration={450}
                 onClick={updateURL(navlink.route)}
               >
-                {navlink.label}
+                <p className="text-lg">{toTitleCase(navlink.label)}</p>
               </ReactScrollLink>
             </button>
           </li>
@@ -39,5 +42,11 @@ const DesktopNav = () => {
     </nav>
   );
 };
+
+function toTitleCase(input: string): string {
+  const first = input[0].toUpperCase();
+  const last = input.toLowerCase().slice(1);
+  return `${first}${last}`;
+}
 
 export default DesktopNav;
