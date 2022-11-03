@@ -19,7 +19,7 @@ const ModalBG = (props: Props) => {
         onClick={onClose}
       ></motion.div>
       <motion.div
-        className="w-5/6 bg-slate-700 h-full ml-auto absolute top-0 right-0 -z-10"
+        className="w-3/5 bg-slate-700 h-full ml-auto absolute top-0 right-0 -z-10"
         initial="initialRight"
         animate="animateBgRight"
         exit="exitRight"
