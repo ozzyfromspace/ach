@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { MOBILE_MEDIA_QUERY } from '../../constants';
+import { MOBITABLET_MEDIA_QUERY } from '../../constants';
 import Button from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
 import DesktopNav from './DesktopNav';
@@ -13,8 +13,8 @@ import MenuModal from './MenuModal';
 const Nav = () => {
   const router = useRouter();
 
-  const isMobile = useMediaQuery({
-    query: MOBILE_MEDIA_QUERY,
+  const isMobiTablet = useMediaQuery({
+    query: MOBITABLET_MEDIA_QUERY,
   });
 
   const [mobile, setMobile] = useState(() => true);
@@ -24,8 +24,8 @@ const Nav = () => {
   const onClose = useCallback(() => setOpen(() => false), []);
 
   useEffect(() => {
-    setMobile(() => isMobile);
-  }, [isMobile]);
+    setMobile(() => isMobiTablet);
+  }, [isMobiTablet]);
 
   const updateURL = () => {
     const update = () => router.push({ pathname: '' });
@@ -39,11 +39,11 @@ const Nav = () => {
           to="hero"
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-80}
           duration={450}
           onClick={updateURL}
         >
-          <p>LOGO</p>
+          <p className="font-extrabold">LOGO</p>
         </ReactScrollLink>
       </button>
       {mobile ? (
@@ -64,7 +64,10 @@ const Nav = () => {
       )}
       {!mobile && (
         <Link href="/book">
-          <Button label="Reserve" />
+          <Button
+            label="Reserve"
+            className="bg-blue-dark md:w-32 lg:w-36 xl:w-48"
+          />
         </Link>
       )}
     </header>

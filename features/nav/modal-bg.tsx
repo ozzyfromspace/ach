@@ -11,7 +11,7 @@ const ModalBG = (props: Props) => {
   return (
     <React.Fragment>
       <motion.div
-        className="w-full bg-[#ddd] h-full absolute -z-10 top-0 left-0"
+        className="w-full bg-white h-full absolute -z-10 top-0 left-0"
         initial="initialLeft"
         animate="animateBgLeft"
         exit="exitLeft"
@@ -19,7 +19,7 @@ const ModalBG = (props: Props) => {
         onClick={onClose}
       ></motion.div>
       <motion.div
-        className="w-5/6 bg-slate-700 h-full ml-auto absolute top-0 right-0 -z-10"
+        className="w-2/3 bg-blue-dark50 gradient-blue h-full ml-auto absolute top-0 right-0 -z-10 rounded-l-lg"
         initial="initialRight"
         animate="animateBgRight"
         exit="exitRight"
