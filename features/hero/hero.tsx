@@ -16,7 +16,10 @@ const Hero = () => {
   const buttonClasses = mobile ? '' : 'w-1/3 max-w-sm mt-9';
 
   return (
-    <main className="w-full min-h-screen flex flex-col justify-start" id="hero">
+    <main
+      className="w-full min-h-screen flex flex-col justify-start bg-gray-light"
+      id="hero"
+    >
       <section className="pt-[7.7rem] lg:pt-[7.3rem] pb-16 lg:pb-12 xl:pb-10 sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
         <article>
           <h1 className="font-bold text-[2.4rem] sm:text-[2.5rem] lg:text-[2.6rem] xl:text-[2.8rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
@@ -39,7 +42,8 @@ const Hero = () => {
           src={ach}
           alt=""
           fill={true}
-          className="object-cover max-w-5xl top-0 mx-auto brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
+          className="object-cover max-w-5xl top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
+          // className="object-cover top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
         />
       </div>
     </main>
