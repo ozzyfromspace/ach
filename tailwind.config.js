@@ -8,13 +8,14 @@ module.exports = {
   theme: {
     screens: {
       sm: '480px',
+      mt: '624px',
       md: '768px',
       lg: '976px',
       xl: '1440px',
     },
     colors: {
       blue: {
-        deep: 'hsl(228,70%,14%,100%)',
+        deep: 'hsl(228,70%,24%,100%)',
         dark: 'hsl(228,70%,46%,90%)',
         light: 'hsl(228,70%,54%,90%)',
         dark34: 'hsl(228,70%,54%,90%)',
@@ -22,7 +23,7 @@ module.exports = {
       },
       gray: {
         dark: 'hsl(228,16%,24%)',
-        light: 'hsl(228,16%,92%)',
+        light: 'hsl(228,26%,94%)',
       },
       white: 'hsl(228,6%,97%)',
       black: 'hsl(228,6%,3%)',

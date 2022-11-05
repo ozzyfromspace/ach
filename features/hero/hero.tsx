@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { MOBITABLET_MEDIA_QUERY } from '../../constants';
 import ach from '../../public/ach.jpg';
+import courtStreet from '../../public/court-street.jpeg';
 import Button from '../button';
 
 const Hero = () => {
@@ -17,12 +18,21 @@ const Hero = () => {
 
   return (
     <main
-      className="w-full min-h-screen flex flex-col justify-start bg-gray-light"
+      className="relative z-0 w-full min-h-screen flex flex-col justify-start bg-gray-light"
       id="hero"
     >
-      <section className="pt-[7.7rem] lg:pt-[7.3rem] pb-16 lg:pb-12 xl:pb-10 sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
+      <div className="hidden mt:block absolute z-0 top-0 left-0 right-0 bottom-0 overflow-hidden">
+        <div className="absolute z-10 top-0 left-0 w-full h-full bg-gray-light opacity-90"></div>
+        <Image
+          src={courtStreet}
+          alt=""
+          fill
+          className="z-0 object-cover grayscale-[40%] brightness-125 mt:scale-105 md:scale-110 lg:scale-125 xl:scale-150"
+        />
+      </div>
+      <section className="relative z-10 pt-[7.9rem] lg:pt-[7.3rem] pb-16 lg:pb-12 xl:pb-10 sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
         <article>
-          <h1 className="font-bold text-[2.4rem] sm:text-[2.5rem] lg:text-[2.6rem] xl:text-[2.8rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
+          <h1 className="font-semibold text-[2.4rem] sm:text-[2.5rem] lg:text-[2.7rem] xl:text-[2.8rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
             Athens Central Hotel
           </h1>
           <h2 className="cursor-default font-medium text-xl text-center text-gray-dark">
@@ -36,14 +46,12 @@ const Hero = () => {
           className={`text-xl sm:text-lg h-12 ${buttonClasses}`}
         />
       </section>
-
       <div className="relative h-[43vh] sm:h-[46vh] md:h-[53vh] lg:h-[64vh] xl:h-[68vh] min-h-[9em] max-h-[28rem] overflow-hidden">
         <Image
           src={ach}
           alt=""
-          fill={true}
-          className="object-cover max-w-5xl top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
-          // className="object-cover top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
+          fill
+          className="object-cover max-w-[77rem] top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
         />
       </div>
     </main>
