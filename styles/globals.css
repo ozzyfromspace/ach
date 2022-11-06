@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 .active-link {
-  padding-bottom: 4px;
-  font-weight: bold;
-  border-bottom: 2px solid rgb(25, 25, 25);
+  @apply pb-[4px] font-medium border-b-2 border-b-black text-black;
 }
 
 .gradient-blue {

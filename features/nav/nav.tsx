@@ -64,10 +64,7 @@ const Nav = () => {
       )}
       {!mobile && (
         <Link href="/book">
-          <Button
-            label="Reserve"
-            className="bg-blue-dark md:w-32 lg:w-36 xl:w-48"
-          />
+          <Button label="Reserve" className="md:w-32 lg:w-36 xl:w-48" />
         </Link>
       )}
     </header>

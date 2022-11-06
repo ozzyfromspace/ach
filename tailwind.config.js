@@ -16,21 +16,23 @@ module.exports = {
     colors: {
       blue: {
         deep: 'hsl(228,70%,24%,100%)',
-        dark: 'hsl(228,70%,46%,90%)',
+        dark: 'hsl(228,70%,44%,90%)',
         light: 'hsl(228,70%,54%,90%)',
         dark34: 'hsl(228,70%,54%,90%)',
         dark26: 'hsl(228,70%,46%,90%)',
       },
       gray: {
         dark: 'hsl(228,16%,24%)',
+        medium: 'hsl(228,21%,30%)',
         light: 'hsl(228,26%,94%)',
       },
       white: 'hsl(228,6%,97%)',
       black: 'hsl(228,6%,3%)',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ["Poppins", 'sans-serif'],
+      title: ['Kanit', 'sans-serif'],
+      subtitle: ['Montserrat', 'san-serif'],
     },
     extend: {
       spacing: {

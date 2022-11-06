@@ -24,6 +24,7 @@ const MenuModal = (props: Props) => {
               stroke="white"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              whileHover={{ scale: 0.95, transitionDuration: '0.1s' }}
             >
               <path
                 strokeLinecap="round"

@@ -20,6 +20,7 @@ const ClosedMobileNav = (props: Props) => {
           stroke="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
+          whileHover={{ scale: 0.95, transitionDuration: '0.1s' }}
         >
           <path
             strokeLinecap="round"
@@ -40,7 +41,7 @@ const variants: Variants = {
   animate: {
     opacity: 1,
     pathLength: 1,
-    transition: { delay: 0.1, duration: 0.3 },
+    transition: { duration: 0.3 },
   },
   exit: { opacity: 0, pathLength: 0, transition: { delay: 0, duration: 0.3 } },
 };

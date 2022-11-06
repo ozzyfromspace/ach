@@ -1,3 +1,4 @@
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -9,10 +10,15 @@ import Button from '../button';
 const Hero = () => {
   const isMobile = useMediaQuery({ query: MOBITABLET_MEDIA_QUERY });
   const [mobile, setMobile] = useState(() => false);
+  const [isFirstRender, setisFirstRender] = useState(() => true);
 
   useEffect(() => {
     setMobile(() => isMobile);
   }, [isMobile]);
+
+  useEffect(() => {
+    setisFirstRender(() => false);
+  }, []);
 
   const buttonClasses = mobile ? '' : 'w-1/3 max-w-sm mt-9';
 
@@ -30,32 +36,63 @@ const Hero = () => {
           className="z-0 object-cover grayscale-[40%] brightness-125 mt:scale-105 md:scale-110 lg:scale-125 xl:scale-150"
         />
       </div>
-      <section className="relative z-10 pt-[7.9rem] lg:pt-[7.3rem] pb-16 lg:pb-12 xl:pb-10 sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
-        <article>
-          <h1 className="font-semibold text-[2.4rem] sm:text-[2.5rem] lg:text-[2.7rem] xl:text-[2.8rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
-            Athens Central Hotel
-          </h1>
-          <h2 className="cursor-default font-medium text-xl text-center text-gray-dark">
-            A hidden gem in the heart of Athens, OH
-          </h2>
-        </article>
-        <Button
-          label="Reserve a room"
-          full={mobile}
-          fixed={mobile}
-          className={`text-xl sm:text-lg h-12 ${buttonClasses}`}
-        />
+      <section className="relative z-10 pt-[8.6rem] mt:pt-[7.9rem] lg:pt-[6.5rem] xl:pb-[3.3rem] sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
+        <motion.h1
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          className="font-title font-black tracking-wide text-[2.4rem] sm:text-[2.6rem] lg:text-[2.7rem] xl:text-[2.8rem] cursor-default text-center mb-[0.3rem] text-blue-dark"
+        >
+          Athens Central Hotel
+        </motion.h1>
+        <motion.h2
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          className="font-subtitle font-bold cursor-default text-xl text-center text-gray-medium"
+        >
+          A hidden gem in the heart of Athens, OH
+        </motion.h2>
+        {!isFirstRender && (
+          <Button
+            label="Reserve a room"
+            full={mobile}
+            fixed={mobile}
+            className={`text-xl sm:text-lg h-12 ${buttonClasses}`}
+          />
+        )}
       </section>
-      <div className="relative h-[43vh] sm:h-[46vh] md:h-[53vh] lg:h-[64vh] xl:h-[68vh] min-h-[9em] max-h-[28rem] overflow-hidden">
+      <motion.div
+        variants={variants}
+        initial="initial"
+        animate="animate"
+        className="relative h-[43vh] mt:h-[55vh] md:h-[64vh] min-h-[9em] max-h-[28rem] overflow-hidden"
+      >
         <Image
           src={ach}
           alt=""
           fill
-          className="object-cover max-w-[77rem] top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
+          className="object-cover object-[60px 0px] max-w-7xl top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
         />
-      </div>
+      </motion.div>
     </main>
   );
 };
 
 export default Hero;
+
+const variants: Variants = {
+  initial: {
+    y: '-4px',
+    opacity: 0.3,
+    scale: 0.9,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.2,
+    },
+  },
+};
