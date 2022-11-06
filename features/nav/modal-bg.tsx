@@ -2,16 +2,17 @@ import { motion, Variants } from 'framer-motion';
 import React from 'react';
 
 interface Props {
+  children: React.ReactNode;
   onClose: () => void;
 }
 
 const ModalBG = (props: Props) => {
-  const { onClose } = props;
+  const { onClose, children } = props;
 
   return (
     <React.Fragment>
       <motion.div
-        className="w-full bg-[#ddd] h-full absolute -z-10 top-0 left-0"
+        className="cursor-pointer w-full bg-white bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-70 shadow-md h-full absolute -z-10 top-0 left-0"
         initial="initialLeft"
         animate="animateBgLeft"
         exit="exitLeft"
@@ -19,12 +20,14 @@ const ModalBG = (props: Props) => {
         onClick={onClose}
       ></motion.div>
       <motion.div
-        className="w-5/6 bg-slate-700 h-full ml-auto absolute top-0 right-0 -z-10"
+        className="absolute w-2/3 bg-blue-dark50 gradient-blue h-full ml-auto top-0 right-0 -z-10 rounded-l-lg"
         initial="initialRight"
         animate="animateBgRight"
         exit="exitRight"
         variants={variants}
-      ></motion.div>
+      >
+        {children}
+      </motion.div>
     </React.Fragment>
   );
 };
@@ -83,3 +86,7 @@ const variants: Variants = {
 };
 
 export default ModalBG;
+
+ModalBG.defaultProps = {
+  children: null,
+};

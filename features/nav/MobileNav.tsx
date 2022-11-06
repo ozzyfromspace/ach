@@ -5,7 +5,12 @@ import { navlinks } from './navlinks';
 
 let timer: NodeJS.Timeout | undefined = undefined;
 
-const DesktopNav = () => {
+interface Props {
+  onClose: () => void;
+}
+
+const MobileNav = (props: Props) => {
+  const { onClose } = props;
   const router = useRouter();
 
   const updateURL = (target: string) => () => {
@@ -13,30 +18,35 @@ const DesktopNav = () => {
       router.push({ hash: target }, undefined, { shallow: true });
     };
 
-    if (timer === undefined) clearTimeout(timer);
+    if (timer !== undefined) clearTimeout(timer);
 
     timer = setTimeout(update, 0);
   };
 
   return (
-    <nav className="absolute -z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
-      <ul className="flex flex-row gap-[7vw] justify-center items-center">
+    <nav className="absolute z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+      <ul className="flex flex-col gap-[7vw] justify-center items-center">
         {navlinks.map((navlink, index) => (
           <li key={navlink.route} onClick={updateURL(navlink.route)}>
             <motion.button
               variants={getVariants(index * 0.1)}
               initial="initial"
               animate="animate"
+              exit="exit"
               whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
-              className="text-gray-link py-3"
+              className="text-gray-light"
             >
               <ReactScrollLink
                 to={navlink.route}
-                activeClass={'active-link'}
+                activeClass={'active-link-mobile'}
                 spy={true}
                 smooth={true}
                 offset={navlink.route === 'hero' ? -80 : 0}
                 duration={380}
+                onClick={() => {
+                  setTimeout(onClose, 380);
+                }}
+                className="px-3 py-3"
               >
                 {navlink.label}
               </ReactScrollLink>
@@ -53,7 +63,7 @@ const getVariants = (delay: number): Variants => {
     initial: {
       y: '1rem',
       opacity: 0,
-      scale: 0.3,
+      scale: 0,
     },
     animate: {
       y: 0,
@@ -66,7 +76,18 @@ const getVariants = (delay: number): Variants => {
         damping: 10,
       },
     },
+    exit: {
+      y: '1rem',
+      opacity: 0,
+      scale: 0,
+      transition: {
+        delay: delay,
+        type: 'spring',
+        mass: 0.2,
+        damping: 10,
+      },
+    },
   };
 };
 
-export default DesktopNav;
+export default MobileNav;

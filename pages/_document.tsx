@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body>
+      <body className="body-bg">
         <Main />
         <div id="nav-modal"></div>
         <NextScript />

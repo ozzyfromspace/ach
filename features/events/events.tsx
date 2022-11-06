@@ -1,7 +1,7 @@
 const Events = () => {
   return (
     <div
-      className="w-full h-screen flex justify-center items-center bg-yellow-200"
+      className="w-full h-screen flex justify-center items-center bg-[#00ddff]"
       id="events"
     >
       Events
