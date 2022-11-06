@@ -26,7 +26,6 @@ const Button = (props: Props) => {
         transitionDuration: '0.15s',
         backgroundColor: darkBlue,
       }}
-      // className={`${className} p-2 pl-6 pr-6 border-gray-400 gradient-blue text-white font-normal rounded-[0.25rem] hover:scale-[0.98] hover:transition-all ease-in-out duration-[350ms] ${width} ${fixedClasses}`}
       className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-gray-400 gradient-blue text-white rounded-[0.25rem] ${width} ${fixedClasses}`}
     >
       {label}
@@ -44,7 +43,7 @@ Button.defaultProps = {
 
 const variants: Variants = {
   initial: {
-    opacity: 0,
+    opacity: 0.8,
     scale: 0.9,
   },
   animate: {

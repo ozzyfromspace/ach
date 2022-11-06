@@ -1,7 +1,7 @@
 const About = () => {
   return (
     <div
-      className="w-full h-screen flex justify-center items-center bg-[#ffff12]"
+      className="w-full h-screen flex justify-center items-center bg-[#ff77c8]"
       id="about"
     >
       About

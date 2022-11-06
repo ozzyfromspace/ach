@@ -9,7 +9,7 @@ const ClosedMobileNav = (props: Props) => {
 
   return (
     <nav>
-      <button onClick={onOpen}>
+      <button onClick={onOpen} className="p-4">
         <motion.svg
           initial="initial"
           animate="animate"

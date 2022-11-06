@@ -23,8 +23,9 @@ module.exports = {
       },
       gray: {
         dark: 'hsl(228,16%,24%)',
-        medium: 'hsl(228,21%,30%)',
-        light: 'hsl(228,26%,94%)',
+        link: 'hsl(228,21%,32%)',
+        medium: 'hsl(228,21%,47%)',
+        light: 'hsl(228,26%,96%)',
       },
       white: 'hsl(228,6%,97%)',
       black: 'hsl(228,6%,3%)',

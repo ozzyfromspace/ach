@@ -1,5 +1,6 @@
 import { motion, Variants } from 'framer-motion';
 import ReactDOM from 'react-dom';
+import MobileNav from './MobileNav';
 import ModalBG from './modal-bg';
 
 interface Props {
@@ -11,9 +12,9 @@ const MenuModal = (props: Props) => {
 
   const bar = (
     <div className="fixed z-10 top-0 left-0 right-0 bottom-0">
-      <header className="p-4 flex justify-end items-center pr-6 h-20">
+      <header className="p-4 flex justify-end items-center pr-6 h-20 max-w-fit ml-auto">
         <nav>
-          <button onClick={onClose}>
+          <button onClick={onClose} className="p-4">
             <motion.svg
               variants={variants}
               initial="initial"
@@ -24,7 +25,7 @@ const MenuModal = (props: Props) => {
               stroke="white"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              whileHover={{ scale: 0.95, transitionDuration: '0.1s' }}
+              whileHover={{ scale: 0.96, transitionDuration: '0.1s' }}
             >
               <path
                 strokeLinecap="round"
@@ -36,7 +37,9 @@ const MenuModal = (props: Props) => {
           </button>
         </nav>
       </header>
-      <ModalBG onClose={onClose} />
+      <ModalBG onClose={onClose}>
+        <MobileNav onClose={onClose} />
+      </ModalBG>
     </div>
   );
 

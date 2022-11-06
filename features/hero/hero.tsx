@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { MOBITABLET_MEDIA_QUERY } from '../../constants';
-import ach from '../../public/ach.jpg';
+import ach from '../../public/ach-leftcrop.jpg';
 import courtStreet from '../../public/court-street.jpeg';
 import Button from '../button';
 
@@ -28,7 +28,7 @@ const Hero = () => {
       id="hero"
     >
       <div className="hidden mt:block absolute z-0 top-0 left-0 right-0 bottom-0 overflow-hidden">
-        <div className="absolute z-10 top-0 left-0 w-full h-full bg-gray-light opacity-90"></div>
+        <div className="absolute z-10 top-0 left-0 w-full h-full bg-[hsla(0,0%,100%,93%)] opacity-[0.91] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div>
         <Image
           src={courtStreet}
           alt=""
@@ -49,7 +49,7 @@ const Hero = () => {
           variants={variants}
           initial="initial"
           animate="animate"
-          className="font-subtitle font-bold cursor-default text-xl text-center text-gray-medium"
+          className="font-subtitle font-normal cursor-default text-xl text-center text-gray-link tracking-wide"
         >
           A hidden gem in the heart of Athens, OH
         </motion.h2>
@@ -66,13 +66,13 @@ const Hero = () => {
         variants={variants}
         initial="initial"
         animate="animate"
-        className="relative h-[43vh] mt:h-[55vh] md:h-[64vh] min-h-[9em] max-h-[28rem] overflow-hidden"
+        className="relative h-[43vh] mt:h-[55vh] md:h-[64vh] min-w-fit min-h-[9em] max-h-[28rem] xl:rounded-t-md overflow-hidden"
       >
         <Image
           src={ach}
           alt=""
           fill
-          className="object-cover object-[60px 0px] max-w-7xl top-0 mx-auto grayscale-[40%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
+          className="object-cover max-w-5xl top-0 mx-auto grayscale-[38%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
         />
       </motion.div>
     </main>
@@ -83,16 +83,16 @@ export default Hero;
 
 const variants: Variants = {
   initial: {
-    y: '-4px',
-    opacity: 0.3,
-    scale: 0.9,
+    y: '-2.5px',
+    opacity: 0.2,
+    scale: 0.97,
   },
   animate: {
     y: 0,
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 1.2,
+      duration: 0.8,
     },
   },
 };

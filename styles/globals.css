@@ -6,6 +6,10 @@
   @apply pb-[4px] font-medium border-b-2 border-b-black text-black;
 }
 
+.active-link-mobile {
+  @apply pb-[4px] font-medium border-b-2 border-b-white text-white;
+}
+
 .gradient-blue {
   @apply bg-gradient-to-t from-blue-dark26 to-blue-dark34;
 }
