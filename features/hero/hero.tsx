@@ -38,7 +38,7 @@ const Hero = () => {
           className="z-0 object-cover grayscale-[40%] brightness-125 mt:scale-105 md:scale-110 lg:scale-125 xl:scale-150"
         />
       </div>
-      <section className="relative z-10 pt-[8.6rem] mt:pt-[7.9rem] lg:pt-[6.5rem] xl:pb-[3.3rem] sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
+      <section className="relative z-10 pt-[8.4rem] mt:pt-[7.9rem] lg:pt-[6.5rem] xl:pb-[3.3rem] sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
         <motion.h1
           variants={variants}
           initial="initial"
@@ -68,7 +68,7 @@ const Hero = () => {
         variants={variants}
         initial="initial"
         animate="animate"
-        className="relative h-[43vh] mt:h-[55vh] md:h-[64vh] min-w-fit min-h-[9em] max-h-[28rem] xl:rounded-t-md overflow-hidden"
+        className="mt-[2.4rem] mt:mt-0 relative h-[43vh] mt:h-[55vh] md:h-[64vh] min-w-fit min-h-[9em] max-h-[28rem] xl:rounded-t-md overflow-hidden"
       >
         <Image
           src={ach}
