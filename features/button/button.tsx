@@ -1,4 +1,5 @@
 import { motion, Variants } from 'framer-motion';
+import React from 'react';
 
 interface Props {
   label: string;
@@ -17,19 +18,24 @@ const Button = (props: Props) => {
   const darkBlue = 'hsl(228,70%,38%,90%)';
 
   return (
-    <motion.button
-      variants={variants}
-      initial="initial"
-      animate="animate"
-      whileHover={{
-        scale: 0.98,
-        transitionDuration: '0.15s',
-        backgroundColor: darkBlue,
-      }}
-      className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-gray-400 gradient-blue text-white rounded-[0.25rem] ${width} ${fixedClasses}`}
-    >
-      {label}
-    </motion.button>
+    <React.Fragment>
+      {fixed && (
+        <div className="fixed left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
+      )}
+      <motion.button
+        variants={variants}
+        initial="initial"
+        animate="animate"
+        whileHover={{
+          scale: 0.98,
+          transitionDuration: '0.15s',
+          backgroundColor: darkBlue,
+        }}
+        className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-gray-400 gradient-blue text-white rounded-[0.25rem] ${width} ${fixedClasses}`}
+      >
+        {label}
+      </motion.button>
+    </React.Fragment>
   );
 };
 
