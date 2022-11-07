@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <main
-      className="relative z-0 w-full min-h-screen flex flex-col justify-start bg-gray-light"
+      className="relative z-0 w-full min-h-[88vh] flex flex-col justify-start bg-gray-light"
       id="hero"
     >
       <div className="hidden mt:block absolute z-0 top-0 left-0 right-0 bottom-0 overflow-hidden">
