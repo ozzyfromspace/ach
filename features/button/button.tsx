@@ -20,7 +20,7 @@ const Button = (props: Props) => {
   return (
     <React.Fragment>
       {fixed && (
-        <div className="fixed left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
+        <div className="fixed z-10 left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
       )}
       <motion.button
         variants={variants}

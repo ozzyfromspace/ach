@@ -43,7 +43,7 @@ const Hero = () => {
           variants={variants}
           initial="initial"
           animate="animate"
-          className="font-title font-black tracking-wide text-[1.9rem] sm:text-[2.1rem] mt:text-[2.2rem] md:text-[2.3rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-dark"
+          className="font-title font-black tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
         >
           Athens Central Hotel
         </motion.h1>
@@ -53,7 +53,11 @@ const Hero = () => {
           animate="animate"
           className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide"
         >
-          A hidden gem in the heart of Athens, OH
+          A{' '}
+          <span className="text-[hsl(348,100%,71%)] font-semibold">
+            hidden gem
+          </span>{' '}
+          in the heart of Athens, OH
         </motion.h2>
         {!isFirstRender && (
           <Button

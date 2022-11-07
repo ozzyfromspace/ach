@@ -8,6 +8,7 @@ interface Props {
   children: React.ReactNode;
   id: string;
   className: string;
+  style: React.CSSProperties;
 }
 
 const Padding = (props: Props) => {
@@ -31,4 +32,5 @@ Padding.defaultProps = {
   _pb: 'pb-0',
   className: '',
   id: '',
+  style: {},
 };
