@@ -8,6 +8,7 @@ enum RoomType {
 interface Picture {
   url: string;
   description: string;
+  imageClasses: string;
 }
 
 export interface RoomData {
@@ -17,45 +18,73 @@ export interface RoomData {
   pictureSlice: Picture[];
 }
 
-const athenaDescription =
-  'we only have one athena suite, and you deserve it. add a proper description here.';
+const athenaDescription = "There's only one Athena 2-bedroom Suite";
 
 const athenaSuite: RoomData = {
   roomType: RoomType.bedroom_suite_2,
   roomName: 'Athena Suite',
   mainDescription: athenaDescription,
   pictureSlice: [
-    { url: '/one', description: 'desc of image 1' },
-    { url: '/two', description: 'desc of image 2' },
+    {
+      url: '/rooms/athena-1.jpeg',
+      description: 'desc of image 1',
+      imageClasses: 'brightness-[1.16] saturation-[1.05]',
+    },
+    {
+      url: '/rooms/athena-2.jpeg',
+      description: 'desc of image 2',
+      imageClasses: 'brightness-[1.35] saturation-[1.12]',
+    },
+    {
+      url: '/rooms/athena-3.jpeg',
+      description: 'desc of image 2',
+      imageClasses: 'brightness-[0.88] saturation-[1.14]',
+    },
   ],
 };
 
-const zeusDescription =
-  "our zeus king's are all uniquely designed to offer a new experience every tine. add a proper description here.";
+const zeusDescription = 'Our Zeus King rooms are a Greek paradise.';
 
 const zeusSuite: RoomData = {
   roomType: RoomType.king,
   roomName: 'Zeus King',
   mainDescription: zeusDescription,
   pictureSlice: [
-    { url: '/three', description: 'desc of image 3' },
-    { url: '/four', description: 'desc of image 4' },
+    {
+      url: '/rooms/zeus-1.jpeg',
+      description: 'desc of image 3',
+      imageClasses: 'brightness-[1.28] saturation-[1.18]',
+    },
+    // { url: '/zeus-2.jpeg', description: 'desc of image 4', imageClasses: "" },
+    // { url: '/zeus-3.jpeg', description: 'desc of image 4', imageClasses: "" },
   ],
 };
 
-const cleoDescription =
-  "our zeus king's are all uniquely designed to offer a new experience every tine. add a proper description here.";
+const cleoDescription = 'Rest easy in our Cleo double-queens.';
 
 const cleoQueen: RoomData = {
   roomType: RoomType.queen,
   roomName: 'Cleo Queen',
   mainDescription: cleoDescription,
   pictureSlice: [
-    { url: '/queen-1.jpeg', description: 'desc of Queen 1' },
-    { url: '/queen-2.jpeg', description: 'desc of Queen 2' },
+    {
+      url: '/rooms/cleo-1.jpeg',
+      description: 'desc of Queen 1',
+      imageClasses: 'brightness-[1.24] saturation-[1.14]',
+    },
+    {
+      url: '/rooms/cleo-2.jpeg',
+      description: 'desc of Queen 2',
+      imageClasses: 'brightness-[1.12] saturation-[1.06]',
+    },
+    {
+      url: '/rooms/cleo-3.jpeg',
+      description: 'desc of Queen 2',
+      imageClasses: 'brightness-[1.06] saturation-[1.1]',
+    },
   ],
 };
 
-const roomDataSlice: RoomData[] = [cleoQueen, athenaSuite, zeusSuite];
+const roomDataSlice: RoomData[] = [zeusSuite, cleoQueen, athenaSuite];
 
 export default roomDataSlice;

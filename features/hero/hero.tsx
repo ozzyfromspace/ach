@@ -33,6 +33,7 @@ const Hero = () => {
         {/* <div className="absolute z-10 top-0 left-0 w-full h-full opacity-[0.91] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div> */}
         <Image
           src={courtStreet}
+          placeholder="blur"
           priority={true}
           alt=""
           sizes="(min-width: 0px) 100vw"
@@ -78,6 +79,7 @@ const Hero = () => {
       >
         <Image
           src={ach}
+          placeholder="blur"
           priority={true}
           alt=""
           fill

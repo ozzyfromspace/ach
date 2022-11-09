@@ -5,10 +5,10 @@ import roomDataSlice from './roomDataSlice';
 const Rooms = () => {
   return (
     <Padding
-      className="relative w-full h-screen pt-10 bg-gray-light"
+      className="relative w-full min-h-fit pt-10 bg-[hsl(0,0%,94%)]"
       id="rooms"
     >
-      <h2 className="font-title tracking-wider text-gray-dark text-2xl sm:text-3xl md:text-4xl font-medium pt-10 mb-8">
+      <h2 className="font-title tracking-wider text-gray-dark text-2xl sm:text-3xl md:text-4xl font-medium pt-10 mb-8 mt:text-center">
         Our Rooms
       </h2>
       {/* <div>
@@ -21,9 +21,11 @@ const Rooms = () => {
           enjoy your stay at the Athens Central Hotel.
         </p>
       </div> */}
-      {[roomDataSlice[0]].map((roomData) => (
-        <RoomCard key={roomData.roomType} roomData={roomData} />
-      ))}
+      <div className="flex flex-col gap-6 mt:gap-10 md:gap-12 lg:gap-14 mt:flex-row mt:flex-wrap mt:justify-center mt:items-center">
+        {roomDataSlice.map((roomData) => (
+          <RoomCard key={roomData.roomType} roomData={roomData} />
+        ))}
+      </div>
     </Padding>
   );
 };

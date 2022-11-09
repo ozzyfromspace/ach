@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from '../button';
 import { RoomData } from './roomDataSlice';
 
@@ -20,6 +20,8 @@ interface Props {
 
 const RoomCard = (props: Props) => {
   const { roomData } = props;
+  const dataLen = roomData.pictureSlice.length;
+
   const [imageCursor, setImageCursor] = useState<Image>(() => ({
     index: 0,
     direction: ImageDirection.RIGHT,
@@ -27,8 +29,7 @@ const RoomCard = (props: Props) => {
 
   const onPrev = () => {
     setImageCursor((i) => {
-      const index =
-        i.index === 0 ? roomData.pictureSlice.length - 1 : i.index - 1;
+      const index = i.index === 0 ? dataLen - 1 : i.index - 1;
       return {
         index,
         direction: ImageDirection.LEFT,
@@ -38,7 +39,7 @@ const RoomCard = (props: Props) => {
 
   const onNext = () => {
     setImageCursor((i) => {
-      const index = (i.index + 1) % roomData.pictureSlice.length;
+      const index = (i.index + 1) % dataLen;
       return {
         index,
         direction: ImageDirection.RIGHT,
@@ -49,7 +50,7 @@ const RoomCard = (props: Props) => {
   const currPicture = roomData.pictureSlice[imageCursor.index];
 
   return (
-    <div className="w-full md:max-w-sm bg-white p-4 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
+    <div className="w-full min-w-[18rem] md:max-w-[30rem] bg-white p-4 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
       <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
         <AnimatePresence mode="sync">
           <motion.div
@@ -64,48 +65,11 @@ const RoomCard = (props: Props) => {
               src={currPicture.url}
               alt=""
               fill={true}
-              className="top-0 left-0 right-0 bottom-0 bg-gray-light rounded-md"
+              className={`top-0 left-0 right-0 bottom-0 bg-gray-light rounded-md ${currPicture.imageClasses}`}
             />
           </motion.div>
         </AnimatePresence>
-        <button
-          onClick={onPrev}
-          className="rounded-md absolute z-10 top-0 left-0 bottom-0 p-5 w-20 bog-transparent hover:bg-gradient-to-r hover:from-[hsla(0,0%,0%,60%)] hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-start"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2.5}
-            stroke="white"
-            className="w-7 h-7 hover:scale-110 transition-all"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
-          </svg>
-        </button>
-        <button
-          onClick={onNext}
-          className="rounded-md absolute z-10 top-0 right-0 bottom-0 p-5 w-20 bg-transparent hover:bg-gradient-to-l hover:from-[hsla(0,0%,0%,60%)] hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-end"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2.5}
-            stroke="white"
-            className="w-7 h-7 hover:scale-110 transition-all"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
+        {dataLen > 1 && <ImageControls onPrev={onPrev} onNext={onNext} />}
       </div>
       <div className="relative bg-white flex flex-col py-3 text-justify">
         <h3 className="text-xl font-title my-3 text-gray-dark">
@@ -144,3 +108,51 @@ const getVariants = (direction: ImageDirection): Variants => {
     },
   };
 };
+
+interface ImageControlProps {
+  onPrev: () => void;
+  onNext: () => void;
+}
+
+const ImageControls = (props: ImageControlProps) => (
+  <React.Fragment>
+    <button
+      onClick={props.onPrev}
+      className="rounded-md absolute z-10 top-0 left-0 bottom-0 p-5 w-20 bog-transparent hover:bg-gradient-to-r hover:from-[hsla(0,0%,0%,60%)] hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-start"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2.5}
+        stroke="white"
+        className="w-7 h-7 hover:scale-110 transition-all"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"
+        />
+      </svg>
+    </button>
+    <button
+      onClick={props.onNext}
+      className="rounded-md absolute z-10 top-0 right-0 bottom-0 p-5 w-20 bg-transparent hover:bg-gradient-to-l hover:from-[hsla(0,0%,0%,60%)] hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-end"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2.5}
+        stroke="white"
+        className="w-7 h-7 hover:scale-110 transition-all"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </button>
+  </React.Fragment>
+);
