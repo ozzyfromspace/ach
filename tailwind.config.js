@@ -29,7 +29,7 @@ module.exports = {
       },
       white: 'hsl(228,6%,97%)',
       black: 'hsl(228,6%,3%)',
-      offblack: 'hsl(228,70%,15%,100%)'
+      transparent: 'hsla(0,0%,0%,0%)',
     },
     fontFamily: {
       sans: ["Poppins", 'sans-serif'],

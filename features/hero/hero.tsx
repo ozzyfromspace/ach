@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <main
-      className="relative z-0 w-full min-h-[88vh] flex flex-col justify-start bg-gray-light"
+      className="relative z-0 w-full min-h-[88vh] flex flex-col justify-start bg-gray-light mt:pb-16 md:pb-20 lg:pb-24 xl:pb-28"
       id="hero"
     >
       <div className="hidden mt:block absolute z-0 top-0 left-0 right-0 bottom-0 overflow-hidden">
@@ -33,12 +33,14 @@ const Hero = () => {
         {/* <div className="absolute z-10 top-0 left-0 w-full h-full opacity-[0.91] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div> */}
         <Image
           src={courtStreet}
+          priority={true}
           alt=""
+          sizes="(min-width: 0px) 100vw"
           fill
           className="z-0 object-cover grayscale-[40%] brightness-125 mt:scale-105 md:scale-110 lg:scale-125 xl:scale-150"
         />
       </div>
-      <section className="relative z-10 pt-[8.4rem] mt:pt-[7.9rem] lg:pt-[6.5rem] xl:pb-[3.3rem] sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
+      <section className="relative z-20 pt-[8.4rem] mt:pt-[7.9rem] lg:pt-[6.5rem] xl:pb-[3.3rem] sm:pb-14 w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
         <motion.h1
           variants={variants}
           initial="initial"
@@ -54,7 +56,7 @@ const Hero = () => {
           className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide"
         >
           A{' '}
-          <span className="text-[hsl(348,100%,71%)] font-semibold">
+          <span className="text-[hsl(145,55%,41%)] font-semibold">
             hidden gem
           </span>{' '}
           in the heart of Athens, OH
@@ -76,6 +78,7 @@ const Hero = () => {
       >
         <Image
           src={ach}
+          priority={true}
           alt=""
           fill
           className="object-cover max-w-5xl top-0 mx-auto grayscale-[38%] brightness-[1.2] saturate-[1.13] sm:rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl"
