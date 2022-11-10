@@ -11,5 +11,5 @@
 }
 
 .gradient-blue {
-  @apply bg-gradient-to-t from-blue-dark26 to-blue-dark34;
+  @apply bg-gradient-to-t from-blue-deep to-blue-dark;
 }

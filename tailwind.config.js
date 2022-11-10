@@ -15,8 +15,8 @@ module.exports = {
     },
     colors: {
       blue: {
-        deep: 'hsl(228,70%,24%,100%)',
-        dark: 'hsl(228,70%,44%,90%)',
+        deep: 'hsl(211,84%,30%)',
+        dark: 'hsl(211,70%,34%,90%)',
         light: 'hsl(228,70%,54%,90%)',
         dark34: 'hsl(228,70%,54%,90%)',
         dark26: 'hsl(228,70%,46%,90%)',
@@ -29,6 +29,7 @@ module.exports = {
       },
       white: 'hsl(228,6%,97%)',
       black: 'hsl(228,6%,3%)',
+      transparent: 'hsla(0,0%,0%,0%)',
     },
     fontFamily: {
       sans: ["Poppins", 'sans-serif'],

@@ -44,7 +44,7 @@ const MobileNav = (props: Props) => {
                 offset={navlink.route === 'hero' ? -80 : 0}
                 duration={380}
                 onClick={() => {
-                  setTimeout(onClose, 380);
+                  setTimeout(onClose, 420);
                 }}
                 className="px-3 py-3"
               >
