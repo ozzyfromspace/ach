@@ -28,7 +28,7 @@ const Hero = () => {
       id="hero"
     >
       <div className="hidden mt:block absolute z-0 top-0 left-0 right-0 bottom-0 overflow-hidden">
-        <div className="absolute z-10 top-0 left-0 w-full h-full bg-[hsla(0,0%,100%,93%)] opacity-[0.91] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div>
+        <div className="absolute z-10 top-0 left-0 w-full h-full bg-[hsla(0,0%,100%,93%)] opacity-90 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div>
         {/* <div className="absolute z-10 top-0 left-0 w-full h-full bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div> */}
         {/* <div className="absolute z-10 top-0 left-0 w-full h-full opacity-[0.91] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 shadow-sm"></div> */}
         <Image

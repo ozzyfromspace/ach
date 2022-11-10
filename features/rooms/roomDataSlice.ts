@@ -1,3 +1,5 @@
+import { Amenity } from './AmenityIcon';
+
 enum RoomType {
   'king' = 'king',
   'queen' = 'queen',
@@ -16,6 +18,7 @@ export interface RoomData {
   roomName: string;
   mainDescription: string;
   pictureSlice: Picture[];
+  amenities: Amenity[];
 }
 
 const athenaDescription = "There's only one Athena 2-bedroom Suite";
@@ -24,6 +27,7 @@ const athenaSuite: RoomData = {
   roomType: RoomType.bedroom_suite_2,
   roomName: 'Athena Suite',
   mainDescription: athenaDescription,
+  amenities: [Amenity.Wifi, Amenity.LivingRoom, Amenity.Shower],
   pictureSlice: [
     {
       url: '/rooms/athena-1.jpeg',
@@ -49,14 +53,13 @@ const zeusSuite: RoomData = {
   roomType: RoomType.king,
   roomName: 'Zeus King',
   mainDescription: zeusDescription,
+  amenities: [Amenity.Wifi, Amenity.Shower],
   pictureSlice: [
     {
       url: '/rooms/zeus-1.jpeg',
       description: 'desc of image 3',
       imageClasses: 'brightness-[1.28] saturation-[1.18]',
     },
-    // { url: '/zeus-2.jpeg', description: 'desc of image 4', imageClasses: "" },
-    // { url: '/zeus-3.jpeg', description: 'desc of image 4', imageClasses: "" },
   ],
 };
 
@@ -66,6 +69,7 @@ const cleoQueen: RoomData = {
   roomType: RoomType.queen,
   roomName: 'Cleo Queen',
   mainDescription: cleoDescription,
+  amenities: [Amenity.Wifi, Amenity.Shower],
   pictureSlice: [
     {
       url: '/rooms/cleo-1.jpeg',
