@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import Button from '../button';
 import AmenityIcon from './AmenityIcon';
 import { RoomData } from './roomDataSlice';
@@ -20,6 +20,7 @@ interface Props {
 }
 
 const RoomCard = (props: Props) => {
+  const componentId = useId();
   const { roomData } = props;
   const dataLen = roomData.pictureSlice.length;
 
@@ -50,6 +51,18 @@ const RoomCard = (props: Props) => {
 
   const currPicture = roomData.pictureSlice[imageCursor.index];
 
+  const Images = roomData.pictureSlice.map((picture) => {
+    return (
+      <Image
+        key={`${picture.id}${picture.url}${componentId}`}
+        src={picture.url}
+        alt=""
+        fill={true}
+        className={`top-0 left-0 right-0 bottom-0 bg-gray-light rounded-md ${currPicture.imageClasses}`}
+      />
+    );
+  });
+
   return (
     <div className="w-full min-w-[18rem] md:max-w-[26rem] bg-white p-4 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
       <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
@@ -62,12 +75,7 @@ const RoomCard = (props: Props) => {
             variants={getVariants(imageCursor.direction)}
             key={currPicture.url}
           >
-            <Image
-              src={currPicture.url}
-              alt=""
-              fill={true}
-              className={`top-0 left-0 right-0 bottom-0 bg-gray-light rounded-md ${currPicture.imageClasses}`}
-            />
+            {Images[imageCursor.index]}
           </motion.div>
         </AnimatePresence>
         {dataLen > 1 && <ImageControls onPrev={onPrev} onNext={onNext} />}
