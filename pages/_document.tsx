@@ -20,7 +20,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="body-bg">
+      <body className="bg-[hsl(0,0%,94%)]">
         <Main />
         <div id="nav-modal"></div>
         <NextScript />

@@ -5,7 +5,7 @@ import roomDataSlice from './roomDataSlice';
 const Rooms = () => {
   return (
     <Padding
-      className="relative w-full min-h-fit pt-10 bg-[hsl(0,0%,94%)] pb-16"
+      className="relative w-full min-h-fit pt-14 -mt-16 bg-[hsl(0,0%,94%)] pb-16"
       id="rooms"
     >
       <h2 className="font-title tracking-wider text-gray-dark text-2xl sm:text-3xl md:text-4xl font-medium pt-10 mb-8 mt:text-center">
