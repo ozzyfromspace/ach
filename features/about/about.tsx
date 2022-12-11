@@ -1,17 +1,16 @@
-import Image from 'next/image';
-import beds from '../../public/beds.jpeg';
+// import beds from '../../public/beds.jpeg';
 import Padding from '../padding';
 
 const About = () => {
   return (
     <Padding
-      className="relative -z-[1] w-full min-h-screen rounded-t-xl bg-gradient-to-b from-[hsl(211,69%,30%)] to-[hsl(211,74%,36%)] pt-16"
+      className="relative -z-[1] w-full min-h-fit rounded-t-lg bg-gradient-to-b from-[hsl(211,67%,14%)] to-[hsl(213,33%,6%)] pt-2 pb-24 mt:pb-0"
       id="about"
     >
       <h2 className="font-title tracking-wider text-white text-2xl sm:text-3xl md:text-4xl font-medium pt-10 border-b-[0.5px] border-b-gray-light pb-9 mb-8">
         About us
       </h2>
-      <div className="font-sans text-white leading-relaxed tracking-wide font-extralight mt-8 text-justify xl:flex xl:flex-row xl:gap-8">
+      <div className="font-sans text-white leading-relaxed tracking-wide font-extralight text-justify xl:flex xl:flex-row xl:gap-8">
         <div>
           <p className="pb-12">
             Our boutique hotel is incredibly close to all the nightlife and
@@ -21,7 +20,7 @@ const About = () => {
           </p>
           <div className="xl:w-full xl:aspect-square bg-[#ffed93]"></div>
         </div>
-        <div className="relative -z-1 mb-12 xl:min-w-[40rem] w-screen xl:w-auto -mx-6 xl:mx-auto">
+        {/* <div className="relative -z-1 mb-12 xl:min-w-[40rem] w-screen xl:w-auto -mx-6 xl:mx-auto">
           <Image
             src={beds}
             alt="two beds from a queen room of the athens central hotel"
@@ -36,7 +35,7 @@ const About = () => {
             making, and we really hope you love it.
           </p>
           <div className="xl:w-full xl:aspect-square bg-[#ffed93]"></div>
-        </div>
+        </div> */}
       </div>
     </Padding>
   );

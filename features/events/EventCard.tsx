@@ -1,9 +1,7 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import React, { useId, useState } from 'react';
-import Button from '../button';
-import AmenityIcon from './AmenityIcon';
-import { RoomData } from './roomDataSlice';
+import { EventData } from './eventDataSlice';
 
 enum ImageDirection {
   RIGHT = 'right',
@@ -16,10 +14,10 @@ interface Image {
 }
 
 interface Props {
-  roomData: RoomData;
+  roomData: EventData;
 }
 
-const RoomCard = (props: Props) => {
+const EventCard = (props: Props) => {
   const componentId = useId();
   const { roomData } = props;
   const dataLen = roomData.pictureSlice.length;
@@ -64,7 +62,7 @@ const RoomCard = (props: Props) => {
   });
 
   return (
-    <div className="w-full min-w-[18rem] md:max-w-[26rem] bg-white p-2 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
+    <div className="w-full bg-white p-2 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
       <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
         <AnimatePresence mode="sync">
           <motion.div
@@ -80,28 +78,11 @@ const RoomCard = (props: Props) => {
         </AnimatePresence>
         {dataLen > 1 && <ImageControls onPrev={onPrev} onNext={onNext} />}
       </div>
-      <div className="relative bg-white flex flex-col pt-3 text-justify">
-        <h3 className="text-xl font-title my-3 text-gray-dark">
-          {roomData.roomName}
-        </h3>
-        <p className="text-base mb-4 text-gray-link font-light">
-          {roomData.mainDescription}
-        </p>
-        <div className="flex flex-row justify-start gap-8 mb-5 h-8 items-center">
-          {roomData.amenities.map((a) => (
-            <AmenityIcon amenity={a} key={a} />
-          ))}
-        </div>
-        <Button
-          label="Book Now"
-          className="max-w-fit ml-auto px-3 sm:px-7 mt:px-10 md:px-12 lg:px-14 xl:px-20"
-        />
-      </div>
     </div>
   );
 };
 
-export default RoomCard;
+export default EventCard;
 
 const getVariants = (direction: ImageDirection): Variants => {
   return {

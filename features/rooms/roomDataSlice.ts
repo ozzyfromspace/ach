@@ -8,6 +8,7 @@ enum RoomType {
 }
 
 interface Picture {
+  id: string;
   url: string;
   description: string;
   imageClasses: string;
@@ -30,16 +31,19 @@ const athenaSuite: RoomData = {
   amenities: [Amenity.Wifi, Amenity.LivingRoom, Amenity.Shower],
   pictureSlice: [
     {
+      id: '1',
       url: '/rooms/athena-1.jpeg',
       description: 'desc of image 1',
       imageClasses: 'brightness-[1.16] saturation-[1.05]',
     },
     {
+      id: '2',
       url: '/rooms/athena-2.jpeg',
       description: 'desc of image 2',
       imageClasses: 'brightness-[1.35] saturation-[1.12]',
     },
     {
+      id: '3',
       url: '/rooms/athena-3.jpeg',
       description: 'desc of image 2',
       imageClasses: 'brightness-[0.88] saturation-[1.14]',
@@ -56,6 +60,7 @@ const zeusSuite: RoomData = {
   amenities: [Amenity.Wifi, Amenity.Shower],
   pictureSlice: [
     {
+      id: '1',
       url: '/rooms/zeus-1.jpeg',
       description: 'desc of image 3',
       imageClasses: 'brightness-[1.28] saturation-[1.18]',
@@ -72,16 +77,19 @@ const cleoQueen: RoomData = {
   amenities: [Amenity.Wifi, Amenity.Shower],
   pictureSlice: [
     {
+      id: '1',
       url: '/rooms/cleo-1.jpeg',
       description: 'desc of Queen 1',
       imageClasses: 'brightness-[1.24] saturation-[1.14]',
     },
     {
+      id: '2',
       url: '/rooms/cleo-2.jpeg',
       description: 'desc of Queen 2',
       imageClasses: 'brightness-[1.12] saturation-[1.06]',
     },
     {
+      id: '3',
       url: '/rooms/cleo-3.jpeg',
       description: 'desc of Queen 2',
       imageClasses: 'brightness-[1.06] saturation-[1.1]',

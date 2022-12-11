@@ -15,7 +15,7 @@ const Button = (props: Props) => {
   const { label, full, fixed, className } = props;
   const width = full ? (fixed ? '' : 'w-full') : '';
   const fixedClasses = fixed
-    ? 'fixed z-[1] bg-blue-dark bottom-6 left-6 right-6'
+    ? 'fixed z-[7] bg-blue-dark bottom-6 left-6 right-6'
     : '';
 
   const darkBlue = 'hsl(228,70%,38%,90%)';
@@ -27,7 +27,7 @@ const Button = (props: Props) => {
   if (fixed && container) {
     return ReactDOM.createPortal(
       <React.Fragment>
-        <div className="fixed z-0 left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
+        <div className="fixed z-[6] left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
         <motion.button
           variants={variants}
           initial="initial"
