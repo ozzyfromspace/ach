@@ -59,7 +59,7 @@ const Picker = <O extends Option>(props: PickerProps<O>) => {
   };
 
   return (
-    <fieldset className="cursor-pointer w-4/5 max-w-sm relative flex flex-col">
+    <fieldset className="w-4/5 min-w-[20rem] max-w-screen-sm relative flex flex-col">
       <legend className="h-0 text-[0px]">{label}</legend>
       <span
         aria-hidden={true}
@@ -68,7 +68,7 @@ const Picker = <O extends Option>(props: PickerProps<O>) => {
         {label}
       </span>
       <div
-        className="bg-white flex flex-row justify-between p-3 pr-1 border-[1px] border-[hsla(0,0%,80%,100%)] rounded-md shadow-md shadow-[hsla(0,0%,90%,100%)] mt-4"
+        className="cursor-pointer bg-white flex flex-row justify-between p-3 pr-1 border-[1px] border-[hsla(0,0%,80%,100%)] rounded-md shadow-md shadow-[hsla(0,0%,90%,100%)] mt-[1.25rem]"
         onClick={() => {
           animationLock && setVisible(() => true);
         }}
@@ -134,7 +134,6 @@ const Picker = <O extends Option>(props: PickerProps<O>) => {
                   : index === 0
                   ? firstInput
                   : undefined;
-
                 return (
                   <OptionCard
                     key={option.id}

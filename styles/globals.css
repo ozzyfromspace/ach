@@ -13,3 +13,7 @@
 .gradient-blue {
   @apply bg-gradient-to-t from-blue-deep to-blue-dark;
 }
+
+.event-width-clamp {
+  max-width: min(85vh, calc(100vw - 3rem));
+}

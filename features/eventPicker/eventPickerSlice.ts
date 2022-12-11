@@ -9,7 +9,7 @@ const initialState: EventPickerOption[] = [
     id: '1',
     name: 'Birthdays',
     group: OptionGroup.EVENTS_GROUP,
-    selected: false,
+    selected: true,
   },
   {
     id: '2',
