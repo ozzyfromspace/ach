@@ -2,6 +2,7 @@ import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { Link as ReactScrollLink } from 'react-scroll';
 import { MOBITABLET_MEDIA_QUERY } from '../../constants';
 import ach from '../../public/ach-leftcrop.jpg';
 import courtStreet from '../../public/court-street.jpeg';
@@ -24,7 +25,7 @@ const Hero = () => {
 
   return (
     <main
-      className="relative z-[1] w-full min-h-[88vh] flex flex-col justify-start bg-gray-light mt:pb-16 md:pb-20 lg:pb-24 xl:pb-28"
+      className="relative z-[2] w-full min-h-[88vh] flex flex-col justify-start bg-gray-light mt:pb-16 md:pb-20 lg:pb-24 xl:pb-28"
       id="hero"
     >
       <div className="absolute z-0 top-0 left-0 right-0 bottom-0 overflow-hidden">
@@ -55,9 +56,20 @@ const Hero = () => {
           className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide"
         >
           A{' '}
-          <span className="text-[hsl(145,55%,41%)] font-semibold">
-            hidden gem
-          </span>{' '}
+          <button>
+            <ReactScrollLink
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={350}
+              // onClick={updateURL}
+            >
+              <span className="text-[hsl(145,55%,41%)] font-semibold">
+                hidden gem
+              </span>
+            </ReactScrollLink>
+          </button>{' '}
           in the heart of Athens, OH
         </motion.h2>
         {!isFirstRender && (

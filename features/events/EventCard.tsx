@@ -62,7 +62,13 @@ const EventCard = (props: Props) => {
   });
 
   return (
-    <div className="w-full bg-white p-2 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={cardVariants}
+      className="w-full bg-white p-2 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200"
+    >
       <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
         <AnimatePresence mode="sync">
           <motion.div
@@ -78,11 +84,29 @@ const EventCard = (props: Props) => {
         </AnimatePresence>
         {dataLen > 1 && <ImageControls onPrev={onPrev} onNext={onNext} />}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default EventCard;
+
+const cardVariants: Variants = {
+  initial: {
+    opacity: 0.5,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.15,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.08,
+    },
+  },
+};
 
 const getVariants = (direction: ImageDirection): Variants => {
   return {
