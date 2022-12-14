@@ -68,6 +68,11 @@ const eventPickerSlice = createSlice({
 });
 
 export const eventSelector = (state: RootState) => state.eventPicker;
+export const eventIdSelector = (state: RootState) =>
+  state.eventPicker.map((ev) => ev.id);
+export const currentEventSelector = (state: RootState) =>
+  state.eventPicker.filter((event) => event.selected)[0] ?? initialState[0]!;
+
 export const { updateSelectedJobModel } = eventPickerSlice.actions;
 
 const userJobModelsReducer = eventPickerSlice.reducer;

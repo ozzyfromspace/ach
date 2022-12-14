@@ -7,12 +7,14 @@ interface Props {
   full: boolean;
   fixed: boolean;
   className: string;
+  handleClick: () => void;
+  selected: boolean;
 }
 
 let container: HTMLElement | null = null;
 
 const Button = (props: Props) => {
-  const { label, full, fixed, className } = props;
+  const { label, full, fixed, className, selected, handleClick } = props;
   const width = full ? (fixed ? '' : 'w-full') : '';
   const fixedClasses = fixed
     ? 'fixed z-[7] bg-blue-dark bottom-6 left-6 right-6'
@@ -32,12 +34,17 @@ const Button = (props: Props) => {
           variants={variants}
           initial="initial"
           animate="animate"
+          onClick={handleClick}
           whileHover={{
             scale: 0.98,
-            transitionDuration: '0.15s',
-            backgroundColor: darkBlue,
+            transitionDuration: '0.1s',
+            backgroundColor: selected ? darkBlue : 'hsla(0,0%,100%,100%)',
           }}
-          className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-gray-400 gradient-blue text-white rounded-[0.25rem] ${width} ${fixedClasses}`}
+          className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] ${
+            selected
+              ? 'gradient-blue text-white border-none'
+              : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'
+          } rounded-[0.25rem] ${width} ${fixedClasses}`}
         >
           {label}
         </motion.button>
@@ -51,12 +58,17 @@ const Button = (props: Props) => {
       variants={variants}
       initial="initial"
       animate="animate"
+      onClick={handleClick}
       whileHover={{
         scale: 0.98,
-        transitionDuration: '0.15s',
-        backgroundColor: darkBlue,
+        transitionDuration: '0.1s',
+        backgroundColor: selected ? darkBlue : 'hsla(0,0%,96.5%,100%)',
       }}
-      className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-gray-400 gradient-blue text-white rounded-[0.25rem] ${width}`}
+      className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 ${
+        selected
+          ? 'gradient-blue text-white border-[hsl(0,0%,84%,100%)]'
+          : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'
+      } rounded-[0.25rem] ${width}`}
     >
       {label}
     </motion.button>
@@ -69,10 +81,13 @@ Button.defaultProps = {
   full: false,
   fixed: false,
   className: '',
+  handleClick: () => {},
+  selected: true,
 };
 
 const variants: Variants = {
   initial: {
+    backgroundColor: '#fff',
     opacity: 0.8,
     scale: 0.9,
   },
