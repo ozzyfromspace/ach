@@ -18,11 +18,11 @@ const Events = () => {
 
   return (
     <Padding
-      className="relative w-full min-h-fit rounded-t-lg bg-[hsl(0,0%,94%)] pt-24 -mt-8 pb-8"
+      className="relative z-0 w-full min-h-fit rounded-t-lg pt-44 -mt-20 pb-8"
       id="events"
     >
       <div className="w-full">
-        <h2 className="font-title tracking-wider text-gray-dark text-2xl sm:text-3xl md:text-4xl font-medium mb-8 mt:text-center">
+        <h2 className="font-title tracking-wider text-gray-dark text-xl sm:text-2xl md:text-3xl font-light mb-8 mt:text-center pb-6">
           Events
         </h2>
         <div className="mt:flex flex-col flex-wrap justify-center items-center">
