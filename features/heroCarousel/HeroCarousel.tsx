@@ -3,11 +3,8 @@ import Image, { StaticImageData } from 'next/image';
 import { useEffect, useState } from 'react';
 import src1 from '../../public/hero/ach-leftcrop.jpg';
 import src0 from '../../public/hero/athena-1.jpeg';
-import src2 from '../../public/hero/athena-2.jpeg';
-import src3 from '../../public/hero/breakfast-1.jpeg';
-import src4 from '../../public/hero/cleo-1.jpeg';
-import src5 from '../../public/hero/hero-bed-1.jpeg';
-import src6 from '../../public/hero/lobby-1.jpeg';
+import src2 from '../../public/hero/breakfast-1.jpeg';
+import src3 from '../../public/hero/cleo-1.jpeg';
 
 type ObjectFit = 'cover' | 'contain' | 'fill';
 
@@ -23,10 +20,6 @@ const imageData: ImageData[] = [
   { src: src1, relativeOrder: 1, id: '1', objectFit: 'cover' },
   { src: src2, relativeOrder: 2, id: '2', objectFit: 'cover' },
   { src: src3, relativeOrder: 3, id: '3', objectFit: 'cover' },
-  { src: src4, relativeOrder: 4, id: '4', objectFit: 'cover' },
-  { src: src1, relativeOrder: 5, id: '5', objectFit: 'cover' },
-  { src: src5, relativeOrder: 6, id: '6', objectFit: 'cover' },
-  { src: src6, relativeOrder: 7, id: '7', objectFit: 'cover' },
 ];
 
 interface ImageCursor {
