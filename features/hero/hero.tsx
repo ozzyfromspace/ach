@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <main className="relative w-full mt-20" id="hero">
       <SiteBG />
-      <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-16 mx-auto px-6 pb-1 mb-6 overflow-hidden">
+      <div className="w-full flex flex-col justify-start items-center gap-16 mx-auto px-6 pb-1 mb-6 overflow-hidden">
         <Pitch
           mobile={mobile}
           isFirstRender={isFirstRender}
