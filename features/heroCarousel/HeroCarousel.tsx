@@ -175,7 +175,7 @@ const PositionedImage = (props: PositionedImageProps) => {
         priority
         src={src}
         alt={alt}
-        className={`z-0 w-full aspect-[5/3] max-h-full object-${objectFit} rounded-sm border-[1px] border-[white]`}
+        className={`z-0 w-full aspect-[5/3] max-h-full object-${objectFit} rounded-md border-[1px] border-[hsla(0,0%,80%,80%)]`}
       />
       <BlurredFrame />
     </motion.div>
