@@ -67,7 +67,7 @@ const EventCard = (props: Props) => {
       animate="animate"
       exit="exit"
       variants={cardVariants}
-      className="w-full bg-white p-2 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200"
+      className="w-full bg-white p-1 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200"
     >
       <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
         <AnimatePresence mode="sync">

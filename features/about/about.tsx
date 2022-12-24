@@ -7,7 +7,7 @@ const About = () => {
       className="relative -z-[1] w-full min-h-fit rounded-t-lg bg-gradient-to-b from-[hsl(211,67%,6%)] to-[hsl(213,33%,3%)] pt-2 pb-24 mt-8 mt:pb-0"
       id="about"
     >
-      <h2 className="font-title tracking-wider text-white text-2xl sm:text-3xl md:text-4xl font-medium pt-10 border-b-[0.5px] border-b-gray-light pb-9 mb-8">
+      <h2 className="font-title tracking-wider text-white text-xl sm:text-2xl md:text-3xl font-light pt-10 border-b-[0.5px] border-b-gray-light pb-9 mb-8">
         About us
       </h2>
       <div className="font-sans text-white leading-relaxed tracking-wide font-extralight text-justify xl:flex xl:flex-row xl:gap-8">

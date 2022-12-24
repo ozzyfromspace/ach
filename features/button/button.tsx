@@ -29,7 +29,7 @@ const Button = (props: Props) => {
   if (fixed && container) {
     return ReactDOM.createPortal(
       <React.Fragment>
-        <div className="fixed z-[6] left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
+        <div className="fixed min-w-max z-[6] left-0 right-0 bottom-0 h-24 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm" />
         <motion.button
           variants={variants}
           initial="initial"
@@ -64,7 +64,7 @@ const Button = (props: Props) => {
         transitionDuration: '0.1s',
         backgroundColor: selected ? darkBlue : 'hsla(0,0%,96.5%,100%)',
       }}
-      className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 ${
+      className={`${className} min-w-max font-title tracking-wide font-medium p-2 pl-6 pr-6 ${
         selected
           ? 'gradient-blue text-white border-[hsl(0,0%,84%,100%)]'
           : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'
