@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .active-link {
-  @apply pb-[4px] font-medium border-b-2 border-b-black text-black;
+  @apply pb-[5px] font-title text-lg tracking-wide font-medium border-b-4 border-b-blue-deep text-blue-deep duration-150 ease-out transition-all;
 }
 
 .active-link-mobile {

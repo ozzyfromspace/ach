@@ -38,6 +38,7 @@ const Events = () => {
                   handleClick={handleUpdateSelectedEvent}
                   label={event.name}
                   selected={event.selected}
+                  className="shadow-sm"
                 />
               );
             })}

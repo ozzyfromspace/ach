@@ -32,7 +32,7 @@ const DesktopNav = () => {
             >
               <ReactScrollLink
                 to={navlink.route}
-                activeClass={'active-link'}
+                activeClass={'active-link text-blue-deep'}
                 spy={true}
                 smooth={true}
                 offset={navlink.route === 'hero' ? -80 : 0}

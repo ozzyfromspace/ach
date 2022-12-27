@@ -49,7 +49,7 @@ const imageData: ImageData[] = [
     relativeOrder: 3,
     id: '3',
     objectFit: 'cover',
-    desc: 'Fun fact! We designed every room in our hotel uniquely. Welcome.',
+    desc: 'Fun fact! From the architecture to the interior design, every room in our boutique hotel has a unique feel 🌠',
   },
 ];
 

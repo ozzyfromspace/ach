@@ -40,10 +40,10 @@ const Button = (props: Props) => {
             transitionDuration: '0.1s',
             backgroundColor: selected ? darkBlue : 'hsla(0,0%,100%,100%)',
           }}
-          className={`${className} font-title tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] ${
+          className={`${className} font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] ${
             selected
               ? 'gradient-blue text-white border-none'
-              : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'
+              : 'bg-[white] text-[hsla(0,0%,90%,12%)] border-[1px] border-[hsl(0,0%,84%,100%)]'
           } rounded-[0.25rem] ${width} ${fixedClasses}`}
         >
           {label}
@@ -64,7 +64,7 @@ const Button = (props: Props) => {
         transitionDuration: '0.1s',
         backgroundColor: selected ? darkBlue : 'hsla(0,0%,96.5%,100%)',
       }}
-      className={`${className} min-w-max font-title tracking-wide font-medium p-2 pl-6 pr-6 ${
+      className={`${className} min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 ${
         selected
           ? 'gradient-blue text-white border-[hsl(0,0%,84%,100%)]'
           : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'
