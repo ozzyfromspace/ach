@@ -49,7 +49,7 @@ const Pitch = (props: PitchProps) => (
       variants={pitchVariants}
       initial="initial"
       animate="animate"
-      className="font-title font-medium tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
+      className="font-title font-light tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
     >
       Athens Central Hotel
     </motion.h1>
