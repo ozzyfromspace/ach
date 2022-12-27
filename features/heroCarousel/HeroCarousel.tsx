@@ -60,11 +60,11 @@ interface ImageCursor {
   slice: [ImageData, ImageData, ImageData];
 }
 
-const scaleDown = 0.45;
+const scaleDown = 0.53;
 const sideGap = 0.05;
-const sideOpacity = 0.45;
-const animationDurationSec = 3.9;
-const slideDurationMs = 8100;
+const sideOpacity = 0.39;
+const animationDurationSec = 4.2;
+const slideDurationMs = 9100;
 
 let scrollTimer: undefined | NodeJS.Timeout = undefined;
 let cancelTimer: undefined | NodeJS.Timeout = undefined;
@@ -294,7 +294,7 @@ const PositionedImage = (props: PositionedImageProps) => {
     scrollTimer = setTimeout(() => {
       enableScroll(() => true);
       // }, 1750);
-    }, 3000);
+    }, 3500);
     // setRerender((v) => !v);
   };
 
@@ -330,7 +330,9 @@ const PositionedImage = (props: PositionedImageProps) => {
         // onMouseOut={handleMouseOut}
         // onClick={onClick(isTransitioning)}
         className={`select-none absolute z-10 inset-0 bg-[hsla(211,84%,100%,6.9%)] ${
-          index === 1 ? 'hover:bg-[hsla(211,60%,9%,69%)]' : 'cursor-pointer'
+          index === 1 && !isTransitioning
+            ? 'hover:bg-[hsla(211,60%,9%,69%)]'
+            : 'cursor-pointer'
         } rounded-lg duration-150 ease-in-out transition-all overflow-none`}
       >
         <div

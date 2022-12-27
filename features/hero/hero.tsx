@@ -2,7 +2,7 @@ import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { MOBITABLET_MEDIA_QUERY } from '../../constants';
+import { MOBITABLET_MEDIA_QUERY, PHONE_DATA } from '../../constants';
 import courtStreet from '../../public/court-street.jpeg';
 import Button from '../button';
 import HeroCarousel from '../heroCarousel';
@@ -77,7 +77,7 @@ const Pitch = (props: PitchProps) => (
                 clipRule="evenodd"
               />
             </svg>
-            <a href="tel:+12202211795">2202211795</a>
+            <a href={PHONE_DATA.href}>{PHONE_DATA.label}</a>
           </button>
         )}
         <Button

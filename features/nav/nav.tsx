@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { MOBITABLET_MEDIA_QUERY } from '../../constants';
+import { MOBITABLET_MEDIA_QUERY, PHONE_DATA } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
 import Button from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
@@ -76,10 +76,10 @@ const Nav = () => {
             />
           </svg>
           <a
-            href="tel:+12202211795"
+            href={PHONE_DATA.href}
             className="font-subtitle font-normal text-base text-gray-link underline underline-offset-2"
           >
-            220-221-1795
+            {PHONE_DATA.label}
           </a>
         </button>
       )}
