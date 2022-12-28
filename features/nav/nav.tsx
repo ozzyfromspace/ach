@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { MOBITABLET_MEDIA_QUERY } from '../../constants';
+import { TABLET_MEDIA_QUERY } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
-import Button from '../button';
+import Button, { LinkCallButton } from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
 import DesktopNav from './DesktopNav';
 import MenuModal from './MenuModal';
@@ -15,7 +15,8 @@ const Nav = () => {
   const router = useRouter();
 
   const isMobiTablet = useMediaQuery({
-    query: MOBITABLET_MEDIA_QUERY,
+    // query: MOBITABLET_MEDIA_QUERY,
+    query: TABLET_MEDIA_QUERY,
   });
 
   const [mobile, setMobile] = useState(() => true);
@@ -59,6 +60,7 @@ const Nav = () => {
           <p className="font-extrabold">LOGO</p>
         </ReactScrollLink>
       </button>
+      {mobile && <LinkCallButton />}
       {mobile ? (
         <React.Fragment>
           <AnimatePresence>
@@ -77,7 +79,7 @@ const Nav = () => {
       )}
       {!mobile && (
         <Link href="/book">
-          <Button label="Reserve" className="md:w-32 lg:w-36 xl:w-48" />
+          <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </Link>
       )}
     </header>

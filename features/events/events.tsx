@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../button';
+import Button, { CallButton } from '../button';
 import { updateSelectedJobModel } from '../eventPicker';
 import {
   currentEventSelector,
@@ -38,17 +38,31 @@ const Events = () => {
                   handleClick={handleUpdateSelectedEvent}
                   label={event.name}
                   selected={event.selected}
+                  className="shadow-sm"
                 />
               );
             })}
           </nav>
-          <div className="flex justify-center items-center w-[65rem] event-width-clamp aspect-[4/3] mt-8 mb-12">
-            <AnimatePresence mode="wait">
-              <EventCard
-                key={eventDataSlice[currentEvent.id].eventType}
-                roomData={eventDataSlice[currentEvent.id]}
-              />
-            </AnimatePresence>
+          <div className="flex flex-wrap justify-center items-center gap-8 max-w-7xl mt-10 md:mt-12 xl:mt-14">
+            <div className="flex justify-center items-center w-[65rem] event-width-clamp aspect-[4/3]">
+              <AnimatePresence mode="wait">
+                <EventCard
+                  key={eventDataSlice[currentEvent.id].eventType}
+                  roomData={eventDataSlice[currentEvent.id]}
+                />
+              </AnimatePresence>
+            </div>
+            <div className="w-max max-w-fit min-h-full flex flex-col gap-6 justify-center items-start mt:items-center">
+              <p className="font-subtitle font-medium text-lg text-gray-dark">
+                Call to set up an event
+                {/* at the{' '} */}
+                {/* <span className="inline-block w-fit font-subtitle font-bold text-lg text-blue-deep break-keep text-center">
+                  Athens Central Hotel
+                </span> */}
+              </p>
+
+              <CallButton />
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import React, { useId, useState } from 'react';
 import Button from '../button';
-import AmenityIcon from './AmenityIcon';
+// import AmenityIcon from './AmenityIcon';
 import { RoomData } from './roomDataSlice';
 
 enum ImageDirection {
@@ -87,11 +87,11 @@ const RoomCard = (props: Props) => {
         <p className="text-base mb-4 text-gray-link font-light">
           {roomData.mainDescription}
         </p>
-        <div className="flex flex-row justify-start gap-8 mb-5 h-8 items-center">
+        {/* <div className="flex flex-row justify-start gap-8 mb-5 h-8 items-center">
           {roomData.amenities.map((a) => (
             <AmenityIcon amenity={a} key={a} />
           ))}
-        </div>
+        </div> */}
         <Button
           label="Book Now"
           className="max-w-fit ml-auto px-3 sm:px-7 mt:px-10 md:px-12 lg:px-14 xl:px-20"

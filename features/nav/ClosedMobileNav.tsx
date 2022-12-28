@@ -15,7 +15,7 @@ const ClosedMobileNav = (props: Props) => {
           animate="animate"
           exit="exit"
           variants={variants}
-          className="w-8 h-8"
+          className="w-8 h-8 text-gray-link"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
