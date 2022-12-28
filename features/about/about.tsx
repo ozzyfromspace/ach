@@ -13,7 +13,7 @@ const About = (props: AboutProps) => {
 
   return (
     <Padding
-      className="relative z-0 w-full pb-48 bg-blue-deep bg-opacity-90 text-white overflow-hidden"
+      className="relative z-0 w-full pb-16 bg-blue-deep bg-opacity-90 text-white overflow-hidden"
       // _py="pt-28"
       _py="pt-6"
       paddingRef={aboutRef}
