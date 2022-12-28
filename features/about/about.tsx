@@ -41,10 +41,7 @@ const About = (props: AboutProps) => {
         {true && (
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.0494872241065!2d-82.09823380000003!3d39.33246430000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8848735b1021f905%3A0x400f2aa6ca675df3!2sAthens%20Central%20Hotel!5e0!3m2!1sen!2sus!4v1672186189896!5m2!1sen!2sus"
-            // width="600"
-            // height="450"
-            // style="border:0;"
-            className="mt-12 border-[1px] p-[1px] border-white w-full aspect-square rounded-md shadow-sm"
+            className="mt-12 border-[1px] p-[1px] border-white w-full max-w-3xl aspect-square rounded-md shadow-sm"
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
