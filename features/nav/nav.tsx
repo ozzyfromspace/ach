@@ -15,7 +15,6 @@ const Nav = () => {
   const router = useRouter();
 
   const isMobiTablet = useMediaQuery({
-    // query: MOBITABLET_MEDIA_QUERY,
     query: TABLET_MEDIA_QUERY,
   });
 
@@ -53,7 +52,7 @@ const Nav = () => {
           to="hero"
           spy={true}
           smooth={true}
-          offset={-80}
+          offset={-96}
           duration={350}
           onClick={updateURL}
         >

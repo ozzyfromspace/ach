@@ -13,11 +13,12 @@ const About = (props: AboutProps) => {
 
   return (
     <Padding
-      className="relative z-[1] w-full mt-8 mt:pb-0 bg-blue-deep bg-opacity-90 text-white overflow-hidden"
-      id="contact"
+      className="relative z-0 w-full pb-48 bg-blue-deep bg-opacity-90 text-white overflow-hidden"
+      // _py="pt-28"
+      _py="pt-6"
       paddingRef={aboutRef}
     >
-      <div className="w-fit mx-auto py-12">
+      <div className="w-fit mx-auto pt-24" id="contact">
         <div className="w-fit border-b-2 border-white mb-12">
           <h2 className="font-title tracking-wider text-xl sm:text-2xl md:text-3xl font-light mb-2">
             Get in touch
@@ -25,10 +26,8 @@ const About = (props: AboutProps) => {
         </div>
         <div className="flex flex-wrap justify-between items-start gap-12 mt:gap-24 w-fit">
           <Address />
-          <div>
-            <h3 className="mb-4 flex flex-col gap-1">
-              Our Front Desk is Open 24/7
-            </h3>
+          <div className="text-sm">
+            <h3 className="mb-4 text-base">Our Front Desk is Open 24/7</h3>
             <div className="flex flex-wrap gap-4 text-[hsla(0,0%,100%,75%)] font-extralight">
               <p>Phone Number:</p>
               <LinkCallButton darkMode />
@@ -58,19 +57,18 @@ const About = (props: AboutProps) => {
 
 export const Address = () => {
   return (
-    <div>
-      <div className="flex flex-col justify-center items-start text-[hsla(0,0%,100%,75%)] font-extralight">
-        <h3 className="text-white font-medium mb-4">Athens Central Hotel</h3>
-        <a
-          href="https://goo.gl/maps/rqUJ6pViG9GRt3rn9"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <p className="mb-1">88 East State Street</p>
-          <p className="mb-1">Athens, OH 45701</p>
-          <p>United States</p>
-        </a>
-      </div>
+    <div className="flex flex-col justify-center items-start text-[hsla(0,0%,100%,75%)] font-extralight">
+      <h3 className="text-white font-medium mb-4">Athens Central Hotel</h3>
+      <a
+        href="https://goo.gl/maps/rqUJ6pViG9GRt3rn9"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm"
+      >
+        <p className="mb-1">88 East State Street</p>
+        <p className="mb-1">Athens, OH 45701</p>
+        <p>United States</p>
+      </a>
     </div>
   );
 };
