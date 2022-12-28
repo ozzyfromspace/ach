@@ -18,7 +18,7 @@ const Events = () => {
 
   return (
     <Padding
-      className="relative z-0 w-full min-h-fit rounded-t-lg pt-44 -mt-20 pb-8"
+      className="relative z-[1] w-full min-h-fit rounded-t-lg pt-24 mb-16"
       id="events"
     >
       <div className="w-full">
@@ -55,12 +55,7 @@ const Events = () => {
             <div className="w-max max-w-fit min-h-full flex flex-col gap-6 justify-center items-start mt:items-center">
               <p className="font-subtitle font-medium text-lg text-gray-dark">
                 Call to set up an event
-                {/* at the{' '} */}
-                {/* <span className="inline-block w-fit font-subtitle font-bold text-lg text-blue-deep break-keep text-center">
-                  Athens Central Hotel
-                </span> */}
               </p>
-
               <CallButton />
             </div>
           </div>
