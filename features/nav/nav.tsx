@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { MOBITABLET_MEDIA_QUERY } from '../../constants';
+import { TABLET_MEDIA_QUERY } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
 import Button, { LinkCallButton } from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
@@ -15,7 +15,8 @@ const Nav = () => {
   const router = useRouter();
 
   const isMobiTablet = useMediaQuery({
-    query: MOBITABLET_MEDIA_QUERY,
+    // query: MOBITABLET_MEDIA_QUERY,
+    query: TABLET_MEDIA_QUERY,
   });
 
   const [mobile, setMobile] = useState(() => true);
