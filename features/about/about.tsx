@@ -68,7 +68,7 @@ export const Address = () => {
         >
           <p className="mb-1">88 East State Street</p>
           <p className="mb-1">Athens, OH 45701</p>
-          <p>United States of America</p>
+          <p>United States</p>
         </a>
       </div>
     </div>

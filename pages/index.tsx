@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import About from '../features/about';
+import Amenities from '../features/amenities';
 import Events from '../features/events';
 import Hero from '../features/hero';
 import Nav from '../features/nav';
@@ -14,6 +15,7 @@ const Home = () => {
       <Nav />
       <Hero aboutInView={aboutInView} />
       <Rooms />
+      <Amenities />
       <Events />
       <About aboutRef={aboutRef} />
     </React.Fragment>

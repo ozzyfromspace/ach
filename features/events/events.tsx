@@ -54,10 +54,11 @@ const Events = () => {
             </div>
             <div className="w-max max-w-fit min-h-full flex flex-col gap-6 justify-center items-start mt:items-center">
               <p className="font-subtitle font-medium text-lg text-gray-dark">
-                Call now to set up an event at the{' '}
-                <span className="inline-block w-fit font-subtitle font-bold text-lg text-blue-deep break-keep text-center">
+                Call to set up an event
+                {/* at the{' '} */}
+                {/* <span className="inline-block w-fit font-subtitle font-bold text-lg text-blue-deep break-keep text-center">
                   Athens Central Hotel
-                </span>
+                </span> */}
               </p>
 
               <CallButton />
