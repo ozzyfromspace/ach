@@ -63,14 +63,20 @@ interface ImageCursor {
 const scaleDown = 0.53;
 const sideGap = 0.05;
 const sideOpacity = 0.39;
-const animationDurationSec = 4.2;
-const slideDurationMs = 9100;
+const animationDurationSec = 3.6;
+const slideDurationMs = 8100;
 
 let scrollTimer: undefined | NodeJS.Timeout = undefined;
 let cancelTimer: undefined | NodeJS.Timeout = undefined;
 let timer: undefined | NodeJS.Timeout = undefined;
 
-const HeroCarousel = () => {
+interface HeroCarouselProps {
+  hints: boolean;
+}
+
+const HeroCarousel = (props: HeroCarouselProps) => {
+  const { hints } = props;
+
   const [reverse, setReverse] = useState(() => false);
   const [inControl, setInControl] = useState(() => false);
   const [rerender, setRerender] = useState(() => false);
@@ -186,6 +192,7 @@ const HeroCarousel = () => {
             index={index}
             reverse={reverse}
             scroll={scroll}
+            hints={hints}
           />
         ))}
       </AnimatePresence>
@@ -211,6 +218,7 @@ interface PositionedImageProps extends MotionProps {
   handleGoBackward: (isTransitioning: boolean) => () => void;
   handleGoForward: (isTransitioning: boolean) => () => void;
   reverse: boolean;
+  hints: boolean;
 }
 
 interface PositionImageCustom {
@@ -241,6 +249,7 @@ const PositionedImage = (props: PositionedImageProps) => {
     enableScroll,
     handleGoBackward,
     handleGoForward,
+    hints,
     ...restProps
   } = props;
 
@@ -330,14 +339,16 @@ const PositionedImage = (props: PositionedImageProps) => {
         // onMouseOut={handleMouseOut}
         // onClick={onClick(isTransitioning)}
         className={`select-none absolute z-10 inset-0 bg-[hsla(211,84%,100%,6.9%)] ${
-          index === 1 && !isTransitioning
+          hints && index === 1 && !isTransitioning
             ? 'hover:bg-[hsla(211,60%,9%,69%)]'
-            : 'cursor-pointer'
+            : index !== 1 && !isTransitioning
+            ? 'cursor-pointer'
+            : ''
         } rounded-lg duration-150 ease-in-out transition-all overflow-none`}
       >
         <div
           className={`text-transparent ${
-            isTransitioning || index !== 1 ? '' : 'hover:text-white'
+            isTransitioning || index !== 1 || !hints ? '' : 'hover:text-white'
           } w-full h-full flex justify-center items-center px-6 md:px-12 py-6`}
         >
           <p className="font-h3 text-center">{desc}</p>
@@ -424,6 +435,7 @@ interface HeroCarouselImageProps {
   handleGoBackward: (isTransitioning: boolean) => () => void;
   handleGoForward: (isTransitioning: boolean) => () => void;
   getTranslateX: (position: 'left' | 'right') => string;
+  hints: boolean;
 }
 
 export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
@@ -433,6 +445,7 @@ export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
     reverse,
     getTranslateX,
     scroll,
+    hints,
     enableScroll,
     imageData: el,
     handleGoBackward,
@@ -476,6 +489,7 @@ export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
       reverse={reverse}
       scroll={scroll}
       index={index}
+      hints={hints}
       // onMouseOver={index === 1 ? handleMouseOver : noop}
       // onMouseOut={index === 1 ? handleMouseOut : noop}
       // onClick={

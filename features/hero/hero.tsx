@@ -2,12 +2,17 @@ import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { MOBITABLET_MEDIA_QUERY, PHONE_DATA } from '../../constants';
+import { MOBITABLET_MEDIA_QUERY } from '../../constants';
 import courtStreet from '../../public/court-street.jpeg';
-import Button from '../button';
+import Button, { CallButton } from '../button';
 import HeroCarousel from '../heroCarousel';
 
-const Hero = () => {
+interface HeroProps {
+  aboutInView: boolean;
+}
+
+const Hero = (props: HeroProps) => {
+  const { aboutInView } = props;
   const isMobile = useMediaQuery({ query: MOBITABLET_MEDIA_QUERY });
   const [mobile, setMobile] = useState(() => false);
   const [isFirstRender, setisFirstRender] = useState(() => true);
@@ -29,8 +34,9 @@ const Hero = () => {
           mobile={mobile}
           isFirstRender={isFirstRender}
           buttonClasses={buttonClasses}
+          aboutInView={aboutInView}
         />
-        <HeroCarousel />
+        <HeroCarousel hints={false} />
       </div>
     </main>
   );
@@ -40,6 +46,7 @@ interface PitchProps {
   mobile: boolean;
   isFirstRender: boolean;
   buttonClasses: string;
+  aboutInView: boolean;
 }
 
 const Pitch = (props: PitchProps) => (
@@ -63,27 +70,12 @@ const Pitch = (props: PitchProps) => (
     </motion.h2>
     {!props.isFirstRender && (
       <div className="flex justify-center items-center gap-6 mt-7">
-        {!props.mobile && (
-          <button className="flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.989] hover:bg-[hsla(0,0%,0%,84%,84%)] duration-150 ease-out transition-all">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <a href={PHONE_DATA.href}>{PHONE_DATA.label}</a>
-          </button>
-        )}
+        {!props.mobile && <CallButton />}
         <Button
           label="Book a room"
           full={props.mobile}
           fixed={props.mobile}
+          hideMobileButton={props.mobile && props.aboutInView}
           className={`text-xl sm:text-lg ${props.buttonClasses}`}
         />
       </div>
