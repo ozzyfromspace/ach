@@ -64,7 +64,7 @@ const RoomCard = (props: Props) => {
   });
 
   return (
-    <div className="w-full min-w-[18rem] md:max-w-[26rem] bg-white p-1 rounded-md border-[hsl(0,0%,92%)] border-[1px] shadow-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
+    <div className="w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md sm:hover:scale-[0.985] transition-all ease-in-out duration-200">
       <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
         <AnimatePresence mode="sync">
           <motion.div
@@ -80,11 +80,11 @@ const RoomCard = (props: Props) => {
         </AnimatePresence>
         {dataLen > 1 && <ImageControls onPrev={onPrev} onNext={onNext} />}
       </div>
-      <div className="relative bg-white flex flex-col pt-3 text-justify">
+      <div className="relative flex flex-col pt-3 text-justify">
         <h3 className="text-xl font-title my-3 text-gray-dark">
           {roomData.roomName}
         </h3>
-        <p className="text-base mb-4 text-gray-link font-light">
+        <p className="text-base mb-4 text-gray-link font-normal">
           {roomData.mainDescription}
         </p>
         {/* <div className="flex flex-row justify-start gap-8 mb-5 h-8 items-center">
@@ -92,10 +92,7 @@ const RoomCard = (props: Props) => {
             <AmenityIcon amenity={a} key={a} />
           ))}
         </div> */}
-        <Button
-          label="Book Now"
-          className="max-w-fit ml-auto px-3 sm:px-7 mt:px-10 md:px-12 lg:px-14 xl:px-20"
-        />
+        <Button label="Book Now" className="max-w-fit mr-auto" />
       </div>
     </div>
   );

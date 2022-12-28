@@ -22,7 +22,7 @@ const Events = () => {
       id="events"
     >
       <div className="w-full">
-        <h2 className="font-title tracking-wider text-gray-dark text-xl sm:text-2xl md:text-3xl font-light mb-8 mt:text-center pb-6">
+        <h2 className="font-title tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6">
           Events
         </h2>
         <div className="mt:flex flex-col flex-wrap justify-center items-center">
@@ -52,7 +52,7 @@ const Events = () => {
                 />
               </AnimatePresence>
             </div>
-            <div className="w-max max-w-fit min-h-full flex flex-col gap-6 justify-center items-start mt:items-center">
+            <div className="w-max max-w-fit min-h-full flex flex-col gap-6 justify-center items-center">
               <p className="font-subtitle font-medium text-lg text-gray-dark">
                 Call to set up an event
               </p>

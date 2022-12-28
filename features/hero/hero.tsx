@@ -29,7 +29,7 @@ const Hero = (props: HeroProps) => {
   return (
     <main className="relative w-full mt-20" id="hero">
       <SiteBG />
-      <div className="w-full flex flex-col justify-start items-center gap-16 mx-auto px-6 pb-1 overflow-hidden">
+      <div className="w-full flex flex-col justify-start items-center gap-16 mx-auto px-6 overflow-hidden">
         <Pitch
           mobile={mobile}
           isFirstRender={isFirstRender}
@@ -55,7 +55,8 @@ const Pitch = (props: PitchProps) => (
       variants={pitchVariants}
       initial="initial"
       animate="animate"
-      className="font-title font-light tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
+      className="font-exp1 font-normal uppercase tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
+      // className="font-exp4 font-normal uppercase tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
     >
       Athens Central Hotel
     </motion.h1>
@@ -101,7 +102,7 @@ const pitchVariants: Variants = {
 
 const SiteBG = () => (
   <React.Fragment>
-    <div className="fixed -z-[5] top-0 left-0 bottom-0 right-0 bg-[hsla(0,0%,100%,100%)] opacity-[0.93] bg-clip-padding backdrop-filter backdrop-blur-xl shadow-sm"></div>
+    <div className="fixed -z-[5] top-0 left-0 bottom-0 right-0 bg-[hsl(49,36%,96%)] opacity-[0.931] bg-clip-padding backdrop-filter backdrop-blur-xl shadow-sm"></div>
     <div className="fixed -z-10 top-0 left-0 bottom-0 right-0">
       <Image
         src={courtStreet}

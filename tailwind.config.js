@@ -33,8 +33,13 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Poppins", 'sans-serif'],
-      title: ['Kanit', 'sans-serif'],
+      // title: ['Kanit', 'sans-serif'],
+      title: ['Dosis', 'sans-serif'],
       subtitle: ['Montserrat', 'san-serif'],
+      exp1: ["Dosis", "sans-serif"],
+      exp2: ["Fjalla One", "sans-serif"],
+      exp3: ["Nanum Gothic", "sans-serif"],
+      exp4: ["PT Sans Narrow", "sans-serif"],
     },
     extend: {
       spacing: {
