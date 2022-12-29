@@ -19,7 +19,7 @@ const About = (props: AboutProps) => {
     >
       <div className="w-fit mx-auto pt-20" id="contact">
         <div className="w-fit border-b-2 border-white mb-12">
-          <h2 className="font-title tracking-wider text-2xl sm:text-3xl md:text-3xl font-normal mt-2 mb-2">
+          <h2 className="font-title select-none tracking-wider text-2xl sm:text-3xl md:text-3xl font-normal mt-2 mb-2">
             Get in touch
           </h2>
         </div>

@@ -50,7 +50,7 @@ interface PitchProps {
 }
 
 const Pitch = (props: PitchProps) => (
-  <section className="relative max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
+  <section className="relative select-none cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
     <motion.h1
       variants={pitchVariants}
       initial="initial"

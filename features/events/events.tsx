@@ -29,7 +29,7 @@ const Events = () => {
       id="events"
     >
       <div className="w-full">
-        <h2 className="font-title tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6">
+        <h2 className="font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6">
           Events
         </h2>
         <div className="mt:flex flex-col flex-wrap justify-center items-center">

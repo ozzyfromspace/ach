@@ -4,7 +4,7 @@ import amenityData, { AmenityData } from './amenityData';
 const Amenities = () => {
   return (
     <Padding id="amenities">
-      <h2 className="font-title tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6 pt-[5rem]">
+      <h2 className="select-none font-title tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6 pt-[5rem]">
         Amenities
       </h2>
       <div className="grid grid-cols-2 mt:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4">
