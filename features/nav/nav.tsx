@@ -78,7 +78,7 @@ const Nav = () => {
         <DesktopNav />
       )}
       {!mobile && (
-        <Link href="/book">
+        <Link href="/book" tabIndex={-1}>
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </Link>
       )}

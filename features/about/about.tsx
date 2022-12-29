@@ -76,9 +76,13 @@ export const Address = () => {
         rel="noreferrer"
         className="text-sm"
       >
-        <p className="mb-1">88 East State Street</p>
-        <p className="mb-1">Athens, OH 45701</p>
-        <p>United States</p>
+        <p className="font-title text-[1.08rem] mb-1 tracking-wide">
+          88 East State Street
+        </p>
+        <p className="font-title text-[1.08rem] mb-1 tracking-wide">
+          Athens, OH 45701
+        </p>
+        <p className="font-title text-[1.08rem] tracking-wide">United States</p>
       </a>
     </div>
   );
