@@ -9,6 +9,7 @@ import { useScrollBlock } from '../../hooks/useScrollBlock';
 import Button, { LinkCallButton } from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
 import DesktopNav from './DesktopNav';
+import HomeIcon from './HomeIcon';
 import MenuModal from './MenuModal';
 
 const Nav = () => {
@@ -56,7 +57,7 @@ const Nav = () => {
           duration={350}
           onClick={updateURL}
         >
-          <p className="font-extrabold">LOGO</p>
+          <HomeIcon />
         </ReactScrollLink>
       </button>
       {mobile && <LinkCallButton />}
