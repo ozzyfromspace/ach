@@ -25,7 +25,12 @@ const CallButton = () => {
           clipRule="evenodd"
         />
       </svg>
-      <a href={PHONE_DATA.href} ref={linkRef} className="text-base">
+      <a
+        href={PHONE_DATA.href}
+        ref={linkRef}
+        className="text-base"
+        tabIndex={-1}
+      >
         {PHONE_DATA.label}
       </a>
     </button>
@@ -89,8 +94,11 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
       <a
         href={buttonData.href}
         ref={linkRef}
+        tabIndex={-1}
         className={`font-title ${
-          size === 'large' ? 'text-xl font-normal' : 'text-base font-normal'
+          size === 'large'
+            ? 'text-xl font-normal'
+            : 'text-[1.07rem] font-extralight tracking-wide'
         } ${textColor} ${
           underline
             ? 'border-b-[1px] border-b-[hsla(0,0%,69%,100%)] pb-1 mt-1'
