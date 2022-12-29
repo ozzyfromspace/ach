@@ -138,7 +138,6 @@ const HeroCarousel = (props: HeroCarouselProps) => {
     if (isTransitioning) return;
     setInControl(() => true);
     setReverse(() => false);
-    console.log('went forward!');
     setRerender((v) => !v);
   };
 
@@ -146,7 +145,6 @@ const HeroCarousel = (props: HeroCarouselProps) => {
     if (isTransitioning) return;
     setInControl(() => true);
     setReverse(() => true);
-    console.log('went backward!');
     setRerender((v) => !v);
   };
 
@@ -156,7 +154,6 @@ const HeroCarousel = (props: HeroCarouselProps) => {
       setInControl(() => false);
     }
 
-    console.log('setting up next animation');
     cancelTimer = setTimeout(() => {
       if (reverse) {
         setReverse(() => false);
@@ -177,7 +174,7 @@ const HeroCarousel = (props: HeroCarouselProps) => {
 
   return (
     <div
-      className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg`}
+      className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg mb-1`}
     >
       <AnimatePresence mode="sync">
         {cursor.slice.map((el, index) => (
@@ -210,9 +207,6 @@ interface PositionedImageProps extends MotionProps {
   nrAnimations: number;
   className: string;
   objectFit: ObjectFit;
-  // onMouseOver: (isTransitioning: boolean) => () => void;
-  // onClick: (isTransitioning: boolean) => () => void;
-  // onMouseOut: (isTransitioning: boolean) => () => void;
   scroll: boolean;
   enableScroll: Dispatch<SetStateAction<boolean>>;
   handleGoBackward: (isTransitioning: boolean) => () => void;
@@ -254,7 +248,6 @@ const PositionedImage = (props: PositionedImageProps) => {
   } = props;
 
   const handleMouseOut = useCallback(() => {
-    console.log('mouseout!', isTransitioning, scroll);
     if (isTransitioning) return;
 
     // setRerender((v) => !v);
@@ -282,7 +275,6 @@ const PositionedImage = (props: PositionedImageProps) => {
   const noop = () => () => {};
 
   const onClick = () => {
-    console.log('click!', isTransitioning, index);
     if (isTransitioning) return;
     setTimeout(() => {
       index === 0
@@ -294,17 +286,12 @@ const PositionedImage = (props: PositionedImageProps) => {
   };
 
   const handleMouseOver = () => {
-    console.log(isTransitioning);
-
     if (isTransitioning) return;
 
-    console.log('stopping animation', timer);
     clearInterval(timer);
     scrollTimer = setTimeout(() => {
       enableScroll(() => true);
-      // }, 1750);
-    }, 3500);
-    // setRerender((v) => !v);
+    }, 2850);
   };
 
   const handleAnimationStart = () => {
@@ -317,27 +304,15 @@ const PositionedImage = (props: PositionedImageProps) => {
 
   return (
     <motion.div
-      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(211,70%,42%,69%)] p-[1px] m-1 rounded-lg shadow-md`}
+      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(211,70%,42%,69%)] p-[1px] rounded-lg shadow-md`}
       onAnimationStart={handleAnimationStart}
       onAnimationComplete={handleAnimationComplete}
-      // onMouseOver={onMouseOver(isTransitioning)}
-      // // onMouseOut={onMouseOut(isTransitioning)}
-      // onMouseOut={onMouseOut(isTransitioning)}
       onClick={onClick}
       onMouseOver={handleMouseOver}
-      // // onMouseOut={onMouseOut(isTransitioning)}
       onMouseLeave={handleMouseOut}
       {...restProps}
     >
       <div
-        // onClick={onClick}
-        // onMouseOver={handleMouseOver}
-        // // // onMouseOut={onMouseOut(isTransitioning)}
-        // onMouseOut={handleMouseOut}
-        // onMouseOver={handleMouseOver}
-        // // onMouseOut={onMouseOut(isTransitioning)}
-        // onMouseOut={handleMouseOut}
-        // onClick={onClick(isTransitioning)}
         className={`select-none absolute z-10 inset-0 bg-[hsla(211,84%,100%,6.9%)] ${
           hints && index === 1 && !isTransitioning
             ? 'hover:bg-[hsla(211,60%,9%,69%)]'
@@ -358,10 +333,6 @@ const PositionedImage = (props: PositionedImageProps) => {
         priority
         src={src}
         alt={alt}
-        // onMouseOver={onMouseOver(isTransitioning)}
-        // // onMouseOut={onMouseOut(isTransitioning)}
-        // onMouseOut={onMouseOut(isTransitioning)}
-        // onClick={onClick(isTransitioning)}
         className={`z-0 w-full aspect-[5/3] max-h-full object-${objectFit} rounded-[0.45rem] border-[0.5px] border-[hsla(0,0%,100%,100%)]`}
       />
     </motion.div>
@@ -410,7 +381,9 @@ const positionedImageVariants: Variants = {
     opacity: custom.opacity,
 
     transition: {
-      duration: animationDurationSec,
+      duration: custom.firstSlide
+        ? animationDurationSec * 0.93
+        : animationDurationSec,
     },
   }),
   exit: (custom: PositionImageCustom) => ({
@@ -490,20 +463,6 @@ export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
       scroll={scroll}
       index={index}
       hints={hints}
-      // onMouseOver={index === 1 ? handleMouseOver : noop}
-      // onMouseOut={index === 1 ? handleMouseOut : noop}
-      // onClick={
-      //   index === 0 ? handleGoForward : index === 2 ? handleGoBackward : noop
-      // }
-      // whileHover={
-      //   index % 2
-      //     ? {}
-      //     : {
-      //         cursor: 'pointer',
-      //         scale: scaleDown * 1.03,
-      //         transition: { duration: 0.15 },
-      //       }
-      // }
       variants={positionedImageVariants}
       custom={positionImageCustom}
     />

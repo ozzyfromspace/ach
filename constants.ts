@@ -7,5 +7,5 @@ export const EMAIL_DATA = {
 };
 export const PHONE_DATA = {
   href: 'tel:+17405950500',
-  label: '7405950500',
+  label: '(740)-595-0500',
 };

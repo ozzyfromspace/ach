@@ -16,7 +16,7 @@ export default function Document() {
           key="fontsgstatic"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Montserrat:wght@400;600&family=Poppins:wght@100;200;400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Montserrat:wght@400;500;600&family=Poppins:wght@100;200;400&display=swap"
           rel="stylesheet"
         />
         <link

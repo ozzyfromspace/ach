@@ -29,7 +29,7 @@ const Hero = (props: HeroProps) => {
   return (
     <main className="relative w-full mt-20" id="hero">
       <SiteBG />
-      <div className="w-full flex flex-col justify-start items-center gap-16 mx-auto px-6 overflow-hidden">
+      <div className="w-full flex flex-col justify-start items-center gap-10 mt:gap-14 md:gap-16 mx-auto px-6 overflow-hidden">
         <Pitch
           mobile={mobile}
           isFirstRender={isFirstRender}
@@ -55,8 +55,7 @@ const Pitch = (props: PitchProps) => (
       variants={pitchVariants}
       initial="initial"
       animate="animate"
-      className="font-exp1 font-normal uppercase tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
-      // className="font-exp4 font-normal uppercase tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
+      className="font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
     >
       Athens Central Hotel
     </motion.h1>
@@ -66,7 +65,7 @@ const Pitch = (props: PitchProps) => (
       animate="animate"
       className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0"
     >
-      A <span className="text-blue-deep font-bold">hidden gem</span> in the
+      A <span className="text-blue-deep font-semibold">hidden gem</span> in the
       heart of Athens, OH
     </motion.h2>
     {!props.isFirstRender && (

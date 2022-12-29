@@ -72,7 +72,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
         stroke="currentColor"
         className={`${
           size === 'large' ? 'w-5 h-5' : 'w-4 h-4'
-        } ${textColor} font-extralight mt-[0.15rem]`}
+        } ${textColor} font-normal mt-[0.15rem]`}
       >
         <path
           strokeLinecap="round"
@@ -89,9 +89,13 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
       <a
         href={buttonData.href}
         ref={linkRef}
-        className={`font-subtitle font-normal ${
-          size === 'large' ? 'text-base' : 'text-small'
-        } ${textColor} ${underline ? 'underline underline-offset-2' : ''}`}
+        className={`font-title ${
+          size === 'large' ? 'text-xl font-normal' : 'text-base font-normal'
+        } ${textColor} ${
+          underline
+            ? 'border-b-[1px] border-b-[hsla(0,0%,69%,100%)] pb-1 mt-1'
+            : ''
+        }`}
       >
         {buttonData.label}
       </a>

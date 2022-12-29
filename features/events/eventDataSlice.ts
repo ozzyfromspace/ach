@@ -1,14 +1,17 @@
+import { Picture } from '../picDisplay/PicDisplay';
+
+import bday1 from '../../public/events/birthday-example1.jpeg';
+import bday2 from '../../public/events/birthday-example2.jpeg';
+import bday3 from '../../public/events/birthday-example3.jpeg';
+import grad1 from '../../public/events/graduation-example1.jpeg';
+import grad2 from '../../public/events/graduation-example2.jpeg';
+import wedding1 from '../../public/events/wedding-example1.jpeg';
+import wedding2 from '../../public/events/wedding-example2.jpeg';
+
 enum EventType {
   birthday = 'birthday',
   weddings_and_anniversaries = 'wedding_and_anniversaries',
   graduations = 'graduations',
-}
-
-interface Picture {
-  id: string;
-  url: string;
-  description: string;
-  imageClasses: string;
 }
 
 export interface EventData {
@@ -27,22 +30,22 @@ const birthday: EventData = {
   mainDescription: birthdayDescription,
   pictureSlice: [
     {
-      id: '1',
-      url: '/events/birthday-example1.jpeg',
+      id: 'a1',
+      url: bday1,
       description: 'desc of image 1',
       imageClasses: 'brightness-[1.16] saturation-[1.05]',
     },
     {
-      id: '2',
-      url: '/events/birthday-example2.jpeg',
-      description: 'desc of image 2',
-      imageClasses: 'brightness-[1.35] saturation-[1.12]',
-    },
-    {
-      id: '3',
-      url: '/events/birthday-example3.jpeg',
+      id: 'a3',
+      url: bday3,
       description: 'desc of image 2',
       imageClasses: 'brightness-[0.88] saturation-[1.14]',
+    },
+    {
+      id: 'a2',
+      url: bday2,
+      description: 'desc of image 2',
+      imageClasses: 'brightness-[1.35] saturation-[1.12]',
     },
   ],
 };
@@ -55,15 +58,21 @@ const weddingsAndAnniversaries: EventData = {
   mainDescription: weddingsAndAnniversariesDescription,
   pictureSlice: [
     {
-      id: '1',
-      url: '/events/wedding-example1.jpeg',
+      id: 'b2',
+      url: wedding2,
+      description: 'desc of image 2',
+      imageClasses: 'brightness-[1.28] saturation-[1.18]',
+    },
+    {
+      id: 'b1',
+      url: wedding1,
       description: 'desc of image 1',
       imageClasses: 'brightness-[1.28] saturation-[1.18]',
     },
     {
-      id: '2',
-      url: '/events/wedding-example2.jpeg',
-      description: 'desc of image 2',
+      id: 'b3',
+      url: bday3,
+      description: 'desc of image 3',
       imageClasses: 'brightness-[1.28] saturation-[1.18]',
     },
   ],
@@ -77,15 +86,21 @@ const graduations: EventData = {
   mainDescription: graduationDescription,
   pictureSlice: [
     {
-      id: '1',
-      url: '/events/graduation-example1.jpeg',
+      id: 'c2',
+      url: grad2,
+      description: 'desc of Image 2',
+      imageClasses: 'brightness-[1.12] saturation-[1.06]',
+    },
+    {
+      id: 'c1',
+      url: grad1,
       description: 'desc of Image 1',
       imageClasses: 'brightness-[1.24] saturation-[1.14]',
     },
     {
-      id: '2',
-      url: '/events/graduation-example2.jpeg',
-      description: 'desc of Image 2',
+      id: 'c3',
+      url: bday3,
+      description: 'desc of Image 3',
       imageClasses: 'brightness-[1.12] saturation-[1.06]',
     },
   ],
