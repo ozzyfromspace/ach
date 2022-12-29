@@ -29,7 +29,7 @@ const Hero = (props: HeroProps) => {
   return (
     <main className="relative w-full mt-20" id="hero">
       <SiteBG />
-      <div className="w-full flex flex-col justify-start items-center gap-16 mx-auto px-6 pb-1 overflow-hidden">
+      <div className="w-full flex flex-col justify-start items-center gap-10 mt:gap-14 md:gap-16 mx-auto px-6 overflow-hidden">
         <Pitch
           mobile={mobile}
           isFirstRender={isFirstRender}
@@ -50,12 +50,12 @@ interface PitchProps {
 }
 
 const Pitch = (props: PitchProps) => (
-  <section className="relative max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
+  <section className="relative select-none cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
     <motion.h1
       variants={pitchVariants}
       initial="initial"
       animate="animate"
-      className="font-title font-light tracking-wide text-[2rem] sm:text-[2.3rem] mt:text-[2.4rem] md:text-[2.5rem] lg:text-[2.65rem] xl:text-[2.9rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
+      className="font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep"
     >
       Athens Central Hotel
     </motion.h1>
@@ -65,7 +65,7 @@ const Pitch = (props: PitchProps) => (
       animate="animate"
       className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0"
     >
-      A <span className="text-blue-deep font-bold">hidden gem</span> in the
+      A <span className="text-blue-deep font-semibold">hidden gem</span> in the
       heart of Athens, OH
     </motion.h2>
     {!props.isFirstRender && (
@@ -101,7 +101,7 @@ const pitchVariants: Variants = {
 
 const SiteBG = () => (
   <React.Fragment>
-    <div className="fixed -z-[5] top-0 left-0 bottom-0 right-0 bg-[hsla(0,0%,100%,100%)] opacity-[0.93] bg-clip-padding backdrop-filter backdrop-blur-xl shadow-sm"></div>
+    <div className="fixed -z-[5] top-0 left-0 bottom-0 right-0 bg-[hsl(49,36%,96%)] opacity-[0.931] bg-clip-padding backdrop-filter backdrop-blur-xl shadow-sm"></div>
     <div className="fixed -z-10 top-0 left-0 bottom-0 right-0">
       <Image
         src={courtStreet}

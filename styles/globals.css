@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .active-link {
-  @apply pb-[5px] font-title text-lg tracking-wide font-medium border-b-4 border-b-blue-deep text-blue-deep duration-150 ease-out transition-all;
+  @apply pb-[4px] font-subtitle bg-[hsla(211,84%,30%,8.35%)] font-normal text-lg tracking-wide border-b-2 border-b-blue-deep text-blue-deep duration-150 ease-out transition-all;
 }
 
 .active-link-mobile {
-  @apply pb-[4px] font-medium border-b-2 border-b-white text-white;
+  @apply pb-[4px] font-subtitle font-normal border-b-2 border-b-white text-white;
 }
 
 .gradient-blue {

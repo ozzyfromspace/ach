@@ -17,7 +17,7 @@ const CallButton = () => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="w-5 h-5"
+        className="w-4 h-4"
       >
         <path
           fillRule="evenodd"
@@ -25,7 +25,7 @@ const CallButton = () => {
           clipRule="evenodd"
         />
       </svg>
-      <a href={PHONE_DATA.href} ref={linkRef}>
+      <a href={PHONE_DATA.href} ref={linkRef} className="text-base">
         {PHONE_DATA.label}
       </a>
     </button>
@@ -38,10 +38,12 @@ interface LinkCallButtonProps {
     label: string;
   };
   darkMode: boolean;
+  size: 'large' | 'small';
+  underline: boolean;
 }
 
 export const LinkCallButton = (props: LinkCallButtonProps) => {
-  const { buttonData: tempButtonData, darkMode } = props;
+  const { buttonData: tempButtonData, darkMode, size, underline } = props;
 
   const buttonData = {
     href: tempButtonData.href || PHONE_DATA.href,
@@ -68,7 +70,9 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className={`w-5 h-5 ${textColor} font-extralight mt-[0.15rem]`}
+        className={`${
+          size === 'large' ? 'w-5 h-5' : 'w-4 h-4'
+        } ${textColor} font-normal mt-[0.15rem]`}
       >
         <path
           strokeLinecap="round"
@@ -85,7 +89,13 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
       <a
         href={buttonData.href}
         ref={linkRef}
-        className={`font-subtitle font-normal text-base ${textColor} underline underline-offset-2`}
+        className={`font-title ${
+          size === 'large' ? 'text-xl font-normal' : 'text-base font-normal'
+        } ${textColor} ${
+          underline
+            ? 'border-b-[1px] border-b-[hsla(0,0%,69%,100%)] pb-1 mt-1'
+            : ''
+        }`}
       >
         {buttonData.label}
       </a>
@@ -99,6 +109,8 @@ LinkCallButton.defaultProps = {
     label: '',
   },
   darkMode: false,
+  size: 'large',
+  underline: true,
 };
 
 export default CallButton;

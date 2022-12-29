@@ -16,9 +16,13 @@ export default function Document() {
           key="fontsgstatic"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Montserrat:wght@400;600&family=Poppins:wght@100;200;400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Montserrat:wght@400;500;600&family=Poppins:wght@100;200;400&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&family=Fjalla+One&family=Nanum+Gothic&family=PT+Sans+Narrow&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <body className="bg-gray-light">
         <Main />

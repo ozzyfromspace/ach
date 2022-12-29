@@ -20,7 +20,7 @@ const DesktopNav = () => {
 
   return (
     <nav className="absolute -z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
-      <ul className="flex flex-row gap-[7vw] justify-center items-center">
+      <ul className="flex flex-row gap-[6vw] justify-center items-center">
         {navlinks.map((navlink, index) => (
           <li key={navlink.route} onClick={updateURL(navlink.route)}>
             <motion.button
