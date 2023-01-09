@@ -14,6 +14,7 @@ export interface Picture {
   url: StaticImageData;
   description: string;
   imageClasses: string;
+  priority: boolean;
 }
 
 type Pictures = [Picture, Picture, Picture];
