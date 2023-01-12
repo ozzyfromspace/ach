@@ -1,7 +1,7 @@
-import sKing_1 from '../../public/hotel_images/sKing/1.jpg';
-import sKing_2 from '../../public/hotel_images/sKing/2.jpg';
-import sKing_3 from '../../public/hotel_images/sKing/3.jpg';
-import sKing_4 from '../../public/hotel_images/sKing/4.jpg';
+import sKing_1 from '../../public/hotel_images/sKing/s-king-1.jpg';
+import sKing_2 from '../../public/hotel_images/sKing/s-king-2.jpg';
+import sKing_3 from '../../public/hotel_images/sKing/s-king-3.jpg';
+import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
 import { RoomData, RoomType } from './types';
 
 const sKingDesc = '2-bedroom suite with a comfy living space';

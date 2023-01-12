@@ -1,7 +1,7 @@
-import handicap_1 from '../../public/hotel_images/handicap/1.jpg';
-import handicap_2 from '../../public/hotel_images/handicap/2.jpg';
-import handicap_3 from '../../public/hotel_images/handicap/3.jpg';
-import handicap_4 from '../../public/hotel_images/handicap/4.jpg';
+import handicap_1 from '../../public/hotel_images/handicap/handicap-1.jpg';
+import handicap_2 from '../../public/hotel_images/handicap/handicap-2.jpg';
+import handicap_3 from '../../public/hotel_images/handicap/handicap-3.jpg';
+import handicap_4 from '../../public/hotel_images/handicap/handicap-4.jpg';
 import { RoomData, RoomType } from './types';
 
 const handicapDesc = '2-bedroom suite with a comfy living space';

@@ -1,9 +1,9 @@
-import suite2_1 from '../../public/hotel_images/suite2/1.jpg';
-import suite2_2 from '../../public/hotel_images/suite2/2.jpg';
-import suite2_3 from '../../public/hotel_images/suite2/3.jpg';
-import suite2_4 from '../../public/hotel_images/suite2/4.jpg';
-import suite2_5 from '../../public/hotel_images/suite2/5.jpg';
-import suite2_6 from '../../public/hotel_images/suite2/6.jpg';
+import suite2_1 from '../../public/hotel_images/suite2/suite2-1.jpg';
+import suite2_2 from '../../public/hotel_images/suite2/suite2-2.jpg';
+import suite2_3 from '../../public/hotel_images/suite2/suite2-3.jpg';
+import suite2_4 from '../../public/hotel_images/suite2/suite2-4.jpg';
+import suite2_5 from '../../public/hotel_images/suite2/suite2-5.jpg';
+import suite2_6 from '../../public/hotel_images/suite2/suite2-6.jpg';
 import { RoomData, RoomType } from './types';
 
 const suite2Desc = '2-bedroom suite with a comfy living space';

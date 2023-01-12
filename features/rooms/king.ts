@@ -1,14 +1,14 @@
-import { default as king_1 } from '../../public/hotel_images/king/1.jpg';
-import { default as king_2 } from '../../public/hotel_images/king/2.jpg';
-import { default as king_3 } from '../../public/hotel_images/king/3.jpg';
-import { default as king_4 } from '../../public/hotel_images/king/4.jpg';
+import king_1 from '../../public/hotel_images/king/king-1.jpg';
+import king_2 from '../../public/hotel_images/king/king-2.jpg';
+import king_3 from '../../public/hotel_images/king/king-3.jpg';
+import king_4 from '../../public/hotel_images/king/king-4.jpg';
 import { RoomData, RoomType } from './types';
 
 const kingDesc = 'A comfy 1-bedroom apartment';
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
-  roomName: 'Athena Suite',
+  roomName: 'Apollo King',
   mainDescription: kingDesc,
   amenities: [],
   pictureSlice: [
@@ -17,7 +17,7 @@ export const king_data: RoomData = {
       url: king_1,
       description: 'desc of image 1',
       imageClasses: 'brightness-[1.16] saturation-[1.05]',
-      priority: false,
+      priority: true,
     },
     {
       id: '1',
@@ -31,14 +31,14 @@ export const king_data: RoomData = {
       url: king_3,
       description: 'desc of image 3',
       imageClasses: 'brightness-[0.88] saturation-[1.14]',
-      priority: false,
+      priority: true,
     },
     {
       id: '3',
       url: king_4,
       description: 'desc of image 4',
       imageClasses: 'brightness-[0.88] saturation-[1.14]',
-      priority: false,
+      priority: true,
     },
   ],
 };

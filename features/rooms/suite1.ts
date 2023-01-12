@@ -1,9 +1,9 @@
-import suite1_1 from '../../public/hotel_images/suite1/1.jpg';
-import suite1_2 from '../../public/hotel_images/suite1/2.jpg';
-import suite1_3 from '../../public/hotel_images/suite1/3.jpg';
-import suite1_4 from '../../public/hotel_images/suite1/4.jpg';
-import suite1_5 from '../../public/hotel_images/suite1/5.jpg';
-import suite1_6 from '../../public/hotel_images/suite1/6.jpg';
+import suite1_1 from '../../public/hotel_images/suite1/suite1-1.jpg';
+import suite1_2 from '../../public/hotel_images/suite1/suite1-2.jpg';
+import suite1_3 from '../../public/hotel_images/suite1/suite1-3.jpg';
+import suite1_4 from '../../public/hotel_images/suite1/suite1-4.jpg';
+import suite1_5 from '../../public/hotel_images/suite1/suite1-5.jpg';
+import suite1_6 from '../../public/hotel_images/suite1/suite1-6.jpg';
 import { RoomData, RoomType } from './types';
 
 const suite1Desc = '1-bedroom suite with a comfy living space';

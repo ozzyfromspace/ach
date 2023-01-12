@@ -1,6 +1,6 @@
-import xKing_1 from '../../public/hotel_images/xKing/1.jpg';
-import xKing_2 from '../../public/hotel_images/xKing/2.jpg';
-import xKing_3 from '../../public/hotel_images/xKing/4.jpg';
+import xKing_1 from '../../public/hotel_images/xKing/x-king-1.jpg';
+import xKing_2 from '../../public/hotel_images/xKing/x-king-2.jpg';
+import xKing_3 from '../../public/hotel_images/xKing/x-king-4.jpg';
 import { RoomData, RoomType } from './types';
 
 const xKingDesc = '2-bedroom suite with a comfy living space';

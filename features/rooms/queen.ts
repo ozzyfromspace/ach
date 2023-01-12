@@ -1,14 +1,14 @@
-import queen_1 from '../../public/hotel_images/queen/1.jpg';
-import queen_2 from '../../public/hotel_images/queen/2.jpg';
-import queen_3 from '../../public/hotel_images/queen/3.jpg';
-import queen_4 from '../../public/hotel_images/queen/4.jpg';
+import queen_1 from '../../public/hotel_images/queen/queen-1.jpg';
+import queen_2 from '../../public/hotel_images/queen/queen-2.jpg';
+import queen_3 from '../../public/hotel_images/queen/queen-3.jpg';
+import queen_4 from '../../public/hotel_images/queen/queen-4.jpg';
 import { RoomData, RoomType } from './types';
 
 const queenDesc = '2-bedroom suite with a comfy living space';
 
 export const queen_data: RoomData = {
   roomType: RoomType.queen,
-  roomName: 'Athena Suite',
+  roomName: 'Artemis Queen',
   mainDescription: queenDesc,
   amenities: [],
   pictureSlice: [
