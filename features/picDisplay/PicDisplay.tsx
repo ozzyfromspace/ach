@@ -163,7 +163,8 @@ const MotionImage = (props: MotionImageProps) => {
         src={src}
         alt={alt}
         className={`w-full h-full object-cover ${imageClasses}`}
-        priority
+        placeholder="blur"
+        // priority
       />
     </motion.div>
   );
