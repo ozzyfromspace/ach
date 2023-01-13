@@ -1,6 +1,6 @@
 import Button from '../button';
 import PicDisplay from '../picDisplay/index';
-import { RoomData } from './roomDataSlice';
+import { RoomData } from './types';
 
 interface Props {
   roomData: RoomData;

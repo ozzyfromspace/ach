@@ -3,6 +3,7 @@ import {
   FaBell,
   FaBreadSlice,
   FaCoffee,
+  FaDog,
   FaDumbbell,
   FaGraduationCap,
   FaParking,
@@ -98,6 +99,11 @@ const amenityData: AmenityData[] = [
     id: 15,
     icon: FaBell,
     label: '24/7 Service',
+  },
+  {
+    id: 16,
+    icon: FaDog,
+    label: 'Pet Friendly',
   },
 ];
 

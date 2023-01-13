@@ -14,6 +14,7 @@ export interface Picture {
   url: StaticImageData;
   description: string;
   imageClasses: string;
+  priority: boolean;
 }
 
 type Pictures = [Picture, Picture, Picture];
@@ -65,7 +66,7 @@ const PicDisplay = (props: Props) => {
     };
   });
 
-  const onNext = () => {
+  const onPrev = () => {
     if (isAnimating.value) return;
 
     firstAnimation && setFirstAnimation(() => false);
@@ -79,7 +80,7 @@ const PicDisplay = (props: Props) => {
     });
   };
 
-  const onPrev = () => {
+  const onNext = () => {
     if (isAnimating.value) return;
 
     firstAnimation && setFirstAnimation(() => false);
@@ -95,7 +96,7 @@ const PicDisplay = (props: Props) => {
 
   return (
     <motion.div
-      className="relative z-0 aspect-square w-full rounded-md overflow-hidden"
+      className="relative z-0 aspect-[7/5] w-full rounded-md overflow-hidden"
       initial={{ opacity: 0.69 }}
       animate={{ opacity: 1, transition: { duration: 0.42 } }}
       exit={{ opacity: 0.69, transition: { duration: 0.42 } }}
@@ -110,6 +111,7 @@ const PicDisplay = (props: Props) => {
             index={index}
             src={picture.url}
             setIsAnimating={setIsAnimating}
+            imageClasses={picture.imageClasses}
           />
         ))}
       </AnimatePresence>
@@ -123,11 +125,12 @@ export default PicDisplay;
 interface MotionImageProps extends ImageCustom {
   src: StaticImageData;
   setIsAnimating: React.Dispatch<React.SetStateAction<IsAnimating>>;
+  imageClasses: string;
   alt: string;
 }
 
 const MotionImage = (props: MotionImageProps) => {
-  const { src, alt, first, index, direction, setIsAnimating } = props;
+  const { src, alt, first, index, direction, setIsAnimating, imageClasses } = props;
   const custom: ImageCustom = {
     first,
     index,
@@ -159,7 +162,7 @@ const MotionImage = (props: MotionImageProps) => {
       <Image
         src={src}
         alt={alt}
-        className="w-full h-full object-cover"
+        className={`w-full h-full object-cover ${imageClasses}`}
         priority
       />
     </motion.div>
