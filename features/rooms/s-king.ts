@@ -4,41 +4,41 @@ import sKing_3 from '../../public/hotel_images/sKing/s-king-3.jpg';
 import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const sKingDesc = '2-bedroom suite with a comfy living space';
+const sKingDesc = 'Our super king. Sleeps 2';
 
 export const sKing_data: RoomData = {
   roomType: RoomType.sKing,
-  roomName: 'Athena Suite',
+  roomName: 'Thor King',
   mainDescription: sKingDesc,
   amenities: [],
   pictureSlice: [
     {
-      id: '0',
-      url: sKing_1,
-      description: 'desc of image 1',
-      imageClasses: 'brightness-[1.16] saturation-[1.05]',
+      id: '3',
+      url: sKing_4,
+      description: 'desc of image 4',
+      imageClasses: 'brightness-[1.12] saturation-[1.03] contrast-[0.88]',
+      priority: true,
+    },
+    {
+      id: '2',
+      url: sKing_3,
+      description: 'desc of image 3',
+      imageClasses: 'brightness-[1.2] saturation-[1.14] -translate-y-[2.8%] scale-[1.056]',
       priority: true,
     },
     {
       id: '1',
       url: sKing_2,
       description: 'desc of image 2',
-      imageClasses: 'brightness-[1.35] saturation-[1.12]',
-      priority: false,
+      imageClasses: 'brightness-[1.18] saturation-[1.08] contrast-[0.96]',
+      priority: true,
     },
     {
-      id: '2',
-      url: sKing_3,
-      description: 'desc of image 3',
-      imageClasses: 'brightness-[0.88] saturation-[1.14]',
-      priority: false,
-    },
-    {
-      id: '3',
-      url: sKing_4,
-      description: 'desc of image 4',
-      imageClasses: 'brightness-[0.88] saturation-[1.14]',
-      priority: false,
+      id: '0',
+      url: sKing_1,
+      description: 'desc of image 1',
+      imageClasses: 'brightness-[1.2] saturation-[1.05] contrast-[1.02]',
+      priority: true,
     },
   ],
 };
