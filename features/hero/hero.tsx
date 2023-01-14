@@ -85,16 +85,18 @@ const Pitch = (props: PitchProps) => (
 
 const pitchVariants: Variants = {
   initial: {
-    y: '-2.5px',
-    opacity: 0.2,
-    scale: 0.97,
+    // y: '-4px',
+    opacity: 0.8,
+    scale: 0.8,
   },
   animate: {
     y: 0,
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.8,
+      duration: 0.24,
+      ease: 'easeOut'
+      // type: 'spring'
     },
   },
 };

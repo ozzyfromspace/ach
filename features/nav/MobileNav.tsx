@@ -47,6 +47,7 @@ const MobileNav = (props: Props) => {
                   setTimeout(onClose, 420);
                 }}
                 className="px-3 py-3"
+                href={`/${navlink.route}`}
               >
                 {navlink.label}
               </ReactScrollLink>

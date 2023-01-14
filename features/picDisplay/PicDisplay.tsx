@@ -209,6 +209,7 @@ interface ImageControlProps {
 const ImageControls = (props: ImageControlProps) => (
   <React.Fragment>
     <button
+      aria-label='see previous image'
       onClick={props.onPrev}
       className="rounded-md absolute z-10 top-0 left-0 bottom-0 p-5 w-20 bog-transparent hover:bg-gradient-to-r hover:from-[hsla(0,0%,0%,60%)] hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-start"
     >
@@ -228,6 +229,7 @@ const ImageControls = (props: ImageControlProps) => (
       </svg>
     </button>
     <button
+      aria-label='see next image'
       onClick={props.onNext}
       className="rounded-md absolute z-10 top-0 right-0 bottom-0 p-5 w-20 bg-transparent hover:bg-gradient-to-l hover:from-[hsla(0,0%,0%,60%)] hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-end"
     >

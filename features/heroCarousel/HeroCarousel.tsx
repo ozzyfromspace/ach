@@ -5,7 +5,7 @@ import {
   SetStateAction,
   useCallback,
   useEffect,
-  useState,
+  useState
 } from 'react';
 import src1 from '../../public/hero/ach-leftcrop.jpg';
 import src0 from '../../public/hero/athena-1.jpeg';
@@ -355,8 +355,8 @@ const positionedImageVariants: Variants = {
         zIndex: custom.zIndex,
         left: custom.left,
         translateX: custom.translateX,
-        scale: custom.scale * 0.69,
-        opacity: custom.opacity * 0.69,
+        scale: custom.scale * 0.80,
+        opacity: custom.opacity * 0.80,
       };
     }
 
@@ -382,7 +382,7 @@ const positionedImageVariants: Variants = {
 
     transition: {
       duration: custom.firstSlide
-        ? animationDurationSec * 0.93
+        ? animationDurationSec * 0.5
         : animationDurationSec,
     },
   }),
