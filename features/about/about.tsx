@@ -1,5 +1,3 @@
-// import beds from '../../public/beds.jpeg';
-// import { useInView } from 'framer-motion';
 import { EMAIL_DATA } from '../../constants';
 import { LinkCallButton } from '../button';
 import Padding from '../padding';
