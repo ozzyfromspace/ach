@@ -2,9 +2,11 @@ import { AnimatePresence, motion, MotionProps, Variants } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import {
   Dispatch,
+  MutableRefObject,
   SetStateAction,
   useCallback,
   useEffect,
+  useRef,
   useState
 } from 'react';
 import src1 from '../../public/hero/ach-leftcrop.jpg';
@@ -229,6 +231,10 @@ interface PositionImageCustom {
 }
 
 const PositionedImage = (props: PositionedImageProps) => {
+  const goLeftRef = useRef<HTMLButtonElement | null>(null);
+  const goRightRef = useRef<HTMLButtonElement | null>(null);
+  const focusedElementRef = useRef<HTMLButtonElement | null>(null);
+
   const [isTransitioning, setIsTransitioning] = useState(() => false);
   const {
     index,
@@ -253,7 +259,6 @@ const PositionedImage = (props: PositionedImageProps) => {
   const handleMouseOut = useCallback(() => {
     if (isTransitioning) return;
 
-    // setRerender((v) => !v);
     clearTimeout(scrollTimer);
     scrollTimer = undefined;
 
@@ -288,6 +293,20 @@ const PositionedImage = (props: PositionedImageProps) => {
     }, 20);
   };
 
+  const goRight = () => {
+    if (isTransitioning) return;
+    setTimeout(() => {
+      handleGoForward(isTransitioning)()
+    }, 20);
+  };
+
+  const goLeft = () => {
+    if (isTransitioning) return;
+    setTimeout(() => {
+      handleGoBackward(isTransitioning)()
+    }, 20);
+  };
+
   const handleMouseOver = () => {
     if (isTransitioning) return;
 
@@ -304,6 +323,15 @@ const PositionedImage = (props: PositionedImageProps) => {
   const handleAnimationComplete = () => {
     setIsTransitioning(() => false);
   };
+
+  const handleControlBlur = (buttonRef: MutableRefObject<HTMLButtonElement | null>) => () => {
+    setTimeout(() => {
+    if (focusedElementRef.current === buttonRef.current) {
+      return;
+    }
+
+    handleMouseOut();}, 0);
+  }
 
   return (
     <motion.div
@@ -324,13 +352,26 @@ const PositionedImage = (props: PositionedImageProps) => {
             : ''
         } rounded-lg duration-150 ease-in-out transition-all overflow-none`}
       >
-        <div
+        {hints && <div
           className={`text-transparent ${
             isTransitioning || index !== 1 || !hints ? '' : 'hover:text-white'
           } w-full h-full flex justify-center items-center px-6 md:px-12 py-6`}
         >
           <p className="font-h3 text-center">{desc}</p>
-        </div>
+        </div>}
+        {
+          !isTransitioning && index === 1 && <div className='w-full h-full flex flex-row' onMouseOver={handleMouseOver}
+          onMouseLeave={handleMouseOut}>
+            <button ref={goRightRef} aria-label="show next picture of the carousel" className='w-1/2 h-full bg-transparent cursor-pointer' onClick={goRight} onFocus={() => {
+              focusedElementRef.current = goRightRef.current;
+              handleMouseOver();
+            }} onBlur={handleControlBlur(goLeftRef)}></button>
+            <button ref={goLeftRef} aria-label="show previous picture of the carousel" className='w-1/2 h-full bg-transparent cursor-pointer' onClick={goLeft} onFocus={() => {
+              focusedElementRef.current = goLeftRef.current;
+              handleMouseOver();
+            }} onBlur={handleControlBlur(goRightRef)}></button>
+          </div>
+        }
       </div>
       <Image
         priority={id === "1"}
