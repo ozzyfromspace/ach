@@ -26,7 +26,7 @@ const Button = (props: Props) => {
   } = props;
   const width = full ? (fixed ? '' : 'w-full') : '';
   const fixedClasses = fixed
-    ? 'fixed z-[20] bg-blue-dark bottom-6 left-6 right-6'
+    ? 'fixed z-[7] bg-blue-dark bottom-6 left-6 right-6'
     : '';
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Button = (props: Props) => {
         variants={variants}
         initial="initial"
         animate="animate"
-        className={`fixed min-w-max z-20 left-0 right-0 bottom-0 h-24 bg-gray-light bg-opacity-90 ${
+        className={`fixed min-w-max z-[25] left-0 right-0 bottom-0 h-24 bg-[hsl(47,100%,98%,93%)] shadow-none ${
           hideMobileButton ? '' : 'bg-[hsla(0,0%,100%,0%)] opacity-0 -z-10'
         } duration-150 transition-all ease-out`}
         custom={{
@@ -92,7 +92,6 @@ Button.defaultProps = {
 const variants: Variants = {
   initial: {
     translateY: '0px',
-    // backgroundColor: '#fff',
     opacity: 0.8,
     scale: 0.9,
   },
