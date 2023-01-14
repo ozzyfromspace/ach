@@ -7,7 +7,7 @@ import {
   useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
 } from 'react';
 import src1 from '../../public/hero/ach-leftcrop.jpg';
 import src0 from '../../public/hero/athena-1.jpeg';
@@ -296,14 +296,14 @@ const PositionedImage = (props: PositionedImageProps) => {
   const goRight = () => {
     if (isTransitioning) return;
     setTimeout(() => {
-      handleGoForward(isTransitioning)()
+      handleGoForward(isTransitioning)();
     }, 20);
   };
 
   const goLeft = () => {
     if (isTransitioning) return;
     setTimeout(() => {
-      handleGoBackward(isTransitioning)()
+      handleGoBackward(isTransitioning)();
     }, 20);
   };
 
@@ -324,18 +324,20 @@ const PositionedImage = (props: PositionedImageProps) => {
     setIsTransitioning(() => false);
   };
 
-  const handleControlBlur = (buttonRef: MutableRefObject<HTMLButtonElement | null>) => () => {
-    setTimeout(() => {
-    if (focusedElementRef.current === buttonRef.current) {
-      return;
-    }
+  const handleControlBlur =
+    (buttonRef: MutableRefObject<HTMLButtonElement | null>) => () => {
+      setTimeout(() => {
+        if (focusedElementRef.current === buttonRef.current) {
+          return;
+        }
 
-    handleMouseOut();}, 0);
-  }
+        handleMouseOut();
+      }, 0);
+    };
 
   return (
     <motion.div
-      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(213,69%,69%,54%)] p-[1px] rounded-lg shadow-md`}
+      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(213,69%,69%,54%)] p-[1px] rounded-lg shadow-md overflow-hidden`}
       onAnimationStart={handleAnimationStart}
       onAnimationComplete={handleAnimationComplete}
       onClick={onClick}
@@ -352,33 +354,82 @@ const PositionedImage = (props: PositionedImageProps) => {
             : ''
         } rounded-lg duration-150 ease-in-out transition-all overflow-none`}
       >
-        {hints && <div
-          className={`text-transparent ${
-            isTransitioning || index !== 1 || !hints ? '' : 'hover:text-white'
-          } w-full h-full flex justify-center items-center px-6 md:px-12 py-6`}
-        >
-          <p className="font-h3 text-center">{desc}</p>
-        </div>}
-        {
-          !isTransitioning && index === 1 && <div className='w-full h-full flex flex-row' onMouseOver={handleMouseOver}
-          onMouseLeave={handleMouseOut}>
-            <button ref={goRightRef} aria-label="show next picture of the carousel" className='w-1/2 h-full bg-transparent cursor-pointer' onClick={goRight} onFocus={() => {
-              focusedElementRef.current = goRightRef.current;
-              handleMouseOver();
-            }} onBlur={handleControlBlur(goLeftRef)}></button>
-            <button ref={goLeftRef} aria-label="show previous picture of the carousel" className='w-1/2 h-full bg-transparent cursor-pointer' onClick={goLeft} onFocus={() => {
-              focusedElementRef.current = goLeftRef.current;
-              handleMouseOver();
-            }} onBlur={handleControlBlur(goRightRef)}></button>
+        {hints && (
+          <div
+            className={`text-transparent ${
+              isTransitioning || index !== 1 || !hints ? '' : 'hover:text-white'
+            } w-full h-full flex justify-center items-center px-6 md:px-12 py-6`}
+          >
+            <p className="font-h3 text-center">{desc}</p>
           </div>
-        }
+        )}
+        {!isTransitioning && index === 1 && (
+          <div
+            className="w-full h-full flex flex-row justify-between"
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseOut}
+          >
+            <button
+              ref={goRightRef}
+              aria-label="show next picture of the carousel"
+              className="w-1/3 h-full cursor-pointer bg-transparent mt:hover:bg-gradient-to-r mt:hover:from-[hsla(0,0%,0%,60%)] mt:hover:to-transparent ease-in-out transition-opacity"
+              onClick={goRight}
+              onFocus={() => {
+                focusedElementRef.current = goRightRef.current;
+                handleMouseOver();
+              }}
+              onBlur={handleControlBlur(goLeftRef)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="white"
+                className="ml-7 w-7 h-7 hover:scale-110 transition-all"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+            <button
+              ref={goLeftRef}
+              aria-label="show previous picture of the carousel"
+              className="w-1/3 h-full cursor-pointer bg-transparent mt:hover:bg-gradient-to-l mt:hover:from-[hsla(0,0%,0%,60%)] mt:hover:to-transparent ease-in-out transition-opacity"
+              onClick={goLeft}
+              onFocus={() => {
+                focusedElementRef.current = goLeftRef.current;
+                handleMouseOver();
+              }}
+              onBlur={handleControlBlur(goRightRef)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="white"
+                className="ml-auto mr-7 w-7 h-7 hover:scale-110 transition-all"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
       <Image
-        priority={id === "1"}
+        priority={id === '1'}
         src={src}
         alt={alt}
         className={`z-0 w-full aspect-[5/3] max-h-full object-${objectFit} rounded-[0.45rem] border-[0.5px] border-[hsla(0,0%,100%,100%)]`}
-        sizes='(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw'
+        sizes="(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw"
       />
     </motion.div>
   );

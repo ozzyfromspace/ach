@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-light
+  @apply bg-gray-light;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .active-link {
