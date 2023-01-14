@@ -39,9 +39,7 @@ const Button = (props: Props) => {
         variants={variants}
         initial="initial"
         animate="animate"
-        className={`fixed min-w-max z-[25] left-0 right-0 bottom-0 h-24 bg-[hsl(47,100%,98%,93%)] shadow-none ${
-          hideMobileButton ? '' : 'bg-[hsla(0,0%,100%,0%)] opacity-0 -z-10'
-        } duration-150 transition-all ease-out`}
+        className={`fixed min-w-max z-[26] left-0 right-0 bottom-0 h-24 bg-[hsl(47,100%,98%,93%)] shadow-none`}
         custom={{
           translateY: hideMobileButton ? '350%' : '0px',
           opacity: hideMobileButton ? 0 : 1,
