@@ -1,5 +1,3 @@
-// import beds from '../../public/beds.jpeg';
-// import { useInView } from 'framer-motion';
 import { EMAIL_DATA } from '../../constants';
 import { LinkCallButton } from '../button';
 import Padding from '../padding';
@@ -53,6 +51,7 @@ const About = (props: AboutProps) => {
           </div>
         </div>
         <iframe
+          aria-label='A google map showing the Athens Central Hotel'
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.0494872241065!2d-82.09823380000003!3d39.33246430000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8848735b1021f905%3A0x400f2aa6ca675df3!2sAthens%20Central%20Hotel!5e0!3m2!1sen!2sus!4v1672186189896!5m2!1sen!2sus"
           className="mt-16 border-[1px] p-[1px] border-white w-full max-w-3xl aspect-square rounded-md shadow-sm"
           allowFullScreen={true}

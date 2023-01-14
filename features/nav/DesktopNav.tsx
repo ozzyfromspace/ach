@@ -37,6 +37,7 @@ const DesktopNav = () => {
                 smooth={true}
                 offset={navlink.route === 'hero' ? -80 : 0}
                 duration={380}
+                href={`/${navlink.route}`}
               >
                 {navlink.label}
               </ReactScrollLink>
