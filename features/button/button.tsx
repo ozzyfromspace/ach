@@ -26,7 +26,7 @@ const Button = (props: Props) => {
   } = props;
   const width = full ? (fixed ? '' : 'w-full') : '';
   const fixedClasses = fixed
-    ? 'fixed z-[7] bg-blue-dark bottom-6 left-6 right-6'
+    ? 'fixed z-[20] bg-blue-dark bottom-6 left-6 right-6'
     : '';
 
   useEffect(() => {

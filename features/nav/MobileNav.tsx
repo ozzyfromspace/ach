@@ -28,7 +28,7 @@ const MobileNav = (props: Props) => {
       <ul className="flex flex-col gap-[8vh] justify-center items-center">
         {navlinks.map((navlink, index) => (
           <li key={navlink.route} onClick={updateURL(navlink.route)}>
-            <motion.button
+            <motion.div
               variants={getVariants(index * 0.1)}
               initial="initial"
               animate="animate"
@@ -51,7 +51,7 @@ const MobileNav = (props: Props) => {
               >
                 {navlink.label}
               </ReactScrollLink>
-            </motion.button>
+            </motion.div>
           </li>
         ))}
       </ul>

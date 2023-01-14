@@ -1,3 +1,4 @@
+import { Dialog } from '@headlessui/react';
 import { motion, Variants } from 'framer-motion';
 import ReactDOM from 'react-dom';
 import MobileNav from './MobileNav';
@@ -5,10 +6,11 @@ import ModalBG from './modal-bg';
 
 interface Props {
   onClose: () => void;
+  isClosed: boolean;
 }
 
 const MenuModal = (props: Props) => {
-  const { onClose } = props;
+  const { onClose, isClosed } = props;
 
   const bar = (
     <div className="fixed z-30 top-0 left-0 right-0 bottom-0">
@@ -43,11 +45,27 @@ const MenuModal = (props: Props) => {
     </div>
   );
 
+  const MenuPanel = (
+    <Dialog open={!isClosed} onClose={onClose}>
+      <Dialog.Panel>
+        <Dialog.Title>Main Menu</Dialog.Title>
+        <Dialog.Description>A list of navigation links</Dialog.Description>
+        {bar}
+      </Dialog.Panel>
+    </Dialog>
+  );
+
   const modalContainer = document.getElementById('nav-modal');
-  return ReactDOM.createPortal(bar, modalContainer!);
+
+  if (!modalContainer) return MenuPanel;
+  return ReactDOM.createPortal(MenuPanel, modalContainer);
 };
 
 export default MenuModal;
+
+MenuModal.defaultProps = {
+  isClosed: true,
+};
 
 const variants: Variants = {
   initial: { opacity: 0, pathLength: 0 },
