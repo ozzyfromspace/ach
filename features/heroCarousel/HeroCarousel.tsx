@@ -63,8 +63,8 @@ interface ImageCursor {
 const scaleDown = 0.53;
 const sideGap = 0.05;
 const sideOpacity = 0.39;
-const animationDurationSec = 3.6;
-const slideDurationMs = 8100;
+const animationDurationSec = 2.4;
+const slideDurationMs = 6500;
 
 let scrollTimer: undefined | NodeJS.Timeout = undefined;
 let cancelTimer: undefined | NodeJS.Timeout = undefined;
@@ -173,8 +173,9 @@ const HeroCarousel = (props: HeroCarouselProps) => {
   }, [updateCursor, inControl, reverse, rerender]);
 
   return (
-    <div
+    <motion.div
       className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg mb-1`}
+      layout
     >
       <AnimatePresence mode="sync">
         {cursor.slice.map((el, index) => (
@@ -193,7 +194,7 @@ const HeroCarousel = (props: HeroCarouselProps) => {
           />
         ))}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
@@ -212,6 +213,7 @@ interface PositionedImageProps extends MotionProps {
   handleGoBackward: (isTransitioning: boolean) => () => void;
   handleGoForward: (isTransitioning: boolean) => () => void;
   reverse: boolean;
+  id: string;
   hints: boolean;
 }
 
@@ -244,6 +246,7 @@ const PositionedImage = (props: PositionedImageProps) => {
     handleGoBackward,
     handleGoForward,
     hints,
+    id,
     ...restProps
   } = props;
 
@@ -304,7 +307,7 @@ const PositionedImage = (props: PositionedImageProps) => {
 
   return (
     <motion.div
-      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(211,70%,42%,69%)] p-[1px] rounded-lg shadow-md`}
+      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(213,69%,69%,54%)] p-[1px] rounded-lg shadow-md`}
       onAnimationStart={handleAnimationStart}
       onAnimationComplete={handleAnimationComplete}
       onClick={onClick}
@@ -330,10 +333,11 @@ const PositionedImage = (props: PositionedImageProps) => {
         </div>
       </div>
       <Image
-        priority
+        priority={id === "1"}
         src={src}
         alt={alt}
         className={`z-0 w-full aspect-[5/3] max-h-full object-${objectFit} rounded-[0.45rem] border-[0.5px] border-[hsla(0,0%,100%,100%)]`}
+        sizes='(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw'
       />
     </motion.div>
   );
@@ -355,8 +359,8 @@ const positionedImageVariants: Variants = {
         zIndex: custom.zIndex,
         left: custom.left,
         translateX: custom.translateX,
-        scale: custom.scale * 0.80,
-        opacity: custom.opacity * 0.80,
+        scale: custom.scale * 0.96,
+        opacity: custom.opacity * 0.96,
       };
     }
 
@@ -382,7 +386,7 @@ const positionedImageVariants: Variants = {
 
     transition: {
       duration: custom.firstSlide
-        ? animationDurationSec * 0.5
+        ? animationDurationSec * 0.3
         : animationDurationSec,
     },
   }),
@@ -465,6 +469,7 @@ export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
       hints={hints}
       variants={positionedImageVariants}
       custom={positionImageCustom}
+      id={el.id}
     />
   );
 };

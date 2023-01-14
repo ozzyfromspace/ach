@@ -12,7 +12,7 @@ const CallButton = () => {
     <button
       aria-label='call the Athens Central Hotel'
       onClick={handleClick}
-      className="flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.989] hover:bg-[hsla(0,0%,0%,84%,84%)] duration-150 ease-out transition-all"
+      className="flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.98] hover:bg-[hsla(0,0%,0%,84%,84%)] duration-150 ease-out transition-all"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const CallButton = () => {
       <a
         href={PHONE_DATA.href}
         ref={linkRef}
-        className="text-base"
+        className="text-lg"
         tabIndex={-1}
       >
         {PHONE_DATA.label}

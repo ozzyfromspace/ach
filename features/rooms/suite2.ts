@@ -1,6 +1,6 @@
 import suite2_1 from '../../public/hotel_images/suite2/suite2-1.jpg';
 import suite2_2 from '../../public/hotel_images/suite2/suite2-2.jpg';
-import suite2_3 from '../../public/hotel_images/suite2/suite2-3.jpg';
+import suite2_3 from '../../public/hotel_images/suite2/suite2-3.webp';
 import suite2_4 from '../../public/hotel_images/suite2/suite2-4.jpg';
 import suite2_5 from '../../public/hotel_images/suite2/suite2-5.jpg';
 import suite2_6 from '../../public/hotel_images/suite2/suite2-6.jpg';
@@ -32,7 +32,7 @@ export const suite2_data: RoomData = {
       id: '2',
       url: suite2_3,
       description: 'desc of image 3',
-      imageClasses: 'brightness-[1.14] saturation-[0.95] contrast-[0.93] rotate-[1.5deg] scale-[1.03]',
+      imageClasses: 'brightness-[1.14] saturation-[0.95] contrast-[0.93]',
       priority: true,
     },
     {

@@ -19,7 +19,7 @@ const Nav = () => {
     query: TABLET_MEDIA_QUERY,
   });
 
-  const [mobile, setMobile] = useState(() => true);
+  const [firstRender, setFirstRender] = useState(() => true);
   const [open, setOpen] = useState(() => false);
   const [blockScroll, allowScroll] = useScrollBlock();
 
@@ -36,10 +36,10 @@ const Nav = () => {
   }, [open, allowScroll, blockScroll]);
 
   useEffect(() => {
-    setMobile(() => isMobiTablet);
-  }, [isMobiTablet]);
+    if(!firstRender) return;
 
-  useEffect(() => {}, []);
+    setFirstRender(() => false);
+  }, [firstRender]);
 
   const updateURL = () => {
     const update = () => router.push({ pathname: '' });
@@ -60,8 +60,8 @@ const Nav = () => {
         >
           <HomeIcon />
         </ReactScrollLink>
-      {mobile && <LinkCallButton />}
-      {mobile ? (
+      {!firstRender && isMobiTablet && <LinkCallButton />}
+      {!firstRender && isMobiTablet ? (
         <React.Fragment>
           <AnimatePresence>
             {open && (
@@ -77,7 +77,7 @@ const Nav = () => {
       ) : (
         <DesktopNav />
       )}
-      {!mobile && (
+      {!firstRender && !isMobiTablet && (
         <Link href="/book" tabIndex={-1}>
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </Link>

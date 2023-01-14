@@ -9,7 +9,7 @@ const ClosedMobileNav = (props: Props) => {
 
   return (
     <nav>
-      <button onClick={onOpen}>
+      <button onClick={onOpen} aria-label="open the mobile navigation menu">
         <motion.svg
           initial="initial"
           animate="animate"

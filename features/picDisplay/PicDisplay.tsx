@@ -162,9 +162,13 @@ const MotionImage = (props: MotionImageProps) => {
       <Image
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover ${imageClasses}`}
+        className={`w-full h-full object-cover ${imageClasses} md:bg-blue-deep`}
         placeholder="blur"
-        // priority
+        priority={false}
+        unoptimized={false}
+        quality={50}
+        loading="lazy"
+        sizes='(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw'
       />
     </motion.div>
   );
