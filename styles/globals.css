@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-gray-light
+}
+
 .active-link {
   @apply pb-[4px] font-subtitle bg-[hsla(211,84%,30%,8.35%)] font-normal text-lg tracking-wide border-b-2 border-b-blue-deep text-blue-deep duration-150 ease-out transition-all;
 }

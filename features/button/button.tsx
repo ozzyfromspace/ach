@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 interface Props {
@@ -35,41 +35,34 @@ const Button = (props: Props) => {
 
   if (fixed && container) {
     return ReactDOM.createPortal(
-      <React.Fragment>
+      
         <motion.div
             variants={variants}
             initial="initial"
             animate="animate"
-          className={`fixed min-w-max z-[6] left-0 right-0 bottom-0 h-24 ${
+          className={`fixed min-w-max z-[10] left-0 right-0 bottom-0 h-24 bg-gray-light bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.30] ${
             hideMobileButton
-              ? 'bg-[hsla(0,0%,100%,0%)] opacity-0 -z-10'
-              : 'bg-[hsla(0,0%,100%,100%)] bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm'
+              ? ''
+              : 'bg-[hsla(0,0%,100%,0%)] opacity-0 -z-10'
           } duration-150 transition-all ease-out`}
           custom={{
             translateY: hideMobileButton ? '350%' : '0px',
             opacity: hideMobileButton ? 0 : 1,
           }}
-        />
-        <motion.button
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          onClick={hideMobileButton ? undefined : handleClick}
-          className={`${className} font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] hover:scale-[0.98] duration-100 transition-all ${
-            selected
-              ? 'gradient-blue text-white border-none hover:bg-[hsl(228,70%,38%,90%)]'
-              : 'bg-[white] text-[hsla(0,0%,90%,12%)] border-[1px] border-[hsl(0,0%,84%,100%)]'
-          } rounded-[0.25rem] ${width} ${fixedClasses} ${
-            hideMobileButton ? 'select-none' : 'select-all'
-          }`}
-          custom={{
-            translateY: hideMobileButton ? '350%' : '0px',
-            opacity: hideMobileButton ? 0 : 1,
-          }}
         >
-          {label}
-        </motion.button>
-      </React.Fragment>,
+          <button
+            onClick={hideMobileButton ? undefined : handleClick}
+            className={`${className} font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] hover:scale-[0.98] duration-100 transition-all ${
+              selected
+                ? 'gradient-blue text-white border-none hover:bg-[hsl(228,70%,38%,90%)]'
+                : 'bg-[white] text-[hsla(0,0%,90%,12%)] border-[1px] border-[hsl(0,0%,84%,100%)]'
+            } rounded-[0.25rem] ${width} ${fixedClasses} ${
+              hideMobileButton ? 'select-none' : 'select-all'
+            }`}
+          >
+            {label}
+          </button>
+        </ motion.div>,
       container
     );
   }
@@ -102,7 +95,7 @@ Button.defaultProps = {
 const variants: Variants = {
   initial: {
     translateY: '0px',
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     opacity: 0.8,
     scale: 0.9,
   },

@@ -47,7 +47,7 @@ const Nav = () => {
   };
 
   return (
-    <header className="fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm">
+    <header className="fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55]">
         <ReactScrollLink
           aria-label="go to home page"
           to="hero"
