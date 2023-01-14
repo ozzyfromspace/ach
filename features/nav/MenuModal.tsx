@@ -11,10 +11,10 @@ const MenuModal = (props: Props) => {
   const { onClose } = props;
 
   const bar = (
-    <div className="fixed z-10 top-0 left-0 right-0 bottom-0">
+    <div className="fixed z-30 top-0 left-0 right-0 bottom-0">
       <header className="p-4 flex justify-end items-center pr-6 h-20 max-w-fit ml-auto">
         <nav>
-          <button onClick={onClose} aria-label='close main navigation' >
+          <button onClick={onClose} aria-label="close main navigation">
             <motion.svg
               variants={variants}
               initial="initial"
