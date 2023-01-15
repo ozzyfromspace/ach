@@ -22,6 +22,7 @@ interface ImageData {
   id: string;
   relativeOrder: number;
   objectFit: ObjectFit;
+  alt: '';
 }
 
 const imageData: ImageData[] = [
@@ -31,6 +32,7 @@ const imageData: ImageData[] = [
     id: '0',
     objectFit: 'cover',
     desc: 'Our comfortable Athena suite is waiting for you.',
+    alt: '',
   },
   {
     src: src1,
@@ -38,6 +40,7 @@ const imageData: ImageData[] = [
     id: '1',
     objectFit: 'cover',
     desc: 'Our new hotel is a modern, Greek-inspired experience in the heart of Athens, Ohio. We hope you enjoy staying with us. Kalos Irthate ❤️',
+    alt: '',
   },
   {
     src: src2,
@@ -45,13 +48,15 @@ const imageData: ImageData[] = [
     id: '2',
     objectFit: 'cover',
     desc: 'We offer a hot, complimentary weekend breakfast served by the friendliest staff in Athens',
+    alt: '',
   },
   {
     src: src3,
     relativeOrder: 3,
     id: '3',
     objectFit: 'cover',
-    desc: 'Fun fact! From the architecture to the interior design, every room in our boutique hotel has a unique feel 🌠',
+    desc: 'From the architecture to the interior design, every room in our boutique hotel has a unique feel',
+    alt: '',
   },
 ];
 
@@ -562,6 +567,7 @@ export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
       variants={positionedImageVariants}
       custom={positionImageCustom}
       id={el.id}
+      alt={el.desc}
     />
   );
 };
