@@ -298,14 +298,14 @@ const PositionedImage = (props: PositionedImageProps) => {
     }, 20);
   };
 
-  const goRight = () => {
+  const goLeft = () => {
     if (isTransitioning) return;
     setTimeout(() => {
       handleGoForward(isTransitioning)();
     }, 20);
   };
 
-  const goLeft = () => {
+  const goRight = () => {
     if (isTransitioning) return;
     setTimeout(() => {
       handleGoBackward(isTransitioning)();
@@ -384,22 +384,7 @@ const PositionedImage = (props: PositionedImageProps) => {
                 handleMouseOver();
               }}
               onBlur={handleControlBlur(goLeftRef)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="ml-7 w-7 h-7 hover:scale-110 transition-all"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
+            ></button>
             <button
               ref={goLeftRef}
               aria-label="show previous picture of the carousel"
@@ -410,22 +395,7 @@ const PositionedImage = (props: PositionedImageProps) => {
                 handleMouseOver();
               }}
               onBlur={handleControlBlur(goRightRef)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="ml-auto mr-7 w-7 h-7 hover:scale-110 transition-all"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
+            ></button>
           </div>
         )}
       </div>
