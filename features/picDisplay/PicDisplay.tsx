@@ -1,8 +1,11 @@
+import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import React, { useId, useState } from 'react';
+import Button from '../button';
 
 const animationDurationSec = 0.25;
+const cardAspectRatio = 'aspect-[7/5]';
 
 enum ImageDirection {
   RIGHT = 'right',
@@ -27,6 +30,7 @@ interface CardImage {
 
 interface Props {
   resourceData: Picture[];
+  gallery: boolean;
 }
 
 interface ImageCustom extends Omit<CardImage, 'selectedPictures'> {
@@ -40,7 +44,7 @@ interface IsAnimating {
 
 const PicDisplay = (props: Props) => {
   const componentId = useId();
-  const { resourceData } = props;
+  const { resourceData, gallery } = props;
   const rLen = resourceData.length;
   const [isAnimating, setIsAnimating] = useState<IsAnimating>(() => ({
     value: false,
@@ -94,13 +98,48 @@ const PicDisplay = (props: Props) => {
     });
   };
 
+  const [galleryOpen, setGalleryOpen] = useState(() => false);
+
   return (
     <motion.div
-      className="relative z-0 aspect-[7/5] w-full rounded-md overflow-hidden"
+      className={`relative z-0 ${cardAspectRatio} w-full rounded-md overflow-hidden`}
       initial={{ opacity: 0.69 }}
       animate={{ opacity: 1, transition: { duration: 0.42 } }}
       exit={{ opacity: 0.69, transition: { duration: 0.42 } }}
     >
+      {gallery && (
+        <button
+          onClick={() => setGalleryOpen((s) => !s)}
+          aria-label="open room gallery"
+          className="absolute top-2 right-2 z-50 p-1 bg-white rounded-md flex justify-center items-center opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-150"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 text-blue-deep"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+            />
+          </svg>
+        </button>
+      )}
+      {galleryOpen && (
+        <Gallery
+          isOpen={gallery}
+          onClose={() => setGalleryOpen(() => false)}
+          firstAnimation={firstAnimation}
+          imageCursor={imageCursor}
+          onNext={onNext}
+          onPrev={onPrev}
+          setIsAnimating={setIsAnimating}
+        />
+      )}
       <AnimatePresence mode="sync">
         {imageCursor.selectedPictures.map((picture, index) => (
           <MotionImage
@@ -255,3 +294,96 @@ const ImageControls = (props: ImageControlProps) => (
     </button>
   </React.Fragment>
 );
+
+interface GalleryProps {
+  onClose: () => void;
+  isOpen: boolean;
+  imageCursor: CardImage;
+  firstAnimation: boolean;
+  setIsAnimating: React.Dispatch<React.SetStateAction<IsAnimating>>;
+  onPrev: () => void;
+  onNext: () => void;
+}
+
+const Gallery = (props: GalleryProps) => {
+  const componentId = useId();
+  const {
+    isOpen,
+    onClose,
+    firstAnimation,
+    imageCursor,
+    setIsAnimating,
+    onPrev,
+    onNext,
+  } = props;
+
+  return (
+    <Dialog open={isOpen} onClose={onClose}>
+      <Dialog.Panel>
+        <div className="fixed z-[100] inset-0 flex flex-col justify-center p-4">
+          <div
+            onClick={onClose}
+            className="absolute inset-0 bg-[hsla(211,30%,6%,86%)] bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.55] cursor-pointer"
+          ></div>
+          <div>
+            <Dialog.Title className="relative z-10 text-center text-4xl font-light text-white font-title cursor-default">
+              Athena 2-bedroom suite
+            </Dialog.Title>
+            <button
+              aria-label="close expanded gallery"
+              className="absolute top-7 right-7 hover:scale-[1.06] transition-transform duration-150"
+              onClick={onClose}
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="white"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <div
+              className={`relative w-[min(70vw, 55vh)] max-w-screen-md ${cardAspectRatio} rounded-md overflow-hidden mx-auto my-8`}
+            >
+              <AnimatePresence mode="sync">
+                {imageCursor.selectedPictures.map((picture, index) => (
+                  <MotionImage
+                    key={`${picture.id}${componentId}`}
+                    alt={picture.description}
+                    first={firstAnimation}
+                    direction={imageCursor.direction}
+                    index={index}
+                    src={picture.url}
+                    setIsAnimating={setIsAnimating}
+                    imageClasses={picture.imageClasses}
+                  />
+                ))}
+              </AnimatePresence>
+              <ImageControls onPrev={onPrev} onNext={onNext} />
+            </div>
+            <Dialog.Description className="relative z-10 text-center text-xl text-white font-medium cursor-default">
+              Our amazing room is amazing
+            </Dialog.Description>
+            <Dialog.Description
+              as="div"
+              className="relative z-10 mx-auto flex flex-row justify-center items-center mt-6"
+            >
+              <Button
+                label="Book Now"
+                className="max-w-fit mx-auto"
+                selected={false}
+              />
+            </Dialog.Description>
+          </div>
+        </div>
+      </Dialog.Panel>
+    </Dialog>
+  );
+};

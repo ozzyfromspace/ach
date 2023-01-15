@@ -11,7 +11,7 @@ const RoomCard = (props: Props) => {
 
   return (
     <div className="w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md sm:hover:scale-[0.992] transition-all ease-in-out duration-200">
-      <PicDisplay resourceData={roomData.pictureSlice} />
+      <PicDisplay resourceData={roomData.pictureSlice} gallery={true} />
       <div className="relative flex flex-col pt-3 text-justify">
         <h3 className="select-none cursor-default text-xl font-title my-3 text-gray-dark">
           {roomData.roomName}
