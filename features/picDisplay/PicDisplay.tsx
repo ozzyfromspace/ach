@@ -119,7 +119,7 @@ const PicDisplay = (props: Props) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 text-blue-deep"
+            className="w-7 h-7 text-blue-deep"
           >
             <path
               strokeLinecap="round"
@@ -153,6 +153,7 @@ const PicDisplay = (props: Props) => {
             src={picture.url}
             setIsAnimating={setIsAnimating}
             imageClasses={picture.imageClasses}
+            onImageClick={() => setGalleryOpen(() => true)}
           />
         ))}
       </AnimatePresence>
@@ -168,11 +169,22 @@ interface MotionImageProps extends ImageCustom {
   setIsAnimating: React.Dispatch<React.SetStateAction<IsAnimating>>;
   imageClasses: string;
   alt: string;
+  onImageClick: () => void;
+  isGallery: boolean;
 }
 
 const MotionImage = (props: MotionImageProps) => {
-  const { src, alt, first, index, direction, setIsAnimating, imageClasses } =
-    props;
+  const {
+    src,
+    alt,
+    first,
+    index,
+    direction,
+    setIsAnimating,
+    imageClasses,
+    onImageClick,
+    isGallery,
+  } = props;
   const custom: ImageCustom = {
     first,
     index,
@@ -192,7 +204,9 @@ const MotionImage = (props: MotionImageProps) => {
 
   return (
     <motion.div
-      className="absolute w-full h-full overflow-hidden"
+      className={`absolute w-full h-full overflow-hidden ${
+        isGallery ? '' : 'cursor-pointer'
+      }`}
       initial="initial"
       animate="animate"
       exit="exit"
@@ -200,6 +214,7 @@ const MotionImage = (props: MotionImageProps) => {
       custom={custom}
       onAnimationStart={incrementAnimationCounter}
       onAnimationComplete={decrementAnimationCounter}
+      onClick={onImageClick}
     >
       <Image
         src={src}
@@ -214,6 +229,11 @@ const MotionImage = (props: MotionImageProps) => {
       />
     </motion.div>
   );
+};
+
+MotionImage.defaultProps = {
+  onImageClick: () => {},
+  isGallery: false,
 };
 
 const imageVariants: Variants = {
@@ -257,7 +277,7 @@ const ImageControls = (props: ImageControlProps) => (
     <button
       aria-label="see previous image"
       onClick={props.onPrev}
-      className="rounded-md absolute z-10 top-0 left-0 bottom-0 p-5 w-20 bg-transparent mt:hover:bg-gradient-to-r mt:hover:from-[hsla(0,0%,0%,60%)] mt:hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-start"
+      className="rounded-md absolute z-10 top-0 left-0 bottom-0 p-5 w-32 bg-transparent mt:hover:bg-gradient-to-r mt:hover:from-[hsla(0,0%,0%,60%)] mt:hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-start"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +297,7 @@ const ImageControls = (props: ImageControlProps) => (
     <button
       aria-label="see next image"
       onClick={props.onNext}
-      className="rounded-md absolute z-10 top-0 right-0 bottom-0 p-5 w-20 bg-transparent mt:hover:bg-gradient-to-l mt:hover:from-[hsla(0,0%,0%,60%)] mt:hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-end"
+      className="rounded-md absolute z-10 top-0 right-0 bottom-0 p-5 w-32 bg-transparent mt:hover:bg-gradient-to-l mt:hover:from-[hsla(0,0%,0%,60%)] mt:hover:to-transparent ease-in-out transition-opacity flex flex-col justify-center items-end"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -323,17 +343,25 @@ const Gallery = (props: GalleryProps) => {
     <Dialog open={isOpen} onClose={onClose}>
       <Dialog.Panel>
         <motion.div
-          className="fixed z-[100] inset-0 flex flex-col justify-center bg-[hsla(211,30%,9%,86%)] bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.55]"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, transition: { duration: 0.25 } }}
-          exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.25 } }}
+          className="fixed z-[100] inset-0 flex flex-col justify-center bg-[hsla(211,30%,9%,86%)] bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.55] px-6"
+          initial={{ opacity: 0, scale: 1.4 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 0.4, ease: 'easeInOut' },
+          }}
+          exit={{
+            opacity: 0,
+            scale: 1.4,
+            transition: { duration: 0.4, ease: 'easeInOut' },
+          }}
         >
           <div
             onClick={onClose}
             className="absolute inset-0 cursor-pointer"
           ></div>
-          <div className="p-7">
-            <Dialog.Title className="relative z-10 text-center text-4xl font-light text-white font-title cursor-default">
+          <div className="overflow-y-auto py-12">
+            <Dialog.Title className="relative z-10 text-center text-4xl font-light text-white font-title cursor-default select-none">
               Athena 2-bedroom suite
             </Dialog.Title>
             <button
@@ -357,7 +385,7 @@ const Gallery = (props: GalleryProps) => {
               </svg>
             </button>
             <div
-              className={`relative w-[min(70vw, 55vh)] max-w-screen-md ${cardAspectRatio} rounded-md overflow-hidden mx-auto my-8`}
+              className={`relative min-w-[36vw] w-full max-w-[42rem] aspect-[7/5] rounded-md overflow-hidden mx-auto my-8`}
             >
               <AnimatePresence mode="sync">
                 {imageCursor.selectedPictures.map((picture, index) => (
@@ -370,12 +398,13 @@ const Gallery = (props: GalleryProps) => {
                     src={picture.url}
                     setIsAnimating={setIsAnimating}
                     imageClasses={picture.imageClasses}
+                    isGallery={true}
                   />
                 ))}
               </AnimatePresence>
               <ImageControls onPrev={onPrev} onNext={onNext} />
             </div>
-            <Dialog.Description className="relative z-10 text-center text-xl text-white font-light cursor-default">
+            <Dialog.Description className="relative z-10 text-center text-xl text-white font-light cursor-default select-none">
               Our amazing room is amazing
             </Dialog.Description>
             <Dialog.Description
