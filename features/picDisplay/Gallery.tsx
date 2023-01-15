@@ -52,7 +52,7 @@ const Gallery = (props: GalleryProps) => {
             className="absolute inset-0 cursor-pointer"
           ></div>
           <div className="overflow-y-auto py-12">
-            <Dialog.Title className="relative z-10 text-center text-4xl font-light text-white font-title cursor-default select-none">
+            <Dialog.Title className="relative z-10 text-center text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-light text-white font-title cursor-default select-none">
               {title}
             </Dialog.Title>
             <button
