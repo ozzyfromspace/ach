@@ -111,7 +111,7 @@ const PicDisplay = (props: Props) => {
         <button
           onClick={() => setGalleryOpen((s) => !s)}
           aria-label="open room gallery"
-          className="absolute top-2 right-2 z-50 p-1 bg-white rounded-md flex justify-center items-center opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-150"
+          className="absolute top-2 right-2 z-50 p-3 bg-white rounded-md flex justify-center items-center opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-150"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ const PicDisplay = (props: Props) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-7 h-7 text-blue-deep"
+            className="w-9 h-9 text-blue-deep"
           >
             <path
               strokeLinecap="round"

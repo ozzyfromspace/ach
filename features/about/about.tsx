@@ -16,11 +16,6 @@ const About = (props: AboutProps) => {
       paddingRef={aboutRef}
     >
       <div className="w-fit mx-auto pt-20" id="contact">
-        {/* <div className="w-fit border-b-2 border-white mb-12">
-          <h2 className="font-title select-none tracking-wider text-2xl sm:text-3xl md:text-3xl font-normal mt-2 mb-2">
-            Get in touch
-          </h2>
-        </div> */}
         <div className="flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mb-12 mt-2">
           <div className="mx-auto space-y-11">
             <div className="w-fit border-b-2 border-white">
@@ -56,6 +51,7 @@ const About = (props: AboutProps) => {
               </div>
             </div>
             <iframe
+              aria-label="a booking.com rating point card"
               referrerPolicy="no-referrer"
               src="https://badge.hotelstatic.com/?position=inline&amp;size=120&amp;clickable=false&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
             ></iframe>

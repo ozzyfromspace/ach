@@ -60,6 +60,7 @@ const Events = () => {
               >
                 {!exiting && (
                   <PicDisplay
+                    gallery={false}
                     key={key}
                     resourceData={eventDataSlice[currentEvent.id].pictureSlice}
                   />
