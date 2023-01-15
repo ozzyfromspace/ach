@@ -9,10 +9,10 @@ import { xKing_data } from './x-king';
 
 const roomDataSlice: RoomData[] = [
   king_data,
-  queen_data,
   xKing_data,
   sKing_data,
   handicap_data,
+  queen_data,
   suite1_data,
   suite2_data,
 ];
