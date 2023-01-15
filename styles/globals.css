@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-gray-light;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-scrollbar {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.no-scrollar::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+
 .active-link {
   @apply pb-[4px] font-subtitle bg-[hsla(211,84%,30%,8.35%)] font-normal text-lg tracking-wide border-b-2 border-b-blue-deep text-blue-deep duration-150 ease-out transition-all;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 interface Props {
@@ -34,14 +35,16 @@ const Button = (props: Props) => {
 
   if (fixed && container) {
     return ReactDOM.createPortal(
-      <React.Fragment>
-        <div
-          className={`fixed min-w-max z-[6] left-0 right-0 bottom-0 h-24 ${
-            hideMobileButton
-              ? 'bg-[hsla(0,0%,100%,0%)] opacity-0 -z-10'
-              : 'bg-[hsla(0,0%,100%,100%)] bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-[0.55] shadow-sm'
-          } duration-150 transition-all ease-out`}
-        />
+      <motion.div
+        variants={variants}
+        initial="initial"
+        animate="animate"
+        className={`fixed min-w-max z-[26] left-0 right-0 bottom-0 h-24 bg-[hsl(47,100%,98%,93%)] shadow-none`}
+        custom={{
+          translateY: hideMobileButton ? '350%' : '0px',
+          opacity: hideMobileButton ? 0 : 1,
+        }}
+      >
         <button
           onClick={hideMobileButton ? undefined : handleClick}
           className={`${className} font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] hover:scale-[0.98] duration-100 transition-all ${
@@ -54,7 +57,7 @@ const Button = (props: Props) => {
         >
           {label}
         </button>
-      </React.Fragment>,
+      </motion.div>,
       container
     );
   }
@@ -82,4 +85,20 @@ Button.defaultProps = {
   handleClick: () => {},
   selected: true,
   hideMobileButton: false,
+};
+
+const variants: Variants = {
+  initial: {
+    translateY: '0px',
+    opacity: 0.8,
+    scale: 0.9,
+  },
+  animate: (custom: { translateY: string; opacity: number }) => ({
+    translateY: custom.translateY,
+    opacity: custom.opacity,
+    scale: 1,
+    transition: {
+      stiffness: 35,
+    },
+  }),
 };
