@@ -10,7 +10,7 @@ const CallButton = () => {
 
   return (
     <button
-      aria-label='call the Athens Central Hotel'
+      aria-label="call the Athens Central Hotel"
       onClick={handleClick}
       className="flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.98] duration-150 ease-out transition-all"
     >
@@ -26,12 +26,7 @@ const CallButton = () => {
           clipRule="evenodd"
         />
       </svg>
-      <a
-        href={PHONE_DATA.href}
-        ref={linkRef}
-        className="text-lg"
-        tabIndex={-1}
-      >
+      <a href={PHONE_DATA.href} ref={linkRef} className="text-lg" tabIndex={-1}>
         {PHONE_DATA.label}
       </a>
     </button>
@@ -67,7 +62,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
 
   return (
     <button
-      aria-label='send an email to the Athens Central Hotel'
+      aria-label="send an email to the Athens Central Hotel"
       onClick={handleClick}
       className="flex justify-center items-center gap-2"
     >
@@ -99,7 +94,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
         tabIndex={-1}
         className={`font-title ${
           size === 'large'
-            ? 'text-xl font-normal'
+            ? 'text-xl font-light'
             : 'text-[1.07rem] font-extralight tracking-wide'
         } ${textColor} ${
           underline

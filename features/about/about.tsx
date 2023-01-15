@@ -28,16 +28,16 @@ const About = (props: AboutProps) => {
               <h3 className="mb-4 text-xl font-title font-normal">
                 Our Front Desk is Open 24/7
               </h3>
-              <div className="w-full grid grid-cols-[auto_1fr] justify-items-start text-[hsla(0,0%,100%,75%)] font-extralight">
-                <div className="w-full flex justify-between gap-1 pr-4">
-                  <p className="font-title font-normal text-[1.05rem]">
+              <div className="w-full grid grid-cols-[auto_1fr] justify-items-end text-[hsla(0,0%,100%,75%)] font-extralight">
+                <div className="w-full flex justify-between items-center gap-1 pr-4">
+                  <p className="font-title font-normal text-[1.25rem]">
                     Phone Number
                   </p>
                   <p>:</p>
                 </div>
-                <LinkCallButton darkMode size="small" underline={false} />
-                <div className="w-full flex justify-between gap-1 pr-4">
-                  <p className="font-title font-normal text-[1.05rem]">
+                <LinkCallButton darkMode size="large" underline={false} />
+                <div className="w-full flex justify-between items-center gap-1 pr-4">
+                  <p className="font-title font-normal text-[1.25rem]">
                     Email Address
                   </p>
                   <p>:</p>
@@ -45,7 +45,7 @@ const About = (props: AboutProps) => {
                 <LinkCallButton
                   buttonData={EMAIL_DATA}
                   darkMode
-                  size="small"
+                  size="large"
                   underline={false}
                 />
               </div>
@@ -81,10 +81,10 @@ export const Address = () => {
         rel="noreferrer"
         className="text-sm"
       >
-        <p className="font-title text-[1.08rem] mb-1 tracking-wide">
+        <p className="font-title text-[1.25rem] mb-1 tracking-wide">
           88 East State Street
         </p>
-        <p className="font-title text-[1.08rem] mb-1 tracking-wide">
+        <p className="font-title text-[1.25rem] mb-1 tracking-wide">
           Athens, OH 45701
         </p>
         <p className="font-title text-[1.08rem] tracking-wide">United States</p>
