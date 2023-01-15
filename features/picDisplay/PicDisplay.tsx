@@ -129,17 +129,19 @@ const PicDisplay = (props: Props) => {
           </svg>
         </button>
       )}
-      {galleryOpen && (
-        <Gallery
-          isOpen={gallery}
-          onClose={() => setGalleryOpen(() => false)}
-          firstAnimation={firstAnimation}
-          imageCursor={imageCursor}
-          onNext={onNext}
-          onPrev={onPrev}
-          setIsAnimating={setIsAnimating}
-        />
-      )}
+      <AnimatePresence>
+        {galleryOpen && (
+          <Gallery
+            isOpen={gallery}
+            onClose={() => setGalleryOpen(() => false)}
+            firstAnimation={firstAnimation}
+            imageCursor={imageCursor}
+            onNext={onNext}
+            onPrev={onPrev}
+            setIsAnimating={setIsAnimating}
+          />
+        )}
+      </AnimatePresence>
       <AnimatePresence mode="sync">
         {imageCursor.selectedPictures.map((picture, index) => (
           <MotionImage
@@ -320,12 +322,17 @@ const Gallery = (props: GalleryProps) => {
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <Dialog.Panel>
-        <div className="fixed z-[100] inset-0 flex flex-col justify-center p-4">
+        <motion.div
+          className="fixed z-[100] inset-0 flex flex-col justify-center bg-[hsla(211,30%,9%,86%)] bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.55]"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1, transition: { duration: 0.25 } }}
+          exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.25 } }}
+        >
           <div
             onClick={onClose}
-            className="absolute inset-0 bg-[hsla(211,30%,6%,86%)] bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.55] cursor-pointer"
+            className="absolute inset-0 cursor-pointer"
           ></div>
-          <div>
+          <div className="p-7">
             <Dialog.Title className="relative z-10 text-center text-4xl font-light text-white font-title cursor-default">
               Athena 2-bedroom suite
             </Dialog.Title>
@@ -368,12 +375,12 @@ const Gallery = (props: GalleryProps) => {
               </AnimatePresence>
               <ImageControls onPrev={onPrev} onNext={onNext} />
             </div>
-            <Dialog.Description className="relative z-10 text-center text-xl text-white font-medium cursor-default">
+            <Dialog.Description className="relative z-10 text-center text-xl text-white font-light cursor-default">
               Our amazing room is amazing
             </Dialog.Description>
             <Dialog.Description
               as="div"
-              className="relative z-10 mx-auto flex flex-row justify-center items-center mt-6"
+              className="relative z-10 mx-auto flex flex-row justify-center items-center mt-6 w-min"
             >
               <Button
                 label="Book Now"
@@ -382,7 +389,7 @@ const Gallery = (props: GalleryProps) => {
               />
             </Dialog.Description>
           </div>
-        </div>
+        </motion.div>
       </Dialog.Panel>
     </Dialog>
   );
