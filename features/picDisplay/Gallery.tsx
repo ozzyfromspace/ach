@@ -14,6 +14,7 @@ interface GalleryProps {
   setIsAnimating: React.Dispatch<React.SetStateAction<IsAnimating>>;
   onPrev: () => void;
   onNext: () => void;
+  title: string;
 }
 
 const Gallery = (props: GalleryProps) => {
@@ -26,6 +27,7 @@ const Gallery = (props: GalleryProps) => {
     setIsAnimating,
     onPrev,
     onNext,
+    title,
   } = props;
 
   return (
@@ -51,7 +53,7 @@ const Gallery = (props: GalleryProps) => {
           ></div>
           <div className="overflow-y-auto py-12">
             <Dialog.Title className="relative z-10 text-center text-4xl font-light text-white font-title cursor-default select-none">
-              Athena 2-bedroom suite
+              {title}
             </Dialog.Title>
             <button
               aria-label="close expanded gallery"
@@ -93,9 +95,6 @@ const Gallery = (props: GalleryProps) => {
               </AnimatePresence>
               <ImageControls onPrev={onPrev} onNext={onNext} />
             </div>
-            <Dialog.Description className="relative z-10 text-center text-xl text-white font-light cursor-default select-none">
-              Our amazing room is amazing
-            </Dialog.Description>
             <Dialog.Description
               as="div"
               className="relative z-10 mx-auto flex flex-row justify-center items-center mt-6 w-min"

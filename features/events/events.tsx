@@ -9,10 +9,7 @@ import {
 } from '../eventPicker/eventPickerSlice';
 import Padding from '../padding';
 import PicDisplay from '../picDisplay';
-// import EventCard from './EventCard';
 import eventDataSlice from './eventDataSlice';
-
-// const
 
 const Events = () => {
   const id = useId();
@@ -53,7 +50,7 @@ const Events = () => {
             })}
           </nav>
           <div className="flex flex-wrap justify-center items-center gap-8">
-            <div className="flex justify-center items-center event-width-clamp aspect-[4/3] w-full mt:min-w-[20rem] mt:w-[min(69vw,69vh)] mt:max-w-xl mt-10 md:mt-12 xl:mt-14">
+            <div className="select-none flex justify-center items-center event-width-clamp aspect-[4/3] w-full mt:min-w-[20rem] mt:w-[min(69vw,69vh)] mt:max-w-xl mt-10 md:mt-12 xl:mt-14">
               <AnimatePresence
                 mode="sync"
                 onExitComplete={() => setExiting(() => false)}
@@ -68,7 +65,7 @@ const Events = () => {
               </AnimatePresence>
             </div>
             <div className="w-max max-w-fit min-h-full flex flex-col gap-6 justify-center items-center">
-              <p className="font-subtitle font-medium text-lg text-gray-dark">
+              <p className="select-none font-subtitle font-medium text-lg text-gray-dark">
                 Call to set up an event
               </p>
               <CallButton />

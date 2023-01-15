@@ -31,6 +31,7 @@ export interface CardImage {
 interface Props {
   resourceData: Picture[];
   gallery: boolean;
+  title: string;
 }
 
 export interface IsAnimating {
@@ -40,7 +41,7 @@ export interface IsAnimating {
 
 const PicDisplay = (props: Props) => {
   const componentId = useId();
-  const { resourceData, gallery } = props;
+  const { resourceData, gallery, title } = props;
   const rLen = resourceData.length;
   const [isAnimating, setIsAnimating] = useState<IsAnimating>(() => ({
     value: false,
@@ -128,6 +129,7 @@ const PicDisplay = (props: Props) => {
       <AnimatePresence>
         {galleryOpen && (
           <Gallery
+            title={title}
             isOpen={gallery}
             onClose={() => setGalleryOpen(() => false)}
             firstAnimation={firstAnimation}
@@ -156,6 +158,10 @@ const PicDisplay = (props: Props) => {
       <ImageControls onPrev={onPrev} onNext={onNext} />
     </motion.div>
   );
+};
+
+PicDisplay.defaultProps = {
+  title: '',
 };
 
 export default PicDisplay;
