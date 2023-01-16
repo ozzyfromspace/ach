@@ -12,11 +12,10 @@ const About = (props: AboutProps) => {
   return (
     <Padding
       className="select-none relative z-0 w-full pb-16 gradient-blue bg-opacity-90 text-white overflow-hidden"
-      _py="pt-3"
       paddingRef={aboutRef}
     >
       <div className="w-fit mx-auto pt-20" id="contact">
-        <div className="flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mb-12 mt-2">
+        <div className="flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mb-12">
           <div className="mx-auto space-y-11">
             <div className="w-fit border-white">
               <h2 className="font-title select-none tracking-wider text-2xl sm:text-3xl md:text-3xl font-normal">
