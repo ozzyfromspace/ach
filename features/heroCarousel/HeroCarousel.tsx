@@ -22,6 +22,7 @@ interface ImageData {
   id: string;
   relativeOrder: number;
   objectFit: ObjectFit;
+  alt: '';
 }
 
 const imageData: ImageData[] = [
@@ -31,6 +32,7 @@ const imageData: ImageData[] = [
     id: '0',
     objectFit: 'cover',
     desc: 'Our comfortable Athena suite is waiting for you.',
+    alt: '',
   },
   {
     src: src1,
@@ -38,6 +40,7 @@ const imageData: ImageData[] = [
     id: '1',
     objectFit: 'cover',
     desc: 'Our new hotel is a modern, Greek-inspired experience in the heart of Athens, Ohio. We hope you enjoy staying with us. Kalos Irthate ❤️',
+    alt: '',
   },
   {
     src: src2,
@@ -45,13 +48,15 @@ const imageData: ImageData[] = [
     id: '2',
     objectFit: 'cover',
     desc: 'We offer a hot, complimentary weekend breakfast served by the friendliest staff in Athens',
+    alt: '',
   },
   {
     src: src3,
     relativeOrder: 3,
     id: '3',
     objectFit: 'cover',
-    desc: 'Fun fact! From the architecture to the interior design, every room in our boutique hotel has a unique feel 🌠',
+    desc: 'From the architecture to the interior design, every room in our boutique hotel has a unique feel',
+    alt: '',
   },
 ];
 
@@ -293,14 +298,14 @@ const PositionedImage = (props: PositionedImageProps) => {
     }, 20);
   };
 
-  const goRight = () => {
+  const goLeft = () => {
     if (isTransitioning) return;
     setTimeout(() => {
       handleGoForward(isTransitioning)();
     }, 20);
   };
 
-  const goLeft = () => {
+  const goRight = () => {
     if (isTransitioning) return;
     setTimeout(() => {
       handleGoBackward(isTransitioning)();
@@ -379,22 +384,7 @@ const PositionedImage = (props: PositionedImageProps) => {
                 handleMouseOver();
               }}
               onBlur={handleControlBlur(goLeftRef)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="ml-7 w-7 h-7 hover:scale-110 transition-all"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
+            ></button>
             <button
               ref={goLeftRef}
               aria-label="show previous picture of the carousel"
@@ -405,22 +395,7 @@ const PositionedImage = (props: PositionedImageProps) => {
                 handleMouseOver();
               }}
               onBlur={handleControlBlur(goRightRef)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="ml-auto mr-7 w-7 h-7 hover:scale-110 transition-all"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
+            ></button>
           </div>
         )}
       </div>
@@ -562,6 +537,7 @@ export const HeroCarouselImage = (props: HeroCarouselImageProps) => {
       variants={positionedImageVariants}
       custom={positionImageCustom}
       id={el.id}
+      alt={el.desc}
     />
   );
 };

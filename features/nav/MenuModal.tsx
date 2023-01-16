@@ -47,11 +47,7 @@ const MenuModal = (props: Props) => {
 
   const MenuPanel = (
     <Dialog open={!isClosed} onClose={onClose}>
-      <Dialog.Panel>
-        <Dialog.Title>Main Menu</Dialog.Title>
-        <Dialog.Description>A list of navigation links</Dialog.Description>
-        {bar}
-      </Dialog.Panel>
+      <Dialog.Panel>{bar}</Dialog.Panel>
     </Dialog>
   );
 

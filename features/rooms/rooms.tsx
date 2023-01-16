@@ -1,19 +1,42 @@
+import { Link as ReactScrollLink } from 'react-scroll';
+import useStickyState from '../../hooks/useStickState';
 import Padding from '../padding';
 import RoomCard from './RoomCard';
 import roomDataSlice from './roomDataSlice';
 
 const Rooms = () => {
+  const { isSticky, ref } = useStickyState();
+
   return (
-    <Padding className="relative z-[1] w-full pt-20" id="rooms">
-      <h2 className="font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6">
-        Our Rooms
-      </h2>
-      <div className="flex flex-col gap-14 mt:gap-12 md:gap-10 lg:gap-10 mt:flex-row mt:flex-wrap mt:justify-center mt:items-center">
+    <div className="relative z-[1] w-full" id="rooms">
+      <div
+        ref={ref}
+        className={`${
+          isSticky ? 'bg-[hsl(60,30%,96%)] shadow-sm' : ''
+        } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
+      >
+        <Padding>
+          <ReactScrollLink
+            to="rooms-content"
+            spy={true}
+            smooth={true}
+            offset={-180}
+            duration={380}
+            href="/rooms"
+          >
+            <h2>Our Rooms</h2>
+          </ReactScrollLink>
+        </Padding>
+      </div>
+      <Padding
+        id="rooms-content"
+        className="flex flex-col gap-14 mt:gap-12 md:gap-10 lg:gap-10 mt:flex-row mt:flex-wrap mt:justify-center mt:items-center pt-10 pb-12"
+      >
         {roomDataSlice.map((roomData) => (
           <RoomCard key={roomData.roomType} roomData={roomData} />
         ))}
-      </div>
-    </Padding>
+      </Padding>
+    </div>
   );
 };
 
