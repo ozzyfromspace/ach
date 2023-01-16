@@ -1,7 +1,6 @@
 import { EMAIL_DATA } from '../../constants';
 import { LinkCallButton } from '../button';
 import Padding from '../padding';
-
 interface AboutProps {
   aboutRef: (node?: Element | null | undefined) => void;
 }
@@ -11,7 +10,7 @@ const About = (props: AboutProps) => {
 
   return (
     <Padding
-      className="select-none relative z-0 w-full pb-16 gradient-blue bg-opacity-90 text-white overflow-hidden"
+      className="select-none relative z-0 w-full gradient-blue bg-opacity-90 text-white overflow-hidden"
       paddingRef={aboutRef}
     >
       <div className="w-fit mx-auto pt-20" id="contact">
@@ -66,6 +65,7 @@ const About = (props: AboutProps) => {
           ></iframe>
         </div>
       </div>
+      <Footer />
     </Padding>
   );
 };
@@ -95,3 +95,14 @@ export const Address = () => {
 };
 
 export default About;
+
+const Footer = () => {
+  return (
+    <footer className="flex flex-col justify-center items-center gap-2 mt-28 mb-12 text-sm font-title font-light text-gray-light tracking-wide">
+      <section className="text-lg border-t-[1px] border-b-[1px] border-t-gray-light py-5 text-center space-y-3 px-28">
+        <h3>&copy; Athens Central Hotel, 2023</h3>
+        <p>All Rights Reserved</p>
+      </section>
+    </footer>
+  );
+};

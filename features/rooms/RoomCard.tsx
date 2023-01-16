@@ -23,7 +23,11 @@ const RoomCard = (props: Props) => {
         <p className="select-none cursor-default text-base mb-4 text-[hsl(228,21%,24%,100%)] font-light">
           {roomData.mainDescription}
         </p>
-        <Button label="Book Now" className="max-w-fit mr-auto" />
+        <Button
+          label="Book Now"
+          className="max-w-fit mr-auto"
+          selected={false}
+        />
       </div>
     </div>
   );
