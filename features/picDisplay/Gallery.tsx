@@ -76,7 +76,7 @@ const Gallery = (props: GalleryProps) => {
               </svg>
             </button>
             <div
-              className={`relative min-w-[36vw] w-full max-w-[42rem] aspect-[7/5] rounded-md overflow-hidden mx-auto my-8`}
+              className={`relative min-w-[36vw] w-full max-w-[42rem] aspect-[4/3] rounded-md overflow-hidden mx-auto my-8`}
             >
               <AnimatePresence mode="sync">
                 {imageCursor.selectedPictures.map((picture, index) => (

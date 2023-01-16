@@ -10,7 +10,7 @@ const RoomCard = (props: Props) => {
   const { roomData } = props;
 
   return (
-    <div className="select-none w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md sm:hover:scale-[0.992] transition-all ease-in-out duration-200">
+    <div className="select-none w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md">
       <PicDisplay
         resourceData={roomData.pictureSlice}
         gallery={true}

@@ -5,8 +5,6 @@ import Gallery from './Gallery';
 import ImageControls from './ImageControls';
 import MotionImage from './MotionImage';
 
-const cardAspectRatio = 'aspect-[7/5]';
-
 export enum ImageDirection {
   RIGHT = 'right',
   LEFT = 'left',
@@ -99,7 +97,7 @@ const PicDisplay = (props: Props) => {
 
   return (
     <motion.div
-      className={`relative z-0 ${cardAspectRatio} w-full rounded-md overflow-hidden`}
+      className={`relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden bg-[limegreen]`}
       initial={{ opacity: 0.69 }}
       animate={{ opacity: 1, transition: { duration: 0.42 } }}
       exit={{ opacity: 0.69, transition: { duration: 0.42 } }}
