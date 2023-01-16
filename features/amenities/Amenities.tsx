@@ -1,13 +1,36 @@
+import { Link as ReactScrollLink } from 'react-scroll';
+import useStickyState from '../../hooks/useStickState';
 import Padding from '../padding';
 import amenityData, { AmenityData } from './amenityData';
 
 const Amenities = () => {
+  const { isSticky, ref } = useStickyState();
+
   return (
-    <Padding id="amenities">
-      <h2 className="select-none font-title tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mb-8 mt:text-center pb-6 pt-[5rem]">
-        Amenities
-      </h2>
-      <div className="grid grid-cols-2 mt:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4">
+    <div className="relative z-0" id="amenities">
+      <div
+        ref={ref}
+        className={`${
+          isSticky ? 'bg-[hsl(60,30%,96%)] shadow-sm' : ''
+        } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
+      >
+        <Padding>
+          <ReactScrollLink
+            to="amenities-content"
+            spy={true}
+            smooth={true}
+            offset={-180}
+            duration={380}
+            href="/amenities"
+          >
+            <h2>Amenities</h2>
+          </ReactScrollLink>
+        </Padding>
+      </div>
+      <Padding
+        id="amenities-content"
+        className="grid grid-cols-2 mt:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4 pt-8 pb-16"
+      >
         {amenityData.map((amenity) => {
           return (
             <Amenity
@@ -17,8 +40,8 @@ const Amenities = () => {
             />
           );
         })}
-      </div>
-    </Padding>
+      </Padding>
+    </div>
   );
 };
 
