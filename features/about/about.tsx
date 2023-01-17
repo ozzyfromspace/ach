@@ -39,14 +39,14 @@ const About = (props: AboutProps) => {
               </h3>
               <div className="w-full grid grid-cols-[auto_1fr] justify-items-end text-[hsla(0,0%,100%,75%)] font-extralight">
                 <div className="w-full flex justify-between items-center gap-1 pr-4">
-                  <p className="font-title font-normal text-[1.25rem]">
+                  <p className="font-title font-light text-[1.25rem]">
                     Phone Number
                   </p>
                   <p>:</p>
                 </div>
                 <LinkCallButton darkMode size="large" underline={false} />
                 <div className="w-full flex justify-between items-center gap-1 pr-4">
-                  <p className="font-title font-normal text-[1.25rem]">
+                  <p className="font-title font-light text-[1.25rem]">
                     Email Address
                   </p>
                   <p>:</p>
