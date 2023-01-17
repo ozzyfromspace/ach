@@ -10,9 +10,14 @@ interface Props {
   bottomRootMarginPx: number;
 }
 
+export interface StickyState {
+  ref: (node?: Element | null | undefined) => void;
+  isSticky: boolean;
+}
+
 const useStickyState = (
   props: Props = { root: null, bottomRootMarginPx: 80 }
-) => {
+): StickyState => {
   const { bottomRootMarginPx, root } = props;
   const [bottomMargin, setBottomMargin] = useState(
     () => RANDOM_INIT_BOTTOM_MARGIN

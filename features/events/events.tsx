@@ -93,7 +93,7 @@ const Events = () => {
                   )}
                 </AnimatePresence>
               </div>
-              <div className="w-max max-w-fit min-h-full flex flex-col gap-3 justify-center items-center mb-12">
+              <div className="w-max max-w-fit min-h-full flex flex-col gap-3 justify-center items-center mb-24">
                 <p className="select-none font-subtitle font-medium text-lg text-gray-dark">
                   Call to set up an event
                 </p>

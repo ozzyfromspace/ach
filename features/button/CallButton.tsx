@@ -54,7 +54,6 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
   const linkRef = useRef<HTMLAnchorElement>(null);
 
   const handleClick = () => {
-    console.log('clicked!');
     linkRef.current?.click();
   };
 

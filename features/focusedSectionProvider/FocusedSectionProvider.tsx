@@ -28,7 +28,7 @@ interface FocusedSectionValueRefs {
   [sectionRefName.contact]: RefDescription;
 }
 
-interface FocusedSectionValue {
+export interface FocusedSectionValue {
   refs: FocusedSectionValueRefs;
 }
 
