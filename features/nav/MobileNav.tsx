@@ -1,6 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { Link as ReactScrollLink } from 'react-scroll';
+import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import { navlinks } from './navlinks';
 
 let timer: NodeJS.Timeout | undefined = undefined;
@@ -11,6 +12,7 @@ interface Props {
 
 const MobileNav = (props: Props) => {
   const { onClose } = props;
+  const { refs } = useFocusedSection();
   const router = useRouter();
 
   const updateURL = (target: string) => () => {
@@ -26,34 +28,39 @@ const MobileNav = (props: Props) => {
   return (
     <nav className="absolute z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
       <ul className="flex flex-col gap-[8vh] justify-center items-center">
-        {navlinks.map((navlink, index) => (
-          <li key={navlink.route} onClick={updateURL(navlink.route)}>
-            <motion.div
-              variants={getVariants(index * 0.1)}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
-              className="text-gray-light"
-            >
-              <ReactScrollLink
-                to={navlink.route}
-                activeClass={'active-link-mobile'}
-                spy={true}
-                smooth={true}
-                offset={navlink.route === 'hero' ? -80 : 0}
-                duration={380}
-                onClick={() => {
-                  setTimeout(onClose, 420);
-                }}
-                className="px-3 py-3"
-                href={`/${navlink.route}`}
+        {navlinks.map((navlink, index) => {
+          const activeClass = refs[navlink.label].active
+            ? 'active-link text-blue-deep'
+            : '';
+
+          return (
+            <li key={navlink.route} onClick={updateURL(navlink.route)}>
+              <motion.div
+                variants={getVariants(index * 0.1)}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
+                className="text-gray-light"
               >
-                {navlink.label}
-              </ReactScrollLink>
-            </motion.div>
-          </li>
-        ))}
+                <ReactScrollLink
+                  to={navlink.route}
+                  className={`px-3 py-3 ${activeClass}`}
+                  spy={true}
+                  smooth={true}
+                  offset={navlink.route === 'hero' ? -80 : 0}
+                  duration={380}
+                  onClick={() => {
+                    setTimeout(onClose, 420);
+                  }}
+                  href={`/${navlink.route}`}
+                >
+                  {navlink.label}
+                </ReactScrollLink>
+              </motion.div>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

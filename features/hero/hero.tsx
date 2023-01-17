@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import { TABLET_MEDIA_QUERY } from '../../constants';
 import courtStreet from '../../public/court-street.jpeg';
 import Button, { CallButton } from '../button';
+import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import HeroCarousel from '../heroCarousel';
 
 interface HeroProps {
@@ -16,13 +17,16 @@ const Hero = (props: HeroProps) => {
   const isMobile = useMediaQuery({ query: TABLET_MEDIA_QUERY });
   const [isFirstRender, setisFirstRender] = useState(() => true);
   const buttonClasses = isFirstRender ? '' : isMobile ? '' : 'w-1/3 max-w-sm';
+  const {
+    refs: { Home: home },
+  } = useFocusedSection();
 
   useEffect(() => {
     setisFirstRender(() => false);
   }, []);
 
   return (
-    <main className="relative w-full mt-20" id="hero">
+    <main ref={home.ref} className="relative w-full mt-20" id="hero">
       <SiteBG />
       <motion.div
         className="w-full flex flex-col justify-start items-center gap-10 mt:gap-14 md:gap-16 mx-auto px-6 overflow-hidden"

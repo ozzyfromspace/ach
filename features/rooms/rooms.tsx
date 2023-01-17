@@ -1,14 +1,18 @@
 import { Link as ReactScrollLink } from 'react-scroll';
 import useStickyState from '../../hooks/useStickState';
+import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import RoomCard from './RoomCard';
 import roomDataSlice from './roomDataSlice';
 
 const Rooms = () => {
   const { isSticky, ref } = useStickyState();
+  const {
+    refs: { Rooms: rooms },
+  } = useFocusedSection();
 
   return (
-    <div className="relative z-[1] w-full" id="rooms">
+    <div ref={rooms.ref} className="relative z-[1] w-full" id="rooms">
       <div
         ref={ref}
         className={`${

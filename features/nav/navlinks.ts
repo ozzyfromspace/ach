@@ -1,12 +1,7 @@
-interface NavLink {
-  route: string;
-  label: string;
-}
-
-export const navlinks: NavLink[] = [
+export const navlinks = [
   { route: 'hero', label: 'Home' },
   { route: 'rooms', label: 'Rooms' },
   { route: 'amenities', label: 'Amenities' },
   { route: 'events', label: 'Events' },
   { route: 'contact', label: 'Contact' },
-];
+] as const;

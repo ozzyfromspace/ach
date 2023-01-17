@@ -9,6 +9,7 @@ import {
   currentEventSelector,
   eventSelector,
 } from '../eventPicker/eventPickerSlice';
+import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import PicDisplay from '../picDisplay';
 import eventDataSlice from './eventDataSlice';
@@ -16,6 +17,9 @@ import eventDataSlice from './eventDataSlice';
 const Events = () => {
   const id = useId();
   const events = useSelector(eventSelector);
+  const {
+    refs: { Events: eventsFocusingDescriptor },
+  } = useFocusedSection();
   const currentEvent = useSelector(currentEventSelector);
   const [exiting, setExiting] = useState(() => false);
 
@@ -24,7 +28,11 @@ const Events = () => {
   const { isSticky, ref } = useStickyState();
 
   return (
-    <div className="relative z-[1] w-full min-h-fit rounded-t-lg" id="events">
+    <div
+      ref={eventsFocusingDescriptor.ref}
+      className="relative z-[1] w-full min-h-fit rounded-t-lg"
+      id="events"
+    >
       <div className="w-full">
         <div
           ref={ref}
