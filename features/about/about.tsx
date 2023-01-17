@@ -29,7 +29,7 @@ const About = (props: AboutProps) => {
       <div className="w-fit mx-auto" id="contact" ref={aboutRef}>
         <div
           id="contact-content"
-          className={`mt-2 flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto pt-4 px-6`}
+          className={`mt-8 flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
         >
           <div className="mx-auto space-y-11">
             <Address />
@@ -136,7 +136,7 @@ const StickyHeader = (props: StickyHeaderProps) => {
       variants={variants}
       custom={isSticky}
       ref={stickyRef}
-      className={`pt-8 w-screen sticky top-20 z-10 font-title select-none tracking-wider text-white text-2xl sm:text-3xl md:text-[1.9rem] font-normal mt:text-center flex flex-col justify-center ${
+      className={`pt-3 w-screen sticky top-20 z-10 font-title select-none tracking-wider text-white text-2xl sm:text-3xl md:text-[1.9rem] font-normal mt:text-center flex flex-col justify-center ${
         isSticky ? 'shadow-md' : ''
       }`}
     >
