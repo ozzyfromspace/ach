@@ -12,7 +12,12 @@ import DesktopNav from './DesktopNav';
 import HomeIcon from './HomeIcon';
 import MenuModal from './MenuModal';
 
-const Nav = () => {
+interface Props {
+  aboutHeaderInView: boolean;
+}
+
+const Nav = (props: Props) => {
+  const { aboutHeaderInView } = props;
   const router = useRouter();
 
   const isMobiTablet = useMediaQuery({
@@ -47,7 +52,13 @@ const Nav = () => {
   };
 
   return (
-    <header className="select-none fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm">
+    <header
+      className={`select-none fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
+        aboutHeaderInView
+          ? 'bg-[hsla(60,30%,96%,100%)]'
+          : 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm'
+      }`}
+    >
       <ReactScrollLink
         aria-label="go to home page"
         to="hero"

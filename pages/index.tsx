@@ -8,9 +8,11 @@ import Hero from '../features/hero';
 import Nav from '../features/nav';
 import Rooms from '../features/rooms';
 import SEOHead from '../features/seohead';
+import useStickyState from '../hooks/useStickState';
 
 const Home = () => {
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
+  const contactStickyState = useStickyState();
 
   return (
     <React.Fragment>
@@ -20,12 +22,12 @@ const Home = () => {
         title="Athens Central Hotel"
       />
       <FocusedSectionProvider>
-        <Nav />
+        <Nav aboutHeaderInView={contactStickyState.isSticky} />
         <Hero aboutInView={aboutInView} />
         <Rooms />
         <Amenities />
         <Events />
-        <About aboutRef={aboutRef} />
+        <About aboutRef={aboutRef} stickyState={contactStickyState} />
       </FocusedSectionProvider>
     </React.Fragment>
   );
