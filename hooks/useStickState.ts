@@ -3,15 +3,17 @@ import { useInView } from 'react-intersection-observer';
 
 let timer: NodeJS.Timer | undefined = undefined;
 const RANDOM_INIT_BOTTOM_MARGIN = 100000;
-const remToPx = (rem: number) => 16 * rem;
-const navHeight = remToPx(5);
 const proximity = 1;
 
 interface Props {
   root: Element | null | undefined;
+  bottomRootMarginPx: number;
 }
 
-const useStickyState = (props: Props = { root: null }) => {
+const useStickyState = (
+  props: Props = { root: null, bottomRootMarginPx: 80 }
+) => {
+  const { bottomRootMarginPx, root } = props;
   const [bottomMargin, setBottomMargin] = useState(
     () => RANDOM_INIT_BOTTOM_MARGIN
   );
@@ -20,7 +22,9 @@ const useStickyState = (props: Props = { root: null }) => {
     if (!window) return;
 
     if (bottomMargin === RANDOM_INIT_BOTTOM_MARGIN) {
-      setBottomMargin(() => window.innerHeight - proximity * navHeight);
+      setBottomMargin(
+        () => window.innerHeight - proximity * bottomRootMarginPx
+      );
     }
 
     const getWindowHeight = () => {
@@ -30,7 +34,9 @@ const useStickyState = (props: Props = { root: null }) => {
       }
 
       timer = setTimeout(() => {
-        setBottomMargin(() => window.innerHeight - proximity * navHeight);
+        setBottomMargin(
+          () => window.innerHeight - proximity * bottomRootMarginPx
+        );
       }, 100);
     };
 
@@ -39,10 +45,10 @@ const useStickyState = (props: Props = { root: null }) => {
     return () => {
       window.removeEventListener('resize', getWindowHeight);
     };
-  }, [bottomMargin]);
+  }, [bottomMargin, bottomRootMarginPx]);
 
   const { ref, inView } = useInView({
-    root: props.root,
+    root,
     threshold: 0,
     rootMargin: `0px 0px -${bottomMargin}px 0px`,
   });

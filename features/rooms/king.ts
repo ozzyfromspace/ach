@@ -8,7 +8,7 @@ const kingDesc = '1 king. Sleeps 2';
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
-  roomName: 'Apollo King (Entry Level)',
+  roomName: 'Apollo King',
   mainDescription: kingDesc,
   amenities: [],
   pictureSlice: [

@@ -9,6 +9,7 @@ import {
   currentEventSelector,
   eventSelector,
 } from '../eventPicker/eventPickerSlice';
+import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import PicDisplay from '../picDisplay';
 import eventDataSlice from './eventDataSlice';
@@ -16,6 +17,9 @@ import eventDataSlice from './eventDataSlice';
 const Events = () => {
   const id = useId();
   const events = useSelector(eventSelector);
+  const {
+    refs: { Events: eventsFocusingDescriptor },
+  } = useFocusedSection();
   const currentEvent = useSelector(currentEventSelector);
   const [exiting, setExiting] = useState(() => false);
 
@@ -24,7 +28,11 @@ const Events = () => {
   const { isSticky, ref } = useStickyState();
 
   return (
-    <div className="relative z-[1] w-full min-h-fit rounded-t-lg" id="events">
+    <div
+      ref={eventsFocusingDescriptor.ref}
+      className="relative z-[1] w-full min-h-fit rounded-t-lg"
+      id="events"
+    >
       <div className="w-full">
         <div
           ref={ref}
@@ -34,12 +42,13 @@ const Events = () => {
               : ''
           } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-0 h-20`}
         >
-          <Padding>
+          <Padding className="flex justify-center items-center">
             <ReactScrollLink
               to="events-content"
               spy={true}
               smooth={true}
               offset={-180}
+              className="p-2 rounded-full outline-offset-4"
               duration={380}
               href="/events"
             >

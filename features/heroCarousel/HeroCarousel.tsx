@@ -342,7 +342,7 @@ const PositionedImage = (props: PositionedImageProps) => {
 
   return (
     <motion.div
-      className={`absolute top-0 w-full aspect-[5/3] ${className} bg-[hsl(213,69%,69%,54%)] p-[1px] rounded-lg shadow-md overflow-hidden`}
+      className={`absolute top-0 w-full aspect-[5/3] ${className} select-none bg-[hsl(213,69%,69%,54%)] p-[1px] rounded-lg shadow-md overflow-hidden`}
       onAnimationStart={handleAnimationStart}
       onAnimationComplete={handleAnimationComplete}
       onClick={onClick}

@@ -12,7 +12,7 @@ const ModalBG = (props: Props) => {
   return (
     <React.Fragment>
       <motion.div
-        className="cursor-pointer w-full bg-white bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-70 shadow-md h-full absolute -z-10 top-0 left-0"
+        className="cursor-pointer w-full h-full absolute -z-10 top-0 left-0 bg-[hsl(60,30%,96%)] bg-opacity-[95%] backdrop-filter backdrop-blur-3xl"
         initial="initialLeft"
         animate="animateBgLeft"
         exit="exitLeft"

@@ -12,7 +12,7 @@ const CallButton = () => {
     <button
       aria-label="call the Athens Central Hotel"
       onClick={handleClick}
-      className="select-none flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.98] duration-150 ease-out transition-all"
+      className="select-none outline-offset-4 flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.98] duration-150 ease-out transition-all"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
     <button
       aria-label="send an email to the Athens Central Hotel"
       onClick={handleClick}
-      className="select-none flex justify-center items-center gap-2"
+      className="select-none outline-offset-4 flex justify-center items-center gap-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
