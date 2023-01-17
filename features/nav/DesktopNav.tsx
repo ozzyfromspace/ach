@@ -22,7 +22,7 @@ const DesktopNav = () => {
 
   return (
     <nav className="absolute -z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
-      <ul className="flex flex-row gap-[6vw] justify-center items-center">
+      <ul className="flex flex-row gap-[3vw] lg:gap-[5vw] xl:gap-[6vw] justify-center items-center">
         {navlinks.map((navlink, index) => {
           const activeClass = refs[navlink.label].active
             ? 'p-2 bg-[hsla(211,84%,49%,10%)] text-blue-deep font-semibold rounded-full'

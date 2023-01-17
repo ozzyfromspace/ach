@@ -36,7 +36,7 @@ const Amenities = () => {
       </div>
       <Padding
         id="amenities-content"
-        className="grid grid-cols-2 mt:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4 pt-8 pb-16"
+        className="grid grid-cols-2 mt:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4 mt-8 pb-16"
       >
         {amenityData.map((amenity) => {
           return (

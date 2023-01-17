@@ -67,7 +67,7 @@ const Pitch = (props: PitchProps) => (
         full={true}
         fixed={true}
         hideMobileButton={props.aboutInView}
-        className={`text-xl sm:text-lg ${props.buttonClasses}`}
+        className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
       />
     )}
     {!props.isFirstRender && !props.mobile && (
@@ -82,7 +82,7 @@ const Pitch = (props: PitchProps) => (
           full={false}
           fixed={false}
           hideMobileButton={false}
-          className={`text-xl sm:text-lg ${props.buttonClasses}`}
+          className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
         />
       </motion.div>
     )}

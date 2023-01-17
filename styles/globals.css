@@ -6,6 +6,7 @@ body {
   @apply bg-gray-light;
 }
 
+.no-highlight,
 button {
   -webkit-tap-highlight-color: transparent;
 }

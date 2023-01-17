@@ -40,7 +40,7 @@ const Events = () => {
             isSticky
               ? 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm'
               : ''
-          } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-0 h-20`}
+          } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-8 h-20`}
         >
           <Padding className="flex justify-center items-center">
             <ReactScrollLink
@@ -56,8 +56,8 @@ const Events = () => {
             </ReactScrollLink>
           </Padding>
         </div>
-        <Padding className="pt-8" id="events-content">
-          <div className="mt:flex flex-col flex-wrap justify-center items-center">
+        <Padding id="events-content">
+          <div className="mt:flex flex-col flex-wrap justify-center items-center mt-8">
             <nav className="flex flex-row flex-wrap gap-3">
               {events.map((event) => {
                 const handleUpdateSelectedEvent = () => {
