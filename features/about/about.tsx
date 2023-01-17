@@ -89,7 +89,7 @@ export const Address = () => {
         href="https://goo.gl/maps/rqUJ6pViG9GRt3rn9"
         target="_blank"
         rel="noreferrer"
-        className="text-sm"
+        className="text-sm p-2 -ml-2 rounded-md"
       >
         <p className="font-title text-[1.25rem] mb-1 tracking-wide">
           88 East State Street
@@ -134,12 +134,13 @@ const StickyHeader = (props: StickyHeaderProps) => {
           : ''
       } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-white text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-0 h-20`}
     >
-      <Padding>
+      <Padding className="flex justify-center items-center w-full">
         <ReactScrollLink
           to="contact-content"
           spy={true}
           smooth={true}
           offset={-180}
+          className="p-2 rounded-full outline-offset-4"
           duration={380}
           href="/contact"
         >

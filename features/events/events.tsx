@@ -42,12 +42,13 @@ const Events = () => {
               : ''
           } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-0 h-20`}
         >
-          <Padding>
+          <Padding className="flex justify-center items-center">
             <ReactScrollLink
               to="events-content"
               spy={true}
               smooth={true}
               offset={-180}
+              className="p-2 rounded-full outline-offset-4"
               duration={380}
               href="/events"
             >

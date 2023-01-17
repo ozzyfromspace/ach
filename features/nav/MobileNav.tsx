@@ -30,7 +30,7 @@ const MobileNav = (props: Props) => {
       <ul className="flex flex-col gap-[8vh] justify-center items-center">
         {navlinks.map((navlink, index) => {
           const activeClass = refs[navlink.label].active
-            ? 'active-link text-blue-deep'
+            ? 'text-blue-dark font-semibold bg-[hsla(211,84%,90%,90%)] rounded-full'
             : '';
 
           return (
@@ -41,11 +41,11 @@ const MobileNav = (props: Props) => {
                 animate="animate"
                 exit="exit"
                 whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
-                className="text-gray-light"
+                className="text-[hsla(228,26%,96%,80%)] font-light"
               >
                 <ReactScrollLink
                   to={navlink.route}
-                  className={`px-3 py-3 ${activeClass}`}
+                  className={`outline-offset-4 rounded-full p-3 ${activeClass}`}
                   spy={true}
                   smooth={true}
                   offset={navlink.route === 'hero' ? -80 : 0}

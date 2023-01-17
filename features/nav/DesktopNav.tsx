@@ -25,21 +25,21 @@ const DesktopNav = () => {
       <ul className="flex flex-row gap-[6vw] justify-center items-center">
         {navlinks.map((navlink, index) => {
           const activeClass = refs[navlink.label].active
-            ? 'active-link text-blue-deep'
-            : '';
+            ? 'p-2 bg-[hsla(211,84%,49%,10%)] text-blue-deep font-semibold rounded-full'
+            : 'p-2 rounded-full';
 
           return (
             <li key={navlink.route} onClick={updateURL(navlink.route)}>
-              <motion.button
+              <motion.div
                 variants={getVariants(index * 0.1)}
                 initial="initial"
                 animate="animate"
                 whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
-                className="text-gray-link py-3"
+                className="select-none text-gray-link py-3"
               >
                 <ReactScrollLink
                   to={navlink.route}
-                  className={activeClass}
+                  className={`outline-offset-4 ${activeClass}`}
                   spy={true}
                   smooth={true}
                   offset={navlink.route === 'hero' ? -80 : 0}
@@ -48,7 +48,7 @@ const DesktopNav = () => {
                 >
                   {navlink.label}
                 </ReactScrollLink>
-              </motion.button>
+              </motion.div>
             </li>
           );
         })}

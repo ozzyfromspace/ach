@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const HomeIcon = () => {
   return (
-    <div className='p-4 pl-0'>
+    <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="36"

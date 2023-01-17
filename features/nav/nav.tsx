@@ -53,6 +53,7 @@ const Nav = () => {
         to="hero"
         spy={true}
         smooth={true}
+        className="rounded-full -m-2 p-2"
         offset={-96}
         duration={350}
         onClick={updateURL}

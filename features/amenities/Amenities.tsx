@@ -20,13 +20,14 @@ const Amenities = () => {
             : ''
         } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-0 h-20`}
       >
-        <Padding>
+        <Padding className="w-full flex justify-center items-center">
           <ReactScrollLink
             to="amenities-content"
             spy={true}
             smooth={true}
             offset={-180}
             duration={380}
+            className="w-fit p-2 rounded-full outline-offset-4"
             href="/amenities"
           >
             <h2>Amenities</h2>

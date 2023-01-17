@@ -47,7 +47,7 @@ const Button = (props: Props) => {
       >
         <button
           onClick={hideMobileButton ? undefined : handleClick}
-          className={`${className} select-none font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] hover:scale-[0.98] duration-100 transition-all ${
+          className={`${className} select-none font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] outline-offset-4 hover:scale-[0.98] duration-100 transition-all ${
             selected
               ? 'gradient-blue text-white border-none hover:bg-[hsl(228,70%,38%,90%)]'
               : 'bg-[white] text-[hsla(0,0%,90%,12%)] border-[1px] border-[hsl(0,0%,84%,100%)]'
@@ -65,7 +65,7 @@ const Button = (props: Props) => {
   return (
     <button
       onClick={handleClick}
-      className={`${className} select-none min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 hover:scale-[0.98] duration-100 transition-all ${
+      className={`${className} select-none min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 outline-offset-4 hover:scale-[0.98] duration-100 transition-all ${
         selected
           ? 'gradient-blue text-white border-[hsl(0,0%,84%,100%)] hover:bg-[hsl(228,70%,38%,90%)]'
           : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'

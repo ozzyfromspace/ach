@@ -23,19 +23,19 @@ export const suite1_data: RoomData = {
       priority: true,
     },
     {
-      id: '2',
-      url: suite1_3,
-      description:
-        'large living space with full-body mirror hanging on the wall. Bed with light-brown wooden frame. wood floors, aluminum lamps, very well lit',
-      imageClasses: 'brightness-[1.08] saturation-[1.08]',
-      priority: true,
-    },
-    {
       id: '1',
       url: suite1_2,
       description:
         'view of one bedroom suite from the perspective of the large picture windows. 1 of 2 comfy rotating chairs are seen close up. in the distance, large flat-screen tv is mounted on the wall, with light-brown dresser beneath it. air-conditioning unit is placed above door that leads to living space. door next to rounded mirror leads to bathroom. door near tv leads to gym. office chair behind decorative, white pillar. warm lighting tone, multiple light sources',
       imageClasses: 'brightness-[1.07] saturation-[0.98] contrast-[0.97]',
+      priority: true,
+    },
+    {
+      id: '2',
+      url: suite1_3,
+      description:
+        'large living space with full-body mirror hanging on the wall. Bed with light-brown wooden frame. wood floors, aluminum lamps, very well lit',
+      imageClasses: 'brightness-[1.08] saturation-[1.08]',
       priority: true,
     },
     {
