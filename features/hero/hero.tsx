@@ -57,8 +57,7 @@ const Pitch = (props: PitchProps) => (
       Athens Central Hotel
     </h1>
     <h2 className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-      A <span className="text-blue-deep font-semibold">hidden gem</span> in the
-      heart of Athens, OH
+      The most luxurious hotel in Athens, OH
     </h2>
     {props.isFirstRender && <div className="h-7 w-1"></div>}
     {!props.isFirstRender && props.mobile && (
