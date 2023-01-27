@@ -14,6 +14,8 @@ export enum RoomType {
 export interface RoomData {
   roomType: RoomType;
   roomName: string;
+  capacity: string;
+  truncatedDescription: string;
   mainDescription: string;
   pictureSlice: Picture[];
   amenities: Amenity[];

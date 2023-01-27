@@ -3,12 +3,16 @@ import xKing_2 from '../../public/hotel_images/xKing/x-king-2.jpg';
 import xKing_3 from '../../public/hotel_images/xKing/x-king-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const xKingDesc = '1 King. Sleeps 2';
+const mainDescription = 'DESCRIPTION';
+const truncatedDescription = 'TRUNCATED';
+const capacity = '1 King. Sleeps 2';
 
 export const xKing_data: RoomData = {
   roomType: RoomType.xKing,
   roomName: 'Hermes King (Upgraded)',
-  mainDescription: xKingDesc,
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {

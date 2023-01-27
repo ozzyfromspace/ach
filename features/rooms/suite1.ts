@@ -6,12 +6,16 @@ import suite1_5 from '../../public/hotel_images/suite1/suite1-5.jpg';
 import suite1_6 from '../../public/hotel_images/suite1/suite1-6.jpg';
 import { RoomData, RoomType } from './types';
 
-const suite1Desc = '1 king + living room. Sleeps 2';
+const mainDescription = 'DESCRIPTION';
+const truncatedDescription = 'TRUNCATED';
+const capacity = '1 king + living room. Sleeps 2';
 
 export const suite1_data: RoomData = {
   roomType: RoomType.suite1,
   roomName: 'Zeus Suite',
-  mainDescription: suite1Desc,
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {

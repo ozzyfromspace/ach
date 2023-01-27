@@ -97,7 +97,7 @@ const PicDisplay = (props: Props) => {
 
   return (
     <motion.div
-      className={`relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden`}
+      className={`select-none relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden`}
       initial={{ opacity: 0.69 }}
       animate={{ opacity: 1, transition: { duration: 0.42 } }}
       exit={{ opacity: 0.69, transition: { duration: 0.42 } }}

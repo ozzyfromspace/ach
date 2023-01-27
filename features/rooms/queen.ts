@@ -4,12 +4,16 @@ import queen_3 from '../../public/hotel_images/queen/queen-3.jpg';
 import queen_4 from '../../public/hotel_images/queen/queen-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const queenDesc = '2 queens. Sleeps 4';
+const mainDescription = 'DESCRIPTION';
+const truncatedDescription = 'TRUNCATED';
+const capacity = '2 queens. Sleeps 4';
 
 export const queen_data: RoomData = {
   roomType: RoomType.queen,
   roomName: 'Artemis Queen',
-  mainDescription: queenDesc,
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {

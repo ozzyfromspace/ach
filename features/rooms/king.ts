@@ -4,12 +4,16 @@ import king_3 from '../../public/hotel_images/king/king-3.jpg';
 import king_4 from '../../public/hotel_images/king/king-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const kingDesc = '1 king. Sleeps 2';
+const capacity = '1 king. Sleeps 2';
+const truncatedDescription = 'TRUNCATED DESCRIPTION';
+const mainDescription = 'DESCRIPTION';
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
   roomName: 'Apollo King',
-  mainDescription: kingDesc,
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {

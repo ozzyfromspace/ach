@@ -10,18 +10,21 @@ const RoomCard = (props: Props) => {
   const { roomData } = props;
 
   return (
-    <div className="select-none w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md">
+    <div className="w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md">
       <PicDisplay
         resourceData={roomData.pictureSlice}
         gallery={true}
         title={roomData.roomName}
       />
       <div className="relative flex flex-col pt-3 text-justify">
-        <h3 className="select-none cursor-default text-xl font-title my-3 text-gray-dark">
+        <h3 className="cursor-default text-xl font-title my-3 text-gray-dark">
           {roomData.roomName}
         </h3>
-        <p className="select-none cursor-default text-base mb-4 text-[hsl(228,21%,24%,100%)] font-light">
-          {roomData.mainDescription}
+        <p className="cursor-default text-base mb-4 text-[hsl(228,21%,24%,100%)] font-light">
+          {roomData.capacity}
+        </p>
+        <p className="cursor-default text-base mb-4 text-[hsl(228,21%,24%,100%)] font-light">
+          {roomData.truncatedDescription}
         </p>
         <Button
           label="Book Now"

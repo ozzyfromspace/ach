@@ -4,12 +4,16 @@ import sKing_3 from '../../public/hotel_images/sKing/s-king-3.jpg';
 import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const sKingDesc = '1 king. Sleeps 2';
+const mainDescription = 'DESCRIPTION';
+const truncatedDescription = 'TRUNCATED';
+const capacity = '1 king. Sleeps 2';
 
 export const sKing_data: RoomData = {
   roomType: RoomType.sKing,
-  roomName: 'Thor King (Supreme)',
-  mainDescription: sKingDesc,
+  roomName: 'Eros King (Supreme)',
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {

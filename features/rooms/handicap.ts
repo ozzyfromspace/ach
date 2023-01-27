@@ -4,12 +4,16 @@ import handicap_3 from '../../public/hotel_images/handicap/handicap-3.jpg';
 import handicap_4 from '../../public/hotel_images/handicap/handicap-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const handicapDesc = '1 king. Sleeps 2';
+const mainDescription = 'DESCRIPTION';
+const truncatedDescription = 'TRUNCATED';
+const capacity = '1 king. Sleeps 2';
 
 export const handicap_data: RoomData = {
   roomType: RoomType.handicap,
-  roomName: 'Eros King (Handicap)',
-  mainDescription: handicapDesc,
+  roomName: 'Atlas King (Handicap)',
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {

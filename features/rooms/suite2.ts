@@ -6,12 +6,16 @@ import suite2_5 from '../../public/hotel_images/suite2/suite2-5.jpg';
 import suite2_6 from '../../public/hotel_images/suite2/suite2-6.jpg';
 import { RoomData, RoomType } from './types';
 
-const suite2Desc = '1 king, 1 queen + living room. Sleeps 4';
+const mainDescription = 'DESCRIPTION';
+const truncatedDescription = 'TRUNCATED';
+const capacity = '1 king, 1 queen + living room. Sleeps 4';
 
 export const suite2_data: RoomData = {
   roomType: RoomType.suite2,
   roomName: 'Athena Suite',
-  mainDescription: suite2Desc,
+  capacity,
+  truncatedDescription,
+  mainDescription,
   amenities: [],
   pictureSlice: [
     {
