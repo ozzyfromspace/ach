@@ -15,6 +15,7 @@ interface GalleryProps {
   onPrev: () => void;
   onNext: () => void;
   title: string;
+  mainDescription: string;
 }
 
 const Gallery = (props: GalleryProps) => {
@@ -27,6 +28,7 @@ const Gallery = (props: GalleryProps) => {
     setIsAnimating,
     onPrev,
     onNext,
+    mainDescription,
     title,
   } = props;
 
@@ -51,10 +53,7 @@ const Gallery = (props: GalleryProps) => {
             onClick={onClose}
             className="absolute inset-0 cursor-pointer no-highlight"
           ></div>
-          <div className="overflow-y-auto py-12">
-            <Dialog.Title className="relative z-10 text-center text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-light text-white font-title cursor-default select-none">
-              {title}
-            </Dialog.Title>
+          <div className="overflow-y-auto py-12 flex flex-col justify-center items-center">
             <button
               aria-label="close expanded gallery"
               className="absolute top-7 right-7 hover:scale-[1.06] transition-transform duration-150"
@@ -75,41 +74,61 @@ const Gallery = (props: GalleryProps) => {
                 />
               </svg>
             </button>
-            <div
-              className={`relative min-w-[36vw] w-full max-w-[42rem] aspect-[4/3] rounded-md overflow-hidden mx-auto my-8`}
-            >
-              <AnimatePresence mode="sync">
-                {imageCursor.selectedPictures.map((picture, index) => (
-                  <MotionImage
-                    key={`${picture.id}${componentId}`}
-                    alt={picture.description}
-                    first={firstAnimation}
-                    direction={imageCursor.direction}
-                    index={index}
-                    src={picture.url}
-                    setIsAnimating={setIsAnimating}
-                    imageClasses={picture.imageClasses}
-                    isGallery={true}
-                  />
-                ))}
-              </AnimatePresence>
-              <ImageControls onPrev={onPrev} onNext={onNext} />
+            <div className="w-full h-full flex flex-col gap-0 justify-center items-center">
+              <Dialog.Title className="relative z-10 text-center text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-light text-white font-title cursor-default">
+                {title}
+              </Dialog.Title>
+              <div className="w-full max-w-6xl h-full flex flex-col flex-1 justify-center md:flex-row md:gap-8 lg:gap-9 xl:gap-12">
+                <div className="flex flex-col w-full max-w-[69rem]">
+                  <div
+                    className={`relative min-w-[36vw] w-full aspect-[4/3] rounded-md overflow-hidden my-8 select-none`}
+                  >
+                    <AnimatePresence mode="sync">
+                      {imageCursor.selectedPictures.map((picture, index) => (
+                        <MotionImage
+                          key={`${picture.id}${componentId}`}
+                          alt={picture.description}
+                          first={firstAnimation}
+                          direction={imageCursor.direction}
+                          index={index}
+                          src={picture.url}
+                          setIsAnimating={setIsAnimating}
+                          imageClasses={picture.imageClasses}
+                          isGallery={true}
+                        />
+                      ))}
+                    </AnimatePresence>
+                    <ImageControls onPrev={onPrev} onNext={onNext} />
+                  </div>
+                </div>
+                <div className="overflow-auto min-h-[10rem] text-white w-full md:w-1/2 flex justify-center items-center">
+                  <div className="w-full overflow-scroll">
+                    <Dialog.Description className="mb-6">
+                      <p className="text-center">{mainDescription}</p>
+                    </Dialog.Description>
+                    <Dialog.Description
+                      as="div"
+                      className="relative z-10 mx-auto flex flex-row justify-center items-center w-min"
+                    >
+                      <Button
+                        label="Book Now"
+                        className="max-w-fit mx-auto"
+                        selected={false}
+                      />
+                    </Dialog.Description>
+                  </div>
+                </div>
+              </div>
             </div>
-            <Dialog.Description
-              as="div"
-              className="relative z-10 mx-auto flex flex-row justify-center items-center mt-6 w-min"
-            >
-              <Button
-                label="Book Now"
-                className="max-w-fit mx-auto"
-                selected={false}
-              />
-            </Dialog.Description>
           </div>
         </motion.div>
       </Dialog.Panel>
     </Dialog>
   );
+};
+
+Gallery.defaultProps = {
+  mainDescription: '',
 };
 
 export default Gallery;

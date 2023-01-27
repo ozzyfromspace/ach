@@ -12,13 +12,13 @@ const CallButton = () => {
     <button
       aria-label="call the Athens Central Hotel"
       onClick={handleClick}
-      className="select-none outline-offset-4 flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.98] duration-150 ease-out transition-all"
+      className="outline-offset-4 flex justify-center items-center gap-1 min-w-max font-subtitle font-medium tracking-wide p-2 pl-6 pr-6 w-1/3 max-w-sm text-xl sm:text-lg bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)] rounded-[0.25rem] hover:scale-[0.98] duration-150 ease-out transition-all"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="w-4 h-4"
+        className="select-none w-4 h-4"
       >
         <path
           fillRule="evenodd"
@@ -63,7 +63,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
     <button
       aria-label="send an email to the Athens Central Hotel"
       onClick={handleClick}
-      className="select-none outline-offset-4 flex justify-center items-center gap-2"
+      className="outline-offset-4 flex justify-center items-center gap-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className={`${
+        className={`select-none ${
           size === 'large' ? 'w-5 h-5' : 'w-4 h-4'
         } ${textColor} font-normal mt-[0.15rem]`}
       >

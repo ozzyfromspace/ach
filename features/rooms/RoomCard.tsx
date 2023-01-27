@@ -15,6 +15,7 @@ const RoomCard = (props: Props) => {
         resourceData={roomData.pictureSlice}
         gallery={true}
         title={roomData.roomName}
+        mainDescription={roomData.mainDescription}
       />
       <div className="relative flex flex-col pt-3 text-justify">
         <h3 className="cursor-default text-xl font-title my-3 text-gray-dark">

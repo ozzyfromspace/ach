@@ -53,7 +53,7 @@ const Nav = (props: Props) => {
 
   return (
     <header
-      className={`select-none fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
+      className={`fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
         aboutHeaderInView
           ? 'bg-[hsla(60,30%,96%,100%)]'
           : 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm'
@@ -64,7 +64,7 @@ const Nav = (props: Props) => {
         to="hero"
         spy={true}
         smooth={true}
-        className="rounded-full -m-2 p-2"
+        className="select-none rounded-full -m-2 p-2"
         offset={-96}
         duration={350}
         onClick={updateURL}

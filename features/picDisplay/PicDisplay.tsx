@@ -26,11 +26,19 @@ export interface CardImage {
   selectedPictures: Pictures;
 }
 
-interface Props {
-  resourceData: Picture[];
-  gallery: boolean;
-  title: string;
-}
+type Props =
+  | {
+      resourceData: Picture[];
+      gallery: true;
+      title: string;
+      mainDescription: string;
+    }
+  | {
+      resourceData: Picture[];
+      gallery: false;
+      title: string;
+      mainDescription: '';
+    };
 
 export interface IsAnimating {
   value: boolean;
@@ -39,7 +47,7 @@ export interface IsAnimating {
 
 const PicDisplay = (props: Props) => {
   const componentId = useId();
-  const { resourceData, gallery, title } = props;
+  const { resourceData, gallery, title, mainDescription } = props;
   const rLen = resourceData.length;
   const [isAnimating, setIsAnimating] = useState<IsAnimating>(() => ({
     value: false,
@@ -135,6 +143,7 @@ const PicDisplay = (props: Props) => {
             onNext={onNext}
             onPrev={onPrev}
             setIsAnimating={setIsAnimating}
+            mainDescription={mainDescription}
           />
         )}
       </AnimatePresence>
