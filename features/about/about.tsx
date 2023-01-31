@@ -66,7 +66,6 @@ const About = (props: AboutProps) => {
               src="https://badge.hotelstatic.com/?position=inline&amp;size=120&amp;clickable=false&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
             ></iframe>
           </div>
-          {/* <Padding className="select-none mx-auto w-full mt:w-[min(89vh,89vw)] max-w-lg"> */}
           <iframe
             aria-label="A google map showing the Athens Central Hotel"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.0494872241065!2d-82.09823380000003!3d39.33246430000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8848735b1021f905%3A0x400f2aa6ca675df3!2sAthens%20Central%20Hotel!5e0!3m2!1sen!2sus!4v1672186189896!5m2!1sen!2sus"
@@ -75,7 +74,6 @@ const About = (props: AboutProps) => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
-          {/* </Padding> */}
         </div>
         <Footer />
       </div>
@@ -85,7 +83,7 @@ const About = (props: AboutProps) => {
 
 export const Address = () => {
   return (
-    <div className="flex flex-col justify-center items-start text-[hsla(0,0%,100%,75%)] font-extralight">
+    <div className="select-all flex flex-col justify-center items-start text-[hsla(0,0%,100%,75%)] font-extralight">
       <h3 className="text-white mb-4 font-title font-normal text-xl">
         Athens Central Hotel
       </h3>

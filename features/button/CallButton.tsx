@@ -91,7 +91,7 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
         href={buttonData.href}
         ref={linkRef}
         tabIndex={-1}
-        className={`font-title ${
+        className={`select-all font-title ${
           size === 'large'
             ? 'text-xl font-light'
             : 'text-[1.07rem] font-extralight tracking-wide'
