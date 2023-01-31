@@ -10,7 +10,7 @@ const capacity = '1 king. Sleeps 2';
 
 export const sKing_data: RoomData = {
   roomType: RoomType.sKing,
-  roomName: 'Eros King (Supreme)',
+  roomName: 'Eros King (Premium)',
   capacity,
   truncatedDescription,
   mainDescription,

@@ -9,7 +9,7 @@ const capacity = '1 King. Sleeps 2';
 
 export const xKing_data: RoomData = {
   roomType: RoomType.xKing,
-  roomName: 'Hermes King (Upgraded)',
+  roomName: 'Hermes King (Deluxe)',
   capacity,
   truncatedDescription,
   mainDescription,
