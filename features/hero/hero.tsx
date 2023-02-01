@@ -76,13 +76,15 @@ const Pitch = (props: PitchProps) => (
         animate={{ opacity: 1, transition: { duration: 0.22 } }}
       >
         <CallButton />
-        <Button
-          label="Book a room"
-          full={false}
-          fixed={false}
-          hideMobileButton={false}
-          className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
-        />
+        <a href="https://hotels.cloudbeds.com/reservation/iyXSJl" tabIndex={-1}>
+          <Button
+            label="Book a room"
+            full={false}
+            fixed={false}
+            hideMobileButton={false}
+            className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
+          />
+        </a>
       </motion.div>
     )}
   </section>

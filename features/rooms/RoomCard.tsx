@@ -27,11 +27,13 @@ const RoomCard = (props: Props) => {
         <p className="cursor-default text-base mb-4 text-[hsl(228,21%,24%,100%)] font-light">
           {roomData.truncatedDescription}
         </p>
-        <Button
-          label="Book Now"
-          className="max-w-fit mr-auto"
-          selected={false}
-        />
+        <a href="https://hotels.cloudbeds.com/reservation/iyXSJl">
+          <Button
+            label="Book Now"
+            className="max-w-fit mr-auto"
+            selected={false}
+          />
+        </a>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -94,9 +93,9 @@ const Nav = (props: Props) => {
         <DesktopNav />
       )}
       {!firstRender && !isMobiTablet && (
-        <Link href="/book" tabIndex={-1}>
+        <a href="https://hotels.cloudbeds.com/reservation/iyXSJl" tabIndex={-1}>
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
-        </Link>
+        </a>
       )}
     </header>
   );

@@ -108,13 +108,15 @@ const Gallery = (props: GalleryProps) => {
                     </Dialog.Description>
                     <Dialog.Description
                       as="div"
-                      className="relative z-10 mx-auto flex flex-row justify-center items-center w-min"
+                      className="relative z-10 flex flex-row justify-center items-center w-full"
                     >
-                      <Button
-                        label="Book Now"
-                        className="max-w-fit mx-auto"
-                        selected={false}
-                      />
+                      <a href="https://hotels.cloudbeds.com/reservation/iyXSJl">
+                        <Button
+                          label="Book Now"
+                          className="max-w-fit"
+                          selected={false}
+                        />
+                      </a>
                     </Dialog.Description>
                   </div>
                 </div>
