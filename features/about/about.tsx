@@ -64,7 +64,7 @@ const About = (props: AboutProps) => {
                 className="select-none"
                 aria-label="a booking.com rating point card"
                 referrerPolicy="no-referrer"
-                src="https://badge.hotelstatic.com/?position=inline-block&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
+                src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
               ></iframe>
             </div>
           </div>
