@@ -38,11 +38,11 @@ const DesktopNav = () => {
                 className="select-none text-gray-link py-3"
               >
                 <ReactScrollLink
-                  to={navlink.route}
+                  to={navlink.landmark}
                   className={`outline-offset-4 ${activeClass}`}
                   spy={true}
                   smooth={true}
-                  offset={navlink.route === 'hero' ? -80 : 0}
+                  offset={navlink.route === 'rooms' ? -150 : -180}
                   duration={380}
                   href={`/${navlink.route}`}
                 >

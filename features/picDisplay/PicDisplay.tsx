@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { StaticImageData } from 'next/image';
-import { useId, useState } from 'react';
+import { SetStateAction, useId, useState } from 'react';
+import { MainDescription } from '../rooms/types';
 import Gallery from './Gallery';
 import ImageControls from './ImageControls';
 import MotionImage from './MotionImage';
@@ -26,11 +27,25 @@ export interface CardImage {
   selectedPictures: Pictures;
 }
 
-interface Props {
-  resourceData: Picture[];
-  gallery: boolean;
-  title: string;
-}
+type Props =
+  | {
+      resourceData: Picture[];
+      gallery: true;
+      title: string;
+      mainDescriptionArray: MainDescription[];
+      galleryOpen: boolean;
+      setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
+      capacity: string;
+    }
+  | {
+      resourceData: Picture[];
+      gallery: false;
+      title: string;
+      mainDescriptionArray: MainDescription[];
+      galleryOpen: boolean;
+      setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
+      capacity: string;
+    };
 
 export interface IsAnimating {
   value: boolean;
@@ -39,7 +54,16 @@ export interface IsAnimating {
 
 const PicDisplay = (props: Props) => {
   const componentId = useId();
-  const { resourceData, gallery, title } = props;
+  const {
+    resourceData,
+    gallery,
+    title,
+    mainDescriptionArray,
+    galleryOpen,
+    setGalleryOpen,
+    capacity,
+  } = props;
+
   const rLen = resourceData.length;
   const [isAnimating, setIsAnimating] = useState<IsAnimating>(() => ({
     value: false,
@@ -93,11 +117,9 @@ const PicDisplay = (props: Props) => {
     });
   };
 
-  const [galleryOpen, setGalleryOpen] = useState(() => false);
-
   return (
     <motion.div
-      className={`relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden`}
+      className={`select-none relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden`}
       initial={{ opacity: 0.69 }}
       animate={{ opacity: 1, transition: { duration: 0.42 } }}
       exit={{ opacity: 0.69, transition: { duration: 0.42 } }}
@@ -135,6 +157,8 @@ const PicDisplay = (props: Props) => {
             onNext={onNext}
             onPrev={onPrev}
             setIsAnimating={setIsAnimating}
+            mainDescriptionArray={mainDescriptionArray}
+            capacity={capacity}
           />
         )}
       </AnimatePresence>

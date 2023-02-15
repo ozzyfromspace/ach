@@ -4,14 +4,40 @@ import suite1_3 from '../../public/hotel_images/suite1/suite1-3.jpg';
 import suite1_4 from '../../public/hotel_images/suite1/suite1-4.jpg';
 import suite1_5 from '../../public/hotel_images/suite1/suite1-5.jpg';
 import suite1_6 from '../../public/hotel_images/suite1/suite1-6.jpg';
-import { RoomData, RoomType } from './types';
+import { MainDescription, RoomData, RoomType } from './types';
 
-const suite1Desc = '1 king + living room. Sleeps 2';
+const mainDescriptionArray: MainDescription[] = [
+  {
+    id: '1',
+    value:
+      'Our Zeus suite features 1 bedroom and a detached living space with a soft couch.',
+  },
+  {
+    id: '2',
+    value:
+      'The bedroom includes a microwave oven, a fridge stocked with complimentary beverages, a 4k tv with cable, HBO, and Cinemax, and heated wood floors.',
+  },
+  {
+    id: '3',
+    value:
+      'While in your comfy king bed, you can enjoy scenic views of downtown, court street, and the Appalachian mountains in the distance through your full-picture windows. Our bathrooms have European-style waterfall showers, body jets, a hand-held shower, and a beautiful oval-shaped glass barn-style door. Our living space has a soft pullout couch, a second 4k tv.',
+  },
+  {
+    id: '4',
+    value: 'We hope our cozy interior design elements help you feel at home.',
+  },
+];
+
+const truncatedDescription =
+  'Our Zeus suite features a 1-king bedroom and a detached living space.';
+const capacity = '1 king + living room. Sleeps 3';
 
 export const suite1_data: RoomData = {
   roomType: RoomType.suite1,
   roomName: 'Zeus Suite',
-  mainDescription: suite1Desc,
+  capacity,
+  truncatedDescription,
+  mainDescriptionArray,
   amenities: [],
   pictureSlice: [
     {

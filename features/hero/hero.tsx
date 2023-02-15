@@ -52,13 +52,12 @@ interface PitchProps {
 }
 
 const Pitch = (props: PitchProps) => (
-  <section className="relative select-none cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
+  <section className="relative cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
     <h1 className="font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
       Athens Central Hotel
     </h1>
     <h2 className="font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-      A <span className="text-blue-deep font-semibold">hidden gem</span> in the
-      heart of Athens, OH
+      The most luxurious boutique hotel in Athens, OH
     </h2>
     {props.isFirstRender && <div className="h-7 w-1"></div>}
     {!props.isFirstRender && props.mobile && (
@@ -77,13 +76,19 @@ const Pitch = (props: PitchProps) => (
         animate={{ opacity: 1, transition: { duration: 0.22 } }}
       >
         <CallButton />
-        <Button
-          label="Book a room"
-          full={false}
-          fixed={false}
-          hideMobileButton={false}
-          className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
-        />
+        <a
+          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+          tabIndex={-1}
+          aria-label="Book Now"
+        >
+          <Button
+            label="Book a room"
+            full={false}
+            fixed={false}
+            hideMobileButton={false}
+            className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
+          />
+        </a>
       </motion.div>
     )}
   </section>

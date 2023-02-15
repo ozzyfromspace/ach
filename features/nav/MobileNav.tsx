@@ -44,11 +44,11 @@ const MobileNav = (props: Props) => {
                 className="text-[hsla(228,26%,96%,80%)] font-light"
               >
                 <ReactScrollLink
-                  to={navlink.route}
+                  to={navlink.landmark}
                   className={`outline-offset-4 rounded-full p-3 ${activeClass}`}
                   spy={true}
                   smooth={true}
-                  offset={navlink.route === 'hero' ? -80 : 0}
+                  offset={navlink.route === 'rooms' ? -150 : -180}
                   duration={380}
                   onClick={() => {
                     setTimeout(onClose, 420);

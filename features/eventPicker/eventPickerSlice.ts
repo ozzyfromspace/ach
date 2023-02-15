@@ -4,24 +4,32 @@ import { Option, OptionGroup } from '../picker';
 
 export interface EventPickerOption extends Option {}
 
+// const initialState: EventPickerOption[] = [
+//   {
+//     id: '1',
+//     name: 'Birthdays',
+//     group: OptionGroup.EVENTS_GROUP,
+//     selected: true,
+//   },
+//   {
+//     id: '2',
+//     name: 'Weddings & Aniversaries',
+//     group: OptionGroup.EVENTS_GROUP,
+//     selected: false,
+//   },
+//   {
+//     id: '3',
+//     name: 'Graduations',
+//     group: OptionGroup.EVENTS_GROUP,
+//     selected: false,
+//   },
+// ];
 const initialState: EventPickerOption[] = [
   {
-    id: '1',
-    name: 'Birthdays',
+    id: '2',
+    name: 'Weddings',
     group: OptionGroup.EVENTS_GROUP,
     selected: true,
-  },
-  {
-    id: '2',
-    name: 'Weddings & Aniversaries',
-    group: OptionGroup.EVENTS_GROUP,
-    selected: false,
-  },
-  {
-    id: '3',
-    name: 'Graduations',
-    group: OptionGroup.EVENTS_GROUP,
-    selected: false,
   },
 ];
 

@@ -14,7 +14,14 @@ export enum RoomType {
 export interface RoomData {
   roomType: RoomType;
   roomName: string;
-  mainDescription: string;
+  capacity: string;
+  truncatedDescription: string;
+  mainDescriptionArray: MainDescription[];
   pictureSlice: Picture[];
   amenities: Amenity[];
+}
+
+export interface MainDescription {
+  id: string;
+  value: string;
 }

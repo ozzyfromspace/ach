@@ -4,14 +4,42 @@ import suite2_3 from '../../public/hotel_images/suite2/suite2-3.webp';
 import suite2_4 from '../../public/hotel_images/suite2/suite2-4.jpg';
 import suite2_5 from '../../public/hotel_images/suite2/suite2-5.jpg';
 import suite2_6 from '../../public/hotel_images/suite2/suite2-6.jpg';
-import { RoomData, RoomType } from './types';
+import { MainDescription, RoomData, RoomType } from './types';
 
-const suite2Desc = '1 king, 1 queen + living room. Sleeps 4';
+const truncatedDescription =
+  'Our Athena suite includes 2 bedrooms, 1 bathroom, and a detached living.';
+
+const mainDescriptionArray: MainDescription[] = [
+  {
+    id: '1',
+    value:
+      'Our Athena suite includes 2 bedrooms, 1 bathroom, and a detached living space.',
+  },
+  {
+    id: '2',
+    value:
+      'One of the bedrooms contains a king bed and the other a queen.  Each room is fitted with a microwave oven, a fridge stocked with complimentary beverages, a 4k tv with cable, HBO, and Cinemax, and heated wood floors, among other amenities. Each room has full-picture windows to enjoy picturesque views of the city and the Appalachian mountains in the distance.',
+  },
+  {
+    id: '3',
+    value:
+      'The bathroom has European-style waterfall showers, body jets, a hand-held shower, and a beautiful oval-shaped glass barn-style door. The custom floating vanity in the spacious bathroom has two sinks and bright overhead make-up lights. Our living space features a comfy gray couch surrounded by two blue chairs, a third 4k tv, and cozy interior design elements.',
+  },
+  {
+    id: '4',
+    value:
+      'The Athena suite is our pride and joy, and we hope you enjoy your stay.',
+  },
+];
+
+const capacity = '1 king, 1 queen + living room. Sleeps 4';
 
 export const suite2_data: RoomData = {
   roomType: RoomType.suite2,
   roomName: 'Athena Suite',
-  mainDescription: suite2Desc,
+  capacity,
+  truncatedDescription,
+  mainDescriptionArray,
   amenities: [],
   pictureSlice: [
     {
