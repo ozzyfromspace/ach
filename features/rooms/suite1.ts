@@ -6,7 +6,8 @@ import suite1_5 from '../../public/hotel_images/suite1/suite1-5.jpg';
 import suite1_6 from '../../public/hotel_images/suite1/suite1-6.jpg';
 import { RoomData, RoomType } from './types';
 
-const mainDescription = 'DESCRIPTION';
+const mainDescription =
+  'Our Zeus suite features 1 bedroom and a detached living space with a soft couch. The bedroom includes a microwave oven, a fridge stocked with complimentary beverages, a 4k tv with cable, HBO, and Cinemax, and heated wood floors. While in your comfy king bed, you can enjoy scenic views of downtown, court street, and the Appalachian mountains in the distance through your full-picture windows. Our bathrooms have European-style waterfall showers, body jets, a hand-held shower, and a beautiful oval-shaped glass barn-style door. Our living space has a soft pullout couch, a second 4k tv, and cozy interior design elements to help you feel at home.';
 const truncatedDescription = 'TRUNCATED';
 const capacity = '1 king + living room. Sleeps 2';
 

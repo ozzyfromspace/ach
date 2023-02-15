@@ -6,7 +6,8 @@ import { RoomData, RoomType } from './types';
 
 const capacity = '1 king. Sleeps 2';
 const truncatedDescription = 'TRUNCATED DESCRIPTION';
-const mainDescription = 'DESCRIPTION';
+const mainDescription =
+  'All our rooms are high-end, and our Apollo King rooms are no exception. Every room comes with full-picture windows, upgraded waterfall showers with barn-style glass doors, comfortable beds, a microwave oven, and a fridge with an assortment of complimentary beverages. Every Apollo king is unique. We hope you enjoy your one-of-a-kind room.';
 
 export const king_data: RoomData = {
   roomType: RoomType.king,

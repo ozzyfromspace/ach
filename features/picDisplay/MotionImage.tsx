@@ -65,7 +65,7 @@ const MotionImage = (props: MotionImageProps) => {
         <Image
           src={src}
           alt={alt}
-          className={`w-full h-full object-cover ${imageClasses} md:bg-blue-deep`}
+          className={`w-full h-full object-cover ${imageClasses}`}
           placeholder="blur"
           priority={false}
           unoptimized={false}

@@ -93,7 +93,11 @@ const Nav = (props: Props) => {
         <DesktopNav />
       )}
       {!firstRender && !isMobiTablet && (
-        <a href="https://hotels.cloudbeds.com/reservation/iyXSJl" tabIndex={-1}>
+        <a
+          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+          aria-label="Book Now"
+          tabIndex={-1}
+        >
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </a>
       )}

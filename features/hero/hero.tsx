@@ -76,7 +76,11 @@ const Pitch = (props: PitchProps) => (
         animate={{ opacity: 1, transition: { duration: 0.22 } }}
       >
         <CallButton />
-        <a href="https://hotels.cloudbeds.com/reservation/iyXSJl" tabIndex={-1}>
+        <a
+          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+          tabIndex={-1}
+          aria-label="Book Now"
+        >
           <Button
             label="Book a room"
             full={false}

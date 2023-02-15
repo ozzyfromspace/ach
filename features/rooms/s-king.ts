@@ -4,7 +4,8 @@ import sKing_3 from '../../public/hotel_images/sKing/s-king-3.jpg';
 import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
 import { RoomData, RoomType } from './types';
 
-const mainDescription = 'DESCRIPTION';
+const mainDescription =
+  "Our Premium Eros Kings are the largest single king rooms you can get, and they don't disappoint. Each Premium Eros King features an upgraded waterfall and body shower enclosed in beautiful barn-style glass doors. The heated floors are wooden, covering every inch of the bedroom. Every Eros king comes with a full-picture window and a half-picture window. Each room is secluded to provide more privacy and solitude. And they all come with a microwave oven, a fridge stocked with complimentary beverages, a coffee maker, a 4K TV with cable and HBO, and a comfy king bed to relax in as you enjoy your premium Eros King.";
 const truncatedDescription = 'TRUNCATED';
 const capacity = '1 king. Sleeps 2';
 

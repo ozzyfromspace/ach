@@ -342,7 +342,7 @@ const PositionedImage = (props: PositionedImageProps) => {
 
   return (
     <motion.div
-      className={`absolute top-0 w-full aspect-[5/3] ${className} select-none bg-[hsl(213,69%,69%,54%)] p-[1px] rounded-lg shadow-md overflow-hidden`}
+      className={`absolute top-0 w-full aspect-[5/3] ${className} select-none p-[1px] rounded-lg shadow-md overflow-hidden`}
       onAnimationStart={handleAnimationStart}
       onAnimationComplete={handleAnimationComplete}
       onClick={onClick}
@@ -351,7 +351,7 @@ const PositionedImage = (props: PositionedImageProps) => {
       {...restProps}
     >
       <div
-        className={`select-none absolute z-10 inset-0 bg-[hsla(211,84%,100%,6.9%)] ${
+        className={`select-none absolute z-10 inset-0 ${
           hints && index === 1 && !isTransitioning
             ? 'hover:bg-[hsla(211,60%,9%,69%)]'
             : index !== 1 && !isTransitioning

@@ -36,7 +36,7 @@ const Gallery = (props: GalleryProps) => {
     <Dialog open={isOpen} onClose={onClose}>
       <Dialog.Panel>
         <motion.div
-          className="fixed z-[100] inset-0 flex flex-col justify-center bg-[hsla(211,30%,9%,86%)] bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.55] px-6"
+          className="fixed z-[100] inset-0 flex flex-col justify-center bg-gray-light bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-[0.69] px-6"
           initial={{ opacity: 0.04, scale: 1.02 }}
           animate={{
             opacity: 1,
@@ -53,16 +53,16 @@ const Gallery = (props: GalleryProps) => {
             onClick={onClose}
             className="absolute inset-0 cursor-pointer no-highlight"
           ></div>
-          <div className="overflow-y-auto py-12 flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
             <button
               aria-label="close expanded gallery"
-              className="absolute top-7 right-7 hover:scale-[1.06] transition-transform duration-150"
+              className="absolute z-30 top-7 right-7 hover:scale-[1.06] transition-transform duration-150"
               onClick={onClose}
             >
               <svg
                 className="w-8 h-8"
                 fill="none"
-                stroke="white"
+                stroke="black"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -74,52 +74,47 @@ const Gallery = (props: GalleryProps) => {
                 />
               </svg>
             </button>
-            <div className="w-full h-full flex flex-col gap-0 justify-center items-center">
-              <Dialog.Title className="relative z-10 text-center text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-light text-white font-title cursor-default">
-                {title}
-              </Dialog.Title>
-              <div className="w-full max-w-6xl h-full flex flex-col flex-1 justify-center md:flex-row md:gap-8 lg:gap-9 xl:gap-12">
-                <div className="flex flex-col w-full max-w-[69rem]">
-                  <div
-                    className={`relative min-w-[36vw] w-full aspect-[4/3] rounded-md overflow-hidden my-8 select-none`}
+
+            <div className="flex-1 max-w-7xl max-h-[80vh] h-fit md:flex flex-col md:flex-row gap-6">
+              <div className="md:flex-1 flex flex-col items-center justify-around space-y-6">
+                <Dialog.Description className="relative z-10 w-full font-normal text-center md:text-start text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-title cursor-default h-min mr-auto">
+                  {title}
+                </Dialog.Description>
+                <div className="relative w-full md:w-[54vw] aspect-[4/3] rounded-md overflow-hidden select-none m-auto">
+                  <AnimatePresence mode="sync">
+                    {imageCursor.selectedPictures.map((picture, index) => (
+                      <MotionImage
+                        key={`${picture.id}${componentId}`}
+                        alt={picture.description}
+                        first={firstAnimation}
+                        direction={imageCursor.direction}
+                        index={index}
+                        src={picture.url}
+                        setIsAnimating={setIsAnimating}
+                        imageClasses={picture.imageClasses}
+                        isGallery={true}
+                      />
+                    ))}
+                  </AnimatePresence>
+                  <ImageControls onPrev={onPrev} onNext={onNext} />
+                </div>
+              </div>
+              <div className="relative flex flex-col my-auto md:w-2/5 md:ml-6">
+                <p className="font-[300] text-center overflow-y-scroll max-h-[26vh] max-w-[28rem] md:max-h-max py-6 -mb-6 md:pt-0">
+                  {mainDescription}
+                </p>
+                <Dialog.Description className="flex flex-row justify-center items-center w-full pt-12">
+                  <a
+                    href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+                    aria-label="Book Now"
                   >
-                    <AnimatePresence mode="sync">
-                      {imageCursor.selectedPictures.map((picture, index) => (
-                        <MotionImage
-                          key={`${picture.id}${componentId}`}
-                          alt={picture.description}
-                          first={firstAnimation}
-                          direction={imageCursor.direction}
-                          index={index}
-                          src={picture.url}
-                          setIsAnimating={setIsAnimating}
-                          imageClasses={picture.imageClasses}
-                          isGallery={true}
-                        />
-                      ))}
-                    </AnimatePresence>
-                    <ImageControls onPrev={onPrev} onNext={onNext} />
-                  </div>
-                </div>
-                <div className="overflow-auto min-h-[10rem] text-white w-full md:w-1/2 flex justify-center items-center">
-                  <div className="w-full overflow-scroll">
-                    <Dialog.Description className="mb-6">
-                      <p className="text-center">{mainDescription}</p>
-                    </Dialog.Description>
-                    <Dialog.Description
-                      as="div"
-                      className="relative z-10 flex flex-row justify-center items-center w-full"
-                    >
-                      <a href="https://hotels.cloudbeds.com/reservation/iyXSJl">
-                        <Button
-                          label="Book Now"
-                          className="max-w-fit"
-                          selected={false}
-                        />
-                      </a>
-                    </Dialog.Description>
-                  </div>
-                </div>
+                    <Button
+                      label="Book Now"
+                      className="max-w-fit"
+                      selected={false}
+                    />
+                  </a>
+                </Dialog.Description>
               </div>
             </div>
           </div>

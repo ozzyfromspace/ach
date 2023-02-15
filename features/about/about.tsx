@@ -31,7 +31,7 @@ const About = (props: AboutProps) => {
           id="contact-content"
           className={`mt-8 flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
         >
-          <div className="mx-auto space-y-11">
+          <div className="relative mx-auto space-y-11">
             <Address />
             <div className="w-full text-sm">
               <h3 className="mb-4 text-xl font-title font-normal">
@@ -59,12 +59,14 @@ const About = (props: AboutProps) => {
                 />
               </div>
             </div>
-            <iframe
-              className="select-none"
-              aria-label="a booking.com rating point card"
-              referrerPolicy="no-referrer"
-              src="https://badge.hotelstatic.com/?position=inline&amp;size=120&amp;clickable=false&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
-            ></iframe>
+            <div>
+              <iframe
+                className="select-none"
+                aria-label="a booking.com rating point card"
+                referrerPolicy="no-referrer"
+                src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
+              ></iframe>
+            </div>
           </div>
           <iframe
             aria-label="A google map showing the Athens Central Hotel"
