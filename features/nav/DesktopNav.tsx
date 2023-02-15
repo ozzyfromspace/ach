@@ -42,7 +42,7 @@ const DesktopNav = () => {
                   className={`outline-offset-4 ${activeClass}`}
                   spy={true}
                   smooth={true}
-                  offset={-180}
+                  offset={navlink.route === 'rooms' ? -150 : -180}
                   duration={380}
                   href={`/${navlink.route}`}
                 >

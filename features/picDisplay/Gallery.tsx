@@ -17,6 +17,7 @@ interface GalleryProps {
   onNext: () => void;
   title: string;
   mainDescriptionArray: MainDescription[];
+  capacity: string;
 }
 
 const Gallery = (props: GalleryProps) => {
@@ -31,6 +32,7 @@ const Gallery = (props: GalleryProps) => {
     onNext,
     mainDescriptionArray,
     title,
+    capacity,
   } = props;
 
   return (
@@ -78,9 +80,12 @@ const Gallery = (props: GalleryProps) => {
 
             <div className="flex-1 max-w-7xl max-h-[80vh] h-fit md:flex flex-col md:flex-row md:items-center gap-6">
               <div className="md:flex-1 flex flex-col items-center justify-around space-y-6">
-                <Dialog.Description className="relative z-10 w-full font-normal text-center md:text-start text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-title cursor-default h-min mr-auto">
-                  {title}
-                </Dialog.Description>
+                <div className="relative z-10 w-full font-normal text-center md:text-start text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-title cursor-default h-min mr-auto flex justify-start items-center gap-4">
+                  <p>{title}</p>
+                  <span className="text-2xl text-gray-dark font-thin">
+                    {capacity}
+                  </span>
+                </div>
                 <div className="relative w-full md:w-[54vw] aspect-[4/3] rounded-md overflow-hidden select-none m-auto">
                   <AnimatePresence mode="sync">
                     {imageCursor.selectedPictures.map((picture, index) => (

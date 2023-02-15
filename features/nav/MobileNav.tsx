@@ -48,7 +48,7 @@ const MobileNav = (props: Props) => {
                   className={`outline-offset-4 rounded-full p-3 ${activeClass}`}
                   spy={true}
                   smooth={true}
-                  offset={-180}
+                  offset={navlink.route === 'rooms' ? -150 : -180}
                   duration={380}
                   onClick={() => {
                     setTimeout(onClose, 420);

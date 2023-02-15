@@ -26,7 +26,7 @@ const Rooms = () => {
             to="rooms-content"
             spy={true}
             smooth={true}
-            offset={-180}
+            offset={-150}
             duration={380}
             className="p-2 rounded-full outline-offset-4"
             href="/rooms"
@@ -37,7 +37,7 @@ const Rooms = () => {
       </div>
       <Padding
         id="rooms-content"
-        className="flex flex-col gap-14 mt:gap-12 md:gap-10 lg:gap-10 mt:flex-row mt:flex-wrap mt:justify-center mt:items-center mt-9 pb-12"
+        className="grid grid-cols-[repeat(auto-fit,minmax(24rem,1fr))] gap-12 py-14"
       >
         {roomDataSlice.map((roomData) => (
           <RoomCard key={roomData.roomType} roomData={roomData} />

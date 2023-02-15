@@ -12,7 +12,7 @@ const RoomCard = (props: Props) => {
   const [galleryOpen, setGalleryOpen] = useState(() => false);
 
   return (
-    <div className="w-full min-w-[18rem] md:max-w-[25rem] p-1 rounded-md">
+    <div className="mx-auto w-full max-w-[28rem] rounded-md flex flex-col">
       <PicDisplay
         galleryOpen={galleryOpen}
         setGalleryOpen={setGalleryOpen}
@@ -20,8 +20,9 @@ const RoomCard = (props: Props) => {
         gallery={true}
         title={roomData.roomName}
         mainDescriptionArray={roomData.mainDescriptionArray}
+        capacity={roomData.capacity}
       />
-      <div className="relative flex flex-col pt-3 text-start tracking-wide">
+      <div className="flex-1 relative flex flex-col justify-between pt-3 text-start tracking-wide">
         <button
           onClick={() => setGalleryOpen((s) => !s)}
           aria-label="Read detailed description of the room"

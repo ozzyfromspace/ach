@@ -35,6 +35,7 @@ type Props =
       mainDescriptionArray: MainDescription[];
       galleryOpen: boolean;
       setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
+      capacity: string;
     }
   | {
       resourceData: Picture[];
@@ -43,6 +44,7 @@ type Props =
       mainDescriptionArray: MainDescription[];
       galleryOpen: boolean;
       setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
+      capacity: string;
     };
 
 export interface IsAnimating {
@@ -59,6 +61,7 @@ const PicDisplay = (props: Props) => {
     mainDescriptionArray,
     galleryOpen,
     setGalleryOpen,
+    capacity,
   } = props;
 
   const rLen = resourceData.length;
@@ -155,6 +158,7 @@ const PicDisplay = (props: Props) => {
             onPrev={onPrev}
             setIsAnimating={setIsAnimating}
             mainDescriptionArray={mainDescriptionArray}
+            capacity={capacity}
           />
         )}
       </AnimatePresence>
