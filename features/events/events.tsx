@@ -95,6 +95,7 @@ const Events = () => {
                       galleryOpen={true}
                       setGalleryOpen={() => {}}
                       mainDescriptionArray={[]}
+                      capacity=""
                     />
                   )}
                 </AnimatePresence>
