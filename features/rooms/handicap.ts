@@ -2,10 +2,24 @@ import handicap_1 from '../../public/hotel_images/handicap/handicap-1.jpg';
 import handicap_2 from '../../public/hotel_images/handicap/handicap-2.jpg';
 import handicap_3 from '../../public/hotel_images/handicap/handicap-3.jpg';
 import handicap_4 from '../../public/hotel_images/handicap/handicap-4.jpg';
-import { RoomData, RoomType } from './types';
+import { MainDescription, RoomData, RoomType } from './types';
 
-const mainDescription =
-  "Our Atlas King is the finest handicap-accessible room in Athens. It's one of our most spacious rooms, outfitted for anyone to enjoy. It features a relaxing, remote-controlled recliner, heated wood floors, and beautiful full-picture windows looking out onto Court street. The bathroom has a waterfall shower, body jets, and a handheld shower head. The bathroom has a wheelchair ramp and rails for support. As usual, this king room has a microwave oven, a fridge stocked with an assortment of complimentary beverages, a 4K tv with cable, HBO, and Cinemax, and a comfy king bed. We hope you enjoy your stay in our Atlas King room.";
+const mainDescriptionArray: MainDescription[] = [
+  {
+    id: '1',
+    value: 'Our Atlas King is the finest handicap-accessible room in Athens.',
+  },
+  {
+    id: '2',
+    value:
+      "It's one of our most spacious rooms, outfitted for anyone to enjoy. It features a relaxing, remote-controlled recliner, heated wood floors, and beautiful full-picture windows looking out onto Court street. The bathroom has a waterfall shower, body jets, and a handheld shower head. The bathroom has a wheelchair ramp and rails for support. As usual, this king room has a microwave oven, a fridge stocked with an assortment of complimentary beverages, a 4K tv with cable, HBO, and Cinemax, and a comfy king bed",
+  },
+  {
+    id: '3',
+    value: 'We hope you enjoy your stay in our Atlas King room.',
+  },
+];
+
 const truncatedDescription = 'TRUNCATED';
 const capacity = '1 king. Sleeps 2';
 
@@ -14,7 +28,7 @@ export const handicap_data: RoomData = {
   roomName: 'Atlas King (Handicap)',
   capacity,
   truncatedDescription,
-  mainDescription,
+  mainDescriptionArray,
   amenities: [],
   pictureSlice: [
     {

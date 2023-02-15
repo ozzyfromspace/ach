@@ -2,6 +2,7 @@ import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useId } from 'react';
 import Button from '../button';
+import { MainDescription } from '../rooms/types';
 import ImageControls from './ImageControls';
 import MotionImage from './MotionImage';
 import { CardImage, IsAnimating } from './PicDisplay';
@@ -15,7 +16,7 @@ interface GalleryProps {
   onPrev: () => void;
   onNext: () => void;
   title: string;
-  mainDescription: string;
+  mainDescriptionArray: MainDescription[];
 }
 
 const Gallery = (props: GalleryProps) => {
@@ -28,7 +29,7 @@ const Gallery = (props: GalleryProps) => {
     setIsAnimating,
     onPrev,
     onNext,
-    mainDescription,
+    mainDescriptionArray,
     title,
   } = props;
 
@@ -75,7 +76,7 @@ const Gallery = (props: GalleryProps) => {
               </svg>
             </button>
 
-            <div className="flex-1 max-w-7xl max-h-[80vh] h-fit md:flex flex-col md:flex-row gap-6">
+            <div className="flex-1 max-w-7xl max-h-[80vh] h-fit md:flex flex-col md:flex-row md:items-center gap-6">
               <div className="md:flex-1 flex flex-col items-center justify-around space-y-6">
                 <Dialog.Description className="relative z-10 w-full font-normal text-center md:text-start text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-title cursor-default h-min mr-auto">
                   {title}
@@ -99,11 +100,15 @@ const Gallery = (props: GalleryProps) => {
                   <ImageControls onPrev={onPrev} onNext={onNext} />
                 </div>
               </div>
-              <div className="relative flex flex-col my-auto md:w-2/5 md:ml-6">
-                <p className="font-[300] text-center overflow-y-scroll max-h-[26vh] max-w-[28rem] md:max-h-max py-6 -mb-6 md:pt-0">
-                  {mainDescription}
-                </p>
-                <Dialog.Description className="flex flex-row justify-center items-center w-full pt-12">
+              <div className="relative flex flex-col my-auto md:w-2/5 md:ml-6 pt-6 md:pt-0 h-fit md:mt-auto">
+                <div className="font-[300] text-start overflow-y-scroll max-h-[26vh] max-w-[30rem] md:max-h-[50vh] -mb-6 md:pt-0">
+                  {mainDescriptionArray.map((maindesc) => (
+                    <p key={maindesc.id} className="pb-6">
+                      {maindesc.value}
+                    </p>
+                  ))}
+                </div>
+                <Dialog.Description className="flex flex-row justify-start items-center w-full pt-12">
                   <a
                     href="https://hotels.cloudbeds.com/reservation/iyXSJl"
                     aria-label="Book Now"
@@ -125,7 +130,7 @@ const Gallery = (props: GalleryProps) => {
 };
 
 Gallery.defaultProps = {
-  mainDescription: '',
+  mainDescriptionArray: '',
 };
 
 export default Gallery;

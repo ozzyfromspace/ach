@@ -2,19 +2,35 @@ import king_1 from '../../public/hotel_images/king/king-1.jpg';
 import king_2 from '../../public/hotel_images/king/king-2.jpg';
 import king_3 from '../../public/hotel_images/king/king-3.jpg';
 import king_4 from '../../public/hotel_images/king/king-4.jpg';
-import { RoomData, RoomType } from './types';
+import { MainDescription, RoomData, RoomType } from './types';
 
 const capacity = '1 king. Sleeps 2';
 const truncatedDescription = 'TRUNCATED DESCRIPTION';
-const mainDescription =
-  'All our rooms are high-end, and our Apollo King rooms are no exception. Every room comes with full-picture windows, upgraded waterfall showers with barn-style glass doors, comfortable beds, a microwave oven, and a fridge with an assortment of complimentary beverages. Every Apollo king is unique. We hope you enjoy your one-of-a-kind room.';
+
+const mainDescriptionArray: MainDescription[] = [
+  {
+    id: '1',
+    value:
+      'All our rooms are high-end, and our Apollo King rooms are no exception. ',
+  },
+  {
+    id: '2',
+    value:
+      'Every room comes with full-picture windows, upgraded waterfall showers with barn-style glass doors, comfortable beds, a microwave oven, and a fridge with an assortment of complimentary beverages.',
+  },
+  {
+    id: '3',
+    value:
+      'Every Apollo king is unique. We hope you enjoy your one-of-a-kind room.',
+  },
+];
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
   roomName: 'Apollo King',
   capacity,
   truncatedDescription,
-  mainDescription,
+  mainDescriptionArray,
   amenities: [],
   pictureSlice: [
     {

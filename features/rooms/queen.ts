@@ -2,10 +2,25 @@ import queen_1 from '../../public/hotel_images/queen/queen-1.jpg';
 import queen_2 from '../../public/hotel_images/queen/queen-2.jpg';
 import queen_3 from '../../public/hotel_images/queen/queen-3.jpg';
 import queen_4 from '../../public/hotel_images/queen/queen-4.jpg';
-import { RoomData, RoomType } from './types';
+import { MainDescription, RoomData, RoomType } from './types';
 
-const mainDescription =
-  'Our Artemis Queen room comes with two comfortable queen beds. This room delivers a heated wood floor, full-picture windows, a microwave oven, and a fridge stocked with complimentary beverages. This room features a fully upgraded European-style bathroom with a waterfall shower, body jets, a hand-held shower, a custom vanity, and barn-style oval glass doors. Comfortably holding up to 4 people (and your dog!), we welcome you, your friends, and your family to enjoy a relaxing stay in one of our uniquely designed Artemis queen rooms.';
+const mainDescriptionArray: MainDescription[] = [
+  {
+    id: '1',
+    value: 'Our Artemis Queen room comes with two comfortable queen beds.',
+  },
+  {
+    id: '2',
+    value:
+      'This room delivers a heated wood floor, full-picture windows, a microwave oven, and a fridge stocked with complimentary beverages. This room features a fully upgraded European-style bathroom with a waterfall shower, body jets, a hand-held shower, a custom vanity, and barn-style oval glass doors.',
+  },
+  {
+    id: '3',
+    value:
+      'Comfortably holding up to 4 people (and your dog!), we welcome you, your friends, and your family to enjoy a relaxing stay in one of our uniquely designed Artemis queen rooms.',
+  },
+];
+
 const truncatedDescription = 'TRUNCATED';
 const capacity = '2 queens. Sleeps 4';
 
@@ -14,7 +29,7 @@ export const queen_data: RoomData = {
   roomName: 'Artemis Queen',
   capacity,
   truncatedDescription,
-  mainDescription,
+  mainDescriptionArray,
   amenities: [],
   pictureSlice: [
     {

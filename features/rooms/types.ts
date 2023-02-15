@@ -16,7 +16,12 @@ export interface RoomData {
   roomName: string;
   capacity: string;
   truncatedDescription: string;
-  mainDescription: string;
+  mainDescriptionArray: MainDescription[];
   pictureSlice: Picture[];
   amenities: Amenity[];
+}
+
+export interface MainDescription {
+  id: string;
+  value: string;
 }
