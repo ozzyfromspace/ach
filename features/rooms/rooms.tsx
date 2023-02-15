@@ -19,7 +19,7 @@ const Rooms = () => {
           isSticky
             ? 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm'
             : ''
-        } w-full sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
+        } w-full sticky top-[4.8rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
       >
         <Padding className="flex flex-col justify-center items-center">
           <ReactScrollLink
