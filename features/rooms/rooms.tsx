@@ -37,7 +37,7 @@ const Rooms = () => {
       </div>
       <Padding
         id="rooms-content"
-        className="grid grid-cols-[repeat(auto-fit,minmax(24rem,1fr))] gap-12 py-14"
+        className="grid grid-cols-[repeat(auto-fit,1fr)] gap-12 py-14"
       >
         {roomDataSlice.map((roomData) => (
           <RoomCard key={roomData.roomType} roomData={roomData} />

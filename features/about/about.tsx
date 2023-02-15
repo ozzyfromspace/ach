@@ -37,15 +37,15 @@ const About = (props: AboutProps) => {
               <h3 className="mb-4 text-xl font-title font-normal">
                 Our Front Desk is Open 24/7
               </h3>
-              <div className="w-full grid grid-cols-[auto_1fr] justify-items-end text-[hsla(0,0%,100%,75%)] font-extralight">
-                <div className="w-full flex justify-between items-center gap-1 pr-4">
+              <div className="w-full max-w-full grid grid-cols-[auto_1fr] justify-items-end text-[hsla(0,0%,100%,75%)] font-extralight">
+                <div className="w-full flex flex-wrap justify-between items-center gap-1 pr-4">
                   <p className="font-title font-light text-[1.25rem]">
                     Phone Number
                   </p>
                   <p>:</p>
                 </div>
                 <LinkCallButton darkMode size="large" underline={false} />
-                <div className="w-full flex justify-between items-center gap-1 pr-4">
+                <div className="w-full flex flex-wrap justify-between items-center gap-1 pr-4">
                   <p className="font-title font-light text-[1.25rem]">
                     Email Address
                   </p>
@@ -59,19 +59,19 @@ const About = (props: AboutProps) => {
                 />
               </div>
             </div>
-            <div>
+            <div className="overflow-hidden w-[120px] aspect-square">
               <iframe
                 className="select-none"
                 aria-label="a booking.com rating point card"
                 referrerPolicy="no-referrer"
-                src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
+                src="https://badge.hotelstatic.com/?position=inline-block&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
               ></iframe>
             </div>
           </div>
           <iframe
             aria-label="A google map showing the Athens Central Hotel"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.0494872241065!2d-82.09823380000003!3d39.33246430000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8848735b1021f905%3A0x400f2aa6ca675df3!2sAthens%20Central%20Hotel!5e0!3m2!1sen!2sus!4v1672186189896!5m2!1sen!2sus"
-            className="border-[1px] p-[1px] select-none mx-auto w-full mt:w-[min(89vh,89vw)] max-w-lg border-white aspect-square rounded-md shadow-sm"
+            className="border-[1px] p-[1px] select-none mx-auto w-full mt:w-[min(89vh,89vw)] max-w-full md:max-w-lg border-white aspect-square rounded-md shadow-sm"
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -112,7 +112,7 @@ export default About;
 const Footer = () => {
   return (
     <footer className="flex flex-col justify-center items-center gap-2 mt-28 pb-12 text-sm font-title font-light text-gray-light tracking-wide">
-      <section className="text-lg border-t-[1px] border-b-[1px] border-t-gray-light py-5 text-center space-y-3 px-28">
+      <section className="text-lg border-t-[1px] border-b-[1px] border-t-gray-light py-5 text-center space-y-3">
         <h3>&copy; Athens Central Hotel, 2023</h3>
         <p>All Rights Reserved</p>
       </section>
