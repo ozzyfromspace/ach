@@ -5,13 +5,13 @@ import king_4 from '../../public/hotel_images/king/king-4.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const capacity = '1 king. Sleeps 2';
-const truncatedDescription = 'TRUNCATED DESCRIPTION';
+const truncatedDescription = 'A luxurious king room, minutes from court street';
 
 const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'All our rooms are high-end, and our Apollo King rooms are no exception. ',
+      'All our rooms are high-end, and our Apollo King rooms are no exception.',
   },
   {
     id: '2',

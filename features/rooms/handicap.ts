@@ -20,7 +20,8 @@ const mainDescriptionArray: MainDescription[] = [
   },
 ];
 
-const truncatedDescription = 'TRUNCATED';
+const truncatedDescription =
+  'Our Atlas King is the finest handicap-accessible room in Athens.';
 const capacity = '1 king. Sleeps 2';
 
 export const handicap_data: RoomData = {

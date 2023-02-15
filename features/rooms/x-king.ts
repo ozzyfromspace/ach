@@ -16,7 +16,8 @@ const mainDescriptionArray: MainDescription[] = [
   },
 ];
 
-const truncatedDescription = 'TRUNCATED';
+const truncatedDescription =
+  'Our deluxe Hermes King takes inspiration from our signature Zeus 1-bedroom suite';
 const capacity = '1 King. Sleeps 2';
 
 export const xKing_data: RoomData = {

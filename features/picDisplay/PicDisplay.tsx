@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { StaticImageData } from 'next/image';
-import { useId, useState } from 'react';
+import { SetStateAction, useId, useState } from 'react';
 import { MainDescription } from '../rooms/types';
 import Gallery from './Gallery';
 import ImageControls from './ImageControls';
@@ -33,12 +33,16 @@ type Props =
       gallery: true;
       title: string;
       mainDescriptionArray: MainDescription[];
+      galleryOpen: boolean;
+      setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
     }
   | {
       resourceData: Picture[];
       gallery: false;
       title: string;
       mainDescriptionArray: MainDescription[];
+      galleryOpen: boolean;
+      setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
     };
 
 export interface IsAnimating {
@@ -48,7 +52,15 @@ export interface IsAnimating {
 
 const PicDisplay = (props: Props) => {
   const componentId = useId();
-  const { resourceData, gallery, title, mainDescriptionArray } = props;
+  const {
+    resourceData,
+    gallery,
+    title,
+    mainDescriptionArray,
+    galleryOpen,
+    setGalleryOpen,
+  } = props;
+
   const rLen = resourceData.length;
   const [isAnimating, setIsAnimating] = useState<IsAnimating>(() => ({
     value: false,
@@ -101,8 +113,6 @@ const PicDisplay = (props: Props) => {
       };
     });
   };
-
-  const [galleryOpen, setGalleryOpen] = useState(() => false);
 
   return (
     <motion.div

@@ -21,7 +21,8 @@ const mainDescriptionArray: MainDescription[] = [
   },
 ];
 
-const truncatedDescription = 'TRUNCATED';
+const truncatedDescription =
+  'Our inviting Artemis Queen room comes with two comfortable queen beds.';
 const capacity = '2 queens. Sleeps 4';
 
 export const queen_data: RoomData = {

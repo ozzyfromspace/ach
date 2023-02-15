@@ -4,7 +4,8 @@ import sKing_3 from '../../public/hotel_images/sKing/s-king-3.jpg';
 import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
-const truncatedDescription = 'TRUNCATED';
+const truncatedDescription =
+  'Our Premium Eros Kings are the largest single king rooms you can get.';
 const capacity = '1 king. Sleeps 2';
 
 const mainDescriptionArray: MainDescription[] = [

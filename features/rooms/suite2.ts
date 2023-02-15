@@ -6,7 +6,8 @@ import suite2_5 from '../../public/hotel_images/suite2/suite2-5.jpg';
 import suite2_6 from '../../public/hotel_images/suite2/suite2-6.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
-const truncatedDescription = 'TRUNCATED';
+const truncatedDescription =
+  'Our Athena suite includes 2 bedrooms, 1 bathroom, and a detached living.';
 
 const mainDescriptionArray: MainDescription[] = [
   {

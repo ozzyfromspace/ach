@@ -28,8 +28,9 @@ const mainDescriptionArray: MainDescription[] = [
   },
 ];
 
-const truncatedDescription = 'TRUNCATED';
-const capacity = '1 king + living room. Sleeps 2';
+const truncatedDescription =
+  'Our Zeus suite features a 1-king bedroom and a detached living space.';
+const capacity = '1 king + living room. Sleeps 3';
 
 export const suite1_data: RoomData = {
   roomType: RoomType.suite1,
