@@ -9,10 +9,14 @@ import {
   useRef,
   useState,
 } from 'react';
+import src4 from '../../public/demetrios-photos/eros-bathroom.jpg';
+import src5 from '../../public/demetrios-photos/lobby.jpg';
+import src6 from '../../public/demetrios-photos/shower.jpg';
+import src3 from '../../public/demetrios-photos/sofa.jpg';
 import src1 from '../../public/hero/ach-leftcrop.jpg';
 import src0 from '../../public/hero/athena-1.jpeg';
 import src2 from '../../public/hero/breakfast-1.jpeg';
-import src3 from '../../public/hero/cleo-1.jpeg';
+import src7 from '../../public/hero/cleo-1.jpeg';
 
 type ObjectFit = 'cover' | 'contain' | 'fill';
 
@@ -56,6 +60,38 @@ const imageData: ImageData[] = [
     id: '3',
     objectFit: 'cover',
     desc: 'From the architecture to the interior design, every room in our boutique hotel has a unique feel',
+    alt: '',
+  },
+  {
+    src: src4,
+    relativeOrder: 4,
+    id: '4',
+    objectFit: 'cover',
+    desc: '',
+    alt: '',
+  },
+  {
+    src: src5,
+    relativeOrder: 5,
+    id: '5',
+    objectFit: 'cover',
+    desc: '',
+    alt: '',
+  },
+  {
+    src: src6,
+    relativeOrder: 6,
+    id: '6',
+    objectFit: 'cover',
+    desc: '',
+    alt: '',
+  },
+  {
+    src: src7,
+    relativeOrder: 7,
+    id: '7',
+    objectFit: 'cover',
+    desc: '',
     alt: '',
   },
 ];
