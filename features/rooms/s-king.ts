@@ -12,12 +12,12 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      "Our Premium Eros Kings are the largest single king rooms you can get, and they don't disappoint.",
+      "Our Premium Kings are the largest single king rooms you can get, and they don't disappoint.",
   },
   {
     id: '2',
     value:
-      'Each Premium Eros King features an upgraded waterfall and body shower enclosed in beautiful barn-style glass doors. The heated floors are wooden, covering every inch of the bedroom. Every Eros king comes with a full-picture window and a half-picture window. Each room is secluded to provide more privacy and solitude.',
+      'Each Premium King features an upgraded waterfall and body shower enclosed in beautiful barn-style glass doors. The heated floors are wooden, covering every inch of the bedroom. Every Eros king comes with a full-picture window and a half-picture window. Each room is secluded to provide more privacy and solitude.',
   },
   {
     id: '3',
@@ -26,13 +26,13 @@ const mainDescriptionArray: MainDescription[] = [
   },
   {
     id: '4',
-    value: 'Relax and enjoy your premium Eros King.',
+    value: 'Relax and enjoy your premium King room.',
   },
 ];
 
 export const sKing_data: RoomData = {
   roomType: RoomType.sKing,
-  roomName: 'Eros King (Premium)',
+  roomName: 'King (Premium)',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

@@ -11,7 +11,7 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'All our rooms are high-end, and our Apollo King rooms are no exception.',
+      'All our rooms are high-end, and our single King rooms are no exception.',
   },
   {
     id: '2',
@@ -21,13 +21,13 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '3',
     value:
-      'Every Apollo king is unique. We hope you enjoy your one-of-a-kind room.',
+      'Every single king is unique. We hope you enjoy your one-of-a-kind room.',
   },
 ];
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
-  roomName: 'Apollo King',
+  roomName: 'King',
   capacity,
   truncatedDescription,
   mainDescriptionArray,
