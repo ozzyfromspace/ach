@@ -36,7 +36,7 @@ const capacity = '2 bedrooms + living room. Sleeps 4';
 
 export const suite2_data: RoomData = {
   roomType: RoomType.suite2,
-  roomName: 'Suite',
+  roomName: '2-bedroom Suite',
   capacity,
   truncatedDescription,
   mainDescriptionArray,
