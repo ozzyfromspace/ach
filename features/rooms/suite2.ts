@@ -13,7 +13,7 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'Our Athena suite includes 2 bedrooms, 1 bathroom, and a detached living space.',
+      'This luxurious suite includes 2 bedrooms, 1 bathroom, and a detached living space.',
   },
   {
     id: '2',
@@ -28,15 +28,15 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '4',
     value:
-      'The Athena suite is our pride and joy, and we hope you enjoy your stay.',
+      'This bespoke 2-bedroom suite is our pride and joy, and we hope you enjoy your staying in it.',
   },
 ];
 
-const capacity = '1 king, 1 queen + living room. Sleeps 4';
+const capacity = '2 bedrooms + living room. Sleeps 4';
 
 export const suite2_data: RoomData = {
   roomType: RoomType.suite2,
-  roomName: 'Athena Suite',
+  roomName: 'Suite',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

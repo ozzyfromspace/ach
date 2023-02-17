@@ -7,22 +7,22 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'Every deluxe Hermes King room has plenty of space, featuring heated wood floors, full-picture windows, a comfortable king bed, upgraded Euro-style waterfall showers, and unique views of the campus and the Appalachians in the distance.',
+      'Every deluxe King room has plenty of space, featuring heated wood floors, full-picture windows, a comfortable king bed, upgraded Euro-style waterfall showers, and unique views of the campus and the Appalachians in the distance.',
   },
   {
     id: '2',
     value:
-      'We modeled these rooms after our 1-bedroom Zeus suites. We hope you have an excellent stay.',
+      'We modeled these rooms after our signature 1-bedroom suites. We hope you have an excellent stay.',
   },
 ];
 
 const truncatedDescription =
-  'Our deluxe Hermes King takes inspiration from our signature Zeus 1-bedroom suite';
+  'Our deluxe Hermes King rooms are modern, comfortable, and roomy';
 const capacity = '1 King. Sleeps 2';
 
 export const xKing_data: RoomData = {
   roomType: RoomType.xKing,
-  roomName: 'Hermes King (Deluxe)',
+  roomName: 'King (Deluxe)',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

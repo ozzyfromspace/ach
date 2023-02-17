@@ -10,7 +10,7 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'Our Zeus suite features 1 bedroom and a detached living space with a soft couch.',
+      'This cozy suite features 1 bedroom and a detached living space with a soft couch.',
   },
   {
     id: '2',
@@ -29,12 +29,12 @@ const mainDescriptionArray: MainDescription[] = [
 ];
 
 const truncatedDescription =
-  'Our Zeus suite features a 1-king bedroom and a detached living space.';
-const capacity = '1 king + living room. Sleeps 3';
+  'This cozy suite features a 1-king bedroom and a detached living space.';
+const capacity = '1 bedroom + living room. Sleeps 3';
 
 export const suite1_data: RoomData = {
   roomType: RoomType.suite1,
-  roomName: 'Zeus Suite',
+  roomName: 'Suite',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

@@ -7,26 +7,27 @@ import { MainDescription, RoomData, RoomType } from './types';
 const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
-    value: 'Our Atlas King is the finest handicap-accessible room in Athens.',
+    value:
+      'This room is the most luxurious handicap-accessible king room in Athens.',
   },
   {
     id: '2',
     value:
-      "It's one of our most spacious rooms, outfitted for anyone to enjoy. It features a relaxing, remote-controlled recliner, heated wood floors, and beautiful full-picture windows looking out onto Court street. The bathroom has a waterfall shower, body jets, and a handheld shower head. The bathroom has a wheelchair ramp and rails for support. As usual, this king room has a microwave oven, a fridge stocked with an assortment of complimentary beverages, a 4K tv with cable, HBO, and Cinemax, and a comfy king bed",
+      'It is one of our most spacious rooms, outfitted for anyone to enjoy. It features a relaxing, remote-controlled recliner, heated wood floors, and beautiful full-picture windows looking out onto Court street. The bathroom has a waterfall shower, body jets, and a handheld shower head. The bathroom has a wheelchair ramp and rails for support. As usual, this king room has a microwave oven, a fridge stocked with an assortment of complimentary beverages, a 4K tv with cable, HBO, and Cinemax, and a comfy king bed',
   },
   {
     id: '3',
-    value: 'We hope you enjoy your stay in our Atlas King room.',
+    value: 'We hope you enjoy your stay in this luxurious king room.',
   },
 ];
 
 const truncatedDescription =
-  'Our Atlas King is the finest handicap-accessible room in Athens.';
+  'This is the most luxurious handicap-accessible room in Athens.';
 const capacity = '1 king. Sleeps 2';
 
 export const handicap_data: RoomData = {
   roomType: RoomType.handicap,
-  roomName: 'Atlas King (Handicap)',
+  roomName: 'King (Handicap)',
   capacity,
   truncatedDescription,
   mainDescriptionArray,
