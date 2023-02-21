@@ -39,9 +39,25 @@ const RoomCard = (props: Props) => {
               Free Onsite Parking
             </p>
             <div className="flex flex-wrap justify-start items-center gap-2 -mt-1">
-              <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] font-light">
-                {roomData.capacity}
-              </p>
+              <div className="flex gap-1 justify-start w-fit items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="hsl(228,21%,38%)"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                  />
+                </svg>
+                <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] font-light">
+                  {roomData.capacity}
+                </p>
+              </div>
               <p className="underline md:no-underline md:hover:underline cursor-pointer text-gray-link font-semibold text-start">
                 See more
               </p>
