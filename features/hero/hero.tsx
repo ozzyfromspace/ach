@@ -7,6 +7,7 @@ import courtStreet from '../../public/court-street.jpeg';
 import Button, { CallButton } from '../button';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import HeroCarousel from '../heroCarousel';
+import StarDiv from '../stardiv/StarDiv';
 
 interface HeroProps {
   aboutInView: boolean;
@@ -56,46 +57,70 @@ interface PitchProps {
 }
 
 const Pitch = (props: PitchProps) => (
-  <section className="relative cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
-    <h1 className="px-6 font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
-      Athens Central Hotel
-    </h1>
-    <h2 className="px-6 font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-      The most luxurious boutique hotel in Athens, OH
-    </h2>
-    {props.isFirstRender && <div className="h-7 w-1"></div>}
-    {!props.isFirstRender && props.mobile && (
-      <Button
-        label="Book a room"
-        full={true}
-        fixed={true}
-        hideMobileButton={props.aboutInView}
-        className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
-      />
-    )}
+  <div className="relative w-full mx-auto">
     {!props.isFirstRender && !props.mobile && (
-      <motion.div
-        className="flex justify-center items-center gap-6 mt-7"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 0.22 } }}
-      >
-        <CallButton />
-        <a
-          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
-          tabIndex={-1}
-          aria-label="Book Now"
-        >
-          <Button
-            label="Book a room"
-            full={false}
-            fixed={false}
-            hideMobileButton={false}
-            className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
-          />
-        </a>
-      </motion.div>
+      <div>
+        <div className="flex flex-col gap-3 absolute top-1/2 right-16 -translate-y-1/2 max-w-[8rem]">
+          {/* <p>We are the highest rated boutique hotel in Athens</p> */}
+          <StarDiv>
+            <p className="text-center font-medium text-white text-sm">
+              The only 4 star boutique hotel in Athens
+            </p>
+          </StarDiv>
+        </div>
+        <div className="max-w-[18rem] absolute top-1/2 -translate-y-1/2">
+          <div className="overflow-hidden w-[130px] aspect-square">
+            <iframe
+              className="select-none scale-75"
+              aria-label="a booking.com rating point card"
+              referrerPolicy="no-referrer"
+              src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
+            ></iframe>
+          </div>
+        </div>
+      </div>
     )}
-  </section>
+    <section className="relative cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
+      <h1 className="px-6 font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
+        Athens Central Hotel
+      </h1>
+      <h2 className="px-6 font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
+        The most luxurious boutique hotel in Athens, OH
+      </h2>
+      {props.isFirstRender && <div className="h-7 w-1"></div>}
+      {!props.isFirstRender && props.mobile && (
+        <Button
+          label="Book a room"
+          full={true}
+          fixed={true}
+          hideMobileButton={props.aboutInView}
+          className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
+        />
+      )}
+      {!props.isFirstRender && !props.mobile && (
+        <motion.div
+          className="flex justify-center items-center gap-6 mt-7"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.22 } }}
+        >
+          <CallButton />
+          <a
+            href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+            tabIndex={-1}
+            aria-label="Book Now"
+          >
+            <Button
+              label="Book a room"
+              full={false}
+              fixed={false}
+              hideMobileButton={false}
+              className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
+            />
+          </a>
+        </motion.div>
+      )}
+    </section>
+  </div>
 );
 
 const SiteBG = () => (

@@ -7,22 +7,22 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'Every deluxe King room has plenty of space, featuring heated wood floors, full-picture windows, a comfortable king bed, upgraded Euro-style waterfall showers, and unique views of the campus and the Appalachians in the distance.',
+      'Modern and luxurious designed king-sized guest room with a sitting area looking out the floor-to-ceiling picture windows and heated hard floors.',
   },
   {
     id: '2',
     value:
-      'We modeled these rooms after our signature 1-bedroom suites. We hope you have an excellent stay.',
+      'Relax and watch a movie on the 65-inch 4K smart TV and stay connected with high-speed internet. The ensuite super modern bath features a waterfall shower with enclosed barn style glass doors and the comfort of plush towels. Additional amenities include a microwave, a mini fridge with complimentary beverages and coffeemaker for freshly brewed coffee or tea.',
   },
 ];
 
 const truncatedDescription =
-  'Our deluxe Hermes King rooms are modern, comfortable, and roomy';
-const capacity = '1 King. Sleeps 2';
+  'With 65-inch 4K Smart TV, Free High-speed internet, 1 block to uptown Court Street';
+const capacity = 'Sleeps 2 adults plus 1 child';
 
 export const xKing_data: RoomData = {
   roomType: RoomType.xKing,
-  roomName: 'King (Deluxe)',
+  roomName: 'Deluxe, Modern King Room',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

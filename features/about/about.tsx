@@ -59,13 +59,16 @@ const About = (props: AboutProps) => {
                 />
               </div>
             </div>
-            <div className="overflow-hidden w-[120px] aspect-square">
-              <iframe
-                className="select-none"
-                aria-label="a booking.com rating point card"
-                referrerPolicy="no-referrer"
-                src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
-              ></iframe>
+            <div className="flex flex-col gap-3 max-w-[18rem]">
+              <div className="overflow-hidden aspect-square">
+                <iframe
+                  className="select-none"
+                  aria-label="a booking.com rating point card"
+                  referrerPolicy="no-referrer"
+                  src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
+                ></iframe>
+              </div>
+              <p>The only four star hotel in Athens, OH</p>
             </div>
           </div>
           <iframe
