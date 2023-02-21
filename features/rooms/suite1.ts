@@ -10,31 +10,22 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'This cozy suite features 1 bedroom and a detached living space with a soft couch.',
+      'Enjoy our luxurious suite with one bedroom featuring a king-sized bed and a living room with a queen-sized sleeper sofa.',
   },
   {
     id: '2',
     value:
-      'The bedroom includes a microwave oven, a fridge stocked with complimentary beverages, a 4k tv with cable, HBO, and Cinemax, and heated wood floors.',
-  },
-  {
-    id: '3',
-    value:
-      'While in your comfy king bed, you can enjoy scenic views of downtown, court street, and the Appalachian mountains in the distance through your full-picture windows. Our bathrooms have European-style waterfall showers, body jets, a hand-held shower, and a beautiful oval-shaped glass barn-style door. Our living space has a soft pullout couch, a second 4k tv.',
-  },
-  {
-    id: '4',
-    value: 'We hope our cozy interior design elements help you feel at home.',
+      'This suite offers two 65-inch 4K smart TV’s, floor-to-ceiling windows and heated hard floors.  Get caught up on work using the desk with high-speed internet. The ensuite super modern bath features a waterfall shower with enclosed barn style glass doors with plush towels.  Additional amenities include a microwave, a mini fridge with complimentary beverages and coffeemaker for freshly brewed coffee or tea.',
   },
 ];
 
 const truncatedDescription =
-  'This cozy suite features a 1-king bedroom and a detached living space.';
-const capacity = '1 bedroom + living room. Sleeps 3';
+  "With Two 65-inch 4K Smart TV's, Free High-speed internet, 1 block to uptown Court Street";
+const capacity = 'Sleeps 4 adults plus 2 children';
 
 export const suite1_data: RoomData = {
   roomType: RoomType.suite1,
-  roomName: '1-bedroom Suite',
+  roomName: '1-bedroom Modern Suite with a Living Room',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

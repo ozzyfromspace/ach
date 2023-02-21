@@ -4,19 +4,20 @@ import king_3 from '../../public/hotel_images/king/king-3.jpg';
 import king_4 from '../../public/hotel_images/king/king-4.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
-const capacity = '1 king. Sleeps 2';
-const truncatedDescription = 'A luxurious king room, minutes from court street';
+const capacity = 'Sleeps 2 adults plus 1 child';
+const truncatedDescription =
+  'With 65-inch 4K Smart TV, Free High-speed internet, 1 block to uptown Court Street';
 
 const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'All our rooms are high-end, and our single King rooms are no exception.',
+      'Treat yourself to this luxurious and stylish room with a 65-inch 4K smart TV.  King-sized bed with floor-to-ceiling windows and heated hard floors.',
   },
   {
     id: '2',
     value:
-      'Every room comes with full-picture windows, upgraded waterfall showers with barn-style glass doors, comfortable beds, a microwave oven, and a fridge with an assortment of complimentary beverages.',
+      'The ensuite super modern bath features a waterfall shower with enclosed barn style glass doors and the comfort of plush towels. Additional amenities include high-speed internet, a microwave, a mini fridge with complimentary beverages and coffeemaker for freshly brewed coffee or tea.',
   },
   {
     id: '3',
@@ -27,7 +28,7 @@ const mainDescriptionArray: MainDescription[] = [
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
-  roomName: 'King',
+  roomName: 'Luxurious King Room',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

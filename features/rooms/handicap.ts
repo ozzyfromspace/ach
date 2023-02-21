@@ -8,26 +8,22 @@ const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      'This room is the most luxurious handicap-accessible king room in Athens.',
+      'The most luxurious handicap accessible room in Athens with a king-sized bed.',
   },
   {
     id: '2',
     value:
-      'It is one of our most spacious rooms, outfitted for anyone to enjoy. It features a relaxing, remote-controlled recliner, heated wood floors, and beautiful full-picture windows looking out onto Court street. The bathroom has a waterfall shower, body jets, and a handheld shower head. The bathroom has a wheelchair ramp and rails for support. As usual, this king room has a microwave oven, a fridge stocked with an assortment of complimentary beverages, a 4K tv with cable, HBO, and Cinemax, and a comfy king bed',
-  },
-  {
-    id: '3',
-    value: 'We hope you enjoy your stay in this luxurious king room.',
+      'Settle into the relaxing, powerlift recliner and enjoy the beautiful floor-to-ceiling picture windows, heated hard floors and the 65-inch 4K smart TV.  The ensuite super modern bathroom features a waterfall shower with body jets and a handheld shower head with a shower chair, wheelchair ramp and rails for support.  Additional amenities include high speed internet, a microwave, a mini fridge with complimentary beverages and coffeemaker for freshly brewed coffee or tea.',
   },
 ];
 
 const truncatedDescription =
-  'This is the most luxurious handicap-accessible room in Athens.';
-const capacity = '1 king. Sleeps 2';
+  'With 65-inch 4K Smart TV, Free High-speed internet, 1 block to uptown Court Street';
+const capacity = 'Sleeps 2 adults plus 1 child';
 
 export const handicap_data: RoomData = {
   roomType: RoomType.handicap,
-  roomName: 'King (Handicap)',
+  roomName: 'Premium, Modern King Room Handicap Accessible',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

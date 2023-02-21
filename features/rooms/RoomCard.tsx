@@ -21,36 +21,38 @@ const RoomCard = (props: Props) => {
         title={roomData.roomName}
         mainDescriptionArray={roomData.mainDescriptionArray}
         capacity={roomData.capacity}
+        truncatedDescription={roomData.truncatedDescription}
       />
       <div className="flex-1 relative flex flex-col justify-between pt-3 text-start tracking-wide">
         <button
           onClick={() => setGalleryOpen((s) => !s)}
           aria-label="Read detailed description of the room"
         >
-          <div className="flex flex-wrap items-center gap-3 mt-3 mb-3">
-            <h3 className="cursor-default text-xl font-sans text-gray-dark">
+          <div className="flex flex-wrap flex-col justify-between items-start gap-3 mt-3 mb-3">
+            <h3 className="cursor-default text-lg font-sans text-gray-dark text-start">
               {roomData.roomName}
             </h3>
-            <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] font-light mt-[0.125rem]">
-              {roomData.capacity}
+            <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] font-sans text-start">
+              {roomData.truncatedDescription}
             </p>
+            <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] -mt-2 font-subtitle text-start uppercase">
+              Free Onsite Parking
+            </p>
+            <div className="flex flex-wrap justify-start items-center gap-2 -mt-1">
+              <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] font-light">
+                {roomData.capacity}
+              </p>
+              <p className="underline md:no-underline md:hover:underline cursor-pointer text-gray-link font-semibold text-start">
+                See more
+              </p>
+            </div>
           </div>
-          <p className="cursor-default text-base text-[hsl(228,21%,24%,100%)] font-subtitle mb-1 text-start">
-            {roomData.truncatedDescription}
-          </p>
-          <p className="underline md:no-underline md:hover:underline mb-6 cursor-pointer text-gray-link font-light text-start">
-            See more
-          </p>
         </button>
         <a
           href="https://hotels.cloudbeds.com/reservation/iyXSJl"
           aria-label="Book Now"
         >
-          <Button
-            label="Book Now"
-            className="max-w-fit mr-auto"
-            selected={false}
-          />
+          <Button label="Book Now" className="max-w-fit mr-auto" selected />
         </a>
       </div>
     </div>

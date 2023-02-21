@@ -33,6 +33,7 @@ type Props =
       gallery: true;
       title: string;
       mainDescriptionArray: MainDescription[];
+      truncatedDescription: string;
       galleryOpen: boolean;
       setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
       capacity: string;
@@ -42,6 +43,7 @@ type Props =
       gallery: false;
       title: string;
       mainDescriptionArray: MainDescription[];
+      truncatedDescription: string;
       galleryOpen: boolean;
       setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
       capacity: string;
@@ -59,6 +61,7 @@ const PicDisplay = (props: Props) => {
     gallery,
     title,
     mainDescriptionArray,
+    truncatedDescription,
     galleryOpen,
     setGalleryOpen,
     capacity,
@@ -159,6 +162,7 @@ const PicDisplay = (props: Props) => {
             setIsAnimating={setIsAnimating}
             mainDescriptionArray={mainDescriptionArray}
             capacity={capacity}
+            truncatedDescription={truncatedDescription}
           />
         )}
       </AnimatePresence>

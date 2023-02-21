@@ -17,6 +17,7 @@ interface GalleryProps {
   onNext: () => void;
   title: string;
   mainDescriptionArray: MainDescription[];
+  truncatedDescription: string;
   capacity: string;
 }
 
@@ -33,6 +34,7 @@ const Gallery = (props: GalleryProps) => {
     mainDescriptionArray,
     title,
     capacity,
+    truncatedDescription,
   } = props;
 
   return (
@@ -78,14 +80,17 @@ const Gallery = (props: GalleryProps) => {
               </svg>
             </button>
 
-            <div className="flex-1 max-w-7xl max-h-[80vh] h-fit md:flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex-1 max-w-7xl max-h-[84vh] h-fit md:flex flex-col md:flex-row md:items-center gap-6 overflow-hidden">
               <div className="md:flex-1 flex flex-col items-center justify-around space-y-6">
-                <div className="relative z-10 w-full font-normal text-center md:text-start text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-title cursor-default h-min mr-auto flex justify-start items-center gap-4">
+                <div className="relative z-10 w-full font-normal text-center md:text-start text-2xl md:text-[1.65rem] lg:text-[1.9rem] font-title cursor-default h-min mr-auto flex flex-row flex-wrap justify-start items-start gap-4">
                   <p>{title}</p>
                   <span className="text-2xl text-gray-dark font-thin">
                     {capacity}
                   </span>
                 </div>
+                <p className="font-normal text-center md:text-start text-base md:text-lg lg:text-xl font-title cursor-default">
+                  {truncatedDescription}
+                </p>
                 <div className="relative w-full md:w-[54vw] aspect-[4/3] rounded-md overflow-hidden select-none m-auto">
                   <AnimatePresence mode="sync">
                     {imageCursor.selectedPictures.map((picture, index) => (
@@ -112,19 +117,19 @@ const Gallery = (props: GalleryProps) => {
                       {maindesc.value}
                     </p>
                   ))}
+                  <div className="w-fit bg-white p-3 rounded-md border border-[hsl(0,0%,84%,100%)] flex justify-start gap-2 mb-24">
+                    <span className="font-semibold">Note:</span>
+                    <p>Our Rooms are hypoallergenic and super clean</p>
+                  </div>
+                  <Dialog.Description className="absolute bottom-0 left-0 flex flex-row justify-start items-center w-fit bg-white rounded-md">
+                    <a
+                      href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+                      aria-label="Book Now"
+                    >
+                      <Button label="Book Now" className="max-w-fit" selected />
+                    </a>
+                  </Dialog.Description>
                 </div>
-                <Dialog.Description className="flex flex-row justify-start items-center w-full pt-12">
-                  <a
-                    href="https://hotels.cloudbeds.com/reservation/iyXSJl"
-                    aria-label="Book Now"
-                  >
-                    <Button
-                      label="Book Now"
-                      className="max-w-fit"
-                      selected={false}
-                    />
-                  </a>
-                </Dialog.Description>
               </div>
             </div>
           </div>

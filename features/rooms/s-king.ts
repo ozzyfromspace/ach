@@ -5,34 +5,25 @@ import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const truncatedDescription =
-  'Our Premium Eros Kings are the largest single king rooms you can get.';
-const capacity = '1 king. Sleeps 2';
+  'With 65-inch 4K Smart TV, Free High-speed internet, 1 block to uptown Court Street';
+const capacity = 'Sleeps 2 adults plus 1 child';
 
 const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
     value:
-      "Our Premium Kings are the largest single king rooms you can get, and they don't disappoint.",
+      'Luxurious, premium room with a king-sized bed, beautiful floor-to-ceiling windows and heated hard floors.',
   },
   {
     id: '2',
     value:
-      'Each Premium King features an upgraded waterfall and body shower enclosed in beautiful barn-style glass doors. The heated floors are wooden, covering every inch of the bedroom. Every Eros king comes with a full-picture window and a half-picture window. Each room is secluded to provide more privacy and solitude.',
-  },
-  {
-    id: '3',
-    value:
-      'And they all come with a microwave oven, a fridge stocked with complimentary beverages, a coffee maker, a 4K TV with cable and HBO, and a comfy king bed.',
-  },
-  {
-    id: '4',
-    value: 'Relax and enjoy your premium King room.',
+      'Work comfortably at the desk with high-speed internet, then relax and enjoy watching your favorite show on the 65-inch 4K smart TV.  The ensuite super modern bath features a waterfall shower with enclosed barn style glass doors the comfort of plush towels.  Additional amenities include a microwave, a mini fridge with complimentary beverages and coffeemaker for freshly brewed coffee or tea.',
   },
 ];
 
 export const sKing_data: RoomData = {
   roomType: RoomType.sKing,
-  roomName: 'King (Premium)',
+  roomName: 'Premium, Modern King Room',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

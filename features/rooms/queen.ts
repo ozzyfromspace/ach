@@ -7,27 +7,23 @@ import { MainDescription, RoomData, RoomType } from './types';
 const mainDescriptionArray: MainDescription[] = [
   {
     id: '1',
-    value: 'Our Artemis Queen room comes with two comfortable queen beds.',
+    value:
+      'This luxurious, modern room with two queen sized beds features a 65-inch 4K smart TV, beautiful floor-to-ceiling windows and heated hard floors.',
   },
   {
     id: '2',
     value:
-      'This room delivers a heated wood floor, full-picture windows, a microwave oven, and a fridge stocked with complimentary beverages. This room features a fully upgraded European-style bathroom with a waterfall shower, body jets, a hand-held shower, a custom vanity, and barn-style oval glass doors.',
-  },
-  {
-    id: '3',
-    value:
-      'Comfortably holding up to 4 people (and your dog!), we welcome you, your friends, and your family to enjoy a relaxing stay in one of our uniquely designed Artemis queen rooms.',
+      'The ensuite super modern bath features a waterfall shower with enclosed barn style glass doors and the comfort of plush towels.  Additional amenities include high-speed internet, a microwave, a mini fridge with complimentary and coffeemaker  for freshly brewed coffee or tea. ',
   },
 ];
 
 const truncatedDescription =
-  'Our inviting Artemis Queen room comes with two comfortable queen beds.';
-const capacity = '2 queens. Sleeps 4';
+  'With 65-inch 4K Smart TV, Free High-speed internet, 1 block to uptown Court Street';
+const capacity = 'Sleeps 4 adults plus 2 children';
 
 export const queen_data: RoomData = {
   roomType: RoomType.queen,
-  roomName: 'Artemis Queen',
+  roomName: 'Super Luxurious Double Queen Room',
   capacity,
   truncatedDescription,
   mainDescriptionArray,
