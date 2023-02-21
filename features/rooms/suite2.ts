@@ -26,7 +26,7 @@ const capacity = 'Sleeps 6 adults plus 3 children';
 
 export const suite2_data: RoomData = {
   roomType: RoomType.suite2,
-  roomName: 'Large Luxurious 2 Bedroom Suite with a Living Room',
+  roomName: 'Large Luxurious 2 Bedroom Suite & Living Room',
   capacity,
   truncatedDescription,
   mainDescriptionArray,
