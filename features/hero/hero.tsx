@@ -43,6 +43,7 @@ const Hero = (props: HeroProps) => {
           buttonClasses={buttonClasses}
           aboutInView={aboutInView}
         />
+        <MobileAds isFirstRender={isFirstRender} mobile={isMobile} />
         <HeroCarousel hints={false} />
       </motion.div>
     </main>
@@ -56,19 +57,53 @@ interface PitchProps {
   aboutInView: boolean;
 }
 
+interface MobileAdsProps {
+  isFirstRender: boolean;
+  mobile: boolean;
+}
+
+const MobileAds = (props: MobileAdsProps) => {
+  return (
+    <div className="w-full max-w-2xl mx-auto">
+      {!props.isFirstRender && props.mobile && (
+        <div className="flex items-center justify-between mr-5">
+          <div className="max-w-[18rem]">
+            <div className="overflow-hidden w-[130px] aspect-square">
+              <iframe
+                className="select-none scale-75"
+                aria-label="a booking.com rating point card"
+                referrerPolicy="no-referrer"
+                src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
+              ></iframe>
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 max-w-[8rem] mr-10">
+            {/* <p>We are the highest rated boutique hotel in Athens</p> */}
+            <StarDiv>
+              <p className="text-center font-medium text-white text-sm">
+                The only 4 star hotel in Athens
+              </p>
+            </StarDiv>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Pitch = (props: PitchProps) => (
-  <div className="relative w-full mx-auto">
+  <div className="w-full mx-auto -mt-[1.5rem]">
     {!props.isFirstRender && !props.mobile && (
       <div>
-        <div className="flex flex-col gap-3 absolute top-1/2 right-16 -translate-y-1/2 max-w-[8rem]">
+        <div className="flex flex-col gap-3 absolute bottom-[65%] right-16 max-w-[8rem]">
           {/* <p>We are the highest rated boutique hotel in Athens</p> */}
           <StarDiv>
             <p className="text-center font-medium text-white text-sm">
-              The only 4 star boutique hotel in Athens
+              The only 4 star hotel in Athens
             </p>
           </StarDiv>
         </div>
-        <div className="max-w-[18rem] absolute top-1/2 -translate-y-1/2">
+        <div className="max-w-[18rem] absolute bottom-[60%]">
           <div className="overflow-hidden w-[130px] aspect-square">
             <iframe
               className="select-none scale-75"
@@ -79,13 +114,14 @@ const Pitch = (props: PitchProps) => (
           </div>
         </div>
       </div>
+      // <div></div>
     )}
     <section className="relative cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
       <h1 className="px-6 font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
         Athens Central Hotel
       </h1>
       <h2 className="px-6 font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-        The most luxurious boutique hotel in Athens, OH
+        The most luxurious hotel in Athens, OH and the closest to uptown and OU
       </h2>
       {props.isFirstRender && <div className="h-7 w-1"></div>}
       {!props.isFirstRender && props.mobile && (

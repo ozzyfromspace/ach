@@ -10,7 +10,6 @@ import {
   FaSchool,
   FaShower,
   FaSmokingBan,
-  FaTshirt,
   FaTv,
   FaWalking,
   FaWheelchair,
@@ -59,11 +58,6 @@ const amenityData: AmenityData[] = [
     id: 6,
     icon: FaDumbbell,
     label: 'Fitness Center',
-  },
-  {
-    id: 7,
-    icon: FaTshirt,
-    label: 'Laundry',
   },
   {
     id: 8,

@@ -6,10 +6,10 @@ interface Props {
 const StarDiv = (props: Props) => {
   const { children, color } = props;
 
-  const _color = color || 'hsl(211,70%,34%,90%)';
+  const _color = color || 'hsla(211,64%,31%,100%)';
 
   return (
-    <div className="relative aspect-[2] w-fit flex justify-center items-center bg-transparent">
+    <div className="relative z-10 aspect-[2] w-fit flex justify-center items-center bg-transparent">
       <div className="w-full h-full flex justify-center items-center">
         {children}
       </div>
