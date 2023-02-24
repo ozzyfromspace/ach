@@ -16,8 +16,7 @@ const Amenity = (props: AmenityProps) => {
           className="-z-10 object-cover w-full h-full brightness-110"
         />
       </div>
-      <div className="absolute flex flex-wrap justify-center items-center bg-[hsla(0,0%,100%,70%)] backdrop-blur-[2px] px-4 py-3 mb-2 rounded-md">
-        {/* <Icon className="absolute top-1/2 -translate-y-1/2 right-full -translate-x-1/4 w-11 h-11 mt:w-12 mt:h-12 text-[hsla(211,84%,30%,85%)] bg-white rounded-md p-2 hover:text-blue-deep duration-150 transition-all ease-in-out" /> */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-wrap justify-center items-center bg-[hsla(0,0%,100%,70%)] backdrop-blur-[2px] px-4 py-3 mb-2 rounded-md">
         <p className="text-[1.15rem] font-subtitle tracking-wide font-medium cursor-default text-center pointer-events-none text-gray-dark w-fit">
           {label}
         </p>
