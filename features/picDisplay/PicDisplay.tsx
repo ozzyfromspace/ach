@@ -178,6 +178,7 @@ const PicDisplay = (props: Props) => {
             setIsAnimating={setIsAnimating}
             imageClasses={picture.imageClasses}
             onImageClick={() => setGalleryOpen(() => true)}
+            quality={30}
           />
         ))}
       </AnimatePresence>

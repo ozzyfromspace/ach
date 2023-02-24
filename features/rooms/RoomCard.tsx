@@ -67,6 +67,8 @@ const RoomCard = (props: Props) => {
         <a
           href="https://hotels.cloudbeds.com/reservation/iyXSJl"
           aria-label="Book Now"
+          className="w-fit"
+          tabIndex={-1}
         >
           <Button label="Book Now" className="max-w-fit mr-auto" selected />
         </a>

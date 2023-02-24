@@ -51,12 +51,6 @@ const amenityData: AmenityData[] = [
     label: 'Waterfall showers',
   },
   {
-    id: 2,
-    icon: FaBreadSlice,
-    src: breakfast,
-    label: 'Weekend breakfast',
-  },
-  {
     id: 3,
     icon: Fridge as IconType,
     src: fridge,
@@ -67,6 +61,36 @@ const amenityData: AmenityData[] = [
     icon: FaTv,
     src: tv,
     label: '65" 4K TV',
+  },
+  {
+    id: 10,
+    icon: FaParking,
+    src: parking,
+    label: 'Free on-site parking',
+  },
+  {
+    id: 2,
+    icon: FaBreadSlice,
+    src: breakfast,
+    label: 'Weekend breakfast',
+  },
+  {
+    id: 15,
+    icon: FaBell,
+    src: frontdesk,
+    label: '24/7 Front Desk',
+  },
+  {
+    id: 8,
+    icon: FaWheelchair,
+    src: ada,
+    label: 'ADA Accessible',
+  },
+  {
+    id: 16,
+    icon: FaDog,
+    src: petFriendly,
+    label: 'Pet Friendly',
   },
   {
     id: 5,
@@ -81,23 +105,6 @@ const amenityData: AmenityData[] = [
     label: 'Fitness Center',
   },
   {
-    id: 8,
-    icon: FaWheelchair,
-    src: ada,
-    label: 'ADA Accessible',
-  },
-  // {
-  //   id: 13,
-  //   src: smokeFree,
-  //   label: 'Smoke-free',
-  // },
-  {
-    id: 10,
-    icon: FaParking,
-    src: parking,
-    label: 'Free on-site parking',
-  },
-  {
     id: 12,
     icon: FaGraduationCap,
     src: ou,
@@ -108,18 +115,6 @@ const amenityData: AmenityData[] = [
     icon: FaSchool,
     src: courtStreet,
     label: 'Walking distance to OU',
-  },
-  {
-    id: 15,
-    icon: FaBell,
-    src: frontdesk,
-    label: '24/7 Front Desk',
-  },
-  {
-    id: 16,
-    icon: FaDog,
-    src: petFriendly,
-    label: 'Pet Friendly',
   },
 ];
 
