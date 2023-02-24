@@ -19,7 +19,6 @@ import {
   FaBreadSlice,
   FaDog,
   FaDumbbell,
-  FaGraduationCap,
   FaParking,
   FaSchool,
   FaShower,
@@ -104,16 +103,16 @@ const amenityData: AmenityData[] = [
     src: gym,
     label: 'Fitness Center',
   },
-  {
-    id: 12,
-    icon: FaGraduationCap,
-    src: ou,
-    label: 'OU Alumni Discount',
-  },
+  // {
+  //   id: 12,
+  //   icon: FaGraduationCap,
+  //   src: ou,
+  //   label: 'OU Alumni Discount',
+  // },
   {
     id: 9,
     icon: FaSchool,
-    src: courtStreet,
+    src: ou,
     label: 'Walking distance to OU',
   },
 ];

@@ -1,7 +1,10 @@
 import king_1 from '../../public/hotel_images/king/king-1.jpg';
-import king_2 from '../../public/hotel_images/king/king-2.jpg';
+// import king_2 from '../../public/hotel_images/king/king-2.jpg';
 import king_3 from '../../public/hotel_images/king/king-3.jpg';
 import king_4 from '../../public/hotel_images/king/king-4.jpg';
+import king_5 from '../../public/hotel_images/king/king-5.jpg';
+import king_6 from '../../public/hotel_images/king/king-6.jpg';
+import king_7 from '../../public/hotel_images/king/king-7.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const capacity = 'Sleeps 2 adults plus 1 child';
@@ -50,10 +53,23 @@ export const king_data: RoomData = {
     },
     {
       id: '1',
-      url: king_2,
-      description:
-        'view of the room from persepective of guest on the bed. tv mounted on wall, light-brown dresser, and office table next to a full picture window',
-      imageClasses: 'brightness-[1.1] saturation-[1.04]',
+      url: king_5,
+      description: 'king room with blue sofa near picture windows',
+      imageClasses: 'brightness-[0.94] saturation-[1.04]',
+      priority: false,
+    },
+    {
+      id: '4',
+      url: king_7,
+      description: 'view of massive king room',
+      imageClasses: 'brightness-[0.92] saturation-[0.95] grayscale-[18%]',
+      priority: false,
+    },
+    {
+      id: '5',
+      url: king_6,
+      description: 'romantic view of gray chair in shadow of king room',
+      imageClasses: 'brightness-[1.1] saturation-[1.03]',
       priority: false,
     },
     {

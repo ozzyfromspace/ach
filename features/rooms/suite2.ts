@@ -4,6 +4,8 @@ import suite2_3 from '../../public/hotel_images/suite2/suite2-3.webp';
 import suite2_4 from '../../public/hotel_images/suite2/suite2-4.jpg';
 import suite2_5 from '../../public/hotel_images/suite2/suite2-5.jpg';
 import suite2_6 from '../../public/hotel_images/suite2/suite2-6.jpg';
+import suite2_7 from '../../public/hotel_images/suite2/suite2-7.jpg';
+import suite2_9 from '../../public/hotel_images/suite2/suite2-9.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const truncatedDescription =
@@ -53,7 +55,8 @@ export const suite2_data: RoomData = {
       url: suite2_3,
       description:
         'from the sofa (off-screen), guest sees a flat screen tv mounted on the wall aove a glass office table. two doors lead into two bedrooms. the beedroom on the left is a queen room, the bedroom on the right is a king room. a small mirror is mounted on the wall between the two doors. a gray ottoman is in the fore-front of the shot.',
-      imageClasses: 'brightness-[1.14] saturation-[0.95] contrast-[0.93]',
+      imageClasses:
+        'brightness-[1.14] saturation-[0.95] contrast-[0.93] rotate-[1.3deg] scale-[1.035]',
       priority: true,
     },
     {
@@ -70,6 +73,23 @@ export const suite2_data: RoomData = {
       description:
         'living space of the Athena suite. one large gray sofa with hex-patterned pillows on either end. two aluminum lamps on either side of the sofa. two blue spartan chairs on either side of the sofa, and a chest-inspired fuzzy gray ottoman with gold legs rests in the middle of the room. two doors can be seen, each leading to a bedroom. the closed door in the middle of the screen leads to the bathroom. very well lit room',
       imageClasses: 'brightness-[1.04] saturation-[1.05] contrast-[0.96]',
+      priority: true,
+    },
+    {
+      id: '7',
+      url: suite2_7,
+      description:
+        'living space of the Athena suite. one large gray sofa with hex-patterned pillows on either end. two aluminum lamps on either side of the sofa. two blue spartan chairs on either side of the sofa, and a chest-inspired fuzzy gray ottoman with gold legs rests in the middle of the room. two doors can be seen, each leading to a bedroom. the closed door in the middle of the screen leads to the bathroom. very well lit room',
+      imageClasses: 'brightness-[1.04] saturation-[1.05] contrast-[0.96]',
+      priority: true,
+    },
+    {
+      id: '9',
+      url: suite2_9,
+      description:
+        'living space of the Athena suite. one large gray sofa with hex-patterned pillows on either end. two aluminum lamps on either side of the sofa. two blue spartan chairs on either side of the sofa, and a chest-inspired fuzzy gray ottoman with gold legs rests in the middle of the room. two doors can be seen, each leading to a bedroom. the closed door in the middle of the screen leads to the bathroom. very well lit room',
+      imageClasses:
+        'brightness-[1.29] saturation-[1.15] contrast-[1.1] rotate-[1.8deg] scale-[1.038]',
       priority: true,
     },
     {
