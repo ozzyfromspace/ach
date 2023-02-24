@@ -5,7 +5,7 @@ import Padding from '../padding';
 import Amenity from './Amenity';
 import amenityData from './amenityData';
 
-const Amenities = () => {
+const Amenities = (props: { grayscale: boolean }) => {
   const { isSticky, ref } = useStickyState();
   const {
     refs: { Amenities: amenities },
@@ -37,7 +37,7 @@ const Amenities = () => {
       </div>
       <Padding
         id="amenities-content"
-        className="grid grid-cols-[repeat(auto-fit,minmax(22rem,1fr))] gap-4 pt-8 pb-16"
+        className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-4 pt-8 pb-16"
       >
         {amenityData.map((amenity) => {
           return (
@@ -46,6 +46,7 @@ const Amenities = () => {
               icon={amenity.icon}
               src={amenity.src}
               label={amenity.label}
+              grayscale={props.grayscale}
             />
           );
         })}

@@ -23,7 +23,7 @@ const mainDescriptionArray: MainDescription[] = [
 
 export const sKing_data: RoomData = {
   roomType: RoomType.sKing,
-  roomName: 'Premium, Modern King Room',
+  roomName: 'Premium Luxury King',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

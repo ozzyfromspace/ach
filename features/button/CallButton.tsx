@@ -41,6 +41,7 @@ interface LinkCallButtonProps {
   darkMode: boolean;
   size: 'large' | 'small';
   underline: boolean;
+  id?: string;
 }
 
 export const LinkCallButton = (props: LinkCallButtonProps) => {
@@ -63,7 +64,8 @@ export const LinkCallButton = (props: LinkCallButtonProps) => {
     <button
       aria-label="send an email to the Athens Central Hotel"
       onClick={handleClick}
-      className="w-full outline-offset-4 flex justify-center items-center gap-2"
+      className="outline-offset-4 flex justify-center items-center gap-2"
+      id={props.id ?? ''}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

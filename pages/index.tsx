@@ -25,7 +25,7 @@ const Home = () => {
         <Nav aboutHeaderInView={contactStickyState.isSticky} />
         <Hero aboutInView={aboutInView} ads={false} />
         <Rooms />
-        <Amenities />
+        <Amenities grayscale={true} />
         <Events />
         <About aboutRef={aboutRef} stickyState={contactStickyState} />
       </FocusedSectionProvider>

@@ -28,7 +28,7 @@ const mainDescriptionArray: MainDescription[] = [
 
 export const king_data: RoomData = {
   roomType: RoomType.king,
-  roomName: 'Luxurious King Room',
+  roomName: 'Luxurious King',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

@@ -10,6 +10,7 @@ interface MotionImageProps extends ImageCustom {
   alt: string;
   onImageClick: () => void;
   isGallery: boolean;
+  quality: number;
 }
 
 interface ImageCustom extends Omit<CardImage, 'selectedPictures'> {
@@ -29,6 +30,7 @@ const MotionImage = (props: MotionImageProps) => {
     imageClasses,
     onImageClick,
     isGallery,
+    quality,
   } = props;
   const custom: ImageCustom = {
     first,
@@ -69,7 +71,7 @@ const MotionImage = (props: MotionImageProps) => {
           placeholder="blur"
           priority={false}
           unoptimized={false}
-          quality={50}
+          quality={quality}
           loading="lazy"
           sizes="(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw"
         />

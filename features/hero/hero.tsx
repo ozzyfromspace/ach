@@ -45,7 +45,13 @@ const Hero = (props: HeroProps) => {
           aboutInView={aboutInView}
           ads={ads}
         />
-        {ads && <MobileAds isFirstRender={isFirstRender} mobile={isMobile} />}
+        {ads && (
+          <MobileAds
+            isFirstRender={isFirstRender}
+            mobile={isMobile}
+            ads={ads}
+          />
+        )}
         <HeroCarousel hints={false} />
       </motion.div>
     </main>
@@ -63,12 +69,13 @@ interface PitchProps {
 interface MobileAdsProps {
   isFirstRender: boolean;
   mobile: boolean;
+  ads: boolean;
 }
 
 const MobileAds = (props: MobileAdsProps) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
-      {!props.isFirstRender && props.mobile && (
+      {!props.isFirstRender && props.mobile && props.ads && (
         <div className="flex items-center justify-between mr-5">
           <div className="max-w-[18rem]">
             <div className="overflow-hidden w-[130px] aspect-square">
@@ -81,7 +88,6 @@ const MobileAds = (props: MobileAdsProps) => {
             </div>
           </div>
           <div className="flex flex-col gap-3 max-w-[8rem] mr-10">
-            {/* <p>We are the highest rated boutique hotel in Athens</p> */}
             <StarDiv>
               <p className="text-center font-medium text-white text-sm">
                 The only 4 star hotel in Athens
@@ -96,10 +102,9 @@ const MobileAds = (props: MobileAdsProps) => {
 
 const Pitch = (props: PitchProps) => (
   <div className={`w-full mx-auto ${props.ads ? '-mt-[1.5rem]' : ''}`}>
-    {!props.isFirstRender && !props.mobile && (
+    {!props.isFirstRender && !props.mobile && props.ads && (
       <div>
         <div className="flex flex-col gap-3 absolute bottom-[65%] right-16 max-w-[8rem]">
-          {/* <p>We are the highest rated boutique hotel in Athens</p> */}
           <StarDiv>
             <p className="text-center font-medium text-white text-sm">
               The only 4 star hotel in Athens
@@ -117,15 +122,14 @@ const Pitch = (props: PitchProps) => (
           </div>
         </div>
       </div>
-      // <div></div>
     )}
     <section className="relative cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
       <h1 className="px-6 font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
         Athens Central Hotel
       </h1>
-      <h2 className="px-6 font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-        The most luxurious hotel in Athens
-        {props.ads ? ', OH and the closest to uptown and OU' : ''}
+      <h2 className="px-6 font-subtitle font-normal cursor-default text-[1.125rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
+        The most luxurious hotel in Athens, OH
+        {props.ads ? ' and the closest to uptown and OU' : ''}
       </h2>
       {props.isFirstRender && <div className="h-7 w-1"></div>}
       {!props.isFirstRender && props.mobile && (

@@ -104,6 +104,7 @@ const Gallery = (props: GalleryProps) => {
                         setIsAnimating={setIsAnimating}
                         imageClasses={picture.imageClasses}
                         isGallery={true}
+                        quality={80}
                       />
                     ))}
                   </AnimatePresence>

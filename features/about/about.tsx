@@ -23,13 +23,13 @@ const About = (props: AboutProps) => {
   return (
     <div
       ref={contact.ref}
-      className="select-none relative z-0 w-full gradient-blue bg-opacity-90 text-white"
+      className="select-none relative z-0 w-full gradient-blue bg-opacity-90 text-white pt-10"
     >
       <StickyHeader isSticky={isSticky} label="Get In Touch" stickyRef={ref} />
       <div className="w-fit mx-auto" id="contact" ref={aboutRef}>
         <div
           id="contact-content"
-          className={`mt-8 flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
+          className={`pt-12 flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
         >
           <div className="relative mx-auto space-y-11">
             <Address />
@@ -37,18 +37,29 @@ const About = (props: AboutProps) => {
               <h3 className="mb-4 text-xl font-title font-normal">
                 Our Front Desk is Open 24/7
               </h3>
-              <div className="w-full max-w-full grid grid-cols-[auto_1fr] justify-items-end text-[hsla(0,0%,100%,75%)] font-extralight">
+              <div className="w-full max-w-full grid grid-cols-[auto_1fr] justify-items-start text-[hsla(0,0%,100%,75%)] font-extralight">
                 <div className="w-full flex flex-wrap justify-between items-center gap-1 pr-4">
-                  <p className="font-title font-light text-[1.25rem]">
+                  <label
+                    className="font-title font-light text-[1.25rem]"
+                    htmlFor="phone-number"
+                  >
                     Phone Number
-                  </p>
+                  </label>
                   <p>:</p>
                 </div>
-                <LinkCallButton darkMode size="large" underline={false} />
+                <LinkCallButton
+                  darkMode
+                  size="large"
+                  underline={false}
+                  id="phone-number"
+                />
                 <div className="w-full flex flex-wrap justify-between items-center gap-1 pr-4">
-                  <p className="font-title font-light text-[1.25rem]">
+                  <label
+                    className="font-title font-light text-[1.25rem]"
+                    htmlFor="email"
+                  >
                     Email Address
-                  </p>
+                  </label>
                   <p>:</p>
                 </div>
                 <LinkCallButton
@@ -56,6 +67,7 @@ const About = (props: AboutProps) => {
                   darkMode
                   size="large"
                   underline={false}
+                  id="email"
                 />
               </div>
             </div>
@@ -67,8 +79,8 @@ const About = (props: AboutProps) => {
                   referrerPolicy="no-referrer"
                   src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
                 ></iframe>
+                <p>The only four star hotel in Athens, OH</p>
               </div>
-              <p>The only four star hotel in Athens, OH</p>
             </div>
           </div>
           <iframe
@@ -89,7 +101,7 @@ const About = (props: AboutProps) => {
 export const Address = () => {
   return (
     <div className="select-all flex flex-col justify-center items-start text-[hsla(0,0%,100%,75%)] font-extralight">
-      <h3 className="text-white mb-4 font-title font-normal text-xl">
+      <h3 className="text-white mb-4 text-xl font-title font-normal">
         Athens Central Hotel
       </h3>
       <a
