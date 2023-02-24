@@ -21,6 +21,8 @@ interface GalleryProps {
   capacity: string;
 }
 
+const suiteTitle = 'Large Luxurious 2 Bedroom Suite & Living Room';
+
 const Gallery = (props: GalleryProps) => {
   const componentId = useId();
   const {
@@ -91,7 +93,11 @@ const Gallery = (props: GalleryProps) => {
                 <p className="font-normal text-center md:text-start text-base md:text-lg lg:text-xl font-title cursor-default">
                   {truncatedDescription}
                 </p>
-                <div className="relative w-full md:w-[54vw] aspect-[4/3] rounded-md overflow-hidden select-none m-auto">
+                <div
+                  className={`relative ${
+                    title === suiteTitle ? 'w-4/5' : 'w-full'
+                  } md:w-[54vw] aspect-[4/3] rounded-md overflow-hidden select-none m-auto`}
+                >
                   <AnimatePresence mode="sync">
                     {imageCursor.selectedPictures.map((picture, index) => (
                       <MotionImage
@@ -112,13 +118,13 @@ const Gallery = (props: GalleryProps) => {
                 </div>
               </div>
               <div className="relative flex flex-col my-auto md:w-2/5 md:ml-6 pt-6 md:pt-0 h-fit md:mt-auto">
-                <div className="font-[300] text-start overflow-y-scroll max-h-[26vh] max-w-[30rem] md:max-h-[50vh] -mb-6 md:pt-0">
+                <div className="font-[300] text-start overflow-y-scroll max-h-[26vh] max-w-[34rem] md:max-h-[50vh] -mb-6 md:pt-0">
                   {mainDescriptionArray.map((maindesc) => (
                     <p key={maindesc.id} className="pb-6">
                       {maindesc.value}
                     </p>
                   ))}
-                  <div className="w-fit bg-white p-3 rounded-md border border-[hsl(0,0%,84%,100%)] flex justify-start gap-2 mb-24">
+                  <div className="w-fit mx-auto bg-white p-3 rounded-md border border-[hsl(0,0%,84%,100%)] flex justify-start gap-2 mb-24">
                     <span className="font-semibold">Note:</span>
                     <p>Our Rooms are hypoallergenic and super clean</p>
                   </div>
