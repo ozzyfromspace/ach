@@ -2,6 +2,7 @@ import handicap_1 from '../../public/hotel_images/handicap/handicap-1.jpg';
 import handicap_2 from '../../public/hotel_images/handicap/handicap-2.jpg';
 import handicap_3 from '../../public/hotel_images/handicap/handicap-3.jpg';
 import handicap_4 from '../../public/hotel_images/handicap/handicap-4.jpg';
+import handicap_5 from '../../public/hotel_images/handicap/handicap-5.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const mainDescriptionArray: MainDescription[] = [
@@ -48,6 +49,14 @@ export const handicap_data: RoomData = {
     {
       id: '3',
       url: handicap_4,
+      description:
+        'view of the eros handicap king room from perspective of guest lying in bed. tv is mounted on wall, beneath tv is a light-colored wood dresser. to the left is a glass office desk, blue chair, and a painting of two horses. on the left is a blue spartan chair with abstract artwork above it, and a small rounded glass table next to it. room is very well lit',
+      imageClasses: 'brightness-[0.88] saturation-[1.14]',
+      priority: true,
+    },
+    {
+      id: '4',
+      url: handicap_5,
       description:
         'view of the eros handicap king room from perspective of guest lying in bed. tv is mounted on wall, beneath tv is a light-colored wood dresser. to the left is a glass office desk, blue chair, and a painting of two horses. on the left is a blue spartan chair with abstract artwork above it, and a small rounded glass table next to it. room is very well lit',
       imageClasses: 'brightness-[0.88] saturation-[1.14]',

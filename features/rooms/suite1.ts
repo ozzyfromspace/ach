@@ -4,6 +4,7 @@ import suite1_3 from '../../public/hotel_images/suite1/suite1-3.jpg';
 import suite1_4 from '../../public/hotel_images/suite1/suite1-4.jpg';
 import suite1_5 from '../../public/hotel_images/suite1/suite1-5.jpg';
 import suite1_6 from '../../public/hotel_images/suite1/suite1-6.jpg';
+import suite1_7 from '../../public/hotel_images/suite1/suite1-7.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const mainDescriptionArray: MainDescription[] = [
@@ -66,6 +67,14 @@ export const suite1_data: RoomData = {
     {
       id: '3',
       url: suite1_4,
+      description:
+        'living space of the zeus 1-king suite. blue sofa with 1 of 2 lamps shown in a corner. composite artwork of flowers and rocks above the sofa. ottoman in front of the sofa, staring at a flat screen tv mounted on the wall off-screen. through the doors, another flat-screen tv is seen with a light-brown dresser under it (in the bedroom)',
+      imageClasses: 'brightness-[1] saturation-[0.97]',
+      priority: true,
+    },
+    {
+      id: '6',
+      url: suite1_7,
       description:
         'living space of the zeus 1-king suite. blue sofa with 1 of 2 lamps shown in a corner. composite artwork of flowers and rocks above the sofa. ottoman in front of the sofa, staring at a flat screen tv mounted on the wall off-screen. through the doors, another flat-screen tv is seen with a light-brown dresser under it (in the bedroom)',
       imageClasses: 'brightness-[1] saturation-[0.97]',

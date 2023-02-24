@@ -2,6 +2,7 @@ import sKing_1 from '../../public/hotel_images/sKing/s-king-1.jpg';
 import sKing_2 from '../../public/hotel_images/sKing/s-king-2.jpg';
 import sKing_3 from '../../public/hotel_images/sKing/s-king-3.jpg';
 import sKing_4 from '../../public/hotel_images/sKing/s-king-4.jpg';
+import sKing_6 from '../../public/hotel_images/sKing/s-king-6.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const truncatedDescription =
@@ -35,7 +36,7 @@ export const sKing_data: RoomData = {
       description:
         'full bathroom with upgraded waterfall and body shower on the left. dark wood vanity with large mirror and long light above it on the left. room shows hair dryer, towels, and stainless-steel sink',
       imageClasses: 'brightness-[1.12] saturation-[1.03] contrast-[0.88]',
-      priority: true,
+      priority: false,
     },
     {
       id: '2',
@@ -48,19 +49,27 @@ export const sKing_data: RoomData = {
     },
     {
       id: '1',
-      url: sKing_2,
+      url: sKing_1,
       description:
         'entry-view of room, showing bed, door leading to the bathroom, fridge, microwave, office desk, tv, and comfortable recliner. artwork is seen in the distance. view is illuminated by large picture window, off-screen',
       imageClasses: 'brightness-[1.18] saturation-[1.08] contrast-[0.96]',
-      priority: true,
+      priority: false,
     },
     {
-      id: '0',
-      url: sKing_1,
+      id: '5',
+      url: sKing_6,
+      description:
+        'entry-view of room, showing bed, door leading to the bathroom, fridge, microwave, office desk, tv, and comfortable recliner. artwork is seen in the distance. view is illuminated by large picture window, off-screen',
+      imageClasses: 'brightness-[1.18] saturation-[1.08] contrast-[0.96]',
+      priority: false,
+    },
+    {
+      id: '7',
+      url: sKing_2,
       description:
         'view of room as seen through reflection of large picture window',
       imageClasses: 'brightness-[1.2] saturation-[1.05] contrast-[1.02]',
-      priority: true,
+      priority: false,
     },
   ],
 };

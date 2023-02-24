@@ -1,6 +1,10 @@
 import xKing_1 from '../../public/hotel_images/xKing/x-king-1.jpg';
 import xKing_2 from '../../public/hotel_images/xKing/x-king-2.jpg';
-import xKing_3 from '../../public/hotel_images/xKing/x-king-4.jpg';
+import xKing_3 from '../../public/hotel_images/xKing/x-king-3.jpg';
+import xKing_4 from '../../public/hotel_images/xKing/x-king-4.jpg';
+import xKing_5 from '../../public/hotel_images/xKing/x-king-5.jpg';
+import xKing_6 from '../../public/hotel_images/xKing/x-king-6.jpg';
+import xKing_7 from '../../public/hotel_images/xKing/x-king-7.jpg';
 import { MainDescription, RoomData, RoomType } from './types';
 
 const mainDescriptionArray: MainDescription[] = [
@@ -30,10 +34,10 @@ export const xKing_data: RoomData = {
   pictureSlice: [
     {
       id: '2',
-      url: xKing_3,
+      url: xKing_4,
       description:
         'one king bed with two comfy chairs, set in front of a large picture window overlooking the street level',
-      imageClasses: 'brightness-[1.4] saturation-[0.89] contrast-[0.96]',
+      imageClasses: 'brightness-[1.02] contrast-[0.96]',
       priority: true,
     },
     {
@@ -41,11 +45,43 @@ export const xKing_data: RoomData = {
       url: xKing_1,
       description:
         'one king bed with two comfy chairs, set in front of a large picture window overlooking the street level',
-      imageClasses: 'brightness-[1.28] saturation-[1.02] contrast-[0.85]',
+      imageClasses: 'brightness-[1.3] saturation-[1.05] contrast-[0.88]',
       priority: true,
     },
     {
       id: '1',
+      url: xKing_3,
+      description:
+        'artistic shot of upgraded, stainless steel waterfall and body shower, with oval barn-style door',
+      imageClasses: 'brightness-[1.19] saturation-[1.13] contrast-[0.92]',
+      priority: true,
+    },
+    {
+      id: '3',
+      url: xKing_5,
+      description:
+        'artistic shot of upgraded, stainless steel waterfall and body shower, with oval barn-style door',
+      imageClasses: 'brightness-[1.19] saturation-[1.13] contrast-[0.92]',
+      priority: true,
+    },
+    {
+      id: '4',
+      url: xKing_6,
+      description:
+        'artistic shot of upgraded, stainless steel waterfall and body shower, with oval barn-style door',
+      imageClasses: 'brightness-[1.19] saturation-[1.13] contrast-[0.92]',
+      priority: true,
+    },
+    {
+      id: '5',
+      url: xKing_7,
+      description:
+        'artistic shot of upgraded, stainless steel waterfall and body shower, with oval barn-style door',
+      imageClasses: 'brightness-[1.19] saturation-[1.13] contrast-[0.92]',
+      priority: true,
+    },
+    {
+      id: '6',
       url: xKing_2,
       description:
         'artistic shot of upgraded, stainless steel waterfall and body shower, with oval barn-style door',
