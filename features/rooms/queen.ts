@@ -23,7 +23,7 @@ const capacity = 'Sleeps 4 adults plus 2 children';
 
 export const queen_data: RoomData = {
   roomType: RoomType.queen,
-  roomName: 'Super Luxurious Double Queen Room',
+  roomName: 'Luxurious Double Queen',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

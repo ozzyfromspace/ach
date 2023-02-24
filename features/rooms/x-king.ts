@@ -22,7 +22,7 @@ const capacity = 'Sleeps 2 adults plus 1 child';
 
 export const xKing_data: RoomData = {
   roomType: RoomType.xKing,
-  roomName: 'Deluxe, Modern King Room',
+  roomName: 'Deluxe Luxury King',
   capacity,
   truncatedDescription,
   mainDescriptionArray,

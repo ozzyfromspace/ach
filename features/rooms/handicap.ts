@@ -23,7 +23,7 @@ const capacity = 'Sleeps 2 adults plus 1 child';
 
 export const handicap_data: RoomData = {
   roomType: RoomType.handicap,
-  roomName: 'Premium, Modern King Room Handicap Accessible',
+  roomName: 'Premium Luxury King - Handicap Accessible',
   capacity,
   truncatedDescription,
   mainDescriptionArray,
