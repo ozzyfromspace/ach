@@ -1,13 +1,10 @@
 import { AnimatePresence } from 'framer-motion';
 import { useId, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link as ReactScrollLink } from 'react-scroll';
 import useStickyState from '../../hooks/useStickState';
 import { CallButton } from '../button';
-import {
-  currentEventSelector,
-  eventSelector,
-} from '../eventPicker/eventPickerSlice';
+import { currentEventSelector } from '../eventPicker/eventPickerSlice';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import PicDisplay from '../picDisplay';
@@ -15,14 +12,12 @@ import eventDataSlice from './eventDataSlice';
 
 const Events = () => {
   const id = useId();
-  const events = useSelector(eventSelector);
   const {
     refs: { Events: eventsFocusingDescriptor },
   } = useFocusedSection();
   const currentEvent = useSelector(currentEventSelector);
   const [exiting, setExiting] = useState(() => false);
 
-  const dispatch = useDispatch();
   const key = `${eventDataSlice[currentEvent.id].eventType}${id}`;
   const { isSticky, ref } = useStickyState();
 
@@ -39,42 +34,24 @@ const Events = () => {
             isSticky
               ? 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm'
               : ''
-          } w-screen sticky top-20 z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center pb-5 h-20`}
+          } w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
         >
-          <Padding className="flex justify-center items-center">
+          <Padding className="flex flex-col justify-center items-center">
             <ReactScrollLink
               to="events-content"
               spy={true}
               smooth={true}
-              offset={-180}
-              className="p-2 rounded-full outline-offset-4"
+              offset={-150}
               duration={380}
-              href="/events"
+              className="p-2 rounded-full outline-offset-4"
+              href="/#events"
             >
               <h2>Events</h2>
             </ReactScrollLink>
           </Padding>
         </div>
         <Padding id="events-content">
-          <div className="mt:flex flex-col flex-wrap justify-center items-center mt-8">
-            {/* <nav className="flex flex-row flex-wrap gap-3">
-              {events.map((event) => {
-                const handleUpdateSelectedEvent = () => {
-                  if (exiting) return;
-                  dispatch(updateSelectedJobModel(event.id));
-                  setExiting(() => true);
-                };
-                return (
-                  <Button
-                    key={event.id}
-                    handleClick={handleUpdateSelectedEvent}
-                    label={event.name}
-                    selected={event.selected}
-                    className="shadow-sm"
-                  />
-                );
-              })}
-            </nav> */}
+          <div className="mt:flex flex-col flex-wrap justify-center items-center pt-8">
             <p className="text-xl pb-3">Celebrating something?</p>
             <p className="font-subtitle">
               We can decorate your room & set the vibe

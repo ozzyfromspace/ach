@@ -9,7 +9,7 @@ const StarDiv = (props: Props) => {
   const _color = color || 'hsla(211,64%,31%,100%)';
 
   return (
-    <div className="relative z-10 aspect-[2] w-fit flex justify-center items-center bg-transparent">
+    <div className="relative z-0 aspect-[2] w-fit flex justify-center items-center bg-transparent">
       <div className="w-full h-full flex justify-center items-center">
         {children}
       </div>

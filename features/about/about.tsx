@@ -139,7 +139,7 @@ const StickyHeader = (props: StickyHeaderProps) => {
       variants={variants}
       custom={isSticky}
       ref={stickyRef}
-      className={`pt-4 w-screen sticky top-[4.8rem] z-10 font-title select-none tracking-wider text-white text-2xl sm:text-3xl md:text-[1.9rem] font-normal mt:text-center flex flex-col justify-center ${
+      className={`pt-4 w-screen sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-white text-2xl sm:text-3xl md:text-[1.9rem] font-normal mt:text-center flex flex-col justify-center ${
         isSticky ? 'shadow-md' : ''
       }`}
     >
@@ -151,7 +151,7 @@ const StickyHeader = (props: StickyHeaderProps) => {
           offset={-150}
           className="p-2 rounded-full outline-offset-4"
           duration={380}
-          href="/contact"
+          href="/#contact"
         >
           <h2>{label}</h2>
         </ReactScrollLink>

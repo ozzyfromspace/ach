@@ -11,10 +11,11 @@ import StarDiv from '../stardiv/StarDiv';
 
 interface HeroProps {
   aboutInView: boolean;
+  ads: boolean;
 }
 
 const Hero = (props: HeroProps) => {
-  const { aboutInView } = props;
+  const { aboutInView, ads } = props;
   const isMobile = useMediaQuery({ query: TABLET_MEDIA_QUERY });
   const [isFirstRender, setisFirstRender] = useState(() => true);
   const buttonClasses = isFirstRender ? '' : isMobile ? '' : 'w-1/3 max-w-sm';
@@ -42,8 +43,9 @@ const Hero = (props: HeroProps) => {
           isFirstRender={isFirstRender}
           buttonClasses={buttonClasses}
           aboutInView={aboutInView}
+          ads={ads}
         />
-        <MobileAds isFirstRender={isFirstRender} mobile={isMobile} />
+        {ads && <MobileAds isFirstRender={isFirstRender} mobile={isMobile} />}
         <HeroCarousel hints={false} />
       </motion.div>
     </main>
@@ -55,6 +57,7 @@ interface PitchProps {
   isFirstRender: boolean;
   buttonClasses: string;
   aboutInView: boolean;
+  ads: boolean;
 }
 
 interface MobileAdsProps {
@@ -92,7 +95,7 @@ const MobileAds = (props: MobileAdsProps) => {
 };
 
 const Pitch = (props: PitchProps) => (
-  <div className="w-full mx-auto -mt-[1.5rem]">
+  <div className={`w-full mx-auto ${props.ads ? '-mt-[1.5rem]' : ''}`}>
     {!props.isFirstRender && !props.mobile && (
       <div>
         <div className="flex flex-col gap-3 absolute bottom-[65%] right-16 max-w-[8rem]">
@@ -121,7 +124,8 @@ const Pitch = (props: PitchProps) => (
         Athens Central Hotel
       </h1>
       <h2 className="px-6 font-subtitle font-normal cursor-default text-base sm:text-[1.05rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-        The most luxurious hotel in Athens, OH and the closest to uptown and OU
+        The most luxurious hotel in Athens
+        {props.ads ? ', OH and the closest to uptown and OU' : ''}
       </h2>
       {props.isFirstRender && <div className="h-7 w-1"></div>}
       {!props.isFirstRender && props.mobile && (
