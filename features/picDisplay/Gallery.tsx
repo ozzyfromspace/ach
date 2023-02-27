@@ -1,6 +1,7 @@
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useId } from 'react';
+import { bookingLink } from '../../constants';
 import Button from '../button';
 import { MainDescription } from '../rooms/types';
 import ImageControls from './ImageControls';
@@ -129,10 +130,7 @@ const Gallery = (props: GalleryProps) => {
                     <p>Our Rooms are hypoallergenic and super clean</p>
                   </div>
                   <Dialog.Description className="absolute bottom-0 left-0 flex flex-row justify-start items-center w-fit bg-white rounded-md">
-                    <a
-                      href="https://hotels.cloudbeds.com/reservation/iyXSJl"
-                      aria-label="Book Now"
-                    >
+                    <a href={bookingLink} aria-label="Book Now">
                       <Button label="Book Now" className="max-w-fit" selected />
                     </a>
                   </Dialog.Description>

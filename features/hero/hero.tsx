@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { TABLET_MEDIA_QUERY } from '../../constants';
+import { bookingLink, TABLET_MEDIA_QUERY } from '../../constants';
 import courtStreet from '../../public/court-street.jpeg';
 import Button, { CallButton } from '../button';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
@@ -148,11 +148,7 @@ const Pitch = (props: PitchProps) => (
           animate={{ opacity: 1, transition: { duration: 0.22 } }}
         >
           <CallButton />
-          <a
-            href="https://hotels.cloudbeds.com/reservation/iyXSJl"
-            tabIndex={-1}
-            aria-label="Book Now"
-          >
+          <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
             <Button
               label="Book a room"
               full={false}

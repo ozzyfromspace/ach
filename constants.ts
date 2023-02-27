@@ -9,3 +9,6 @@ export const PHONE_DATA = {
   href: 'tel:+17405950500',
   label: '(740)-595-0500',
 };
+// export const bookingLink = 'https://hotels.cloudbeds.com/reservation/iyXSJl';
+export const bookingLink =
+  'http://live.ipms247.com/booking/book-rooms-athenscentralhotel';

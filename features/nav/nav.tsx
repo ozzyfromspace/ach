@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { TABLET_MEDIA_QUERY } from '../../constants';
+import { bookingLink, TABLET_MEDIA_QUERY } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
 import Button, { LinkCallButton } from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
@@ -93,11 +93,7 @@ const Nav = (props: Props) => {
         <DesktopNav />
       )}
       {!firstRender && !isMobiTablet && (
-        <a
-          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
-          aria-label="Book Now"
-          tabIndex={-1}
-        >
+        <a href={bookingLink} aria-label="Book Now" tabIndex={-1}>
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </a>
       )}
