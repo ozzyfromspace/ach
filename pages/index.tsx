@@ -23,7 +23,7 @@ const Home = () => {
       />
       <FocusedSectionProvider>
         <Nav aboutHeaderInView={contactStickyState.isSticky} />
-        <Hero aboutInView={aboutInView} ads={false} />
+        <Hero aboutInView={aboutInView} ads={true} />
         <Rooms />
         <Amenities grayscale={false} />
         <Events />
