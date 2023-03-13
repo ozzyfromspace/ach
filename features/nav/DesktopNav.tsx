@@ -5,8 +5,12 @@ import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvi
 import { navlinks } from './navlinks';
 
 let timer: NodeJS.Timeout | undefined = undefined;
+interface Props {
+  isHome: boolean;
+}
 
-const DesktopNav = () => {
+const DesktopNav = (props: Props) => {
+  const { isHome } = props;
   const { refs } = useFocusedSection();
   const router = useRouter();
 
@@ -30,25 +34,34 @@ const DesktopNav = () => {
 
           return (
             <li key={navlink.route} onClick={updateURL(navlink.route)}>
-              <motion.div
-                variants={getVariants(index * 0.1)}
-                initial="initial"
-                animate="animate"
-                whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
-                className="select-none text-gray-link py-3"
-              >
-                <ReactScrollLink
-                  to={navlink.landmark}
-                  className={`outline-offset-4 ${activeClass}`}
-                  spy={true}
-                  smooth={true}
-                  offset={navlink.route === 'rooms' ? -150 : -180}
-                  duration={380}
-                  href={`/${navlink.route}`}
+              {isHome ? (
+                <motion.div
+                  variants={getVariants(index * 0.1)}
+                  initial="initial"
+                  animate="animate"
+                  whileHover={{ scale: 1.07, transitionDuration: '0.1s' }}
+                  className="select-none text-gray-link py-3"
+                >
+                  <ReactScrollLink
+                    to={navlink.landmark}
+                    className={`outline-offset-4 ${activeClass}`}
+                    spy={true}
+                    smooth={true}
+                    offset={navlink.route === 'rooms' ? -150 : -180}
+                    duration={380}
+                    href={`/${navlink.route}`}
+                  >
+                    {navlink.label}
+                  </ReactScrollLink>
+                </motion.div>
+              ) : (
+                <a
+                  className="select-none text-gray-link py-3 hover:scale-105 duration-100"
+                  href={navlink.route === 'hero' ? '/' : '/#' + navlink.route}
                 >
                   {navlink.label}
-                </ReactScrollLink>
-              </motion.div>
+                </a>
+              )}
             </li>
           );
         })}

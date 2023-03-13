@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import reviewsData from '../../../reviews.json';
+import getReviews from '../../../utils/getReviews';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
@@ -7,5 +7,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
 
-  res.json(reviewsData);
+  try {
+    const reviewsData = getReviews();
+
+    res.status(200).json(reviewsData);
+    return;
+  } catch (error) {
+    res.status(500).json({
+      msg: 'failed to get reviews',
+    });
+  }
 }

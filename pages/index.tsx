@@ -22,7 +22,7 @@ const Home = () => {
         title="Athens Central Hotel"
       />
       <FocusedSectionProvider>
-        <Nav aboutHeaderInView={contactStickyState.isSticky} />
+        <Nav aboutHeaderInView={contactStickyState.isSticky} isHome />
         <Hero aboutInView={aboutInView} ads={true} />
         <Rooms />
         <Amenities grayscale={false} />

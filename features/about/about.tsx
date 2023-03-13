@@ -5,6 +5,7 @@ import { StickyState } from '../../hooks/useStickState';
 import { LinkCallButton } from '../button';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
+import StarDiv from '../stardiv/StarDiv';
 interface AboutProps {
   aboutRef: (node?: Element | null | undefined) => void;
   stickyState: StickyState;
@@ -74,12 +75,18 @@ const About = (props: AboutProps) => {
             <div className="flex flex-col gap-3 max-w-[18rem]">
               <div className="overflow-hidden aspect-square">
                 <iframe
-                  className="select-none"
+                  className="select-none pl-8"
                   aria-label="a booking.com rating point card"
                   referrerPolicy="no-referrer"
                   src="https://badge.hotelstatic.com/?position=inline&amp;clickable=true&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fathens-central.html"
                 ></iframe>
-                <p>The only four star hotel in Athens, OH</p>
+                <div className="pl-8">
+                  <StarDiv color="white">
+                    <p className="text-center font-medium text-blue-deep text-sm max-w-[8rem]">
+                      The only 4 star hotel in Athens
+                    </p>
+                  </StarDiv>
+                </div>
               </div>
             </div>
           </div>

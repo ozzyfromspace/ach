@@ -54,7 +54,7 @@ const Events = () => {
           <div className="mt:flex flex-col flex-wrap justify-center items-center pt-8">
             <p className="text-xl pb-3">Celebrating something?</p>
             <p className="font-subtitle">
-              We can decorate your room & set the vibe
+              We{"'"}re excited to decorate your room for any ocassion.
             </p>
             <div className="flex flex-col justify-center items-center gap-8">
               <div className="select-none flex justify-center items-center aspect-[4/3] w-full mt:min-w-[20rem] mt:w-[min(69vw,69vh)] mt:max-w-xl mt-10 md:mt-12 xl:mt-14">
