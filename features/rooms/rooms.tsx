@@ -3,13 +3,19 @@ import { Link as ReactScrollLink } from 'react-scroll';
 import useStickyState from '../../hooks/useStickState';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
-import RoomCard from './RoomCard';
-// import roomDataSlice from './roomDataSlice';
 import { Picture } from '../picDisplay/PicDisplay';
+import RoomCard from './RoomCard';
 import { RoomData } from './types';
 
-// 5GB6F320HfdcWby5OpfJ3h -- Room Id King
-const entityIds = ['5GB6F320HfdcWby5OpfJ3h'];
+const entityIds = [
+  '5GB6F320HfdcWby5OpfJ3h',
+  '5EuH5832DqBuXeMSac78PX',
+  '3pdoO4nEFpK1oRN3ooeOEY',
+  '1uFNQ75F25xNPFpqALmj2r',
+  '4OIU6oIep3To4AHrxJwsl7',
+  '1lR2995fEedCDdL8caJn3T',
+  '631rQAomfQSEALZ1E3Sj6f',
+];
 
 interface ContentfulImage {
   fields: {
@@ -23,7 +29,6 @@ interface ContentfulImage {
 }
 
 export async function getRoomsDataFromContentful() {
-  console.log('NEW');
   const client = createClient({
     space: 'whrqes1tuvv5',
     accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
@@ -64,8 +69,6 @@ export async function getRoomsDataFromContentful() {
       console.log(e);
     }
   }
-
-  console.log('DONE!', roomDataSlice[0].pictureSlice);
 
   return roomDataSlice;
 }

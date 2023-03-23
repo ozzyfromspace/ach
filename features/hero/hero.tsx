@@ -4,15 +4,18 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { bookingLink, TABLET_MEDIA_QUERY } from '../../constants';
-import courtStreet from '../../public/court-street.jpeg';
 import Button, { CallButton } from '../button';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import HeroCarousel from '../heroCarousel';
+import { ImageData } from '../heroCarousel/HeroCarousel';
 import StarDiv from '../stardiv/StarDiv';
 
 export interface HeroData {
   hotelName: string;
   hotelCaption: string;
+  starText: string;
+  imageData: ImageData[];
+  backgroundImage: string;
 }
 
 interface HeroProps {
@@ -40,7 +43,7 @@ const Hero = (props: HeroProps) => {
       className="relative w-full overflow-clip mt-20"
       id="hero"
     >
-      <SiteBG />
+      <SiteBG src={data.backgroundImage} />
       <motion.div
         className="w-full flex flex-col justify-start items-center gap-10 mt:gap-14 md:gap-16 mx-auto overflow-hidden"
         layout
@@ -58,9 +61,10 @@ const Hero = (props: HeroProps) => {
             isFirstRender={isFirstRender}
             mobile={isMobile}
             ads={ads}
+            starText={data.starText}
           />
         )}
-        <HeroCarousel hints={false} />
+        <HeroCarousel hints={false} imageData={data.imageData} />
       </motion.div>
     </main>
   );
@@ -79,6 +83,7 @@ interface MobileAdsProps {
   isFirstRender: boolean;
   mobile: boolean;
   ads: boolean;
+  starText: string;
 }
 
 const MobileAds = (props: MobileAdsProps) => {
@@ -98,8 +103,8 @@ const MobileAds = (props: MobileAdsProps) => {
           </div>
           <div className="flex flex-col gap-3 max-w-[8rem] mr-10">
             <StarDiv>
-              <p className="text-center font-medium text-white text-sm">
-                The only 4 star hotel in Athens
+              <p className="text-center font-medium text-white text-sm min-w-[6rem]">
+                {props.starText}
               </p>
             </StarDiv>
           </div>
@@ -171,13 +176,12 @@ const Pitch = (props: PitchProps) => (
   </div>
 );
 
-const SiteBG = () => (
+const SiteBG = (props: { src: string }) => (
   <React.Fragment>
     <div className="fixed -z-[5] top-0 left-0 bottom-0 right-0 bg-[hsl(49,36%,96%)] opacity-[0.931] bg-clip-padding backdrop-filter backdrop-blur-xl shadow-sm"></div>
     <div className="fixed -z-10 top-0 left-0 bottom-0 right-0">
       <Image
-        src={courtStreet}
-        placeholder="blur"
+        src={props.src}
         priority={false}
         quality={25}
         alt=""
@@ -191,6 +195,28 @@ const SiteBG = () => (
 
 export default Hero;
 
+interface EntryImage {
+  sys: { id: string };
+  fields: {
+    file: {
+      url: string;
+    };
+  };
+}
+
+interface Entry {
+  sys: {
+    id: string;
+  };
+  fields: {
+    hotelName: string;
+    hotelCaption: string;
+    starText: string;
+    images: EntryImage[];
+    backgroundImage: EntryImage;
+  };
+}
+
 export async function getHeroDataFromContentful() {
   const client = createClient({
     space: 'whrqes1tuvv5',
@@ -200,12 +226,28 @@ export async function getHeroDataFromContentful() {
   const heroData: HeroData = {
     hotelName: '',
     hotelCaption: '',
+    starText: '',
+    imageData: [],
+    backgroundImage: '',
   };
 
   try {
-    const entry = await client.getEntry('3GgqaVPoQZmpABlpKe39OF');
-    heroData.hotelName = (entry.fields as any).hotelName;
-    heroData.hotelCaption = (entry.fields as any).hotelCaption;
+    const entry = (await client.getEntry('3GgqaVPoQZmpABlpKe39OF')) as Entry;
+
+    const imageData: ImageData[] = entry.fields.images.map((img, index) => ({
+      alt: '',
+      desc: '',
+      id: img.sys.id,
+      objectFit: 'cover',
+      relativeOrder: index,
+      src: `https:${img.fields.file.url}`,
+    }));
+
+    heroData.hotelName = entry.fields.hotelName;
+    heroData.hotelCaption = entry.fields.hotelCaption;
+    heroData.starText = entry.fields.starText;
+    heroData.imageData = imageData;
+    heroData.backgroundImage = `https:${entry.fields.backgroundImage.fields.file.url}`;
   } catch (e) {
     console.log(e);
   }
