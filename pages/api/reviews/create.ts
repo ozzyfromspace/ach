@@ -9,7 +9,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
 
-  const payload = req.body as unknown;
+  const _payload = req.body as unknown;
+
+  const payload =
+    typeof _payload === 'string' ? JSON.parse(_payload) : _payload;
+
+  console.log(
+    'studying payload',
+    payload,
+    !(payload instanceof Object),
+    typeof payload
+  );
 
   if (payload === null) {
     res.status(400).json({ msg: 'payload cannot be null' });
@@ -39,6 +49,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         (error as any).message ||
         'something went wrong while asserting your reviews payload',
     });
+    return;
+  }
+
+  if (!payload.name) {
+    res.status(400).json({ msg: 'name is required, was not provided' });
+    return;
+  }
+  if (!payload.comment) {
+    res.status(400).json({ msg: 'comment is required, was not provided' });
     return;
   }
 

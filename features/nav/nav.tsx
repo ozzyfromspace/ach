@@ -102,7 +102,13 @@ const Nav = (props: Props) => {
         <DesktopNav isHome={isHome} />
       )}
       {!firstRender && !isMobiTablet && isHome && (
-        <a href={bookingLink} aria-label="Book Now" tabIndex={-1}>
+        <a
+          href={bookingLink}
+          aria-label="Book Now"
+          tabIndex={-1}
+          target="_blank"
+          rel="noreferrer"
+        >
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </a>
       )}

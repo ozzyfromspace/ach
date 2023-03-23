@@ -1,6 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { bookingLink } from '../../constants';
 
 interface Props {
   label: string;
@@ -46,7 +47,9 @@ const Button = (props: Props) => {
         }}
       >
         <a
-          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+          href={bookingLink}
+          target="_blank"
+          rel="noreferrer"
           onClick={hideMobileButton ? undefined : handleClick}
           className={`${className} select-none text-center font-subtitle tracking-wide font-medium p-2 pl-6 pr-6 border-[1px] outline-offset-4 hover:scale-[0.98] duration-100 transition-all ${
             selected

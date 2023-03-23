@@ -82,7 +82,7 @@ const About = (props: AboutProps) => {
                 ></iframe>
                 <div className="pl-8">
                   <StarDiv color="white">
-                    <p className="text-center font-medium text-blue-deep text-sm max-w-[8rem]">
+                    <p className="text-center font-semibold text-blue-deep text-sm max-w-[8rem]">
                       The only 4 star hotel in Athens
                     </p>
                   </StarDiv>

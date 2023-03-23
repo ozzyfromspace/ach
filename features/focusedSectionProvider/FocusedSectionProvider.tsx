@@ -13,6 +13,7 @@ export const sectionRefName = {
   amenities: navlinks[2].label,
   events: navlinks[3].label,
   contact: navlinks[4].label,
+  reviews: navlinks[5].label,
 } as const;
 
 interface RefDescription {
@@ -26,6 +27,7 @@ interface FocusedSectionValueRefs {
   [sectionRefName.amenities]: RefDescription;
   [sectionRefName.events]: RefDescription;
   [sectionRefName.contact]: RefDescription;
+  [sectionRefName.reviews]: RefDescription;
 }
 
 export interface FocusedSectionValue {
@@ -44,6 +46,7 @@ const defaultFocusedSectionValue: FocusedSectionValue = {
     Amenities: refDescription,
     Events: refDescription,
     Contact: refDescription,
+    Reviews: refDescription,
   },
 };
 
@@ -70,6 +73,9 @@ const FocusedSectionProvider = (props: FocusedSectionProviderProps) => {
   const { ref: contactRef, inView: contactInView } = useInView({
     rootMargin: `0px 0px -${bottomPx}px 0px`,
   });
+  const { ref: reviewsRef, inView: reviewsInView } = useInView({
+    rootMargin: `0px 0px -${bottomPx}px 0px`,
+  });
 
   const refs: FocusedSectionValueRefs = {
     Home: { ref: homeRef, active: false },
@@ -77,6 +83,7 @@ const FocusedSectionProvider = (props: FocusedSectionProviderProps) => {
     Amenities: { ref: amenitiesRef, active: false },
     Events: { ref: eventsRef, active: false },
     Contact: { ref: contactRef, active: false },
+    Reviews: { ref: reviewsRef, active: false },
   };
 
   type ActiveRefName =

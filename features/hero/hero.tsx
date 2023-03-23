@@ -1,3 +1,4 @@
+import { createClient } from 'contentful';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -9,13 +10,19 @@ import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvi
 import HeroCarousel from '../heroCarousel';
 import StarDiv from '../stardiv/StarDiv';
 
+export interface HeroData {
+  hotelName: string;
+  hotelCaption: string;
+}
+
 interface HeroProps {
   aboutInView: boolean;
   ads: boolean;
+  data: HeroData;
 }
 
 const Hero = (props: HeroProps) => {
-  const { aboutInView, ads } = props;
+  const { aboutInView, ads, data } = props;
   const isMobile = useMediaQuery({ query: TABLET_MEDIA_QUERY });
   const [isFirstRender, setisFirstRender] = useState(() => true);
   const buttonClasses = isFirstRender ? '' : isMobile ? '' : 'w-1/3 max-w-sm';
@@ -44,6 +51,7 @@ const Hero = (props: HeroProps) => {
           buttonClasses={buttonClasses}
           aboutInView={aboutInView}
           ads={ads}
+          heroData={data}
         />
         {ads && (
           <MobileAds
@@ -64,6 +72,7 @@ interface PitchProps {
   buttonClasses: string;
   aboutInView: boolean;
   ads: boolean;
+  heroData: HeroData;
 }
 
 interface MobileAdsProps {
@@ -125,11 +134,10 @@ const Pitch = (props: PitchProps) => (
     )}
     <section className="relative cursor-default max-w-5xl mx-auto flex flex-col justify-center items-center mt-12 md:mt-10 gap-1">
       <h1 className="px-6 font-title font-normal uppercase tracking-wide text-[1.94rem] sm:text-[2.3rem] mt:text-[2.38rem] md:text-[2.5rem] lg:text-[2.58rem] xl:text-[2.69rem] cursor-default text-center mb-[0.3rem] text-blue-deep">
-        Athens Central Hotel
+        {props.heroData.hotelName}
       </h1>
       <h2 className="px-6 font-subtitle font-normal cursor-default text-[1.125rem] lg:text-[1.2rem] xl:text-[1.25rem] text-center text-gray-link tracking-wide mt-1 mt:mt-0">
-        The most luxurious hotel in Athens, OH
-        {props.ads ? ' and the closest to uptown and OU' : ''}
+        {props.heroData.hotelCaption}
       </h2>
       {props.isFirstRender && <div className="h-7 w-1"></div>}
       {!props.isFirstRender && props.mobile && (
@@ -182,3 +190,25 @@ const SiteBG = () => (
 );
 
 export default Hero;
+
+export async function getHeroDataFromContentful() {
+  const client = createClient({
+    space: 'whrqes1tuvv5',
+    accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
+  });
+
+  const heroData: HeroData = {
+    hotelName: '',
+    hotelCaption: '',
+  };
+
+  try {
+    const entry = await client.getEntry('3GgqaVPoQZmpABlpKe39OF');
+    heroData.hotelName = (entry.fields as any).hotelName;
+    heroData.hotelCaption = (entry.fields as any).hotelCaption;
+  } catch (e) {
+    console.log(e);
+  }
+
+  return heroData;
+}

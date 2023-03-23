@@ -13,7 +13,7 @@ export enum ImageDirection {
 
 export interface Picture {
   id: string;
-  url: StaticImageData;
+  url: StaticImageData | string;
   description: string;
   imageClasses: string;
   priority: boolean;

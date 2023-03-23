@@ -5,6 +5,7 @@ export interface Review {
   comment: string;
   imageUrl: string;
   reviewSource: string;
+  subtitle: string;
 }
 
 export default function assertReview(data: unknown): asserts data is Review {
@@ -23,6 +24,8 @@ export default function assertReview(data: unknown): asserts data is Review {
     throw new Error('review is missing imageUrl field');
   if (testEl?.reviewSource === undefined)
     throw new Error('review is missing reviewSource field');
+  if (testEl?.subtitle === undefined)
+    throw new Error('review is missing subtitle field');
 
   if (typeof testEl?.name !== 'string')
     throw new Error('name field corresponds to incorrect value type');
@@ -34,6 +37,8 @@ export default function assertReview(data: unknown): asserts data is Review {
     throw new Error('imageUrl field corresponds to incorrect value type');
   if (typeof testEl?.reviewSource !== 'string')
     throw new Error('reviewSource field corresponds to incorrect value type');
+  if (typeof testEl?.subtitle !== 'string')
+    throw new Error('subtitle field corresponds to incorrect value type');
 
   if (testEl?.rating < 1 || testEl?.rating > 5)
     throw new Error('invalid rating value provided');
@@ -54,6 +59,8 @@ export function assertIncomingReview(data: unknown): asserts data is Review {
     throw new Error('review is missing imageUrl field');
   if (testEl?.reviewSource === undefined)
     throw new Error('review is missing reviewSource field');
+  if (testEl?.subtitle === undefined)
+    throw new Error('review is missing subtitle field');
 
   if (typeof testEl?.name !== 'string')
     throw new Error('name field corresponds to incorrect value type');
@@ -65,6 +72,8 @@ export function assertIncomingReview(data: unknown): asserts data is Review {
     throw new Error('imageUrl field corresponds to incorrect value type');
   if (typeof testEl?.reviewSource !== 'string')
     throw new Error('reviewSource field corresponds to incorrect value type');
+  if (typeof testEl?.subtitle !== 'string')
+    throw new Error('subtitle field corresponds to incorrect value type');
 
   if (testEl?.rating < 1 || testEl?.rating > 5)
     throw new Error('invalid rating value provided');
