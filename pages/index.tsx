@@ -5,6 +5,10 @@ import Amenities from '../features/amenities';
 import { getAmenitiesDataFromContentful } from '../features/amenities/Amenities';
 import { AmenityData } from '../features/amenities/amenityData';
 import Events from '../features/events';
+import {
+  EventsData,
+  getEventsDataFromContentful,
+} from '../features/events/events';
 import FocusedSectionProvider from '../features/focusedSectionProvider/FocusedSectionProvider';
 import Hero from '../features/hero';
 import { getHeroDataFromContentful, HeroData } from '../features/hero/hero';
@@ -20,12 +24,14 @@ export async function getStaticProps() {
   const heroData = await getHeroDataFromContentful();
   const roomsData = await getRoomsDataFromContentful();
   const amenitiesData = await getAmenitiesDataFromContentful();
+  const eventsData = await getEventsDataFromContentful();
 
   return {
     props: {
       heroData,
       roomsData,
       amenitiesData,
+      eventsData,
     },
   };
 }
@@ -34,10 +40,11 @@ interface HomeProps {
   heroData: HeroData;
   roomsData: RoomData[];
   amenitiesData: AmenityData[];
+  eventsData: EventsData;
 }
 
 const Home = (props: HomeProps) => {
-  const { heroData, roomsData, amenitiesData } = props;
+  const { heroData, roomsData, amenitiesData, eventsData } = props;
 
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
   const contactStickyState = useStickyState();
@@ -54,7 +61,7 @@ const Home = (props: HomeProps) => {
         <Hero aboutInView={aboutInView} ads={true} data={heroData} />
         <Rooms roomDataSlice={roomsData} />
         <Amenities grayscale={false} data={amenitiesData} />
-        <Events />
+        <Events {...eventsData} />
         <ReviewsSection />
         <About aboutRef={aboutRef} stickyState={contactStickyState} />
       </FocusedSectionProvider>

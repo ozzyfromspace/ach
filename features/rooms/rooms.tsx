@@ -17,7 +17,7 @@ const entityIds = [
   '631rQAomfQSEALZ1E3Sj6f',
 ];
 
-interface ContentfulImage {
+export interface ContentfulImage {
   fields: {
     file: {
       url: string;
@@ -109,7 +109,7 @@ const Rooms = (props: { roomDataSlice: RoomData[] }) => {
         className="grid grid-cols-[repeat(auto-fit,minmax(min(18rem,calc(100vw-3rem)),1fr))] md:grid-cols-[repeat(auto-fit,minmax(22rem,1fr))] gap-12 py-14 max-w-[100rem] mx-auto"
       >
         {roomDataSlice.map((roomData) => {
-          return <RoomCard key={roomData.roomType} roomData={roomData} />;
+          return <RoomCard key={roomData.roomName} roomData={roomData} />;
         })}
       </Padding>
     </div>

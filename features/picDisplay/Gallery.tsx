@@ -40,6 +40,8 @@ const Gallery = (props: GalleryProps) => {
     truncatedDescription,
   } = props;
 
+  console.log('SELENA', imageCursor.selectedPictures);
+
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <Dialog.Panel>
