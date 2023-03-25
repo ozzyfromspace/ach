@@ -40,8 +40,6 @@ const Gallery = (props: GalleryProps) => {
     truncatedDescription,
   } = props;
 
-  console.log('SELENA', imageCursor.selectedPictures);
-
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <Dialog.Panel>
@@ -99,7 +97,7 @@ const Gallery = (props: GalleryProps) => {
                 <div
                   className={`relative ${
                     title === suiteTitle ? 'w-4/5' : 'w-full'
-                  } md:w-[54vw] aspect-[4/3] rounded-md overflow-hidden select-none m-auto`}
+                  } md:w-[min(50vw,80vh)] aspect-[4/3] rounded-md overflow-hidden select-none m-auto`}
                 >
                   <AnimatePresence mode="sync">
                     {imageCursor.selectedPictures.map((picture, index) => (

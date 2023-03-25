@@ -60,7 +60,9 @@ export async function getRoomsDataFromContentful() {
 
       roomData.roomName = (entry.fields as any).roomName;
       roomData.truncatedDescription = (entry.fields as any).shortDescription;
-      roomData.mainDescriptionArray = (entry.fields as any).longDescription;
+      roomData.mainDescriptionArray = (
+        (entry.fields as any).longDescription as string[]
+      ).map((x, i) => ({ value: x, id: `${i}` }));
       roomData.capacity = (entry.fields as any).capacityStatement;
       roomData.pictureSlice = pictureSlice;
 
@@ -79,6 +81,8 @@ const Rooms = (props: { roomDataSlice: RoomData[] }) => {
   const {
     refs: { Rooms: rooms },
   } = useFocusedSection();
+
+  console.log('test', roomDataSlice);
 
   return (
     <div ref={rooms.ref} className="relative z-[1] w-full" id="rooms">
