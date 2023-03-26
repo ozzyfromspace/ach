@@ -13,18 +13,22 @@ import FocusedSectionProvider from '../features/focusedSectionProvider/FocusedSe
 import Hero from '../features/hero';
 import { getHeroDataFromContentful, HeroData } from '../features/hero/hero';
 import Nav from '../features/nav';
-import ReviewsSection from '../features/reviews/Reviews';
+import ReviewsSection, {
+  getReviewsFromContentful,
+} from '../features/reviews/Reviews';
 import Rooms from '../features/rooms';
 import { getRoomsDataFromContentful } from '../features/rooms/rooms';
 import { RoomData } from '../features/rooms/types';
 import SEOHead from '../features/seohead';
 import useStickyState from '../hooks/useStickState';
+import { Review } from '../utils/assertReview';
 
 export async function getStaticProps() {
   const heroData = await getHeroDataFromContentful();
   const roomsData = await getRoomsDataFromContentful();
   const amenitiesData = await getAmenitiesDataFromContentful();
   const eventsData = await getEventsDataFromContentful();
+  const reviews = await getReviewsFromContentful();
 
   return {
     props: {
@@ -32,6 +36,7 @@ export async function getStaticProps() {
       roomsData,
       amenitiesData,
       eventsData,
+      reviews,
     },
   };
 }
@@ -41,10 +46,11 @@ interface HomeProps {
   roomsData: RoomData[];
   amenitiesData: AmenityData[];
   eventsData: EventsData;
+  reviews: Review[];
 }
 
 const Home = (props: HomeProps) => {
-  const { heroData, roomsData, amenitiesData, eventsData } = props;
+  const { heroData, roomsData, amenitiesData, eventsData, reviews } = props;
 
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
   const contactStickyState = useStickyState();
@@ -62,7 +68,7 @@ const Home = (props: HomeProps) => {
         <Rooms roomDataSlice={roomsData} />
         <Amenities grayscale={false} data={amenitiesData} />
         <Events {...eventsData} />
-        <ReviewsSection />
+        <ReviewsSection reviews={reviews} showImage={true} />
         <About aboutRef={aboutRef} stickyState={contactStickyState} />
       </FocusedSectionProvider>
     </React.Fragment>

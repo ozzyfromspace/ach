@@ -8,76 +8,36 @@ const imageLength = 42;
 const maxLength = 180;
 
 interface Props extends Review {
-  isAdmin: boolean;
-  updateDeletion: (deletedReviewId: string) => void;
+  showImage: boolean;
 }
 
 export const ReviewCard = (props: Props) => {
-  const {
-    name,
-    comment,
-    imageUrl,
-    rating,
-    reviewSource,
-    isAdmin,
-    id,
-    subtitle,
-    updateDeletion,
-  } = props;
+  const { name, comment, imageUrl, rating, reviewUrl, subtitle, showImage } =
+    props;
   const [open, setOpen] = useState(() => false);
   const trunc = truncation(comment, open ? -1 : maxLength);
-
-  const [renderToast, setRenderToast] = useState(() => ({
-    render: false,
-    msg: '',
-  }));
-
-  function handleDeleteReview() {
-    fetch(`/api/reviews/${id}`, { method: 'DELETE' })
-      .then((r) => {
-        if (r.status !== 200) {
-          setRenderToast(() => ({
-            render: true,
-            msg: 'failed to delete event',
-          }));
-          throw new Error('failed to delete event');
-        }
-
-        return r.json();
-      })
-      .then((d) => {
-        updateDeletion(id);
-        console.log(d);
-      })
-      .catch(() => {
-        setTimeout(() => {
-          setRenderToast(() => ({
-            render: false,
-            msg: '',
-          }));
-        }, 3000);
-      });
-  }
 
   return (
     <main className="relative max-w-[34rem] min-w-[24rem] p-6 bg-white rounded-md shadow-sm h-min">
       <header className="flex flex-row justify-between items-center">
         <div className="flex flex-row items-center flex-wrap gap-3">
-          <div className={`relative w-[${imageLength}] h-${imageLength}`}>
-            <Image
-              src={imageUrl || `https://picsum.photos/${imageLength}`}
-              // src={`https://picsum.photos/${imageLength}`}
-              alt=""
-              width={imageLength}
-              height={imageLength}
-              className="rounded-full flex-1"
-            />
-          </div>
+          {showImage && (
+            <div className={`relative w-[${imageLength}] h-${imageLength}`}>
+              <Image
+                src={imageUrl || `https://picsum.photos/${imageLength}`}
+                // src={`https://picsum.photos/${imageLength}`}
+                alt=""
+                width={imageLength}
+                height={imageLength}
+                className="rounded-full flex-1 aspect-square"
+              />
+            </div>
+          )}
           <section>
             <p className="text-[hsl(228,16%,16%)] tracking-wide font-black">
               {name}
             </p>
-            <Link href={reviewSource} className="text-gray-medium text-sm">
+            <Link href={reviewUrl} className="text-gray-medium text-sm">
               {/* 4 months ago on Google */}
               {subtitle}
             </Link>
@@ -107,22 +67,9 @@ export const ReviewCard = (props: Props) => {
                 {open ? 'Show Less' : 'Read More'}
               </button>
             )}
-            {isAdmin && (
-              <button
-                className="bg-[hsl(343,84%,54%)] text-white font-extrabold py-2 px-4 rounded-md shadow-sm"
-                onClick={handleDeleteReview}
-              >
-                Delete
-              </button>
-            )}
           </div>
         </div>
       </ResizablePanel>
-      {isAdmin && renderToast.render && (
-        <div className="absolute -top-1/2 left-2/3 bg-[hsl(343,84%,54%)] text-white">
-          {renderToast.msg}
-        </div>
-      )}
     </main>
   );
 };

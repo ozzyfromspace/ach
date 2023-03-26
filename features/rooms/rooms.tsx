@@ -82,8 +82,6 @@ const Rooms = (props: { roomDataSlice: RoomData[] }) => {
     refs: { Rooms: rooms },
   } = useFocusedSection();
 
-  console.log('test', roomDataSlice);
-
   return (
     <div ref={rooms.ref} className="relative z-[1] w-full" id="rooms">
       <div
