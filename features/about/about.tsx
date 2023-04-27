@@ -30,7 +30,7 @@ const About = (props: AboutProps) => {
       <div className="w-fit mx-auto" id="contact" ref={aboutRef}>
         <div
           id="contact-content"
-          className={`pt-12 flex flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
+          className={`pt-12 flex flex-col-reverse mt:flex-row flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
         >
           <div className="relative mx-auto space-y-11">
             <Address />
@@ -99,7 +99,7 @@ const About = (props: AboutProps) => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );
@@ -131,16 +131,16 @@ export const Address = () => {
 
 export default About;
 
-const Footer = () => {
-  return (
-    <footer className="flex flex-col justify-center items-center gap-2 mt-28 pb-12 text-sm font-title font-light text-gray-light tracking-wide">
-      <section className="text-lg border-t-[1px] border-b-[1px] border-t-gray-light py-5 text-center space-y-3">
-        <h3>&copy; Athens Central Hotel, 2023</h3>
-        <p>All Rights Reserved</p>
-      </section>
-    </footer>
-  );
-};
+// const Footer = () => {
+//   return (
+//     <footer className="flex flex-col justify-center items-center gap-2 mt-28 pb-12 text-sm font-title font-light text-gray-light tracking-wide">
+//       <section className="text-lg border-t-[1px] border-b-[1px] border-t-gray-light py-5 text-center space-y-3">
+//         <h3>&copy; Athens Central Hotel, 2023</h3>
+//         <p>All Rights Reserved</p>
+//       </section>
+//     </footer>
+//   );
+// };
 
 interface StickyHeaderProps {
   stickyRef: (node?: Element | null | undefined) => void;

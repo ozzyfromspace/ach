@@ -44,7 +44,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
             </ReactScrollLink>
           </Padding>
         </div>
-        <div className="my-4 w-fit mx-auto">
+        <div className="my-4 w-fit mx-auto pb-6">
           <a
             href={googleReviewSite}
             target="_blank"
@@ -56,7 +56,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
         </div>
         <Padding
           id="reviews-content"
-          className="pt-8 mt-4 flex flex-row justify-center flex-wrap gap-3 pb-20 max-h-[60vh] h-min overflow-x-clip overflow-y-auto"
+          className="mt-4 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
         >
           {reviews.map((review) => (
             <ReviewCard key={review.id} {...review} showImage={!!showImage} />
