@@ -1,11 +1,12 @@
 import { createClient } from 'contentful';
+import { useState } from 'react';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { googleReviewSite } from '../../constants';
 import useStickyState from '../../hooks/useStickState';
 import { Review } from '../../utils/assertReview';
 import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import { ContentfulImage } from '../rooms/rooms';
+import PostReview from './PostReview';
 import ReviewCard from './ReviewCard';
 
 const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
@@ -14,6 +15,12 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
     refs: { Reviews: reviewsFocusingDescriptor },
   } = useFocusedSection();
   const { isSticky, ref } = useStickyState();
+
+  const [openForm, setOpenForm] = useState(() => false);
+
+  const togglePostReviewForm = () => {
+    setOpenForm((v) => !v);
+  };
 
   return (
     <div
@@ -30,7 +37,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
               : ''
           } w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center pb-5 mt-2 h-20`}
         >
-          <Padding className="flex flex-col justify-center items-center">
+          <Padding className="flex flex-col items-center justify-center">
             <ReactScrollLink
               to="reviews-content"
               spy={true}
@@ -44,15 +51,8 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
             </ReactScrollLink>
           </Padding>
         </div>
-        <div className="my-4 w-fit mx-auto pb-6">
-          <a
-            href={googleReviewSite}
-            target="_blank"
-            rel="noreferrer"
-            className="text-gray-link mx-auto"
-          >
-            More Reviews from google
-          </a>
+        <div className="pb-6 mx-auto my-4 w-fit">
+          <button onClick={togglePostReviewForm}>Add a review</button>
         </div>
         <Padding
           id="reviews-content"
@@ -62,6 +62,9 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
             <ReviewCard key={review.id} {...review} showImage={!!showImage} />
           ))}
         </Padding>
+        {openForm && (
+          <PostReview open={openForm} onClose={togglePostReviewForm} />
+        )}
       </div>
     </div>
   );

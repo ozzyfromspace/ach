@@ -1,9 +1,13 @@
 import { motion, Variants } from 'framer-motion';
-import { useEffect } from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { bookingLink } from '../../constants';
 
-interface Props {
+interface Props
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   label: string;
   full: boolean;
   fixed: boolean;
@@ -24,6 +28,7 @@ const Button = (props: Props) => {
     selected,
     handleClick,
     hideMobileButton,
+    ...rest
   } = props;
   const width = full ? (fixed ? '' : 'w-full') : '';
   const fixedClasses = fixed
@@ -72,6 +77,7 @@ const Button = (props: Props) => {
           ? 'gradient-blue text-white border-[hsl(0,0%,84%,100%)] hover:bg-[hsl(228,70%,38%,90%)]'
           : 'bg-[white] text-gray-link border-[1px] border-[hsl(0,0%,84%,100%)]'
       } rounded-[0.25rem] ${width}`}
+      {...rest}
     >
       {label}
     </button>
