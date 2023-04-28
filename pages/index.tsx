@@ -68,7 +68,7 @@ const Home = (props: HomeProps) => {
         <Rooms roomDataSlice={roomsData} />
         <Amenities grayscale={false} data={amenitiesData} />
         <Events {...eventsData} />
-        <ReviewsSection reviews={reviews} showImage={true} />
+        <ReviewsSection reviews={reviews} showImage={false} />
         <About aboutRef={aboutRef} stickyState={contactStickyState} />
       </FocusedSectionProvider>
     </React.Fragment>

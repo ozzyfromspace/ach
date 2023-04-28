@@ -11,7 +11,6 @@ const starIndex: ReviewNumber[] = [1, 2, 3, 4, 5];
 
 type Inputs = {
   name: string;
-  title: string;
   comment: string;
   stars: ReviewNumber;
 };
@@ -30,13 +29,8 @@ const PostForm = (props: PostFormProps) => {
   );
   const [isLoading, setIsLoading] = useState(() => false);
 
-  const onSubmit: SubmitHandler<Inputs> = async ({
-    name,
-    comment,
-    stars,
-    title,
-  }) => {
-    if (name === '' || comment === '' || title === '') return;
+  const onSubmit: SubmitHandler<Inputs> = async ({ name, comment, stars }) => {
+    if (name === '' || comment === '') return;
 
     setIsLoading(() => true);
 
@@ -44,7 +38,7 @@ const PostForm = (props: PostFormProps) => {
       await createNewReview({
         name,
         comment,
-        subtitle: title,
+        subtitle: '',
         rating: stars,
         timeCreated: new Date().toISOString(),
       });
@@ -61,14 +55,15 @@ const PostForm = (props: PostFormProps) => {
       imageUrl: '',
       rating: stars,
       reviewUrl: '',
-      subtitle: title,
+      subtitle: '',
+      timeCreated: new Date().toISOString(),
     };
 
     setLocalReviews((rs) => [...rs, newReview]);
 
     setTimeout(() => {
       onClose();
-    }, 200);
+    }, 50);
   };
 
   return (
@@ -93,12 +88,6 @@ const PostForm = (props: PostFormProps) => {
               <input id="name" type="text" {...register('name')} />
             </div>
             <div className="flex flex-col w-full gap-2 pb-4">
-              <label htmlFor="title" className="w-fit">
-                Title
-              </label>
-              <input id="title" type="text" {...register('title')} />
-            </div>
-            <div className="flex flex-col w-full gap-2 pb-4">
               <label htmlFor="comment" className="w-fit">
                 Comment
               </label>
@@ -120,7 +109,7 @@ const PostForm = (props: PostFormProps) => {
                     setValue('stars', i);
                   };
                   return (
-                    <Star
+                    <ReviewStar
                       key={i}
                       onClick={handleSelection}
                       selected={i <= selectedStarIndex}
@@ -158,7 +147,7 @@ interface StarProps {
   onClick: () => void;
 }
 
-const Star = (props: StarProps) => {
+export const ReviewStar = (props: StarProps) => {
   const { selected, onClick } = props;
 
   return (

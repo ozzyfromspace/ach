@@ -28,7 +28,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
   return (
     <div
       ref={reviewsFocusingDescriptor.ref}
-      className="relative z-[1] w-full min-h-fit rounded-t-lg"
+      className="relative z-[1] w-full min-h-fit pb-8"
       id="reviews"
     >
       <div className="w-full">
@@ -59,7 +59,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
         </div>
         <Padding
           id="reviews-content"
-          className="mt-4 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
+          className="mt-1 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
         >
           {allReviews.map((review) => (
             <ReviewCard key={review.id} {...review} showImage={!!showImage} />
@@ -167,7 +167,7 @@ export async function getReviewsFromContentful() {
 
   try {
     const entry = (await client.getEntry(entityId)) as Entry;
-    const reviewEntries = entry.fields.reviews;
+    const reviewEntries = entry.fields.reviews || [];
 
     for (const reviewEntry of reviewEntries) {
       const review: Review = {

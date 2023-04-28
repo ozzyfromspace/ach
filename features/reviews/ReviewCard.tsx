@@ -10,31 +10,27 @@ interface Props extends Review {
   showImage: boolean;
 }
 
-const formatter = Intl.DateTimeFormat(undefined);
-
 export const ReviewCard = (props: Props) => {
-  const {
-    name,
-    comment,
-    imageUrl,
-    rating,
-    reviewUrl,
-    subtitle,
-    showImage,
-    timeCreated,
-  } = props;
+  const { name, comment, imageUrl, rating, showImage, timeCreated } = props;
   const [open, setOpen] = useState(() => false);
   const trunc = truncation(comment, open ? -1 : maxLength);
 
+  const date = new Date(timeCreated).getDate();
+  const month = new Date(timeCreated).getMonth();
+  const year = new Date(timeCreated).getFullYear();
+  const usDate = `${(month + '').padStart(2, '0')}/${(date + '').padStart(
+    2,
+    '0'
+  )}/${year}`;
+
   return (
-    <main className="relative max-w-[34rem] min-w-[24rem] p-6 bg-white rounded-md shadow-sm h-min">
+    <main className="relative w-full max-w-[26rem] p-6 bg-white rounded-md shadow-sm h-min">
       <header className="flex flex-row items-center justify-between">
         <div className="flex flex-row flex-wrap items-center gap-3">
           {showImage && (
             <div className={`relative w-[${imageLength}] h-${imageLength}`}>
               <Image
                 src={imageUrl || `https://picsum.photos/${imageLength}`}
-                // src={`https://picsum.photos/${imageLength}`}
                 alt=""
                 width={imageLength}
                 height={imageLength}
@@ -46,13 +42,7 @@ export const ReviewCard = (props: Props) => {
             <p className="text-[hsl(228,16%,16%)] tracking-wide font-black">
               {name}
             </p>
-            {/* <Link href={reviewUrl} className="text-sm text-gray-medium"> */}
-            {/* 4 months ago on Google */}
-            {/* {subtitle} */}
-            {/* </Link> */}
-            <p className="text-sm text-gray-medium">
-              {formatter.format(new Date(timeCreated))}
-            </p>
+            <p className="text-sm text-gray-medium">{usDate}</p>
           </section>
         </div>
         <div className="flex flex-row items-center justify-center">
