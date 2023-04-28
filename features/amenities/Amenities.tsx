@@ -8,22 +8,21 @@ import { AmenityData } from './amenityData';
 
 const Amenities = (props: { grayscale: boolean; data: AmenityData[] }) => {
   const { data } = props;
-  const { isSticky, ref } = useStickyState();
-  const {
-    refs: { Amenities: amenities },
-  } = useFocusedSection();
+  // const { isSticky, ref } = useStickyState();
+  // const {
+  //   refs: { Amenities: amenities },
+  // } = useFocusedSection();
+
+  console.log({ amenities: 'rendering!' });
 
   return (
-    <div ref={amenities.ref} className="relative z-0" id="amenities">
-      <div
-        ref={ref}
-        className={`${
-          isSticky
-            ? 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm'
-            : ''
-        } w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
-      >
-        <Padding className="flex flex-col justify-center items-center">
+    <div
+      // ref={amenities.ref}
+      className="relative z-0"
+      id="amenities"
+    >
+      <div className="w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20">
+        <Padding className="flex flex-col items-center justify-center">
           <ReactScrollLink
             to="amenities-content"
             spy={true}
@@ -101,24 +100,6 @@ export async function getAmenitiesDataFromContentful() {
       roomData.id = entry.sys.id;
       roomData.label = entry.fields.name;
       roomData.src = `https:${entry.fields.image.fields.file.url}`;
-
-      // console.log('AMENITIES!!!', entry);
-      //       const amenityDataInstance = (entry.fields as any)
-      //         .images as ContentfulAmenityData[];
-      //       const pictureSlice: Picture[] = amenityDataInstance.map((ci) => ({
-      //         url: `https:${ci.fields.file.url}`,
-      //         description: '',
-      //         id: ci.sys.id,
-      //         imageClasses: '',
-      //         priority: false,
-      //       }));
-      //
-      //       roomData.roomName = (entry.fields as any).roomName;
-      //       roomData.truncatedDescription = (entry.fields as any).shortDescription;
-      //       roomData.mainDescriptionArray = (entry.fields as any).longDescription;
-      //       roomData.capacity = (entry.fields as any).capacityStatement;
-      //       roomData.pictureSlice = pictureSlice;
-      //
       amenitiesData.push(roomData);
     } catch (e) {
       console.log(e);

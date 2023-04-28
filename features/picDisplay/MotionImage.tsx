@@ -69,7 +69,7 @@ const MotionImage = (props: MotionImageProps) => {
           alt={alt}
           className={`w-full h-full object-cover ${imageClasses}`}
           // placeholder="blur"
-          priority={false}
+          // priority={true}
           unoptimized={false}
           quality={quality}
           loading="lazy"

@@ -12,8 +12,8 @@ export const sectionRefName = {
   rooms: navlinks[1].label,
   amenities: navlinks[2].label,
   events: navlinks[3].label,
-  contact: navlinks[4].label,
-  reviews: navlinks[5].label,
+  reviews: navlinks[4].label,
+  contact: navlinks[5].label,
 } as const;
 
 interface RefDescription {
@@ -91,6 +91,7 @@ const FocusedSectionProvider = (props: FocusedSectionProviderProps) => {
     | typeof sectionRefName.rooms
     | typeof sectionRefName.amenities
     | typeof sectionRefName.events
+    | typeof sectionRefName.reviews
     | typeof sectionRefName.contact;
   let activeRefName: ActiveRefName = sectionRefName.home;
 
@@ -102,6 +103,8 @@ const FocusedSectionProvider = (props: FocusedSectionProviderProps) => {
     activeRefName = sectionRefName.amenities;
   } else if (roomsInView) {
     activeRefName = sectionRefName.rooms;
+  } else if (reviewsInView) {
+    activeRefName = sectionRefName.reviews;
   } else {
     activeRefName = sectionRefName.home;
   }

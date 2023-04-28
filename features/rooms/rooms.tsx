@@ -1,7 +1,5 @@
 import { createClient } from 'contentful';
 import { Link as ReactScrollLink } from 'react-scroll';
-import useStickyState from '../../hooks/useStickState';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import { Picture } from '../picDisplay/PicDisplay';
 import RoomCard from './RoomCard';
@@ -77,22 +75,11 @@ export async function getRoomsDataFromContentful() {
 
 const Rooms = (props: { roomDataSlice: RoomData[] }) => {
   const { roomDataSlice } = props;
-  const { isSticky, ref } = useStickyState();
-  const {
-    refs: { Rooms: rooms },
-  } = useFocusedSection();
 
   return (
-    <div ref={rooms.ref} className="relative z-[1] w-full" id="rooms">
-      <div
-        ref={ref}
-        className={`${
-          isSticky
-            ? 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm'
-            : ''
-        } w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20`}
-      >
-        <Padding className="flex flex-col justify-center items-center">
+    <div className="relative z-[1] w-full" id="rooms">
+      <div className="w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20">
+        <Padding className="flex flex-col items-center justify-center">
           <ReactScrollLink
             to="rooms-content"
             spy={true}
