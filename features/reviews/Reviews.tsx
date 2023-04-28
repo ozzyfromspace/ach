@@ -22,6 +22,9 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
     setOpenForm((v) => !v);
   };
 
+  const [localReviews, setLocalReviews] = useState<Review[]>(() => []);
+  const allReviews = [...reviews, ...localReviews];
+
   return (
     <div
       ref={reviewsFocusingDescriptor.ref}
@@ -58,12 +61,16 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
           id="reviews-content"
           className="mt-4 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
         >
-          {reviews.map((review) => (
+          {allReviews.map((review) => (
             <ReviewCard key={review.id} {...review} showImage={!!showImage} />
           ))}
         </Padding>
         {openForm && (
-          <PostReview open={openForm} onClose={togglePostReviewForm} />
+          <PostReview
+            open={openForm}
+            onClose={togglePostReviewForm}
+            setLocalReviews={setLocalReviews}
+          />
         )}
       </div>
     </div>

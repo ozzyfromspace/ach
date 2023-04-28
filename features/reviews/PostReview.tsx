@@ -1,7 +1,10 @@
 import { Dialog } from '@headlessui/react';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
+import { Review } from '../../utils/assertReview';
 import Button from '../button';
+import createNewReview from './contentful';
 
 type ReviewNumber = 1 | 2 | 3 | 4 | 5;
 const starIndex: ReviewNumber[] = [1, 2, 3, 4, 5];
@@ -16,16 +19,57 @@ type Inputs = {
 interface PostFormProps {
   open: boolean;
   onClose: () => void;
+  setLocalReviews: Dispatch<SetStateAction<Review[]>>;
 }
 
 const PostForm = (props: PostFormProps) => {
-  const { open, onClose } = props;
+  const { open, onClose, setLocalReviews } = props;
   const { register, handleSubmit, setValue } = useForm<Inputs>();
   const [selectedStarIndex, setSelectedStarIndex] = useState<ReviewNumber>(
     () => 1
   );
+  const [isLoading, setIsLoading] = useState(() => false);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async ({
+    name,
+    comment,
+    stars,
+    title,
+  }) => {
+    if (name === '' || comment === '' || title === '') return;
+
+    setIsLoading(() => true);
+
+    try {
+      await createNewReview({
+        name,
+        comment,
+        subtitle: title,
+        rating: stars,
+        timeCreated: new Date().toISOString(),
+      });
+    } catch (e) {
+      setIsLoading(() => false);
+      console.log(e);
+      onClose();
+    }
+
+    const newReview: Review = {
+      name,
+      comment,
+      id: uuidv4(),
+      imageUrl: '',
+      rating: stars,
+      reviewUrl: '',
+      subtitle: title,
+    };
+
+    setLocalReviews((rs) => [...rs, newReview]);
+
+    setTimeout(() => {
+      onClose();
+    }, 200);
+  };
 
   return (
     <Dialog open={open} onClose={onClose}>
@@ -85,7 +129,7 @@ const PostForm = (props: PostFormProps) => {
                 })}
               </div>
             </div>
-            <Button label="Submit" type="submit" />
+            <Button label={isLoading ? 'Loading' : 'Submit'} type="submit" />
           </form>
         </div>
       </Dialog.Panel>
@@ -96,12 +140,15 @@ const PostForm = (props: PostFormProps) => {
 interface PostReviewProps {
   open: boolean;
   onClose: () => void;
+  setLocalReviews: Dispatch<SetStateAction<Review[]>>;
 }
 
 const PostReview = (props: PostReviewProps) => {
-  const { open, onClose } = props;
+  const { open, onClose, setLocalReviews } = props;
 
-  const postForm = <PostForm open={open} onClose={onClose} />;
+  const postForm = (
+    <PostForm open={open} onClose={onClose} setLocalReviews={setLocalReviews} />
+  );
 
   return postForm;
 };
