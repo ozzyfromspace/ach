@@ -4,7 +4,7 @@ import React from 'react';
 import { CardImage, ImageDirection, IsAnimating } from './PicDisplay';
 
 interface MotionImageProps extends ImageCustom {
-  src: StaticImageData;
+  src: StaticImageData | string;
   setIsAnimating: React.Dispatch<React.SetStateAction<IsAnimating>>;
   imageClasses: string;
   alt: string;
@@ -68,12 +68,14 @@ const MotionImage = (props: MotionImageProps) => {
           src={src}
           alt={alt}
           className={`w-full h-full object-cover ${imageClasses}`}
-          placeholder="blur"
-          priority={false}
+          // placeholder="blur"
+          // priority={true}
           unoptimized={false}
           quality={quality}
           loading="lazy"
           sizes="(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw"
+          width="400"
+          height="300"
         />
       </div>
     </motion.div>

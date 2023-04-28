@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { bookingLink } from '../../constants';
 import Button from '../button';
 import PicDisplay from '../picDisplay/index';
 import { RoomData } from './types';
@@ -65,7 +66,7 @@ const RoomCard = (props: Props) => {
           </div>
         </button>
         <a
-          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+          href={bookingLink}
           aria-label="Book Now"
           className="w-fit"
           tabIndex={-1}
