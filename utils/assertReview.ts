@@ -6,6 +6,7 @@ export interface Review {
   imageUrl: string;
   reviewUrl: string;
   subtitle: string;
+  timeCreated: string;
 }
 
 export default function assertReview(data: unknown): asserts data is Review {
@@ -77,6 +78,8 @@ export function assertIncomingReview(data: unknown): asserts data is Review {
 
   if (testEl?.rating < 1 || testEl?.rating > 5)
     throw new Error('invalid rating value provided');
+  if (!testEl?.timeCreated) throw new Error('timeCreated string is required');
+  new Date(testEl.timeCreated).toISOString();
 }
 
 export function assertReviews(obj: unknown): asserts obj is Review[] {

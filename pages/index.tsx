@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import About from '../features/about';
 import Amenities from '../features/amenities';
@@ -16,9 +16,6 @@ import Nav from '../features/nav';
 import ReviewsSection, {
   getReviewsFromContentful,
 } from '../features/reviews/Reviews';
-import createNewReview, {
-  ContentfulReview,
-} from '../features/reviews/contentful';
 import Rooms from '../features/rooms';
 import { getRoomsDataFromContentful } from '../features/rooms/rooms';
 import { RoomData } from '../features/rooms/types';
@@ -57,26 +54,6 @@ const Home = (props: HomeProps) => {
 
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
   const contactStickyState = useStickyState();
-
-  const [email, setEmail] = useState(() => '');
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(() => e.target.value);
-  };
-
-  const doIt = () => {
-    return () => {
-      const _review: ContentfulReview = {
-        name: '_name',
-        subtitle: '_sub',
-        comment: '...',
-        rating: 3,
-        timeCreated: new Date().toISOString(),
-      };
-
-      createNewReview(_review);
-    };
-  };
 
   return (
     <React.Fragment>

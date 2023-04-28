@@ -178,6 +178,7 @@ export async function getReviewsFromContentful() {
         imageUrl: '',
         rating: 5,
         reviewUrl: '',
+        timeCreated: '',
       };
 
       const subtitle = createTimeString(
@@ -200,6 +201,7 @@ export async function getReviewsFromContentful() {
           ? reviewEntry.fields.reviewUrl
           : '';
         review.id = reviewEntry.sys.id;
+        review.timeCreated = reviewEntry.fields.timeCreated;
 
         reviews.push(review);
       } catch (e) {
