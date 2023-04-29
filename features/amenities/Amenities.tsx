@@ -17,7 +17,7 @@ const Amenities = (props: { grayscale: boolean; data: AmenityData[] }) => {
             smooth={true}
             offset={-150}
             duration={380}
-            className="p-2 rounded-full outline-offset-4"
+            className="p-2 bg-[hsla(0,0%,100%,60%)] backdrop-blur-sm rounded-full outline-offset-4"
             href="/#amenities"
           >
             <h2>Amenities</h2>
@@ -71,7 +71,6 @@ export async function getAmenitiesDataFromContentful() {
     space: 'whrqes1tuvv5',
     accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
   });
-  //
   const amenitiesData: AmenityData[] = [];
 
   for (const entityId of entityIds) {
