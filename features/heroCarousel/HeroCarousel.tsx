@@ -9,18 +9,10 @@ import {
   useRef,
   useState,
 } from 'react';
-import src4 from '../../public/demetrios-photos/eros-bathroom.jpg';
-import src5 from '../../public/demetrios-photos/lobby.jpg';
-import src6 from '../../public/demetrios-photos/shower.jpg';
-import src3 from '../../public/demetrios-photos/sofa.jpg';
-import src1 from '../../public/hero/ach-leftcrop.jpg';
-import src0 from '../../public/hero/athena-1.jpeg';
-import src2 from '../../public/hero/breakfast-1.jpeg';
-import src7 from '../../public/hero/cleo-1.jpeg';
 
 type ObjectFit = 'cover' | 'contain' | 'fill';
 
-interface ImageData {
+export interface ImageData {
   src: string | StaticImageData;
   desc: string;
   id: string;
@@ -28,73 +20,6 @@ interface ImageData {
   objectFit: ObjectFit;
   alt: '';
 }
-
-const imageData: ImageData[] = [
-  {
-    src: src0,
-    relativeOrder: 0,
-    id: '0',
-    objectFit: 'cover',
-    desc: 'Our comfortable Athena suite is waiting for you.',
-    alt: '',
-  },
-  {
-    src: src1,
-    relativeOrder: 1,
-    id: '1',
-    objectFit: 'cover',
-    desc: 'Our new hotel is a modern, Greek-inspired experience in the heart of Athens, Ohio. We hope you enjoy staying with us. Kalos Irthate ❤️',
-    alt: '',
-  },
-  {
-    src: src2,
-    relativeOrder: 2,
-    id: '2',
-    objectFit: 'cover',
-    desc: 'We offer a hot, complimentary weekend breakfast served by the friendliest staff in Athens',
-    alt: '',
-  },
-  {
-    src: src3,
-    relativeOrder: 3,
-    id: '3',
-    objectFit: 'cover',
-    desc: 'From the architecture to the interior design, every room in our boutique hotel has a unique feel',
-    alt: '',
-  },
-  {
-    src: src4,
-    relativeOrder: 4,
-    id: '4',
-    objectFit: 'cover',
-    desc: '',
-    alt: '',
-  },
-  {
-    src: src5,
-    relativeOrder: 5,
-    id: '5',
-    objectFit: 'cover',
-    desc: '',
-    alt: '',
-  },
-  {
-    src: src6,
-    relativeOrder: 6,
-    id: '6',
-    objectFit: 'cover',
-    desc: '',
-    alt: '',
-  },
-  {
-    src: src7,
-    relativeOrder: 7,
-    id: '7',
-    objectFit: 'cover',
-    desc: '',
-    alt: '',
-  },
-];
 
 interface ImageCursor {
   index: number;
@@ -115,10 +40,11 @@ let timer: undefined | NodeJS.Timeout = undefined;
 
 interface HeroCarouselProps {
   hints: boolean;
+  imageData: ImageData[];
 }
 
 const HeroCarousel = (props: HeroCarouselProps) => {
-  const { hints } = props;
+  const { hints, imageData } = props;
 
   const [reverse, setReverse] = useState(() => false);
   const [inControl, setInControl] = useState(() => false);
@@ -175,7 +101,7 @@ const HeroCarousel = (props: HeroCarouselProps) => {
         ],
       };
     });
-  }, [reverse, setCursor, rerender]);
+  }, [reverse, setCursor, rerender, imageData]);
 
   const handleGoForward = (isTransitioning: boolean) => () => {
     if (isTransitioning) return;
@@ -441,6 +367,7 @@ const PositionedImage = (props: PositionedImageProps) => {
         alt={alt}
         className={`z-0 w-full aspect-[5/3] max-h-full object-${objectFit} rounded-[0.45rem] border-[0.5px] border-[hsla(0,0%,100%,100%)]`}
         sizes="(min-width: 1280px) 33vw, (min-width: 624px) 50vw, 100vw"
+        fill
       />
     </motion.div>
   );

@@ -13,7 +13,7 @@ export enum ImageDirection {
 
 export interface Picture {
   id: string;
-  url: StaticImageData;
+  url: StaticImageData | string;
   description: string;
   imageClasses: string;
   priority: boolean;
@@ -37,6 +37,7 @@ type Props =
       galleryOpen: boolean;
       setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
       capacity: string;
+      showTitle?: boolean;
     }
   | {
       resourceData: Picture[];
@@ -47,6 +48,7 @@ type Props =
       galleryOpen: boolean;
       setGalleryOpen: React.Dispatch<SetStateAction<boolean>>;
       capacity: string;
+      showTitle?: boolean;
     };
 
 export interface IsAnimating {
@@ -65,6 +67,7 @@ const PicDisplay = (props: Props) => {
     galleryOpen,
     setGalleryOpen,
     capacity,
+    showTitle,
   } = props;
 
   const rLen = resourceData.length;
@@ -122,7 +125,7 @@ const PicDisplay = (props: Props) => {
 
   return (
     <motion.div
-      className={`select-none relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden`}
+      className="select-none relative z-0 aspect-[4/3] w-full rounded-md overflow-hidden"
       initial={{ opacity: 0.69 }}
       animate={{ opacity: 1, transition: { duration: 0.42 } }}
       exit={{ opacity: 0.69, transition: { duration: 0.42 } }}
@@ -131,7 +134,7 @@ const PicDisplay = (props: Props) => {
         <button
           onClick={() => setGalleryOpen((s) => !s)}
           aria-label="open room gallery"
-          className="absolute top-2 right-2 z-50 p-2 bg-white rounded-md flex justify-center items-center opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-150"
+          className="absolute z-50 flex items-center justify-center p-2 transition-all duration-150 bg-white rounded-md top-2 right-2 opacity-70 hover:opacity-100 hover:scale-105"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -179,6 +182,7 @@ const PicDisplay = (props: Props) => {
             imageClasses={picture.imageClasses}
             onImageClick={() => setGalleryOpen(() => true)}
             quality={30}
+            showTitle={showTitle}
           />
         ))}
       </AnimatePresence>

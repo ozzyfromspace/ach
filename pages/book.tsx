@@ -1,8 +1,15 @@
+import { cloudbedsLink } from '../constants';
+import SEOHead from '../features/seohead';
+
 const Book = () => {
   return (
     <div>
-      {/* https://hotels.cloudbeds.com/reservation/iyXSJl#checkin=2023-02-01&checkout=2023-02-02 */}
-      <div className="bg-teal-300 min-h-screen">Book</div>
+      <SEOHead
+        author="Oswald Chisala"
+        description="The Athens Central Hotel is a Greek-inspired boutique hotel in the heart of Athens, Ohio"
+        title="Athens Central Hotel | Book A Room"
+      />
+      <iframe src={cloudbedsLink} className="w-screen h-screen"></iframe>
     </div>
   );
 };

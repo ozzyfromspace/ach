@@ -3,5 +3,6 @@ export const navlinks = [
   { route: 'rooms', label: 'Rooms', landmark: 'rooms-content' },
   { route: 'amenities', label: 'Amenities', landmark: 'amenities-content' },
   { route: 'events', label: 'Events', landmark: 'events-content' },
+  { route: 'reviews', label: 'Reviews', landmark: 'reviews-content' },
   { route: 'contact', label: 'Contact', landmark: 'contact-content' },
 ] as const;

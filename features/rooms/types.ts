@@ -12,7 +12,7 @@ export enum RoomType {
 }
 
 export interface RoomData {
-  roomType: RoomType;
+  roomType: RoomType | string;
   roomName: string;
   capacity: string;
   truncatedDescription: string;

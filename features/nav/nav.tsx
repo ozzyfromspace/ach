@@ -1,10 +1,12 @@
 import { AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { TABLET_MEDIA_QUERY } from '../../constants';
+import { TABLET_MEDIA_QUERY, bookingLink } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
+import useStickyState from '../../hooks/useStickState';
 import Button, { LinkCallButton } from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
 import DesktopNav from './DesktopNav';
@@ -12,11 +14,13 @@ import HomeIcon from './HomeIcon';
 import MenuModal from './MenuModal';
 
 interface Props {
-  aboutHeaderInView: boolean;
+  // aboutHeaderInView: boolean;
+  isHome: boolean;
 }
 
 const Nav = (props: Props) => {
-  const { aboutHeaderInView } = props;
+  const { isHome } = props;
+  const contactStickyState = useStickyState();
   const router = useRouter();
 
   const isMobiTablet = useMediaQuery({
@@ -46,6 +50,7 @@ const Nav = (props: Props) => {
   }, [firstRender]);
 
   const updateURL = () => {
+    console.log('click!');
     const update = () => router.push({ pathname: '' });
     setTimeout(update, 0);
   };
@@ -53,24 +58,30 @@ const Nav = (props: Props) => {
   return (
     <header
       className={`fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
-        aboutHeaderInView
+        contactStickyState.isSticky
           ? 'bg-[hsla(60,30%,96%,100%)]'
           : 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm'
       }`}
     >
-      <ReactScrollLink
-        aria-label="go to home page"
-        to="hero"
-        spy={true}
-        smooth={true}
-        className="select-none rounded-full -m-2 p-2"
-        offset={-96}
-        duration={350}
-        onClick={updateURL}
-        href="/"
-      >
-        <HomeIcon />
-      </ReactScrollLink>
+      {isHome ? (
+        <ReactScrollLink
+          aria-label="go to home page"
+          to="hero"
+          spy={true}
+          smooth={true}
+          className="p-2 -m-2 rounded-full select-none"
+          offset={-96}
+          duration={350}
+          onClick={updateURL}
+          href="/"
+        >
+          <HomeIcon />
+        </ReactScrollLink>
+      ) : (
+        <Link href="/">
+          <HomeIcon />
+        </Link>
+      )}
       {!firstRender && isMobiTablet && <LinkCallButton />}
       {!firstRender && isMobiTablet ? (
         <React.Fragment>
@@ -90,13 +101,15 @@ const Nav = (props: Props) => {
           </AnimatePresence>
         </React.Fragment>
       ) : (
-        <DesktopNav />
+        <DesktopNav isHome={isHome} />
       )}
-      {!firstRender && !isMobiTablet && (
+      {!firstRender && !isMobiTablet && isHome && (
         <a
-          href="https://hotels.cloudbeds.com/reservation/iyXSJl"
+          href={bookingLink}
           aria-label="Book Now"
           tabIndex={-1}
+          target="_blank"
+          rel="noreferrer"
         >
           <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
         </a>
