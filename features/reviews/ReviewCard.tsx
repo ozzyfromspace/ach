@@ -16,7 +16,7 @@ export const ReviewCard = (props: Props) => {
   const trunc = truncation(comment, open ? -1 : maxLength);
 
   const date = new Date(timeCreated).getDate();
-  const month = new Date(timeCreated).getMonth();
+  const month = new Date(timeCreated).getMonth() + 1;
   const year = new Date(timeCreated).getFullYear();
   const usDate = `${(month + '').padStart(2, '0')}/${(date + '').padStart(
     2,

@@ -22,7 +22,7 @@ import { RoomData } from '../features/rooms/types';
 import SEOHead from '../features/seohead';
 import { Review } from '../utils/assertReview';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const heroData = await getHeroDataFromContentful();
   const roomsData = await getRoomsDataFromContentful();
   const amenitiesData = await getAmenitiesDataFromContentful();

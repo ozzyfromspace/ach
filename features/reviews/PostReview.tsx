@@ -34,20 +34,13 @@ const PostForm = (props: PostFormProps) => {
     setIsLoading(() => true);
 
     try {
-      // await createNewReview({
-      //   name,
-      //   comment,
-      //   subtitle: '',
-      //   rating: stars,
-      //   timeCreated: new Date().toISOString(),
-      // });
-      const res = await fetch('/reviews', {
+      const res = await fetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify({
           name,
           comment,
           subtitle: '',
-          rating: stars,
+          rating: stars || 4,
           timeCreated: new Date().toISOString(),
         }),
       });
