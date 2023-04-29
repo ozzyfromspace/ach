@@ -19,25 +19,12 @@ export interface EventsData extends EventsProps {}
 
 const Events = (props: EventsProps) => {
   const { eventTitle, eventSubtitle, sectionText, images } = props;
-  // const id = useId();
-  // const {
-  //   refs: { Events: eventsFocusingDescriptor },
-  // } = useFocusedSection();
   const [exiting, setExiting] = useState(() => false);
 
-  // const { isSticky, ref } = useStickyState();
-
   return (
-    <div
-      // ref={eventsFocusingDescriptor.ref}
-      className="relative z-[1] w-full min-h-fit rounded-t-lg"
-      id="events"
-    >
+    <div className="relative z-[1] w-full min-h-fit rounded-t-lg" id="events">
       <div className="w-full">
-        <div
-          // ref={ref}
-          className="bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20"
-        >
+        <div className="w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20">
           <Padding className="flex flex-col items-center justify-center">
             <ReactScrollLink
               to="events-content"
@@ -45,7 +32,7 @@ const Events = (props: EventsProps) => {
               smooth={true}
               offset={-150}
               duration={380}
-              className="p-2 rounded-full outline-offset-4"
+              className="p-2 bg-[hsla(0,0%,100%,60%)] backdrop-blur-sm rounded-full outline-offset-4"
               href="/#events"
             >
               <h2>{eventTitle}</h2>
@@ -65,13 +52,13 @@ const Events = (props: EventsProps) => {
                   {!exiting && (
                     <PicDisplay
                       gallery={false}
-                      // key={key}
                       resourceData={images}
                       galleryOpen={true}
                       setGalleryOpen={() => {}}
                       mainDescriptionArray={[]}
                       capacity=""
                       truncatedDescription=""
+                      showTitle={true}
                     />
                   )}
                 </AnimatePresence>
@@ -122,7 +109,7 @@ export async function getEventsDataFromContentful() {
     eventsData.sectionText = entry.fields.sectionText;
     eventsData.images = entry.fields.images.map((im) => ({
       id: im.sys.id,
-      description: '',
+      description: (im.fields as any).title as string,
       imageClasses: '',
       priority: false,
       url: `https:${im.fields.file.url}`,

@@ -4,7 +4,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { Review } from '../../utils/assertReview';
 import Button from '../button';
-import createNewReview from './contentful';
 
 type ReviewNumber = 1 | 2 | 3 | 4 | 5;
 const starIndex: ReviewNumber[] = [1, 2, 3, 4, 5];
@@ -35,17 +34,25 @@ const PostForm = (props: PostFormProps) => {
     setIsLoading(() => true);
 
     try {
-      await createNewReview({
-        name,
-        comment,
-        subtitle: '',
-        rating: stars,
-        timeCreated: new Date().toISOString(),
+      const res = await fetch('/api/reviews', {
+        method: 'POST',
+        body: JSON.stringify({
+          name,
+          comment,
+          subtitle: '',
+          rating: stars || 4,
+          timeCreated: new Date().toISOString(),
+        }),
       });
+
+      if (res.status !== 200) {
+        throw new Error('something went wrong');
+      }
     } catch (e) {
       setIsLoading(() => false);
       console.log(e);
       onClose();
+      return;
     }
 
     const newReview: Review = {
@@ -63,7 +70,7 @@ const PostForm = (props: PostFormProps) => {
 
     setTimeout(() => {
       onClose();
-    }, 50);
+    }, 20);
   };
 
   return (

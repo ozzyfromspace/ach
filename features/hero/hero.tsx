@@ -5,7 +5,6 @@ import React, { memo, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { TABLET_MEDIA_QUERY, bookingLink } from '../../constants';
 import Button, { CallButton } from '../button';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import HeroCarousel, { ImageData } from '../heroCarousel/HeroCarousel';
 import StarDiv from '../stardiv/StarDiv';
 
@@ -28,24 +27,15 @@ const Hero = (props: HeroProps) => {
   const isMobile = useMediaQuery({ query: TABLET_MEDIA_QUERY });
   const [isFirstRender, setisFirstRender] = useState(() => true);
   const buttonClasses = isFirstRender ? '' : isMobile ? '' : 'w-1/3 max-w-sm';
-  // const {
-  //   refs: { Home: home },
-  // } = useFocusedSection();
 
   useEffect(() => {
     setisFirstRender(() => false);
   }, []);
 
-  console.log('hero rendering', { isMobile });
-
   if (isFirstRender) return null;
 
   return (
-    <main
-      // ref={home.ref}
-      className="relative w-full mt-20 overflow-clip"
-      id="hero"
-    >
+    <main className="relative w-full mt-20 overflow-clip" id="hero">
       <SiteBG src={data.backgroundImage} />
       <motion.div
         className="flex flex-col items-center justify-start w-full gap-10 mx-auto overflow-hidden mt:gap-14 md:gap-16"

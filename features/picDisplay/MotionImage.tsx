@@ -11,6 +11,7 @@ interface MotionImageProps extends ImageCustom {
   onImageClick: () => void;
   isGallery: boolean;
   quality: number;
+  showTitle?: boolean;
 }
 
 interface ImageCustom extends Omit<CardImage, 'selectedPictures'> {
@@ -31,6 +32,7 @@ const MotionImage = (props: MotionImageProps) => {
     onImageClick,
     isGallery,
     quality,
+    showTitle,
   } = props;
   const custom: ImageCustom = {
     first,
@@ -68,8 +70,6 @@ const MotionImage = (props: MotionImageProps) => {
           src={src}
           alt={alt}
           className={`w-full h-full object-cover ${imageClasses}`}
-          // placeholder="blur"
-          // priority={true}
           unoptimized={false}
           quality={quality}
           loading="lazy"
@@ -77,6 +77,13 @@ const MotionImage = (props: MotionImageProps) => {
           width="400"
           height="300"
         />
+        {!!showTitle && (
+          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center h-16">
+            <p className="px-3 py-1 rounded-sm backdrop-blur-sm bg-[hsla(0,0%,100%,70%)]">
+              {alt}
+            </p>
+          </div>
+        )}
       </div>
     </motion.div>
   );

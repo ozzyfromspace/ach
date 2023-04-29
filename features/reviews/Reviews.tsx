@@ -1,9 +1,7 @@
 import { createClient } from 'contentful';
 import { useState } from 'react';
 import { Link as ReactScrollLink } from 'react-scroll';
-import useStickyState from '../../hooks/useStickState';
 import { Review } from '../../utils/assertReview';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import { ContentfulImage } from '../rooms/rooms';
 import PostReview from './PostReview';
@@ -11,10 +9,6 @@ import ReviewCard from './ReviewCard';
 
 const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
   const { reviews, showImage } = props;
-  const {
-    refs: { Reviews: reviewsFocusingDescriptor },
-  } = useFocusedSection();
-  const { isSticky, ref } = useStickyState();
 
   const [openForm, setOpenForm] = useState(() => false);
 
@@ -26,20 +20,9 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
   const allReviews = [...reviews, ...localReviews];
 
   return (
-    <div
-      ref={reviewsFocusingDescriptor.ref}
-      className="relative z-[1] w-full min-h-fit pb-8"
-      id="reviews"
-    >
+    <div className="relative z-[1] w-full min-h-fit pb-8" id="reviews">
       <div className="w-full">
-        <div
-          ref={ref}
-          className={`${
-            isSticky
-              ? 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-sm'
-              : ''
-          } w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center pb-5 mt-2 h-20`}
-        >
+        <div className="w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center pb-5 mt-2 h-20">
           <Padding className="flex flex-col items-center justify-center">
             <ReactScrollLink
               to="reviews-content"
@@ -47,7 +30,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
               smooth={true}
               offset={-150}
               duration={380}
-              className="p-2 rounded-full outline-offset-4"
+              className="p-2 bg-[hsla(0,0%,100%,60%)] backdrop-blur-sm rounded-full outline-offset-4"
               href="/#reviews"
             >
               <h2>Reviews</h2>
@@ -57,14 +40,16 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
         <div className="pb-6 mx-auto my-4 w-fit">
           <button onClick={togglePostReviewForm}>Add a review</button>
         </div>
-        <Padding
-          id="reviews-content"
-          className="mt-1 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
-        >
-          {allReviews.map((review) => (
-            <ReviewCard key={review.id} {...review} showImage={!!showImage} />
-          ))}
-        </Padding>
+        <div className="p-4 mx-auto rounded-md w-fit bg-blue-deep bg-opacity-10 backdrop-blur-md">
+          <Padding
+            id="reviews-content"
+            className="max-w-[50vw] md:max-w-[55vw] lg:max-w-[70vw] xl:max-w-[78vw] mt-1 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
+          >
+            {allReviews.map((review) => (
+              <ReviewCard key={review.id} {...review} showImage={!!showImage} />
+            ))}
+          </Padding>
+        </div>
         {openForm && (
           <PostReview
             open={openForm}

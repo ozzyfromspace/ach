@@ -31,7 +31,7 @@ export async function getRoomsDataFromContentful() {
     space: 'whrqes1tuvv5',
     accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
   });
-  //
+
   const roomDataSlice: RoomData[] = [];
 
   for (const entityId of entityIds) {
@@ -86,7 +86,7 @@ const Rooms = (props: { roomDataSlice: RoomData[] }) => {
             smooth={true}
             offset={-150}
             duration={380}
-            className="p-2 rounded-full outline-offset-4"
+            className="p-2 bg-[hsla(0,0%,100%,60%)] backdrop-blur-sm rounded-full outline-offset-4"
             href="#rooms"
           >
             <h2>Our Rooms</h2>

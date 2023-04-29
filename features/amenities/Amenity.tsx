@@ -6,14 +6,10 @@ interface AmenityProps extends Omit<AmenityData, 'id'> {
 }
 
 const Amenity = (props: AmenityProps) => {
-  // const { icon: Icon, src, label, grayscale } = props;
   const { src, label, grayscale } = props;
-
-  console.log('amenity rendering');
 
   return (
     <div className="relative flex flex-col justify-end items-center rounded-md aspect-[4/3] mx-auto w-full max-w-md bg-white border-[1px] border-[hsla(0,0%,100%,100%)] shadow-sm scale-100 duration-150 transition-all ease-in-out min-h-[10rem] overflow-clip">
-      {/* <Icon className="absolute z-10 top-2 right-2 w-11 h-11 mt:w-12 mt:h-12 text-[hsla(211,84%,30%,85%)] bg-white rounded-md p-2 hover:text-blue-deep duration-150 transition-all ease-in-out pointer-events-none" /> */}
       <div className="relative top-0 left-0 flex-1 w-full h-full">
         <Image
           alt=""
