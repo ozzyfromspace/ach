@@ -64,7 +64,7 @@ async function addReview(
   (reviews.fields as any).reviews[LOCALE].push({ sys: reviewLink });
   await reviews.update();
   reviews = await env.getEntry(reviewsId);
-  reviews.publish();
+  await reviews.publish();
 }
 
 export default async function createNewReview(newReview?: ContentfulReview) {
