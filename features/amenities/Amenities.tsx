@@ -1,26 +1,14 @@
 import { createClient } from 'contentful';
 import { Link as ReactScrollLink } from 'react-scroll';
-import useStickyState from '../../hooks/useStickState';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import Padding from '../padding';
 import Amenity from './Amenity';
 import { AmenityData } from './amenityData';
 
 const Amenities = (props: { grayscale: boolean; data: AmenityData[] }) => {
   const { data } = props;
-  // const { isSticky, ref } = useStickyState();
-  // const {
-  //   refs: { Amenities: amenities },
-  // } = useFocusedSection();
-
-  console.log({ amenities: 'rendering!' });
 
   return (
-    <div
-      // ref={amenities.ref}
-      className="relative z-0"
-      id="amenities"
-    >
+    <div className="relative z-0" id="amenities">
       <div className="w-full sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-blue-deep text-2xl sm:text-3xl md:text-3xl font-normal mt:text-center flex flex-col justify-center py-5 mt-10 h-20">
         <Padding className="flex flex-col items-center justify-center">
           <ReactScrollLink

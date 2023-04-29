@@ -1,20 +1,32 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import getReviews from '../../../utils/getReviews';
+import createNewReview, {
+  ContentfulReview,
+} from '../../../features/reviews/contentful';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'GET') {
-    res.status(501).json({ msg: 'route only supports GET requests' });
-    return;
-  }
-
+export default async function Handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
-    const reviewsData = getReviews();
+    const body = JSON.parse(req.body) as ContentfulReview | undefined;
 
-    res.status(200).json(reviewsData);
-    return;
-  } catch (error) {
-    res.status(500).json({
-      msg: 'failed to get reviews',
+    if (!body) {
+      res.status(400).json({ msg: 'something went wrong' });
+      return;
+    }
+
+    await createNewReview({
+      name: body.name,
+      comment: body.comment,
+      subtitle: body.subtitle,
+      rating: body.rating,
+      timeCreated: body.timeCreated,
     });
+
+    res.status(200).json(body);
+  } catch (e) {
+    console.log(e);
+    res.status(400).json({ msg: 'something went wrong' });
+    return;
   }
 }

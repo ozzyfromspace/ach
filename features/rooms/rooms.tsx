@@ -31,7 +31,7 @@ export async function getRoomsDataFromContentful() {
     space: 'whrqes1tuvv5',
     accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
   });
-  //
+
   const roomDataSlice: RoomData[] = [];
 
   for (const entityId of entityIds) {

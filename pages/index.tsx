@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import About from '../features/about';
 import Amenities, {
   getAmenitiesDataFromContentful,
@@ -51,15 +51,6 @@ interface HomeProps {
 const Home = (props: HomeProps) => {
   const { heroData, roomsData, amenitiesData, eventsData, reviews } = props;
 
-  // const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
-  // const contactStickyState = useStickyState();
-
-  console.log({ index: 'rendered!' });
-
-  useEffect(() => {
-    console.log({ heroData });
-  }, [heroData]);
-
   return (
     <React.Fragment>
       <SEOHead
@@ -69,7 +60,6 @@ const Home = (props: HomeProps) => {
       />
       <FocusedSectionProvider>
         <Nav isHome />
-        {/* <Hero aboutInView={aboutInView} ads={true} data={heroData} /> */}
         <Hero aboutInView={false} ads={true} data={heroData} />
         <Rooms roomDataSlice={roomsData} />
         <Amenities grayscale={false} data={amenitiesData} />
