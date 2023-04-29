@@ -58,6 +58,7 @@ const Events = (props: EventsProps) => {
                       mainDescriptionArray={[]}
                       capacity=""
                       truncatedDescription=""
+                      showTitle={true}
                     />
                   )}
                 </AnimatePresence>
@@ -108,7 +109,7 @@ export async function getEventsDataFromContentful() {
     eventsData.sectionText = entry.fields.sectionText;
     eventsData.images = entry.fields.images.map((im) => ({
       id: im.sys.id,
-      description: '',
+      description: (im.fields as any).title as string,
       imageClasses: '',
       priority: false,
       url: `https:${im.fields.file.url}`,
