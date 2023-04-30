@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { MOBITABLET_MEDIA_QUERY } from '../constants';
 
 interface Props {
   className: string;
 }
 
 const Fridge = (props: Props) => {
-  const isMobile = useMediaQuery({
-    query: MOBITABLET_MEDIA_QUERY,
-  });
-
   const [firstRender, setFirstRender] = useState(() => true);
 
   useEffect(() => {

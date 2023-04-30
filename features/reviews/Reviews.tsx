@@ -17,7 +17,12 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
   };
 
   const [localReviews, setLocalReviews] = useState<Review[]>(() => []);
-  const allReviews = [...reviews, ...localReviews];
+  const allReviews = [...reviews, ...localReviews].sort((a, b) => {
+    return (
+      new Date(b.timeCreated).getMilliseconds() -
+      new Date(a.timeCreated).getMilliseconds()
+    );
+  });
 
   return (
     <div className="relative z-[1] w-full min-h-fit pb-8" id="reviews">
@@ -40,14 +45,15 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
         <div className="pb-6 mx-auto my-4 w-fit">
           <button onClick={togglePostReviewForm}>Add a review</button>
         </div>
-        <div className="p-4 mx-auto rounded-md w-fit bg-blue-deep bg-opacity-10 backdrop-blur-md">
+        <div className="w-full p-4 mx-auto rounded-md bg-blue-deep bg-opacity-10 backdrop-blur-md">
           <Padding
             id="reviews-content"
-            className="max-w-[50vw] md:max-w-[55vw] lg:max-w-[70vw] xl:max-w-[78vw] mt-1 flex flex-row justify-center flex-wrap gap-3 max-h-[45vh] h-min overflow-x-clip overflow-y-auto"
+            className="mt-1 flex flex-row justify-start items-start gap-8 max-h-[45vh] h-min overflow-x-auto w-full"
           >
             {allReviews.map((review) => (
               <ReviewCard key={review.id} {...review} showImage={!!showImage} />
             ))}
+            {!allReviews.length && <p>No reviews. Add the first one.</p>}
           </Padding>
         </div>
         {openForm && (
@@ -92,62 +98,12 @@ interface Entry {
 
 const entityId = '4jY0VnqpXDbGfQxSviXmop';
 
-const createTimeString = (
-  rtf: Intl.RelativeTimeFormat,
-  timestamp: string,
-  source: string
-) => {
-  const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
-
-  const TO_MONTH_CONVERSION = 365 / 12;
-  const TO_WEEK_CONVERSION = 365 / 52;
-  const TO_DAY_CONVERSION = 365;
-
-  const now = new Date();
-  const comparisonDate = new Date(timestamp);
-
-  const utc1 = Date.UTC(
-    comparisonDate.getFullYear(),
-    comparisonDate.getMonth(),
-    comparisonDate.getDate()
-  );
-  const utc2 = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-
-  let periodName: Intl.RelativeTimeFormatUnit = 'year';
-  let period = (utc2 - utc1) / _MS_PER_YEAR;
-  const base = period;
-
-  if (period < 1) {
-    periodName = 'month';
-    period = base * TO_MONTH_CONVERSION;
-  }
-
-  if (period < 1) {
-    periodName = 'week';
-    period = base * TO_WEEK_CONVERSION;
-  }
-
-  if (period < 1) {
-    periodName = 'day';
-    period = base * TO_DAY_CONVERSION;
-  }
-
-  if (period < 1) {
-    return 'today';
-  }
-
-  const rtfString = rtf.format(Math.round(-1 * Math.abs(period)), periodName);
-  return `${rtfString} ${source ? 'on ' : ''}${source || 'at the Front Desk'}`;
-};
-
 export async function getReviewsFromContentful() {
-  const rtf = new Intl.RelativeTimeFormat(undefined, { style: 'long' });
-
   const client = createClient({
     space: 'whrqes1tuvv5',
     accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
   });
-  //
+
   const reviews: Review[] = [];
 
   try {
@@ -166,25 +122,11 @@ export async function getReviewsFromContentful() {
         timeCreated: '',
       };
 
-      const subtitle = createTimeString(
-        rtf,
-        reviewEntry.fields?.timeCreated || '',
-        ''
-      );
-
       try {
         review.name = reviewEntry.fields.name;
-        review.subtitle = subtitle;
+        review.subtitle = '';
         review.comment = reviewEntry.fields.comment;
-        review.imageUrl = !!reviewEntry.fields.image
-          ? `https:${reviewEntry.fields.image?.fields.file.url}`
-          : `https://unsplash.it/640?image=${
-              Math.floor(Math.random() * 39) || 1
-            }`;
         review.rating = reviewEntry.fields.rating;
-        review.reviewUrl = reviewEntry.fields.reviewUrl?.startsWith('http')
-          ? reviewEntry.fields.reviewUrl
-          : '';
         review.id = reviewEntry.sys.id;
         review.timeCreated = reviewEntry.fields.timeCreated;
 

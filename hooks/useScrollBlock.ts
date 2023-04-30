@@ -1,15 +1,11 @@
 import { useRef } from 'react';
 
-// const safeDocument: Document = document;
-
 export const useScrollBlock = (): [() => void, () => void] => {
   const scrollBlocked = useRef(false);
   if (typeof window === 'undefined') return [() => {}, () => {}];
 
   const safeDocument = window.document;
-  // const html = safeDocument.documentElement;
   const html = safeDocument.documentElement;
-  // const { body } = safeDocument;
   const { body } = safeDocument;
 
   const blockScroll = (): void => {
