@@ -44,7 +44,7 @@ const Events = (props: EventsProps) => {
             <p className="pb-3 text-xl">{eventSubtitle}</p>
             <p className="font-subtitle">{sectionText}</p>
             <div className="flex flex-col items-center justify-center gap-8">
-              <div className="select-none flex justify-center items-center aspect-[4/3] w-full mt:min-w-[20rem] mt:w-[min(69vw,69vh)] mt:max-w-xl mt-10 md:mt-12 xl:mt-14">
+              <div className="select-none flex justify-center items-center aspect-[4/3] w-full mt:min-w-[25rem] mt:w-[min(69vw,69vh)] mt:max-w-xl mt-10 md:mt-12 xl:mt-14">
                 <AnimatePresence
                   mode="sync"
                   onExitComplete={() => setExiting(() => false)}
