@@ -16,14 +16,20 @@ export interface HeroData {
   backgroundImage: string;
 }
 
+export type ReviewSummaryStat = {
+  numberOfReviews: number;
+  averageReviews: number;
+};
+
 interface HeroProps {
   aboutInView: boolean;
   ads: boolean;
   data: HeroData;
+  averageReviews: ReviewSummaryStat;
 }
 
 const Hero = (props: HeroProps) => {
-  const { aboutInView, ads, data } = props;
+  const { aboutInView, ads, data, averageReviews } = props;
   const isMobile = useMediaQuery({ query: TABLET_MEDIA_QUERY });
   const [isFirstRender, setisFirstRender] = useState(() => true);
   const buttonClasses = isFirstRender ? '' : isMobile ? '' : 'w-1/3 max-w-sm';
@@ -38,7 +44,7 @@ const Hero = (props: HeroProps) => {
     <main className="relative w-full mt-0 overflow-clip" id="hero">
       <SiteBG src={data.backgroundImage} />
       <motion.div
-        className="flex flex-col items-center justify-start w-full gap-10 mx-auto overflow-hidden mt:gap-14 md:gap-16"
+        className="flex flex-col items-center justify-start w-full gap-10 mx-auto overflow-hidden mt:gap-14 md:gap-16 h-fit"
         layout
       >
         <Pitch
@@ -57,7 +63,11 @@ const Hero = (props: HeroProps) => {
             starText={data.starText}
           />
         )}
-        <HeroCarousel hints={false} imageData={data.imageData} />
+        <HeroCarousel
+          hints={false}
+          imageData={data.imageData}
+          reviewStats={props.averageReviews}
+        />
       </motion.div>
     </main>
   );
@@ -81,7 +91,7 @@ interface MobileAdsProps {
 
 const MobileAds = (props: MobileAdsProps) => {
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-2xl mx-auto relative -top-16">
       {!props.isFirstRender && props.mobile && props.ads && (
         <div className="flex flex-col gap-4 min-[300px]:gap-2 min-[300px]:flex-row justify-start items-center min-[300px]:justify-between">
           <div className="-ml-10 min-[300px]:-ml-[25px] -mt-5 min-[300px]:mt-0 min-[300px]:ml-0 max-w-[18rem]">
@@ -138,15 +148,6 @@ const Pitch = (props: PitchProps) => (
         {props.heroData.hotelCaption}
       </h2>
       {props.isFirstRender && <div className="w-1 h-7"></div>}
-      {/* {!props.isFirstRender && props.mobile && (
-        <Button
-          label="Book a room"
-          full={true}
-          fixed={true}
-          hideMobileButton={props.aboutInView}
-          className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
-        />
-      )} */}
       {!props.isFirstRender && !props.mobile && (
         <motion.div
           className="flex items-center justify-center gap-6 mt-7"
@@ -154,18 +155,26 @@ const Pitch = (props: PitchProps) => (
           animate={{ opacity: 1, transition: { duration: 0.22 } }}
         >
           <CallButton />
-          {/* <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
-            <Button
-              label="Book a room"
-              full={false}
-              fixed={false}
-              hideMobileButton={false}
-              className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
-            />
-          </a> */}
         </motion.div>
       )}
     </section>
+    {/* <div className="flex flex-col gap-2">
+      <p className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
+        We have{' '}
+        <span className="text-black">{props.reviewStats.numberOfReviews}</span>{' '}
+        reviews averging
+        <span className="text-black -mr-1">
+          {props.reviewStats.averageReviews}
+        </span>
+        <p className="text-black -mr-2">/ 5</p>.{' '}
+      </p>
+      <Link
+        href={`/#${navlinks[4].route}`}
+        className="text-blue-light text-center hover:underline w-fit mx-auto p-2"
+      >
+        See our reviews
+      </Link>
+    </div> */}
   </div>
 );
 

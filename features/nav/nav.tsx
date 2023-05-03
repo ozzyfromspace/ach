@@ -54,32 +54,12 @@ const Nav = (props: Props) => {
 
   return (
     <header
-      className={`fixed z-[200] font-subtitle bottom-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
+      className={`fixed z-30 font-subtitle bottom-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
         contactStickyState.isSticky
           ? 'bg-[hsla(60,30%,96%,100%)]'
           : 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm'
       }`}
     >
-      {/* {isHome ? (
-        <ReactScrollLink
-          aria-label="go to home page"
-          to="hero"
-          spy={true}
-          smooth={true}
-          className="p-2 -m-2 rounded-full select-none"
-          offset={-96}
-          duration={350}
-          onClick={updateURL}
-          href="/"
-        >
-          <HomeIcon />
-        </ReactScrollLink>
-      ) : (
-        <Link href="/">
-          <HomeIcon />
-        </Link>
-      )} */}
-      {/* {!firstRender && isMobiTablet && <LinkCallButton />} */}
       {!firstRender && isMobiTablet && (
         <div className="mr-auto">
           <a href={bookingLink} tabIndex={-1} aria-label="Book Now">

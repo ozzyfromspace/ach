@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, MotionProps, Variants } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import {
   Dispatch,
   MutableRefObject,
@@ -9,6 +10,8 @@ import {
   useRef,
   useState,
 } from 'react';
+import { ReviewSummaryStat } from '../hero/hero';
+import { navlinks } from '../nav/navlinks';
 
 type ObjectFit = 'cover' | 'contain' | 'fill';
 
@@ -41,10 +44,11 @@ let timer: undefined | NodeJS.Timeout = undefined;
 interface HeroCarouselProps {
   hints: boolean;
   imageData: ImageData[];
+  reviewStats: ReviewSummaryStat;
 }
 
 const HeroCarousel = (props: HeroCarouselProps) => {
-  const { hints, imageData } = props;
+  const { hints, imageData, reviewStats } = props;
 
   const [reverse, setReverse] = useState(() => false);
   const [inControl, setInControl] = useState(() => false);
@@ -142,28 +146,49 @@ const HeroCarousel = (props: HeroCarouselProps) => {
   }, [updateCursor, inControl, reverse, rerender]);
 
   return (
-    <motion.div
-      className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg mb-1 mt-4 sm:-mt-3 md:-mt-8 lg:-mt-16`}
-      layout
-    >
-      <AnimatePresence mode="sync">
-        {cursor.slice.map((el, index) => (
-          <HeroCarouselImage
-            key={el.id}
-            cursor={cursor}
-            enableScroll={enableScroll}
-            getTranslateX={getTranslateX}
-            handleGoBackward={handleGoBackward}
-            handleGoForward={handleGoForward}
-            imageData={el}
-            index={index}
-            reverse={reverse}
-            scroll={scroll}
-            hints={hints}
-          />
-        ))}
-      </AnimatePresence>
-    </motion.div>
+    <div className="flex flex-row justify-center items-center w-full -mt-8 md:mt-8">
+      <motion.div
+        className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg mb-1 mt-4 sm:-mt-3 md:-mt-8 lg:-mt-16`}
+        layout
+      >
+        <div className="relative flex flex-col gap-2 -translate-y-full">
+          <p className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
+            We have{' '}
+            <span className="text-black">
+              {props.reviewStats.numberOfReviews}
+            </span>{' '}
+            reviews averaging
+            <span className="text-black -mr-1">
+              {props.reviewStats.averageReviews}
+            </span>
+            <p className="text-black -mr-2">/ 5</p>.{' '}
+          </p>
+          <Link
+            href={`/#${navlinks[4].route}`}
+            className="text-blue-light text-center hover:underline w-fit mx-auto p-2"
+          >
+            See our reviews
+          </Link>
+        </div>
+        <AnimatePresence mode="sync">
+          {cursor.slice.map((el, index) => (
+            <HeroCarouselImage
+              key={el.id}
+              cursor={cursor}
+              enableScroll={enableScroll}
+              getTranslateX={getTranslateX}
+              handleGoBackward={handleGoBackward}
+              handleGoForward={handleGoForward}
+              imageData={el}
+              index={index}
+              reverse={reverse}
+              scroll={scroll}
+              hints={hints}
+            />
+          ))}
+        </AnimatePresence>
+      </motion.div>
+    </div>
   );
 };
 
