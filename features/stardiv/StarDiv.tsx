@@ -13,7 +13,7 @@ const StarDiv = (props: Props) => {
       <div className="w-full h-full flex justify-center items-center">
         {children}
       </div>
-      <div className="absolute -z-10 -top-[20%] -bottom-[20%] -left-[20%] -right-[20%]">
+      <div className="absolute -z-10 -top-[25%] -bottom-[25%] -left-[25%] -right-[25%]">
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
