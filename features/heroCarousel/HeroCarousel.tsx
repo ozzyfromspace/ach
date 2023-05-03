@@ -143,7 +143,7 @@ const HeroCarousel = (props: HeroCarouselProps) => {
 
   return (
     <motion.div
-      className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg mb-1`}
+      className={`relative w-full max-w-[clamp(42rem,54vw,54vh)] aspect-[5/3] rounded-lg mb-1 mt-4 sm:-mt-3 md:-mt-8 lg:-mt-16`}
       layout
     >
       <AnimatePresence mode="sync">

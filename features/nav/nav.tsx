@@ -1,16 +1,13 @@
 import { AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Link as ReactScrollLink } from 'react-scroll';
 import { TABLET_MEDIA_QUERY, bookingLink } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
 import useStickyState from '../../hooks/useStickState';
 import Button, { LinkCallButton } from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
 import DesktopNav from './DesktopNav';
-import HomeIcon from './HomeIcon';
 import MenuModal from './MenuModal';
 
 interface Props {
@@ -57,13 +54,13 @@ const Nav = (props: Props) => {
 
   return (
     <header
-      className={`fixed font-subtitle z-10 top-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
+      className={`fixed z-[200] font-subtitle bottom-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
         contactStickyState.isSticky
           ? 'bg-[hsla(60,30%,96%,100%)]'
           : 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm'
       }`}
     >
-      {isHome ? (
+      {/* {isHome ? (
         <ReactScrollLink
           aria-label="go to home page"
           to="hero"
@@ -81,7 +78,7 @@ const Nav = (props: Props) => {
         <Link href="/">
           <HomeIcon />
         </Link>
-      )}
+      )} */}
       {!firstRender && isMobiTablet && <LinkCallButton />}
       {!firstRender && isMobiTablet ? (
         <React.Fragment>
@@ -101,7 +98,9 @@ const Nav = (props: Props) => {
           </AnimatePresence>
         </React.Fragment>
       ) : (
-        <DesktopNav isHome={isHome} />
+        <div className="relative">
+          <DesktopNav isHome={isHome} />
+        </div>
       )}
       {!firstRender && !isMobiTablet && isHome && (
         <a
@@ -111,7 +110,7 @@ const Nav = (props: Props) => {
           target="_blank"
           rel="noreferrer"
         >
-          <Button label="Book" className="md:w-32 lg:w-36 xl:w-48" />
+          <Button label="Book a Room Now" className="md:w-32 lg:w-36 xl:w-48" />
         </a>
       )}
     </header>

@@ -24,7 +24,7 @@ const About = () => {
     >
       <StickyHeader
         isSticky={contactStickyState.isSticky}
-        label="Get In Touch"
+        label="Contact Us"
         stickyRef={contactStickyState.ref}
       />
       <div className="mx-auto w-fit" id="contact" ref={aboutRef}>
@@ -73,8 +73,8 @@ const About = () => {
               </div>
             </div>
             <div className="flex flex-col gap-3 max-w-[18rem]">
-              <div className="flex flex-col w-full gap-4 min-[300px]:gap-2 min-[300px]:flex-row justify-start items-center min-[300px]:justify-between">
-                <div className="-ml-10 min-[300px]:-ml-[25px] -mt-5 min-[300px]:mt-0 min-[300px]:ml-0 max-w-[18rem]">
+              <div className="flex flex-col w-full min-[300px]:gap-2 min-[300px]:flex-row justify-start items-center min-[300px]:justify-between">
+                <div className="-ml-10 min-[300px]:-ml-[25px] -mt-5 min-[300px]:mt-0 min-[300px]:ml-0 max-w-[18rem] mr-4">
                   <div className="overflow-hidden w-[130px] aspect-square">
                     <iframe
                       className="scale-75 select-none"
