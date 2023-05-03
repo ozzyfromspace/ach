@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import { TABLET_MEDIA_QUERY, bookingLink } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
 import useStickyState from '../../hooks/useStickState';
-import Button, { LinkCallButton } from '../button';
+import Button from '../button';
 import ClosedMobileNav from './ClosedMobileNav';
 import DesktopNav from './DesktopNav';
 import MenuModal from './MenuModal';
@@ -79,7 +79,18 @@ const Nav = (props: Props) => {
           <HomeIcon />
         </Link>
       )} */}
-      {!firstRender && isMobiTablet && <LinkCallButton />}
+      {/* {!firstRender && isMobiTablet && <LinkCallButton />} */}
+      {!firstRender && isMobiTablet && (
+        <div className="mr-auto">
+          <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
+            <Button
+              label="Book A Room Now"
+              className="max-w-fit mr-auto"
+              selected
+            />
+          </a>
+        </div>
+      )}
       {!firstRender && isMobiTablet ? (
         <React.Fragment>
           <AnimatePresence>
