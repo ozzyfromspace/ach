@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { memo, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { TABLET_MEDIA_QUERY, bookingLink } from '../../constants';
-import Button, { CallButton } from '../button';
+import { TABLET_MEDIA_QUERY } from '../../constants';
+import { CallButton } from '../button';
 import HeroCarousel, { ImageData } from '../heroCarousel/HeroCarousel';
 import StarDiv from '../stardiv/StarDiv';
 
@@ -35,7 +35,7 @@ const Hero = (props: HeroProps) => {
   if (isFirstRender) return null;
 
   return (
-    <main className="relative w-full mt-20 overflow-clip" id="hero">
+    <main className="relative w-full mt-0 overflow-clip" id="hero">
       <SiteBG src={data.backgroundImage} />
       <motion.div
         className="flex flex-col items-center justify-start w-full gap-10 mx-auto overflow-hidden mt:gap-14 md:gap-16"
@@ -138,7 +138,7 @@ const Pitch = (props: PitchProps) => (
         {props.heroData.hotelCaption}
       </h2>
       {props.isFirstRender && <div className="w-1 h-7"></div>}
-      {!props.isFirstRender && props.mobile && (
+      {/* {!props.isFirstRender && props.mobile && (
         <Button
           label="Book a room"
           full={true}
@@ -146,7 +146,7 @@ const Pitch = (props: PitchProps) => (
           hideMobileButton={props.aboutInView}
           className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
         />
-      )}
+      )} */}
       {!props.isFirstRender && !props.mobile && (
         <motion.div
           className="flex items-center justify-center gap-6 mt-7"
@@ -154,7 +154,7 @@ const Pitch = (props: PitchProps) => (
           animate={{ opacity: 1, transition: { duration: 0.22 } }}
         >
           <CallButton />
-          <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
+          {/* <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
             <Button
               label="Book a room"
               full={false}
@@ -162,7 +162,7 @@ const Pitch = (props: PitchProps) => (
               hideMobileButton={false}
               className={`select-none text-xl sm:text-lg ${props.buttonClasses}`}
             />
-          </a>
+          </a> */}
         </motion.div>
       )}
     </section>

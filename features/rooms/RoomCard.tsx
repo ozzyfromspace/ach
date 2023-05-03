@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { bookingLink } from '../../constants';
-import Button from '../button';
 import PicDisplay from '../picDisplay/index';
 import { RoomData } from './types';
 
@@ -71,7 +70,7 @@ const RoomCard = (props: Props) => {
           className="w-fit"
           tabIndex={-1}
         >
-          <Button label="Book Now" className="max-w-fit mr-auto" selected />
+          {/* <Button label="Book Now" className="max-w-fit mr-auto" selected /> */}
         </a>
       </div>
     </div>

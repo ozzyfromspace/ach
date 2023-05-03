@@ -25,7 +25,7 @@ const DesktopNav = (props: Props) => {
   };
 
   return (
-    <nav className="absolute -z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+    <nav className="flex justify-center items-center">
       <ul className="flex flex-row gap-[1vw] lg:gap-[2vw] xl:gap-[4vw] justify-center items-center">
         {navlinks.map((navlink, index) => {
           const activeClass = refs[navlink.label].active

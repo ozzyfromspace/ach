@@ -24,6 +24,8 @@ export default function Document() {
         <Main />
         <div id="nav-modal"></div>
         <div id="review-form"></div>
+        <div id="nav-icon-container"></div>
+        <script src="https://hotels.cloudbeds.com/widget/load/iyXSJl/float"></script>
         <NextScript />
       </body>
     </Html>
