@@ -24,8 +24,8 @@ export const ReviewCard = (props: Props) => {
   )}/${year}`;
 
   return (
-    <main className="relative w-full min-w-[24rem] p-6 bg-white rounded-md shadow-sm h-min">
-      <header className="flex flex-row items-center justify-between">
+    <main className="relative w-full md:min-w-[24rem] p-4 bg-white rounded-md shadow-sm h-min">
+      <header className="flex flex-row items-start justify-between">
         <div className="flex flex-row flex-wrap items-center gap-3">
           {showImage && (
             <div className={`relative w-[${imageLength}] h-${imageLength}`}>
@@ -38,7 +38,7 @@ export const ReviewCard = (props: Props) => {
               />
             </div>
           )}
-          <section>
+          <section className="mr-4">
             <p className="text-[hsl(228,16%,16%)] tracking-wide font-black">
               {name}
             </p>

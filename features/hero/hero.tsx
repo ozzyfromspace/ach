@@ -83,8 +83,8 @@ const MobileAds = (props: MobileAdsProps) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
       {!props.isFirstRender && props.mobile && props.ads && (
-        <div className="flex items-center justify-between mr-5">
-          <div className="max-w-[18rem]">
+        <div className="flex flex-col gap-4 min-[300px]:gap-2 min-[300px]:flex-row justify-start items-center min-[300px]:justify-between">
+          <div className="-ml-10 min-[300px]:-ml-[25px] -mt-5 min-[300px]:mt-0 min-[300px]:ml-0 max-w-[18rem]">
             <div className="overflow-hidden w-[130px] aspect-square">
               <iframe
                 className="scale-75 select-none"
@@ -94,7 +94,7 @@ const MobileAds = (props: MobileAdsProps) => {
               ></iframe>
             </div>
           </div>
-          <div className="flex flex-col gap-3 max-w-[8rem] mr-10">
+          <div className="flex flex-col gap-3 max-w-[8rem] w-fit min-[300px]:mr-7">
             <StarDiv>
               <p className="text-center font-medium text-white text-sm min-w-[6rem]">
                 {props.starText}

@@ -122,6 +122,8 @@ export async function getReviewsFromContentful() {
         timeCreated: '',
       };
 
+      if (reviewEntry?.fields?.name === undefined) continue;
+
       try {
         review.name = reviewEntry.fields.name;
         review.subtitle = '';
