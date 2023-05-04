@@ -12,7 +12,7 @@ const RoomCard = (props: Props) => {
   const [galleryOpen, setGalleryOpen] = useState(() => false);
 
   return (
-    <div className="mx-auto w-full max-w-[28rem] rounded-md flex flex-col">
+    <div className="mx-auto w-full max-w-[28rem] h-full rounded-md flex flex-col">
       <PicDisplay
         galleryOpen={galleryOpen}
         setGalleryOpen={setGalleryOpen}
@@ -69,9 +69,7 @@ const RoomCard = (props: Props) => {
           aria-label="Book Now"
           className="w-fit"
           tabIndex={-1}
-        >
-          {/* <Button label="Book Now" className="max-w-fit mr-auto" selected /> */}
-        </a>
+        ></a>
       </div>
     </div>
   );

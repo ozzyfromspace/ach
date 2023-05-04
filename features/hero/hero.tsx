@@ -18,7 +18,7 @@ export interface HeroData {
 
 export type ReviewSummaryStat = {
   numberOfReviews: number;
-  averageReviews: number;
+  averageReviews: string;
 };
 
 interface HeroProps {
@@ -158,23 +158,6 @@ const Pitch = (props: PitchProps) => (
         </motion.div>
       )}
     </section>
-    {/* <div className="flex flex-col gap-2">
-      <p className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
-        We have{' '}
-        <span className="text-black">{props.reviewStats.numberOfReviews}</span>{' '}
-        reviews averging
-        <span className="text-black -mr-1">
-          {props.reviewStats.averageReviews}
-        </span>
-        <p className="text-black -mr-2">/ 5</p>.{' '}
-      </p>
-      <Link
-        href={`/#${navlinks[4].route}`}
-        className="text-blue-light text-center hover:underline w-fit mx-auto p-2"
-      >
-        See our reviews
-      </Link>
-    </div> */}
   </div>
 );
 

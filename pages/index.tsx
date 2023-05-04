@@ -49,8 +49,8 @@ interface HomeProps {
   reviews: Review[];
 }
 
-function getAvgReviews(reviews: Review[]): number {
-  if (reviews.length === 0) return 5;
+function getAvgReviews(reviews: Review[]): string {
+  if (reviews.length === 0) return '4.9';
 
   let sum = 0;
 
@@ -58,7 +58,7 @@ function getAvgReviews(reviews: Review[]): number {
     sum += review.rating;
   }
 
-  return sum / reviews.length;
+  return (sum / reviews.length + '').padEnd(3, '.00') || '4.9';
 }
 
 const Home = (props: HomeProps) => {

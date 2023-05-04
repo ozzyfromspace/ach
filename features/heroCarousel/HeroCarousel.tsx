@@ -153,6 +153,21 @@ const HeroCarousel = (props: HeroCarouselProps) => {
       >
         <div className="relative flex flex-col gap-2 -translate-y-full">
           <p className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
+            Average review is
+            <span className="text-black -mr-1">
+              {props.reviewStats.averageReviews}
+            </span>
+            <p className="text-black -mr-2">out of 5.0</p>{' '}
+          </p>
+          <Link
+            href={`/#${navlinks[4].route}`}
+            className="text-blue-light text-center hover:underline w-fit mx-auto p-2"
+          >
+            See our reviews
+          </Link>
+        </div>
+        {/* <div className="relative flex flex-col gap-2 -translate-y-full">
+          <p className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
             We have{' '}
             <span className="text-black">
               {props.reviewStats.numberOfReviews}
@@ -169,7 +184,7 @@ const HeroCarousel = (props: HeroCarouselProps) => {
           >
             See our reviews
           </Link>
-        </div>
+        </div> */}
         <AnimatePresence mode="sync">
           {cursor.slice.map((el, index) => (
             <HeroCarouselImage
