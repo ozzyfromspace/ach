@@ -64,6 +64,7 @@ const PostForm = (props: PostFormProps) => {
       reviewUrl: '',
       subtitle: '',
       timeCreated: new Date().toISOString(),
+      priority: null,
     };
 
     setLocalReviews((rs) => [...rs, newReview]);
