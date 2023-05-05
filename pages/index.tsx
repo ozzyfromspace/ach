@@ -58,7 +58,7 @@ function getAvgReviews(reviews: Review[]): string {
     sum += review.rating;
   }
 
-  return (sum / reviews.length + '').padEnd(3, '.00') || '4.9';
+  return (sum / reviews.length + '').substring(0, 4).padEnd(3, '.00') || '4.9';
 }
 
 const Home = (props: HomeProps) => {

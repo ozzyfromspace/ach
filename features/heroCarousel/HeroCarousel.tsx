@@ -48,7 +48,7 @@ interface HeroCarouselProps {
 }
 
 const HeroCarousel = (props: HeroCarouselProps) => {
-  const { hints, imageData, reviewStats } = props;
+  const { hints, imageData } = props;
 
   const [reverse, setReverse] = useState(() => false);
   const [inControl, setInControl] = useState(() => false);
@@ -157,11 +157,11 @@ const HeroCarousel = (props: HeroCarouselProps) => {
             <span className="text-black -mr-1">
               {props.reviewStats.averageReviews}
             </span>
-            <p className="text-black -mr-2">out of 5.0</p>{' '}
+            <p className="text-black -mr-2">out of 5</p>{' '}
           </p>
           <Link
             href={`/#${navlinks[4].route}`}
-            className="text-blue-light text-center hover:underline w-fit mx-auto p-2"
+            className="text-blue-dark text-center hover:underline w-fit mx-auto p-2"
           >
             See our reviews
           </Link>

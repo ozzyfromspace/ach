@@ -48,7 +48,7 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
         <div className="w-full p-4 mx-auto rounded-md bg-blue-deep bg-opacity-10 backdrop-blur-md">
           <Padding
             id="reviews-content"
-            className="mt-1 mx-auto flex flex-col justify-start gap-4 max-h-[45vh] h-min overflow-x-auto w-full max-w-[min(25rem,calc(100vw))]"
+            className="mt-1 mx-auto flex flex-col justify-start gap-4 max-h-[45vh] h-min overflow-x-auto w-full max-w-[clamp(24rem,calc(100vw),48rem)]"
           >
             {allReviews.map((review) => (
               <ReviewCard key={review.id} {...review} showImage={!!showImage} />
