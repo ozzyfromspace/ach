@@ -53,7 +53,7 @@ async function addReview(
 
   await _newReview.update();
   _newReview = await env.getEntry(reviewId);
-  await _newReview.publish();
+  // await _newReview.publish(); // commented out because we shouldn't auto-publish reviews
 
   const reviewLink: ReviewLink = {
     type: 'Link',

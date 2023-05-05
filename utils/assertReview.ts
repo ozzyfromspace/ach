@@ -7,6 +7,7 @@ export interface Review {
   reviewUrl: string;
   subtitle: string;
   timeCreated: string;
+  priority: number | null;
 }
 
 export default function assertReview(data: unknown): asserts data is Review {

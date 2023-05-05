@@ -1,7 +1,6 @@
 import { motion, Variants } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import { navlinks } from './navlinks';
 
 let timer: NodeJS.Timeout | undefined = undefined;
@@ -11,7 +10,6 @@ interface Props {
 
 const DesktopNav = (props: Props) => {
   const { isHome } = props;
-  const { refs } = useFocusedSection();
   const router = useRouter();
 
   const updateURL = (target: string) => () => {
@@ -28,10 +26,6 @@ const DesktopNav = (props: Props) => {
     <nav className="flex justify-center items-center">
       <ul className="flex flex-row gap-[1vw] lg:gap-[2vw] xl:gap-[4vw] justify-center items-center">
         {navlinks.map((navlink, index) => {
-          const activeClass = refs[navlink.label].active
-            ? 'p-2 bg-[hsla(211,84%,49%,10%)] text-blue-deep font-semibold rounded-full'
-            : 'p-2 rounded-full';
-
           return (
             <li key={navlink.route} onClick={updateURL(navlink.route)}>
               {isHome ? (
@@ -44,7 +38,7 @@ const DesktopNav = (props: Props) => {
                 >
                   <ReactScrollLink
                     to={navlink.landmark}
-                    className={`outline-offset-4 ${activeClass}`}
+                    className="outline-offset-4 p-2 rounded-full"
                     spy={true}
                     smooth={true}
                     offset={navlink.route === 'rooms' ? -150 : -180}
