@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { TABLET_MEDIA_QUERY, bookingLink } from '../../constants';
 import { useScrollBlock } from '../../hooks/useScrollBlock';
@@ -46,42 +46,16 @@ const Nav = (props: Props) => {
     setFirstRender(() => false);
   }, [firstRender]);
 
-  const updateURL = () => {
-    console.log('click!');
-    const update = () => router.push({ pathname: '' });
-    setTimeout(update, 0);
-  };
-
   return (
     <header
-      className={`fixed z-[200] font-subtitle bottom-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
+      className={`fixed z-30 font-subtitle bottom-0 left-0 right-0 pt-4 pb-4 pl-6 pr-6 h-20 flex justify-between items-center ${
         contactStickyState.isSticky
           ? 'bg-[hsla(60,30%,96%,100%)]'
           : 'bg-[hsl(60,30%,96%)] bg-opacity-90 backdrop-filter backdrop-blur-sm'
       }`}
     >
-      {/* {isHome ? (
-        <ReactScrollLink
-          aria-label="go to home page"
-          to="hero"
-          spy={true}
-          smooth={true}
-          className="p-2 -m-2 rounded-full select-none"
-          offset={-96}
-          duration={350}
-          onClick={updateURL}
-          href="/"
-        >
-          <HomeIcon />
-        </ReactScrollLink>
-      ) : (
-        <Link href="/">
-          <HomeIcon />
-        </Link>
-      )} */}
-      {/* {!firstRender && isMobiTablet && <LinkCallButton />} */}
       {!firstRender && isMobiTablet && (
-        <div className="mr-auto">
+        <div className="flex justify-center items-center w-full">
           <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
             <Button
               label="Book A Room Now"
@@ -89,26 +63,28 @@ const Nav = (props: Props) => {
               selected
             />
           </a>
+          <div className="absolute right-6 -translate-y-1/2 top-1/2">
+            <AnimatePresence>
+              {open && (
+                <MenuModal
+                  onClose={onClose}
+                  key={open ? 'open' : 'closed'}
+                  isClosed={!open}
+                />
+              )}
+            </AnimatePresence>
+            <AnimatePresence>
+              {!open && (
+                <ClosedMobileNav
+                  onOpen={onOpen}
+                  key={open ? 'open' : 'closed'}
+                />
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       )}
-      {!firstRender && isMobiTablet ? (
-        <React.Fragment>
-          <AnimatePresence>
-            {open && (
-              <MenuModal
-                onClose={onClose}
-                key={open ? 'open' : 'closed'}
-                isClosed={!open}
-              />
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {!open && (
-              <ClosedMobileNav onOpen={onOpen} key={open ? 'open' : 'closed'} />
-            )}
-          </AnimatePresence>
-        </React.Fragment>
-      ) : (
+      {!firstRender && isMobiTablet ? null : (
         <div className="relative">
           <DesktopNav isHome={isHome} />
         </div>

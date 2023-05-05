@@ -17,12 +17,23 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
   };
 
   const [localReviews, setLocalReviews] = useState<Review[]>(() => []);
-  const allReviews = [...reviews, ...localReviews].sort((a, b) => {
-    return (
-      new Date(b.timeCreated).getMilliseconds() -
-      new Date(a.timeCreated).getMilliseconds()
-    );
-  });
+
+  const prioritizedReviews = reviews
+    .filter((review) => typeof review.priority === 'number')
+    .sort((a, z) => {
+      return (z.priority as number) - (a.priority as number);
+    });
+
+  const unprioritizedReviews = [...reviews, ...localReviews]
+    .sort((a, z) => {
+      return (
+        new Date(z.timeCreated).getMilliseconds() -
+        new Date(a.timeCreated).getMilliseconds()
+      );
+    })
+    .filter((review) => review.priority === null);
+
+  const allReviews = [...prioritizedReviews, ...unprioritizedReviews];
 
   return (
     <div className="relative z-[1] w-full min-h-fit pb-8" id="reviews">
@@ -46,15 +57,15 @@ const ReviewsSection = (props: { reviews: Review[]; showImage?: boolean }) => {
           <button onClick={togglePostReviewForm}>Add a review</button>
         </div>
         <div className="w-full p-4 mx-auto rounded-md bg-blue-deep bg-opacity-10 backdrop-blur-md">
-          <Padding
+          <div
             id="reviews-content"
-            className="mt-1 flex flex-row justify-start items-start gap-8 max-h-[45vh] h-min overflow-x-auto w-full"
+            className="mt-1 mx-auto flex flex-col justify-start gap-4 max-h-[45vh] h-min overflow-x-auto w-full max-w-[clamp(24rem,calc(100vw),48rem)]"
           >
             {allReviews.map((review) => (
               <ReviewCard key={review.id} {...review} showImage={!!showImage} />
             ))}
             {!allReviews.length && <p>No reviews. Add the first one.</p>}
-          </Padding>
+          </div>
         </div>
         {openForm && (
           <PostReview
@@ -81,6 +92,7 @@ interface ReviewEntry {
     reviewUrl?: string;
     timeCreated: string;
     image?: ContentfulImage;
+    priority?: number;
   };
   sys: {
     id: string;
@@ -120,6 +132,7 @@ export async function getReviewsFromContentful() {
         rating: 5,
         reviewUrl: '',
         timeCreated: '',
+        priority: null,
       };
 
       if (reviewEntry?.fields?.name === undefined) continue;
@@ -131,6 +144,7 @@ export async function getReviewsFromContentful() {
         review.rating = reviewEntry.fields.rating;
         review.id = reviewEntry.sys.id;
         review.timeCreated = reviewEntry.fields.timeCreated;
+        review.priority = reviewEntry.fields.priority ?? null;
 
         reviews.push(review);
       } catch (e) {

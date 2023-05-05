@@ -1,7 +1,6 @@
 import { motion, Variants } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { Link as ReactScrollLink } from 'react-scroll';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
 import { navlinks } from './navlinks';
 
 let timer: NodeJS.Timeout | undefined = undefined;
@@ -12,7 +11,6 @@ interface Props {
 
 const MobileNav = (props: Props) => {
   const { onClose } = props;
-  const { refs } = useFocusedSection();
   const router = useRouter();
 
   const updateURL = (target: string) => () => {
@@ -29,9 +27,8 @@ const MobileNav = (props: Props) => {
     <nav className="absolute z-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
       <ul className="flex flex-col gap-[8vh] justify-center items-center">
         {navlinks.map((navlink, index) => {
-          const activeClass = refs[navlink.label].active
-            ? 'text-blue-dark font-semibold bg-[hsla(211,84%,90%,90%)] rounded-full'
-            : '';
+          // active - 'text-blue-dark font-semibold bg-[hsla(211,84%,90%,90%)] rounded-full';
+          const activeClass = '';
 
           return (
             <li key={navlink.route} onClick={updateURL(navlink.route)}>

@@ -8,9 +8,9 @@ import Events, {
   EventsData,
   getEventsDataFromContentful,
 } from '../features/events/events';
-import FocusedSectionProvider from '../features/focusedSectionProvider/FocusedSectionProvider';
 import Hero, {
   HeroData,
+  ReviewSummaryStat,
   getHeroDataFromContentful,
 } from '../features/hero/hero';
 import Nav from '../features/nav';
@@ -48,8 +48,24 @@ interface HomeProps {
   reviews: Review[];
 }
 
+function getAvgReviews(reviews: Review[]): string {
+  if (reviews.length === 0) return '4.9';
+
+  let sum = 0;
+
+  for (const review of reviews) {
+    sum += review.rating;
+  }
+
+  return (sum / reviews.length + '').substring(0, 4).padEnd(3, '.00') || '4.9';
+}
+
 const Home = (props: HomeProps) => {
   const { heroData, roomsData, amenitiesData, eventsData, reviews } = props;
+  const reviewSummaryStat: ReviewSummaryStat = {
+    averageReviews: getAvgReviews(reviews),
+    numberOfReviews: reviews.length,
+  };
 
   return (
     <React.Fragment>
@@ -58,40 +74,18 @@ const Home = (props: HomeProps) => {
         description="The Athens Central Hotel is a Greek-inspired boutique hotel in the heart of Athens, Ohio"
         title="Athens Central Hotel"
       />
-      <FocusedSectionProvider>
-        <Nav isHome />
-        <Hero aboutInView={false} ads={true} data={heroData} />
-        <Rooms roomDataSlice={roomsData} />
-        <Amenities grayscale={false} data={amenitiesData} />
-        <Events {...eventsData} />
-        <ReviewsSection reviews={reviews} showImage={false} />
-        <About />
-      </FocusedSectionProvider>
-      {/* <div className="fixed z-[100] bottom-6 left-1/2 -translate-x-1/2 w-fit">
-        <Button
-          label="Book A Room Now"
-          className="max-w-fit mr-auto"
-          selected
-        />
-      </div> */}
-      {/* <div className="fixed z-[100] bottom-0 left-0 right-0 bg-white p-4 flex justify-center items-center">
-        <div className="mx-auto">
-          <a href={bookingLink} tabIndex={-1} aria-label="Book Now">
-            <Button
-              label="Book A Room Now"
-              className="max-w-fit mr-auto"
-              selected
-            />
-          </a>
-        </div>
-      </div> */}
-      {/* <div className="fixed z-[10000] top-0 left-0 bg-white p-4 flex justify-center items-center">
-        <div className="mx-auto">
-          <Link href="/">
-            <HomeIcon />
-          </Link>
-        </div>
-      </div> */}
+      <Nav isHome />
+      <Hero
+        aboutInView={false}
+        ads={true}
+        data={heroData}
+        averageReviews={reviewSummaryStat}
+      />
+      <Rooms roomDataSlice={roomsData} />
+      <Amenities grayscale={false} data={amenitiesData} />
+      <Events {...eventsData} />
+      <ReviewsSection reviews={reviews} showImage={false} />
+      <About />
     </React.Fragment>
   );
 };
