@@ -152,13 +152,13 @@ const HeroCarousel = (props: HeroCarouselProps) => {
         layout
       >
         <div className="relative flex flex-col gap-2 -translate-y-full">
-          <p className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
+          <div className="text-center mt-5 text-gray-link flex justify-center items-center gap-2">
             Average review is
             <span className="text-black -mr-1">
               {props.reviewStats.averageReviews}
             </span>
             <p className="text-black -mr-2">out of 5</p>{' '}
-          </p>
+          </div>
           <Link
             href={`/#${navlinks[4].route}`}
             className="text-blue-dark text-center hover:underline w-fit mx-auto p-2"
