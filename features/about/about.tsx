@@ -1,33 +1,14 @@
-import { motion, Variants } from 'framer-motion';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useInView } from 'react-intersection-observer';
 import { Link as ReactScrollLink } from 'react-scroll';
 import { EMAIL_DATA } from '../../constants';
-import useStickyState from '../../hooks/useStickState';
 import { LinkCallButton } from '../button';
-import { useFocusedSection } from '../focusedSectionProvider/FocusedSectionProvider';
-import Padding from '../padding';
 import StarDiv from '../stardiv/StarDiv';
 
 const About = () => {
-  const { ref: aboutRef } = useInView({ threshold: 0.5 });
-  const contactStickyState = useStickyState();
-
-  const {
-    refs: { Contact: contact },
-  } = useFocusedSection();
-
   return (
-    <div
-      ref={contact.ref}
-      className="relative z-0 w-full pt-10 text-white select-none gradient-blue bg-opacity-90"
-    >
-      <StickyHeader
-        isSticky={contactStickyState.isSticky}
-        label="Contact Us"
-        stickyRef={contactStickyState.ref}
-      />
-      <div className="mx-auto w-fit" id="contact" ref={aboutRef}>
+    <div className="relative z-0 w-full pt-10 text-white select-none gradient-blue bg-opacity-90">
+      <StickyHeader label="Contact Us" />
+      <div className="mx-auto w-fit" id="contact">
         <div
           id="contact-content"
           className={`pt-12 flex flex-col mt:flex-row flex-wrap justify-between items-start gap-6 mt:gap-9 md:gap-11 lg:gap-14 w-fit mx-auto px-6`}
@@ -137,54 +118,25 @@ export const Address = () => {
 export default About;
 
 interface StickyHeaderProps {
-  stickyRef: (node?: Element | null | undefined) => void;
-  isSticky: boolean;
   label: string;
 }
 
 const StickyHeader = (props: StickyHeaderProps) => {
-  const { isSticky, stickyRef, label } = props;
+  const { label } = props;
 
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      variants={variants}
-      custom={isSticky}
-      ref={stickyRef}
-      className={`pt-4 w-screen sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-white text-2xl sm:text-3xl md:text-[1.9rem] font-normal mt:text-center flex flex-col justify-center ${
-        isSticky ? 'shadow-md' : ''
-      }`}
-    >
-      <Padding className="flex items-center justify-center w-full">
-        <ReactScrollLink
-          to="contact-content"
-          spy={true}
-          smooth={true}
-          offset={-150}
-          className="p-2 rounded-full outline-offset-4"
-          duration={380}
-          href="/#contact"
-        >
-          <h2>{label}</h2>
-        </ReactScrollLink>
-      </Padding>
-    </motion.div>
+    <div className="flex items-center justify-center w-full">
+      <ReactScrollLink
+        to="contact-content"
+        spy={true}
+        smooth={true}
+        offset={-150}
+        className="px-6 rounded-full outline-offset-4 pt-4 w-screen sticky top-[4.95rem] z-10 font-title select-none tracking-wider text-white text-3xl md:text-[1.9rem] font-normal mt:text-center flex flex-col justify-center"
+        duration={380}
+        href="/#contact"
+      >
+        <h2>{label}</h2>
+      </ReactScrollLink>
+    </div>
   );
-};
-
-const variants: Variants = {
-  initial: {
-    paddingBottom: '1rem',
-    backgroundColor: 'hsla(60,30%,96%,0%)',
-    color: 'hsla(211,84%,100%,100%)',
-  },
-  animate: (isSticky: boolean) => ({
-    backgroundColor: isSticky ? 'hsla(60,30%,96%,100%)' : 'hsla(60,30%,96%,0%)',
-    color: isSticky ? 'hsla(211,84%,30%,100%)' : 'hsla(211,84%,100%,100%)',
-    transition: {
-      duration: 0.33,
-      ease: 'easeInOut',
-    },
-  }),
 };

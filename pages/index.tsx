@@ -8,7 +8,6 @@ import Events, {
   EventsData,
   getEventsDataFromContentful,
 } from '../features/events/events';
-import FocusedSectionProvider from '../features/focusedSectionProvider/FocusedSectionProvider';
 import Hero, {
   HeroData,
   ReviewSummaryStat,
@@ -75,20 +74,18 @@ const Home = (props: HomeProps) => {
         description="The Athens Central Hotel is a Greek-inspired boutique hotel in the heart of Athens, Ohio"
         title="Athens Central Hotel"
       />
-      <FocusedSectionProvider>
-        <Nav isHome />
-        <Hero
-          aboutInView={false}
-          ads={true}
-          data={heroData}
-          averageReviews={reviewSummaryStat}
-        />
-        <Rooms roomDataSlice={roomsData} />
-        <Amenities grayscale={false} data={amenitiesData} />
-        <Events {...eventsData} />
-        <ReviewsSection reviews={reviews} showImage={false} />
-        <About />
-      </FocusedSectionProvider>
+      <Nav isHome />
+      <Hero
+        aboutInView={false}
+        ads={true}
+        data={heroData}
+        averageReviews={reviewSummaryStat}
+      />
+      <Rooms roomDataSlice={roomsData} />
+      <Amenities grayscale={false} data={amenitiesData} />
+      <Events {...eventsData} />
+      <ReviewsSection reviews={reviews} showImage={false} />
+      <About />
     </React.Fragment>
   );
 };

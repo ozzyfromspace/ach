@@ -46,24 +46,20 @@ const Amenities = (props: { grayscale: boolean; data: AmenityData[] }) => {
 
 export default Amenities;
 
-const entityIds = [
-  '6AGt7GUaaNIUMjI8QGbE3H',
-  '32nuNy0XCudZx3EnHbKQ9Q',
-  '2HDjSmQ4VgfD9HBcmmZDsv',
-  '7E7iQLfMw4Lzr2838lOu4c',
-  '4m0y4R69oLCnmDNvUHYv9Z',
-  'D4JMNCZ3wF2Oy5mRN5eJy',
-  '4bS205fG2yImgtsWhNXG92',
-  'TleMEHn8vszwkUBkvvZ8f',
-  'rWIORgnoS3qqWBD8pH10o',
-  '271TLP1PKecfoZo1gxmtQk',
-  '1zXvsMvz2kYMRCrVgmb48T',
-  '57KuL15UTnJWZocoh8v8Ir',
-];
+const entityId = '4trcUecpYAXB3W51vWERW';
 
 interface ContentfulAmenityData {
   sys: { id: string };
   fields: { name: string; image: { fields: { file: { url: string } } } };
+}
+
+interface Entry {
+  sys: {
+    id: string;
+  };
+  fields: {
+    amenities: ContentfulAmenityData[];
+  };
 }
 
 export async function getAmenitiesDataFromContentful() {
@@ -71,26 +67,33 @@ export async function getAmenitiesDataFromContentful() {
     space: 'whrqes1tuvv5',
     accessToken: 'V_ajOeV3uMRT1T9cWIVOONxCr9Q8q75yA0NF5RgMnTU',
   });
+
   const amenitiesData: AmenityData[] = [];
 
-  for (const entityId of entityIds) {
-    const roomData: AmenityData = {
-      icon: null,
-      id: '',
-      label: '',
-      src: '',
-    };
+  try {
+    const entry = (await client.getEntry(entityId)) as Entry;
+    const amenityEntries = entry.fields.amenities || [];
 
-    try {
-      const entry = (await client.getEntry(entityId)) as ContentfulAmenityData;
-      roomData.icon = null;
-      roomData.id = entry.sys.id;
-      roomData.label = entry.fields.name;
-      roomData.src = `https:${entry.fields.image.fields.file.url}`;
-      amenitiesData.push(roomData);
-    } catch (e) {
-      console.log(e);
+    for (const amenityEntry of amenityEntries) {
+      const roomData: AmenityData = {
+        icon: null,
+        id: '',
+        label: '',
+        src: '',
+      };
+
+      try {
+        roomData.icon = null;
+        roomData.id = amenityEntry.sys.id;
+        roomData.label = amenityEntry.fields.name;
+        roomData.src = `https:${amenityEntry.fields.image.fields.file.url}`;
+        amenitiesData.push(roomData);
+      } catch (e) {
+        console.log(e);
+      }
     }
+  } catch (e) {
+    console.log(e);
   }
 
   return amenitiesData;
