@@ -4,7 +4,7 @@ const LOCALE = 'en-US';
 const ENVIRONMENT_ID = 'master';
 const CONTENT_TYPE_ID = 'review';
 const SPACE_ID = 'whrqes1tuvv5';
-const CMA_TOKEN = 'CFPAT-XxuWH6TGuotaUhQTi9JNlpfHZIRdjHVodIeOZs-vXtI';
+const CMA_TOKEN = 'CFPAT--6PeP6kSN3nuYX9vAzU5ab2nxv7B0DckfYjPMUVYFaw';
 
 const REVIEWS_ENTITY_ID = '4jY0VnqpXDbGfQxSviXmop';
 
